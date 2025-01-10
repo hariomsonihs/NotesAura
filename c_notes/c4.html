@@ -1,0 +1,190 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments In C</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            user-select: none;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            background-color: #e0f2f1;
+            border-radius: 12px;
+            border: 2px solid rgb(22, 160, 133);
+            color: #004d40;
+            cursor: pointer;
+            padding: 10px;
+            transition: background-color 0.3s;
+            border-left: 4px solid #4CAF50;
+            border-right: 4px solid #4CAF50; 
+            padding-left: 10px;
+        }
+        h2:hover {
+            background-color: #b2dfdb;
+        }
+        p, ul {
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        
+        
+        }
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+            border: 1px solid #444;
+        }
+        .keyword {
+            color: #d19a66;
+        }
+        .string {
+            color: #98c379;
+        }
+        .comment {
+            color: #5c6370;
+        }
+        .example {
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+            margin: 20px 0;
+        }
+        .conclusion {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        h3 {
+            border-left: 5px solid #4CAF50;
+            padding-left: 10px;
+            text-align:justify;
+        }
+        .conclusion {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <h2>Introduction Of Comments in C</h2>
+
+   <p><b>In C programming, comments are lines or blocks of text that the compiler ignores during the compilation process. They are used to explain the code and providing documentation, making it easier for humans to understand.</b></p>
+
+    <h3 style="border-left: 4px solid #4CAF50; padding-left: 10px;">Benefits of Using Comments</h3>
+    <ul>
+        <li><strong>Improved readability:</strong> Comments make code easier to understand by providing explanations and context.</li>
+        <li><strong>Debugging:</strong> Comments can help you identify and fix errors in your code.</li>
+        <li><strong>Collaboration:</strong> Comments make it easier for others to understand your code, which is essential for team projects.</li>
+        <li><strong>Documentation:</strong> Comments can serve as documentation for your code, explaining its purpose, algorithms, and design decisions.</li>
+    </ul>
+
+    <h2>Types of Comments in C</h2>
+    <p><b>In C programming, there are two types of comments:</b></p>
+    <ul>
+        <li>Single-line comments</li>
+        <li>Multi-line comments</li>
+    </ul>
+
+    <h3>1. Single-Line Comments</h3>
+    <p>Single-line comments are used to write brief explanations or notes in the code, which span a single line. Everything following the <code>//</code> on that line is treated as a comment and is ignored by the compiler.</p>
+
+    <div class="code-block">
+    <h4>Syntax</h4>
+    <pre><code><span style="color:green">// This is a single-line comment</span></code></pre>
+</div>
+
+<div class="code-block">
+    <h3>Example of Single Line Comments</h3>
+    <pre><code><span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;
+
+<span class="keyword">int main</span>() {
+    <span class="keyword">int</span> a = 5;  <span style="color:green">// Declare an integer variable 'a' and initialize it with the value 5</span>
+    <span class="keyword">printf</span>(<span class="string">"The value of a is: %d\n"</span>, a);  <span style="color:green">// Print the value of 'a' to the console</span>
+    <span class="keyword">return</span> 0;
+}
+</code></pre>
+</div>
+
+    <div class="example">
+        <h4>Explanation</h4>
+        <ul>
+            <li><span class="keyword">// Declare an integer variable 'a' and initialize it with the value 5:</span> This comment explains the initialization of the variable <code>a</code>.</li>
+            <li><span class="keyword">// Print the value of 'a' to the console:</span> This comment explains the purpose of the print statement.</li>
+            <li>These comments help humans understand the code while being ignored by the compiler.</li>
+        </ul>
+    </div>
+
+    <h3>2. Multi-Line Comments</h3>
+    <p>Multi-line comments are used to write longer descriptions or notes that span multiple lines. They begin with <code>/*</code> and end with <code>*/</code>.</p>
+
+    <div class="code-block">
+    <h4>Syntax</h4>
+    <pre><code><span style="color:green">/* 
+   This is a multi-line comment.
+   It can span across multiple lines.
+*/</span></code></pre>
+</div>
+
+<div class="code-block">
+    <h3>Example of Multi-line Comments</h3>
+    <pre><code><span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;
+
+<span class="keyword">int main</span>() {
+    <span class="keyword">int</span> b = 10;  <span style="color:green">/* This is a multi-line comment
+                   which explains that we are declaring 
+                   an integer variable 'b' and initializing
+                   it with the value 10 */</span>
+    <span class="keyword">printf</span>(<span class="string">"The value of b is: %d\n"</span>, b);
+    <span class="keyword">return</span> 0;
+}
+</code></pre>
+</div>
+
+    <div class="example">
+        <h4>Explanation</h4>
+        <ul>
+            <li><span class="keyword">/* This is a multi-line comment... */:</span> This comment explains the initialization of the variable <code>b</code> over multiple lines.</li>
+            <li>Multi-line comments are useful for providing more detailed explanations.</li>
+        </ul>
+    </div>
+
+    <h2>Usage of Comments</h2>
+    <p>Comments are not required for the program to function, but they are crucial for the following reasons:</p>
+    <ul>
+        <li><strong>Improve code readability:</strong> Well-commented code is easier to understand for others and for the programmer when revisiting the code.</li>
+        <li><strong>Clarify complex logic:</strong> When a specific piece of logic is complex, comments can clarify its purpose.</li>
+        <li><strong>Debugging:</strong> Comments can help temporarily "comment out" code sections during debugging.</li>
+    </ul>
+
+    <h3>Best Practices for Writing Comments</h3>
+    <ul>
+        <li><strong>Keep comments concise:</strong> Write short, meaningful comments that explain why the code does something, not just what it does (e.g., <code>// Multiply two numbers</code> is better than <code>// This line multiplies a by b</code>).</li>
+        <li><strong>Use comments to clarify logic:</strong> Add comments where logic may not be immediately clear to another developer.</li>
+        <li><strong>Avoid redundant comments:</strong> Don’t write comments for obvious code. For example, don’t write <code>// Declaring an integer</code> next to <code>int a;</code> unless it provides important context.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+     <div class="conclusion">
+    <p>Comments play an essential role in making your C programs understandable and maintainable. They help document code, making it easier for you and others to follow and debug later. Using them effectively can save time and frustration.</p>
+</div>
+</div>
+</body>
+</html>

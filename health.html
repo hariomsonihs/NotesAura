@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Monitoring</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Project Info Section */
+        #project-info {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title Styling */
+        h3 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        /* Section Headings (strong text) */
+        strong {
+            font-size: 1.2rem;
+            color: #0056b3;
+        }
+
+        /* Paragraph and List Styles */
+        p, ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: circle;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Image Styling */
+        img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #0056b3;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 15px auto;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #003d82;
+            transform: scale(1.05);
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Textarea Styling */
+        #code-content {
+            width: 90%;
+            height: 250px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f8f9fa;
+            margin: 20px auto;
+            display: block;
+        }
+
+        /* Video Embed Styling */
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            border: 2px solid #ddd;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #project-info {
+                padding: 20px;
+            }
+
+            h3 {
+                font-size: 2rem;
+            }
+
+            p, ul {
+                font-size: 1rem;
+            }
+
+            iframe {
+                height: 300px;
+            }
+
+            #code-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="project-info">
+        <h3>Health Monitoring System</h3>
+        
+        <p><strong>Project Overview:</strong></p>
+        <p>This project involves the development of a Health Monitoring System using IoT. It tracks essential health parameters such as heart rate, SpO2 (oxygen saturation), and body temperature using sensors. The system uses a NodeMCU ESP8266 to collect and display the data on an LCD screen in real-time.</p>
+    
+        <img src="https://shorturl.at/wgm5a" alt="Health Monitoring System">
+
+        <p><strong>Technologies Used:</strong></p>
+        <ul>
+            <li>NodeMCU ESP8266</li>
+            <li>MAX30100 (Heart Rate & SpO2 Sensor)</li>
+            <li>DS18B20 (Temperature Sensor)</li>
+            <li>LCD Display</li>
+            <li>Arduino IDE</li>
+        </ul>
+
+        <p><strong>Key Features:</strong></p>
+        <ul>
+            <li>Real-time health data display on an LCD screen.</li>
+            <li>Heart rate and SpO2 monitoring for better health tracking.</li>
+            <li>Temperature monitoring for early warning of fever or hypothermia.</li>
+            <li>Simple user interface for ease of use.</li>
+        </ul>
+        
+        <iframe src="https://www.youtube.com/embed/CusJRCPENdc" title="Health Monitoring System Overview"></iframe>
+
+        <p><strong>Project Challenges:</strong></p>
+        <ul>
+            <li>Integration of different sensors with the NodeMCU.</li>
+            <li>Ensuring accurate sensor readings despite environmental noise.</li>
+            <li>Optimizing power consumption for long-term use on battery power.</li>
+        </ul>
+
+        <p><strong>Outcome:</strong></p>
+        <p>This health monitoring system provides a reliable and easy-to-use solution for tracking key health metrics. It can be used for personal health tracking or integrated into larger healthcare systems for continuous monitoring.</p>
+
+        <p><strong>Future Work:</strong></p>
+        <ul>
+            <li>Integrating wireless communication (e.g., Bluetooth, Wi-Fi) for remote data monitoring.</li>
+            <li>Adding data storage for historical health tracking.</li>
+            <li>Improving accuracy with advanced sensors and algorithms.</li>
+        </ul>
+
+        <h3>Code for this Project</h3>
+        <textarea id="code-content" readonly>
+            //Prateek
+            //https://justdoelectronics.com
+            //https://www.youtube.com/c/JustDoElectronics/videos
+            
+            #include <Wire.h>
+            #include "MAX30100_PulseOximeter.h"
+            #define BLYNK_PRINT Serial
+            #include <Blynk.h>
+            #include <WiFi.h>
+            #include <BlynkSimpleEsp32.h>
+            #include <OneWire.h>
+            #include <DallasTemperature.h>
+            #include "DHT.h"
+            #define DHTTYPE DHT11
+            #define REPORTING_PERIOD_MS 1000
+            #define DS18B20 5
+            
+            char auth[] = "G9nCH4W7AWUwviplzwpGLleH0fOdXF9_";
+            char ssid[] = "justdoelectronics";
+            char pass[] = "123456789";
+            PulseOximeter pox;
+            
+            uint8_t DHTPin = 18;
+            DHT dht(DHTPin, DHTTYPE);
+            float Temperature;
+            float Humidity;
+            float bodytemperature;
+            float BPM, SpO2;
+            uint32_t tsLastReport = 0;
+            
+            OneWire oneWire(DS18B20);
+            DallasTemperature sensors(&oneWire);
+            
+            void onBeatDetected() {
+              Serial.println("Beat Detected!");
+            }
+            
+            void setup() {
+              Serial.begin(115200);
+              pinMode(19, OUTPUT);
+              pinMode(DHTPin, INPUT);
+              dht.begin();
+              Blynk.begin(auth, ssid, pass);
+              Serial.print("Initializing Pulse Oximeter..");
+            
+              if (!pox.begin()) {
+                Serial.println("FAILED");
+                for (;;)
+                  ;
+              } else {
+                Serial.println("SUCCESS");
+                pox.setOnBeatDetectedCallback(onBeatDetected);
+              }
+              pox.setIRLedCurrent(MAX30100_LED_CURR_7_6MA);
+            }
+            
+            void loop() {
+              pox.update();
+              Blynk.run();
+              Temperature = dht.readTemperature(); 
+              Humidity = dht.readHumidity();       
+              BPM = pox.getHeartRate();
+              SpO2 = pox.getSpO2();
+              bodytemperature = sensors.getTempCByIndex(0);
+            
+              if (millis() - tsLastReport > REPORTING_PERIOD_MS) {
+                Serial.print("Heart rate:");
+                Serial.print(BPM);
+                Serial.print(" bpm / SpO2:");
+                Serial.print(SpO2);
+                Serial.println(" %");
+                Serial.print("Room Temperature: ");
+                Serial.print(Temperature);
+                Serial.println("°C");
+                Serial.print("Room Humidity: ");
+                Serial.print(Humidity);
+                Serial.println("%");
+                Serial.print("Body Temperature: ");
+                Serial.print(bodytemperature);
+                Serial.println("°C");
+                Blynk.virtualWrite(V3, Temperature);
+                Blynk.virtualWrite(V4, Humidity);
+                Blynk.virtualWrite(V5, BPM);
+                Blynk.virtualWrite(V6, SpO2);
+                Blynk.virtualWrite(V7, bodytemperature);
+            
+                tsLastReport = millis();
+              }
+            }
+       
+        </textarea>
+
+        <button id="copy-btn">Copy Code</button>
+    </section>
+
+    <section style="text-align: center;">
+        <button>
+            <a href="health_pdf.pdf" download="Project-IOT-Heath_Monitoring.pdf">Project Report</a>
+        </button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LearningPoint. All Rights Reserved. </p>
+        <p>Contact Us :<a href="rajaayush931@gmail.com"> rajaayu931@gmail.com</a></p>
+    </footer>
+
+    <script>
+        // Copy Code functionality
+        document.getElementById("copy-btn").addEventListener("click", function () {
+            const codeContent = document.getElementById("code-content");
+            codeContent.select();
+            codeContent.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand("copy");
+            alert("Code copied to clipboard!");
+        });
+    </script>
+</body>
+</html>

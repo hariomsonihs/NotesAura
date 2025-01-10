@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - NotesAura</title>
+    <style>
+    
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, * {
+    user-select: none; /* Disables text selection for all elements */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For Internet Explorer/Edge */
+}
+
+/* Header Styling */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;  /* Reduced padding to fit better */
+    background-color: #0078d7;
+    color: #fff;
+    position: fixed;  /* This will keep the header at the top of the page even when scrolling */
+    top: 0;           /* Ensures it is positioned at the top of the page */
+    left: 0;          /* Align to the left */
+    right: 0;         /* Align to the right */
+    z-index: 1000;
+    height: 60px;     /* Fixed height for the header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
+}
+body {
+    padding-top: 60px; /* Add padding to the body content so it's not covered by the fixed header */
+}
+
+/* Logo and Navigation Adjustments */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Toggle Menu Styling */
+.toggle-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.toggle-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-menu li:last-child {
+    border-bottom: none;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: #0078d7;
+    color: #fff;
+}
+
+/* Toggle Active State */
+.toggle-menu.active .toggle-bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.toggle-menu.active .toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.toggle-menu.active .toggle-bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        width: 200px;
+    }
+}
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 80px; 
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #ffeb3b;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #f1f1f1;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #ff5722, #e91e63);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .card button:hover {
+            background: linear-gradient(45deg, #e91e63, #ff5722);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .card h3 {
+                font-size: 1.5rem;
+            }
+
+            .card p {
+                font-size: 0.9rem;
+            }
+
+            .card button {
+                font-size: 0.9rem;
+            }
+        }
+
+        .section-title {
+            font-size: 2rem; /* Font size of the heading */
+            font-weight: bold; /* Makes the text bold */
+            color: #ffeb3b; /* Yellow color for the heading */
+            text-align: center; /* Aligns the text in the center */
+            text-transform: uppercase; /* Converts the text to uppercase */
+            margin-bottom: 20px; /* Adds space below the heading */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Adds a glowing effect */
+            background: linear-gradient(90deg, #ff5722, #e91e63); /* Gradient background */
+            -webkit-background-clip: text; /* Clips background to the text */
+            -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+            padding: 10px; /* Adds padding around the text */
+            border-radius: 10px; /* Rounds the edges slightly */
+        }
+        
+        /*footer*/
+        
+          footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    .footer-social-links a {
+        margin: 0 10px;
+        font-size: 20px;
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-social-links a:hover {
+        color: #007bff;
+    }
+
+    .button-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color:  #ff5722;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .button-link:hover {
+        background-color: #e91e63;
+    }
+    </style>
+</head>
+<body>
+       <!-- Header -->
+       <header class="main-header">
+        <div class="logo">
+            <img src="NotesAura.png" alt="Logo" class="logo-img">
+            <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+        </div>
+        <div class="toggle-menu">
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<!-- <div id="search-results"></div> -->
+
+<section id="programming">
+    <h2 class="section-title">Programming Languages</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>C Language</h3>
+            <p>A powerful procedural programming language used for system programming and creating operating systems, known for its efficiency and control.</p>
+            <a href="c.html" class="button-link">Start Learning</a>
+        </div>
+        <div class="card">
+            <h3>Java Language</h3>
+            <p>A platform-independent, object-oriented programming language commonly used for building enterprise applications, Android apps, and web services.</p>
+            <button onclick="window.open('#', '_blank')">Start Learning</button> 
+        </div>
+        <div class="card">
+            <h3>Python Language</h3>
+            <p>A versatile, high-level programming language known for its simplicity and readability, widely used in web development, data science, and AI.</p>
+            <button onclick="window.open('#', '_blank')">Start Learning</button> 
+        </div>
+        <div class="card">
+            <h3>C++ Language</h3>
+            <p> An extension of C with object-oriented features, widely used for developing games, software, and high-performance applications.</p>
+            <button onclick="window.open('#', '_blank')">Start Learning</button> 
+        </div>
+        <div class="card">
+            <h3>Kotlin</h3>
+            <p>A modern, concise programming language fully interoperable with Java, designed for Android development and other software solutions.</p>
+            <button onclick="window.open('#', '_blank')">Start Learning</button> 
+        </div>
+        
+    </div>
+</section>
+
+<!-- Additional Sections -->
+<section id="data-structures">
+    <h2 class="section-title">Web Development</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Used to define the basic structure of web pages, organizing and displaying content like text, images, and links.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi&si=ghHFDnxA7iDQHYY3', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>CSS</h3>
+            <p>Used to design the layout and styling of web pages, including colors, fonts, and spacing, making them visually appealing.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLH9iLcrNpXtQYQiudzpZpGw0mptHc06Su&si=IQh_BW_CXaSksNX0', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>JavaScript</h3>
+            <p>A scripting language used to add interactivity and dynamic content (animations, forms, buttons) to web pages.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PL7ersPsTyYt1HnCgrT6Up-pan4yLBpyFs&si=B4Bn4mB-J28r_TmC', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>Angular</h3>
+            <p> A framework by Google for building dynamic, single-page web applications (SPAs) with a robust structure.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLfqMhTWNBTe137I_EPQd34TsgV6IO55pt&si=zm9qmci0mxAHjKwP', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>Node.js</h3>
+            <p> A JavaScript runtime environment used for server-side scripting and building scalable, real-time web applications.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLfqMhTWNBTe137I_EPQd34TsgV6IO55pt&si=zm9qmci0mxAHjKwP', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>PHP</h3>
+            <p> A server-side scripting language used for creating dynamic web pages and managing database-driven websites.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLfqMhTWNBTe137I_EPQd34TsgV6IO55pt&si=zm9qmci0mxAHjKwP', '_blank')">Start Learning</button>
+        </div>
+    </div>
+</section>
+
+
+<section id="10th class">
+    <h2 class="section-title">Bihar Board 10th Class</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>MATHEMATICS</h3>
+            <p>Master the concepts of algebra, geometry, and arithmetic.</p>
+            <a href="10th_math.html" class="button-link">Start Learning</a>
+        </div>
+        <div class="card">
+            <h3>SCIENCE</h3>
+            <p>Explore physics, chemistry, and biology concepts for 10th grade.</p>
+            <a href="10th_science.html" class="button-link">Start Learning</a>
+        </div>
+        <div class="card">
+            <h3>SOCIAL - SCIENCE</h3>
+            <p>Learn history, geography, civics, and economics in detail.</p>
+            <a href="10th_sst.html" class="button-link">Start Learning</a>
+        </div>
+        <div class="card">
+            <h3>SANSKRIT</h3>
+            <p>Understand Sanskrit grammar and literature for 10th grade.</p>
+            <a href="10th_sanskrit.html" class="button-link">Start Learning</a>
+        </div>
+        <div class="card">
+            <h3>HINDI</h3>
+            <p>Dive into Hindi grammar, literature, and comprehension.</p>
+            <a href="10th_hindi.html" class="button-link">Start Learning</a>
+        </div>
+        <div class="card">
+            <h3>ENGLISH</h3>
+            <p>Improve your grammar, reading, writing, and literature skills.</p>
+            <a href="10th_english.html" class="button-link">Start Learning</a>
+        </div>
+    </div>
+</section>
+
+<section id="12th class">
+    <h2 class="section-title">Bihar Board 12th Class</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>PHYSICS</h3>
+            <p>Understand the laws of motion, thermodynamics, and optics.</p>
+            <a href="12th_phy.html" class="button-link">Start Learning</a>
+        </div>
+        <div class="card">
+            <h3>CHEMISTRY</h3>
+            <p>Master organic, inorganic, and physical chemistry concepts.</p>
+            <button onclick="window.open('https://youtu.be/irqbmMNs2Bo?si=H3mOE_Wm7MnZ7dT4', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>MATHEMATICS</h3>
+            <p>Learn calculus, trigonometry, and advanced algebra.</p>
+            <button onclick="window.open('https://youtu.be/e7sAf4SbS_g?si=l8tFhhTk2VSGaZaS', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>BIOLOGY</h3>
+            <p>Explore human anatomy, plant physiology, and genetics.</p>
+            <button onclick="window.open('https://youtu.be/SuLiu5AK9Ps?si=MtrJNonQUJbe9P5l', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>HINDI</h3>
+            <p>Enhance your understanding of Hindi grammar and literature.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q&si=SD3RVOP6reFhH0mC', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>ENGLISH</h3>
+            <p>Develop your proficiency in English grammar and literature.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q&si=SD3RVOP6reFhH0mC', '_blank')">Start Learning</button>
+        </div>
+    </div>
+</section>
+
+<!--<footer>
+    <p>&copy; 2025 NotesAura. All Rights Reserved.</p>
+    <div class="footer-social-links">
+        <a href="https://www.facebook.com/profile.php?id=100028805003292" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/hariomsonihs/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <!--<a href="https://linkedin.com/in/aayush-shrivastava-6981a3308/" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>-->
+        <!--<a href="https://github.com/hariomsoni08/" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</footer>-->
+
+    <script>
+        const toggleMenu = document.querySelector('.toggle-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        toggleMenu.addEventListener('click', () => {
+            toggleMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+       
+    </script>
+</body>
+</html>

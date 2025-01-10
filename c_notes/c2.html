@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features of C Programming Language</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: white;
+            color: #333;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            user-select: none;
+        }
+        h1 { 
+	    background-color: #e0f7fa; /* Light background */
+            border-radius: 12px;
+            border: 2px solid rgb(22, 160, 133); /* Border color */
+            color: #004d40; /* Text color */
+            cursor: pointer;
+            padding: 10px;
+            transition: background-color 0.3s; /* Transition effect */
+	    text-align:center;
+        }
+        h2 {
+            background-color: #e0f2f1;
+            border-radius: 12px;
+            border: 2px solid rgb(22, 160, 133);
+            color: #004d40;
+            cursor: pointer;
+            padding: 10px;
+            transition: background-color 0.3s;
+            border-left: 4px solid #4CAF50;
+            border-right: 4px solid #4CAF50; 
+            padding-left: 10px;
+            text-align:center;
+        }
+        h2:hover {
+            background-color: #b2ebf2; /* Darker background on hover */
+        }
+        .code-snippet {
+            background-color: #f4f4f4; /* Light background for code */
+            padding: 15px;
+            border: 2px solid #007bff; /* Border color */
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+            position: relative; /* For pseudo-elements */
+        }
+        .code-snippet::before {
+            content: 'Code Example';
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background-color: #007bff; /* Header background */
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        code {
+            background-color: #e9ecef; /* Code background */
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384; /* Code text color */
+        }
+        .example {
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #e2f1ff;
+            margin: 10px 0;
+        }
+	p {
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            text-align:justify;
+        }
+        .conclusion {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+          h3 {
+            border-left: 5px solid #4CAF50;
+            padding-left: 10px;
+            text-align:justify;
+        }
+    </style>
+</head>
+<body>
+    <h2> Features of C Programming</h2>
+    <h3>Simple and Efficient</h3>
+    <p>The C programming language is celebrated for its simplicity and efficiency, making it an ideal choice for system-level programming.</p>
+    <ul>
+        <li><strong>Definition:</strong> C is a high-level programming language that provides a clear and straightforward syntax.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Low-level language that interacts closely with hardware.</li>
+                <li>Allows programmers to write clean and understandable code.</li>
+                <li>High performance, making it suitable for resource-intensive applications.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Structured Language</h3>
+    <p>C is a structured programming language that encourages the division of programs into smaller, manageable functions.</p>
+    <ul>
+        <li><strong>Definition:</strong> Structured programming is a programming paradigm that emphasizes the use of functions and control structures to improve the clarity and maintainability of code.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Promotes modularization of code into reusable functions.</li>
+                <li>Enhances code readability and makes debugging easier.</li>
+                <li>Encourages a systematic approach to programming, reducing complexity.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Portability</h3>
+    <p>C programs are inherently portable due to the language's standardization.</p>
+    <ul>
+        <li><strong>Definition:</strong> Portability refers to the ease with which software can be transferred from one environment to another.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Code can be compiled and executed on different platforms with minimal changes.</li>
+                <li>Facilitates cross-platform development for applications.</li>
+                <li>Standardization ensures compatibility across various systems and architectures.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Rich Library</h3>
+    <p>The C programming language boasts a rich set of built-in functions and libraries that greatly simplify the programming process.</p>
+    <ul>
+        <li><strong>Definition:</strong> Libraries are collections of precompiled routines that programmers can use to develop software applications.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Includes functions for input/output operations, string manipulations, and mathematical computations.</li>
+                <li>Reduces development time by providing ready-made solutions for common tasks.</li>
+                <li>Allows developers to focus on application logic rather than implementing standard functionalities.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Memory Management</h3>
+    <p>C provides powerful features for dynamic memory management, allowing developers to allocate and deallocate memory as needed.</p>
+    <ul>
+        <li><strong>Definition:</strong> Dynamic memory management refers to the process of allocating memory at runtime using pointers and memory allocation functions.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Allows for flexible memory usage, which is crucial for complex data structures.</li>
+                <li>Functions like <code>malloc()</code> and <code>free()</code> provide control over memory allocation and deallocation.</li>
+                <li>Optimizes resource usage in applications, especially those with varying memory requirements.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Low-level Access</h3>
+    <p>C offers low-level access to memory through the use of pointers.</p>
+    <ul>
+        <li><strong>Definition:</strong> Pointers are variables that store the memory address of another variable, allowing direct access to memory locations.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Enables manipulation of data at the memory address level, essential for system programming.</li>
+                <li>Useful for implementing complex data structures like linked lists and trees.</li>
+                <li>Allows for efficient use of memory, leading to performance optimization in applications.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Function and Recursion</h3>
+    <p>C supports the use of functions, which enables the modularization of code.</p>
+    <ul>
+        <li><strong>Definition:</strong> Functions are self-contained modules of code that perform a specific task and can be reused throughout a program.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Facilitates the creation of reusable code blocks, enhancing maintainability.</li>
+                <li>Supports recursion, allowing functions to call themselves to solve problems efficiently.</li>
+                <li>Promotes code organization, making programs easier to understand and modify.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Operator Overloading</h3>
+    <p>Although C does not support operator overloading as a language feature, it allows developers to use operators in intuitive ways.</p>
+    <ul>
+        <li><strong>Definition:</strong> Operator overloading is the ability to redefine the behavior of operators for user-defined data types.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Operators can perform different operations based on the data types they are applied to.</li>
+                <li>Promotes expressive coding, making it easier to read and understand code.</li>
+                <li>Helps developers write code that is more aligned with mathematical and logical operations.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Extensible</h3>
+    <p>C is highly extensible, enabling developers to create libraries and modules that can be integrated into existing codebases.</p>
+    <ul>
+        <li><strong>Definition:</strong> Extensibility refers to the ability to add new features or functionality to an existing system without modifying its core structure.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Encourages code reuse and simplifies the integration of new functionalities.</li>
+                <li>Facilitates the development of complex applications by encapsulating functionality into libraries.</li>
+                <li>Supports collaboration on projects by allowing multiple developers to work on separate modules.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Community and Support</h3>
+    <p>The C programming language has a vast and active community of developers, providing a wealth of resources, libraries, frameworks, and documentation.</p>
+    <ul>
+        <li><strong>Definition:</strong> A programming community is a group of developers who share knowledge, resources, and support for a particular programming language.</li>
+        <li><strong>Key Points:</strong>
+            <ul>
+                <li>Access to numerous online platforms, forums, and tutorials for learning and problem-solving.</li>
+                <li>Collaboration and networking opportunities with other developers and experts in the field.</li>
+                <li>Continuous contributions to libraries and tools that enhance the development experience.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <div class="conclusion">
+        <p>The C programming language remains a powerful and influential tool in software development. Its features such as simplicity, efficiency, low-level access to memory, and strong community support make it a preferred choice for system programming and application development. C's enduring popularity is a testament to its capabilities and relevance in the evolving landscape of programming languages.</p>
+    </div>
+</body>
+</html>
