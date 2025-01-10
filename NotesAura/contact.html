@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Developer</title>
+    <head>
+        <!-- Add Font Awesome CDN -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    </head>
+    
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Header Styling */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #0078d7;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 60px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        body {
+            padding-top: 60px; /* Add padding to avoid overlap with fixed header */
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Toggle Menu Styling */
+        .toggle-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .toggle-bar {
+            width: 100%;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: translateY(-20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .nav-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: #0078d7;
+            color: #fff;
+        }
+
+        /* Toggle Active State */
+        .toggle-menu.active .toggle-bar:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .toggle-menu.active .toggle-bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .toggle-menu.active .toggle-bar:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        .nav-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: row;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 900px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        /* Left Side */
+        .left-side {
+            flex: 1;
+            padding-right: 20px;
+            text-align: center;
+        }
+
+        .left-side img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid #00bcd4;
+            transition: transform 0.3s ease;
+        }
+
+        .left-side img:hover {
+            transform: scale(1.1);
+        }
+
+        .left-side h3 {
+            font-size: 1.6rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .left-side p {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+       /* Social Links Styling */
+.social-links {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.social-links a {
+    padding: 10px 15px;
+    /*background-color: #00bcd4;*/
+    color: #00bcd4;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center; /* Align icons and text */
+}
+
+.social-links a i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.2rem; /* Adjust icon size */
+}
+/*
+.social-links a:hover {
+    background-color: #00796b;
+}*/
+
+        /* Right Side */
+        .right-side {
+            flex: 2;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-side h1 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .right-side p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .right-side .social-links {
+            margin-top: 30px;
+        }
+
+        <!-- .right-side .social-links a {
+            padding: 12px 25px;
+            background-color: #00bcd4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .right-side .social-links a:hover {
+            background-color: #00796b;
+        } -->
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .card {
+                flex-direction: column;
+                padding: 20px;
+                width: 100%; /* Ensures the card takes up the full width on small screens */
+            }
+
+            .left-side {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .right-side {
+                padding-left: 0;
+            }
+
+            .right-side h1 {
+                font-size: 1.8rem;
+            }
+
+            .right-side p {
+                font-size: 1rem;
+            }
+
+            /* Mobile Header Adjustments */
+            .main-header {
+                padding: 10px 15px;
+                height: auto; /* Allow height to adjust for mobile */
+            }
+
+            .toggle-menu {
+                display: block;
+            }
+        }
+
+        /* footer*/
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+    
+        footer a:hover {
+            text-decoration: underline;
+        }
+    
+        .footer-social-links {
+            margin-top: 10px;
+        }
+    
+        .footer-social-links a {
+            margin: 0 10px;
+        }
+    
+        @media (max-width: 768px) {
+            footer p {
+                font-size: 0.9rem;
+            }
+    
+            footer a {
+                font-size: 1rem;
+            }
+    
+            .footer-social-links {
+                margin-top: 15px;
+            }
+    
+            .footer-social-links a {
+                font-size: 1rem;
+                margin: 0 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="LearningPoint.webp" alt="Logo" class="logo-img">
+            <span class="logo-text">𝕷𝖊𝖆𝖗𝖓𝖎𝖓𝖌𝕻𝖔𝖎𝖓𝖙</span>
+        </div>
+        <div class="toggle-menu">
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="left-side">
+                <img src="987.jpg" alt="Developer Photo">
+                <h3>Aayush Shrivastava</h3>
+                <p>Phone: +91 8083030197</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/lifeline024" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/lifeline024" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="mailto:rajaayush931@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+                
+            </div>
+            <br>
+            <div class="right-side">
+                <h1>About Me</h1>
+                <p>I'm passionate about coding and helping others achieve their programming goals. I created LearningPoint to guide aspiring developers, sharing my expertise and experience to help you succeed.</p>
+                <p>With a love for teaching and a knack for problem-solving, I built LearningPoint to offer practical knowledge and support to anyone looking to grow in the tech industry.</p>
+            </div>
+        </div>
+    </div>
+<footer>
+    <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+    <div class="footer-social-links">
+        <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a> |
+        <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a> |
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+    </div>
+</footer>
+    <script>
+        const toggleMenu = document.querySelector('.toggle-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        toggleMenu.addEventListener('click', () => {
+            toggleMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
