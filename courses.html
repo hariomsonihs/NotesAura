@@ -284,6 +284,27 @@ body {
     .button-link:hover {
         background-color: #e91e63;
     }
+
+       hr {
+            width: 80%;
+            height: 4px;
+            margin: 20px auto; /* Center horizontally */
+            border: none;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            border-radius: 50px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: width 0.4s ease-in-out, background 0.4s ease-in-out;
+        }
+
+        hr:hover {
+            width: 90%; /* Expand width on hover */
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h1, p {
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
@@ -340,7 +361,7 @@ body {
         </div>
     </div>
 </section>
-
+<hr>
 <!-- Additional Sections -->
 <section id="web-development">
     <h2 class="section-title">Web Development</h2>
