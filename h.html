@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotesAura</title>
+    <link rel="icon" href="NotesAura.webp" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* Header */
+        .main-header {
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .slogan {
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        .toggle-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .toggle-bar {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 3px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-menu ul li {
+            margin: 0 15px;
+        }
+
+        .nav-menu ul li a {
+            font-size: 1rem;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .nav-menu ul li a:hover {
+            color: #00d4ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 10%;
+            background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+            border-radius: 15px;
+            margin: 20px auto;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .hero:hover {
+            transform: scale(1.02);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Marquee Section */
+        .marquee {
+            background: #333;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: scroll 15s linear infinite;
+        }
+
+        .animated-link {
+            margin: 0 15px;
+            font-size: 1rem;
+            color: #00f2fe;
+            transition: color 0.3s;
+        }
+
+        .animated-link:hover {
+            color: #4facfe;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Testimonials */
+        .testimonials {
+            text-align: center;
+            padding: 20px 10%;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonials h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        blockquote {
+            margin: 10px 0;
+            font-size: 1rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Call to Action */
+        .cta {
+            text-align: center;
+            padding: 20px;
+            margin: 20px auto;
+            background: linear-gradient(90deg, #a8edea, #fed6e3);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #4facfe;
+            color: #fff;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #00d4ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .footer-social-links a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social-links a:hover {
+            color: #00f2fe;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .toggle-menu {
+                display: flex;
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                display: none;
+                background: #4facfe;
+                position: absolute;
+                top: 60px;
+                right: 10%;
+                width: 200px;
+                border-radius: 10px;
+            }
+
+            .nav-menu.active ul {
+                display: flex;
+            }
+
+            .nav-menu ul li {
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="NotesAura.png" alt="Logo" class="logo-img">
+            <div class="logo-content">
+                <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+                <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+            </div>
+        </div>
+
+        <div class="toggle-menu">
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+        </div>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home -->
+    <main>
+        <!-- Marquee Section -->
+        <section id="home">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <a href="#" class="animated-link">HTML</a>
+                    <a href="#" class="animated-link">CSS</a>
+                    <a href="#" class="animated-link">JavaScript</a>
+                    <a href="#" class="animated-link">Python Programming</a>
+                    <a href="#" class="animated-link">Java Programming</a>
+                    <a href="#" class="animated-link">C Programming</a>
+                    <a href="#" target="_blank" class="animated-link">C++ Programming</a>
+                    <a href="#" class="animated-link">Kotlin Programming</a>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="hero">
+                <h1>Welcome to NotesAura</h1>
+                <p>𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="testimonials">
+                <h2>✨ For High Quality Education ✨</h2>
+                <blockquote>
+                    <p>"At NotesAura, we provide free, high-quality educational resources for learners, including programming tutorials, web development guides, and class 10th and 12th notes."</p>
+                </blockquote>
+
+                <blockquote>
+                    <p>"Our programming tutorials cover popular languages like C, Java, Python, HTML, CSS, and JavaScript, making learning simple and effective."</p>
+                </blockquote>
+
+                <blockquote>
+                    <p>"NotesAura offers web development resources on technologies such as Node.js, Angular, and PHP to help you create modern websites and applications."</p>
+                </blockquote>
+            </div>
+
+            <!-- Apps -->
+            <div class="software">
+                <h3>✨ Our Useful Apps/Products✨ </h3>
+                <br>
+                <div class="icon-container">
+                    <a href="https://indusapp.store/g5inaxbu" class="icon" target="_blank">
+                        <img src="NotesAura.png" alt="NotesAura">
+                        <span>NotesAura</span>
+                    </a>
+                    <a href="https://indusapp.store/0vxq40fn" class="icon" target="_blank">
+                        <img src="bihar_board_12th.png" alt="Bihar Board 12th Guide">
+                        <span>Bihar Board 12th Guide</span>
+                    </a>
+                    <a href="https://indusapp.store/huqwid31" class="icon" target="_blank">
+                        <img src="c_logo.jpeg" alt="C programming Guide">
+                        <span>C programming Guide</span>
+                    </a>
+                </div>
+            </div>
+            <br>
+
+            <!-- Call-to-Action Section -->
+            <div class="cta">
+                <h2>Stay Updated!</h2>
+                <p>With NotesAura</p>
+                <a href="https://wa.me/917667110195?text=Hello!%20I%20am%20interested%20in%20your%20services." target="_blank" class="

@@ -28,11 +28,16 @@ body, * {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: #0078d7;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
     color: #fff;
     position: relative;
     z-index: 1000;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Ensures content stays within the curved area */
 }
+
+
 
 .logo {
     display: flex; /* लोगो और टेक्स्ट लोगो को एक ही पंक्ति में दिखाएं */
@@ -163,7 +168,7 @@ body, * {
 .marquee {
     overflow: hidden;
     background-color: #0078d7;
-    color: #fff;
+    color: #00f2fe;
     padding: 10px 0;
 }
 
