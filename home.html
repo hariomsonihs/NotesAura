@@ -7,6 +7,10 @@
     <link rel="icon" href="NotesAura.webp" type="image/x-icon">
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
      <style>
         /* General Reset */
 * {
@@ -411,29 +415,92 @@ body, * {
     transform: scale(1.05);
 }
  
-/* footer */
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(145deg, #e0e0e0, #f8f9fa); /* Gradient background for modern look */
+    color: #333;
+    border-top: 2px solid #007bff; /* Adding a top border for separation */
+    border-bottom: 2px solid #007bff; /* Adding a bottom border for separation */
+    font-size: 1rem;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* Adding deeper shadow for more dimension */
+    border-radius: 10px; /* Rounded corners for a soft look */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Footer Social Links */
+.footer-social-links {
+    margin-bottom: 20px; /* Adding some space below the social links */
+}
+
+.footer-social-links a {
+    margin: 0 15px;
+    font-size: 26px; /* Increased size for better visibility */
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effects for Social Links */
+.footer-social-links a:hover {
+    color: #007bff; /* Light blue color on hover */
+    transform: scale(1.2) rotate(10deg); /* Slightly enlarge and rotate the icon for dynamic effect */
+}
+
+/* Footer Text */
+footer p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 15px;
+    font-weight: 500; /* Slightly bolder footer text */
+}
+
+/* Footer Links */
+footer a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #007bff; /* Changing link color on hover */
+    text-decoration: underline; /* Underline the link on hover for emphasis */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #f8f9fa;
-        color: #333;
+        padding: 20px 15px;
+        font-size: 0.95rem; /* Slightly smaller text for smaller screens */
     }
 
     .footer-social-links a {
-        margin: 0 10px;
-        font-size: 20px;
-        color: #333;
-        text-decoration: none;
-        transition: color 0.3s;
+        font-size: 24px; /* Adjusting icon size for better mobile view */
     }
 
-    .footer-social-links a:hover {
-        color: #007bff;
+    footer p {
+        font-size: 0.85rem; /* Slightly smaller footer text */
     }
-
-a{
-    text-decoration: none;
 }
+
+@media (max-width: 480px) {
+    footer {
+        padding: 15px 10px;
+        font-size: 0.9rem; /* Ensuring proper font size for very small screens */
+    }
+
+    .footer-social-links a {
+        font-size: 22px; /* Reducing icon size further for small screens */
+    }
+
+    footer p {
+        font-size: 0.8rem; /* Further reduction in footer text size */
+    }
+}
+
+
 
 </style>
 </head>
@@ -525,33 +592,26 @@ a{
             </div>
         </div>
 <br>
-         <!-- Call-to-Action Section -->
+         <!-- Call-to-Action Section 
         <div class="cta">
             <h2>Stay Updated!</h2>
             <p>With NotesAura</p>
             <a href="https://wa.me/917667110195?text=Hello!%20I%20am%20interested%20in%20your%20services." target="_blank" class="cta-button">Join WhatsApp</a>
-        </div>
+        </div>-->
     </section>
 </main>
 
 <!-- footer -->
 <footer>
-    <p>&copy; 2025 NotesAura. All Rights Reserved.</p>
     <div class="footer-social-links">
-        <a href="https://www.facebook.com/profile.php?id=100028805003292" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/hariomsonihs/" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <!--<a href="https://linkedin.com/in/aayush-shrivastava-6981a3308/" target="_blank">
-            <i class="fab fa-linkedin-in"></i>
-        </a>-->
-        <a href="https://github.com/hariomsoni08/" target="_blank">
-            <i class="fab fa-github"></i>
-        </a>
+        <a href="https://facebook.com/hariomsonihr" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/hariomsonihr" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/hariomsonihs" target="_blank"><i class="fab fa-instagram"></i></a>
+        <!-- Add more social icons as needed -->
     </div>
+    <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
 </footer>
+
 
     <script>
         const toggleMenu = document.querySelector('.toggle-menu');
