@@ -31,13 +31,11 @@ body, * {
     background: linear-gradient(90deg, #4facfe, #00f2fe);
     color: #fff;
     position: relative;
-    z-index: 1000;
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    overflow: hidden; /* Ensures content stays within the curved area */
+    z-index: 1000; /* Ensures header is above most elements */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
-
-
 
 .logo {
     display: flex; /* लोगो और टेक्स्ट लोगो को एक ही पंक्ति में दिखाएं */
@@ -89,10 +87,25 @@ body, * {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Header Styling */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    color: #fff;
+    position: relative;
+    z-index: 1000; /* Ensures header stays above other elements */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: visible; /* Allow child elements (like the nav menu) to overflow */
+}
+
 /* Navigation Menu */
 .nav-menu {
     position: absolute;
-    top: 100%;
+    top: 100%; /* Adjust to align below the header */
     right: 20px;
     background-color: #fff;
     color: #333;
@@ -103,6 +116,7 @@ body, * {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1100; /* Ensure the menu is above the header */
 }
 
 .nav-menu ul {
@@ -150,6 +164,7 @@ body, * {
     visibility: visible;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
@@ -169,35 +184,49 @@ body, * {
     overflow: hidden;
     background-color: #0078d7;
     color: #00f2fe;
-    padding: 10px 0;
+    padding: 15px 0; /* Increased padding for more space */
+    border-radius: 12px; /* Rounded corners for the marquee section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative;
+    z-index: 100; /* Ensures it is above other elements */
 }
 
+/* Marquee Content */
 .marquee-content {
     display: flex;
     animation: scroll 15s linear infinite;
     gap: 30px;
+    align-items: center; /* Centers the content vertically */
 }
 
+/* Animated Links */
 .animated-link {
     text-decoration: none;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Slightly larger font for more prominence */
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+    border-radius: 8px; /* Rounded corners for each link */
+    padding: 5px 10px; /* Add padding to make the link clickable */
 }
 
+/* Hover Effects for Links */
 .animated-link:hover {
     color: #00d1ff;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    background-color: rgba(0, 0, 0, 0.2); /* Light background on hover */
 }
 
+/* Scroll Animation */
 @keyframes scroll {
-    from {
+    0% {
         transform: translateX(100%);
     }
-    to {
+    100% {
         transform: translateX(-100%);
     }
 }
+
 
 /* Hero Section */
 .hero {
