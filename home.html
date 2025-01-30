@@ -106,10 +106,28 @@ body, * {
     overflow: visible; /* Allow child elements (like the nav menu) to overflow */
 }
 
+/* Toggle Menu Styling */
+.toggle-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.toggle-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 /* Navigation Menu */
 .nav-menu {
     position: absolute;
-    top: 100%; /* Adjust to align below the header */
+    top: 100%;
     right: 20px;
     background-color: #fff;
     color: #333;
@@ -120,7 +138,6 @@ body, * {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 1100; /* Ensure the menu is above the header */
 }
 
 .nav-menu ul {
@@ -166,6 +183,14 @@ body, * {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
 
