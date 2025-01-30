@@ -5,103 +5,287 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C Programming Language</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #141e30, #243b55);
-            color: #fff;
-            scroll-behavior: smooth;
-            user-select: none;
-        }
-        header {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-           background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        h2 {
-            color: #6a11cb;
-            border-bottom: 3px solid #ddd;
-            padding-bottom: 8px;
-            text-align: center;
-            font-size: 22px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        ul li {
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            font-size: 18px;
-            color: #ddd;
-            font-weight: 500;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-        }
-        ul li:hover {
-            background: linear-gradient(135deg, #a18cd1, #fbc2eb);
-            color: white;
-            transform: scale(1.07);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-            cursor: pointer;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            padding: 12px;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background: #6200ea;
+    color: white;
+    padding: 3px 20px; 
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: linear-gradient(to right, #141e30, #243b55);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.card {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    width: calc(20% - 20px); /* 5 cards per row */
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid yellow; /* Adding a border outline */
+}
+
+.card:hover {
+    border-color: yellow; /* Change the border color on hover */
+}
+
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    background: darkolivegreen
+}
+
+.card h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.card ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card ul li:last-child {
+    border-bottom: none;
+}
+
+.card a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.card a:hover {
+    text-decoration: underline;
+    color: #bb86fc;
+}
+
+.start-btn button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.start-btn button:hover {
+    background-color: #3700b3;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .card {
+        width: calc(20% - 20px); /* 5 cards per row on laptop screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px); /* Two cards per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%; /* One card per row on mobile */
+    }
+}
+
     </style>
 </head>
 <body>
     <header>
-        C Programming Language
+        <h1>C Programming Language</h1>
     </header>
     <div class="container">
-        <div class="subject">
-            <ul>
-                <li><a href="c1.html">Introduction to C</a></li>
-                <li><a href="c2.html">Features of C</a></li>
-                <li><a href="c3.html">Basic Syntax & Structure of C</a></li>
-                <li><a href="c4.html">Comments in C</a></li>
-                <li><a href="c5.html">C Tokens</a></li>
-                <li><a href="c5.html">C Keywords</a></li>
-                <li><a href="c6.html">C Identifiers</a></li>
-                <li><a href="c7.html">Input & Output in C</a></li>
-                <li><a href="c8.html">Variables in C</a></li>
-                <li><a href="c9.html">Data Types in C</a></li>
-                <li><a href="c10.html">Type Conversion in C</a></li>
-                <li><a href="c11.html">Type Casting in C</a></li>
-                <li><a href="c12.html">C Operators</a></li>
-                <li><a href="c13.html">Decision Making in C</a></li>
-                <li><a href="c14.html">Looping in C</a></li>
-                <li><a href="c15.html">Array in C</a></li>
-                <li><a href="c16.html">Pointer in C</a></li>
-                <li><a href="c17.html">Function in C</a></li>
-                <li><a href="c18.html">Structure in C</a></li>
-                <li><a href="c19.html">Unions in C</a></li>
-                <li><a href="c20.html">File Handling in C</a></li>
-                <li><a href="c21.html">Memory Management in C</a></li>
-            </ul>
+        <!-- Chapter 1 -->
+        <div class="card">
+            <h2>Introduction to C</h2>
+            <a href="c1.html" class="start-btn"><button>Learning</button></a>
+        </div>
+        
+        <!-- Chapter 2 -->
+        <div class="card">
+            <h2>Features of C</h2>
+            <a href="c2.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 3 -->
+        <div class="card">
+            <h2>Basic Syntax & Structure of C</h2>
+            <a href="c3.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 4 -->
+        <div class="card">
+            <h2>Comments in C</h2>
+            <a href="c4.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 5 -->
+        <div class="card">
+            <h2>C Tokens</h2>
+            <a href="c5.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 6 -->
+        <div class="card">
+            <h2>C Keywords</h2>
+            <a href="c6.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 7 -->
+        <div class="card">
+            <h2>Input & Output in C</h2>
+            <a href="c7.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 8 -->
+        <div class="card">
+            <h2>Variables in C</h2>
+            <a href="c8.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 9 -->
+        <div class="card">
+            <h2>Data Types in C</h2>
+            <a href="c9.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 10 -->
+        <div class="card">
+            <h2>Type Conversion in C</h2>
+            <a href="c10.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 11 -->
+        <div class="card">
+            <h2>Type Casting in C</h2>
+            <a href="c11.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 12 -->
+        <div class="card">
+            <h2>C Operators</h2>
+            <a href="c12.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 13 -->
+        <div class="card">
+            <h2>Decision Making in C</h2>
+            <a href="c13.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 14 -->
+        <div class="card">
+            <h2>Looping in C</h2>
+            <a href="c14.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 15 -->
+        <div class="card">
+            <h2>Array in C</h2>
+            <a href="c15.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 16 -->
+        <div class="card">
+            <h2>Pointer in C</h2>
+            <a href="c16.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 17 -->
+        <div class="card">
+            <h2>Function in C</h2>
+            <a href="c17.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 18 -->
+        <div class="card">
+            <h2>Structure in C</h2>
+            <a href="c18.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 19 -->
+        <div class="card">
+            <h2>Unions in C</h2>
+            <a href="c19.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 20 -->
+        <div class="card">
+            <h2>File Handling in C</h2>
+            <a href="c20.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 21 -->
+        <div class="card">
+            <h2>Memory Management in C</h2>
+            <a href="c21.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 22 -->
+        <div class="card">
+            <h2>Pointers and Arrays in C</h2>
+            <a href="c22.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 23 -->
+        <div class="card">
+            <h2>Dynamic Memory Allocation</h2>
+            <a href="c23.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 24 -->
+        <div class="card">
+            <h2>Structures and Unions</h2>
+            <a href="c24.html" class="start-btn"><button>Learning</button></a>
+        </div>
+
+        <!-- Chapter 25 -->
+        <div class="card">
+            <h2>Advanced File Handling</h2>
+            <a href="c25.html" class="start-btn"><button>Learning</button></a>
         </div>
     </div>
 </body>
