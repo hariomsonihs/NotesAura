@@ -1,637 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NotesAura</title>
-    <link rel="icon" href="NotesAura.webp" type="image/x-icon">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-
-     <style>
-        /* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body, * {
-    user-select: none; /* Disables text selection for all elements */
-    -webkit-user-select: none; /* For Safari */
-    -moz-user-select: none; /* For Firefox */
-    -ms-user-select: none; /* For Internet Explorer/Edge */
-}
-
-/* Header Styling */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: linear-gradient(90deg, #4facfe, #00f2fe);
-    color: #fff;
-    position: relative;
-    z-index: 1000; /* Ensures header is above most elements */
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.logo {
-    display: flex; /* लोगो और टेक्स्ट लोगो को एक ही पंक्ति में दिखाएं */
-    align-items: center; /* वर्टिकल सेंटर करें */
-    text-align: left; /* टेक्स्ट को बाईं ओर रखें */
-}
-
-.logo-img {
-    width: 60px; /* लोगो का आकार */
-    height: 60px; /* लोगो की ऊंचाई */
-    margin-right: 10px; /* लोगो और टेक्स्ट लोगो के बीच स्पेस */
-}
-
-.logo-content {
-    display: flex;
-    flex-direction: column; /* टेक्स्ट लोगो और स्लोगन को वर्टिकल रखें */
-    justify-content: center; /* वर्टिकल कंटेंट को सेंटर करें */
-    align-items: flex-start;
-}
-
-.logo-text {
-    font-size: 1.5rem; /* टेक्स्ट लोगो का आकार */
-    font-weight: bold; /* टेक्स्ट लोगो को बोल्ड करें */
-}
-
-.slogan {
-    font-size: 0.9rem; /* स्लोगन का छोटा आकार */
-    color: yellow; /* स्लोगन का रंग */
-    margin-top: 5px; /* स्लोगन और टेक्स्ट लोगो के बीच स्पेस */
-    font-weight:bold;
-}
-
-
-/* Toggle Menu Styling */
-.toggle-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 24px;
-    cursor: pointer;
-}
-
-.toggle-bar {
-    width: 100%;
-    height: 4px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Header Styling */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: linear-gradient(90deg, #4facfe, #00f2fe);
-    color: #fff;
-    position: relative;
-    z-index: 1000; /* Ensures header stays above other elements */
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: visible; /* Allow child elements (like the nav menu) to overflow */
-}
-
-/* Navigation Menu */
-.nav-menu {
-    position: absolute;
-    top: 100%; /* Adjust to align below the header */
-    right: 20px;
-    background-color: #fff;
-    color: #333;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transform: translateY(-20px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 1100; /* Ensure the menu is above the header */
-}
-
-.nav-menu ul {
-    list-style: none;
-}
-
-.nav-menu li {
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.nav-menu li:last-child {
-    border-bottom: none;
-}
-
-.nav-menu a {
-    display: block;
-    padding: 10px 20px;
-    color: #333;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-menu a:hover {
-    background-color: #0078d7;
-    color: #fff;
-}
-
-/* Toggle Active State */
-.toggle-menu.active .toggle-bar:nth-child(1) {
-    transform: translateY(10px) rotate(45deg);
-}
-
-.toggle-menu.active .toggle-bar:nth-child(2) {
-    opacity: 0;
-}
-
-.toggle-menu.active .toggle-bar:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg);
-}
-
-.nav-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-menu {
-        width: 200px;
-    }
-}
-/* /* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-/* Marquee Section */
-.marquee {
-    overflow: hidden;
-    background-color: #0078d7;
-    color: #00f2fe;
-    padding: 15px 0; /* Increased padding for more space */
-    border-radius: 12px; /* Rounded corners for the marquee section */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    position: relative;
-    z-index: 100; /* Ensures it is above other elements */
-    margin: 2px 0; 
-}
-
-/* Marquee Content */
-.marquee-content {
-    display: flex;
-    animation: scroll 15s linear infinite;
-    gap: 30px;
-    align-items: center; /* Centers the content vertically */
-}
-
-/* Animated Links */
-.animated-link {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.2rem; /* Slightly larger font for more prominence */
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
-    border-radius: 8px; /* Rounded corners for each link */
-    padding: 5px 10px; /* Add padding to make the link clickable */
-}
-
-/* Hover Effects for Links */
-.animated-link:hover {
-    color: #00d1ff;
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    background-color: rgba(0, 0, 0, 0.2); /* Light background on hover */
-}
-
-/* Scroll Animation */
-@keyframes scroll {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 60px 20px; /* Increased padding for better spacing */
-    background: linear-gradient(135deg, #00f2fe, #4facfe);
-    color: #fff; /* Light text color for contrast */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    margin: 5px 0; /* Margin around the section */
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: #555;
-}
-
-/* Testimonials Section */
-.testimonials {
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.testimonials h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #0078d7;
-}
-
-.testimonials blockquote {
-    font-size: 1.1rem;
-    margin: 15px auto;
-    padding: 15px;
-    background-color: #fff;
-    color: #555;
-    border-left: 4px solid #0078d7;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    text-align: left;
-}
-
-/* softwares */
-
-.software {
-    max-width: 1200px;
-    margin: 50px auto;
-    text-align: center;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.software h3 {
-    font-size: 2rem;
-    color: #333333;
-    margin-bottom: 20px;
-}
-
-/* Icon container styles */
-.icon-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Icon card styles */
-.icon {
-    text-decoration: none;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 120px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.icon img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
-}
-
-.icon span {
-    font-size: 14px;
-    color: #333333;
-    font-weight: bold;
-    text-transform: capitalize;
-    text-align: justify;
-}
-
-/* Hover effects */
-.icon:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.icon:hover img {
-    transform: rotate(360deg);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .icon {
-        width: 100px;
-        padding: 10px;
-    }
-
-    .icon img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .icon span {
-        font-size: 12px;
-        text-align: justify;
-    }
-}
-
-@media (max-width: 480px) {
-    .icon {
-        width: 80px;
-        padding: 8px;
-    }
-
-    .icon img {
-        width: 50px;
-        height: 50px;
-    }
-
-    .icon span {
-        font-size: 10px;
-        text-align: center;
-    }
-}
-
-/* Call-to-Action Section */
-.cta {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: #e0f7fa;
-}
-
-.cta h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #128C7E;
-}
-
-.cta p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: rgb(75, 150, 75);
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: green;
-    transform: scale(1.05);
-}
- 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 30px 20px;
-    background: linear-gradient(145deg, #e0e0e0, #f8f9fa); /* Gradient background for modern look */
-    color: #333;
-    border-top: 2px solid #007bff; /* Adding a top border for separation */
-    border-bottom: 2px solid #007bff; /* Adding a bottom border for separation */
-    font-size: 1rem;
-    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* Adding deeper shadow for more dimension */
-    border-radius: 10px; /* Rounded corners for a soft look */
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
-}
-
-/* Footer Social Links */
-.footer-social-links {
-    margin-bottom: 20px; /* Adding some space below the social links */
-}
-
-.footer-social-links a {
-    margin: 0 15px;
-    font-size: 26px; /* Increased size for better visibility */
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-/* Hover Effects for Social Links */
-.footer-social-links a:hover {
-    color: #007bff; /* Light blue color on hover */
-    transform: scale(1.2) rotate(10deg); /* Slightly enlarge and rotate the icon for dynamic effect */
-}
-
-/* Footer Text */
-footer p {
-    font-size: 1.1rem;
-    color: #666;
-    margin-top: 15px;
-    font-weight: 500; /* Slightly bolder footer text */
-}
-
-/* Footer Links */
-footer a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #007bff; /* Changing link color on hover */
-    text-decoration: underline; /* Underline the link on hover for emphasis */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    footer {
-        padding: 20px 15px;
-        font-size: 0.95rem; /* Slightly smaller text for smaller screens */
-    }
-
-    .footer-social-links a {
-        font-size: 24px; /* Adjusting icon size for better mobile view */
-    }
-
-    footer p {
-        font-size: 0.85rem; /* Slightly smaller footer text */
-    }
-}
-
-@media (max-width: 480px) {
-    footer {
-        padding: 15px 10px;
-        font-size: 0.9rem; /* Ensuring proper font size for very small screens */
-    }
-
-    .footer-social-links a {
-        font-size: 22px; /* Reducing icon size further for small screens */
-    }
-
-    footer p {
-        font-size: 0.8rem; /* Further reduction in footer text size */
-    }
-}
-
-
-
-</style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="main-header">
-        <div class="logo">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>NotesAura</title>
+      <link rel="icon" href="NotesAura.webp" type="image/x-icon">
+      <!-- <link rel="stylesheet" href="styles.css"> -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+      <head>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   </head>
+   <style>
+      /* General Reset */
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+      body, * {
+      user-select: none; /* Disables text selection for all elements */
+      -webkit-user-select: none; /* For Safari */
+      -moz-user-select: none; /* For Firefox */
+      -ms-user-select: none; /* For Internet Explorer/Edge */
+      }
+      /* Header Styling */
+      .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      color: #fff;
+      position: relative;
+      z-index: 1000; /* Ensures header is above most elements */
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      }
+      .logo {
+      display: flex; /* लोगो और टेक्स्ट लोगो को एक ही पंक्ति में दिखाएं */
+      align-items: center; /* वर्टिकल सेंटर करें */
+      text-align: left; /* टेक्स्ट को बाईं ओर रखें */
+      }
+      .logo-img {
+      width: 60px; /* लोगो का आकार */
+      height: 60px; /* लोगो की ऊंचाई */
+      margin-right: 10px; /* लोगो और टेक्स्ट लोगो के बीच स्पेस */
+      }
+      .logo-content {
+      display: flex;
+      flex-direction: column; /* टेक्स्ट लोगो और स्लोगन को वर्टिकल रखें */
+      justify-content: center; /* वर्टिकल कंटेंट को सेंटर करें */
+      align-items: flex-start;
+      }
+      .logo-text {
+      font-size: 1.5rem; /* टेक्स्ट लोगो का आकार */
+      font-weight: bold; /* टेक्स्ट लोगो को बोल्ड करें */
+      }
+      .slogan {
+      font-size: 0.9rem; /* स्लोगन का छोटा आकार */
+      color: yellow; /* स्लोगन का रंग */
+      margin-top: 5px; /* स्लोगन और टेक्स्ट लोगो के बीच स्पेस */
+      font-weight:bold;
+      }
+      /* Toggle Menu Styling */
+      .toggle-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+      }
+      .toggle-bar {
+      width: 100%;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+      /* Header Styling */
+      .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      color: #fff;
+      position: relative;
+      z-index: 1000; /* Ensures header stays above other elements */
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: visible; /* Allow child elements (like the nav menu) to overflow */
+      }
+      /* Toggle Menu Styling */
+      .toggle-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+      }
+      .toggle-bar {
+      width: 100%;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+      /* Navigation Menu */
+      .nav-menu {
+      position: absolute;
+      top: 100%;
+      right: 20px;
+      background-color: #fff;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transform: translateY(-20px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      .nav-menu ul {
+      list-style: none;
+      }
+      .nav-menu li {
+      border-bottom: 1px solid #f0f0f0;
+      }
+      .nav-menu li:last-child {
+      border-bottom: none;
+      }
+      .nav-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .nav-menu a:hover {
+      background-color: #0078d7;
+      color: #fff;
+      }
+      /* Toggle Active State */
+      .toggle-menu.active .toggle-bar:nth-child(1) {
+      transform: translateY(10px) rotate(45deg);
+      }
+      .toggle-menu.active .toggle-bar:nth-child(2) {
+      opacity: 0;
+      }
+      .toggle-menu.active .toggle-bar:nth-child(3) {
+      transform: translateY(-10px) rotate(-45deg);
+      }
+      .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      }
+      /* General Reset */
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+      }
+      /* Responsive Design */
+      @media (max-width: 768px) {
+      .nav-menu {
+      width: 200px;
+      }
+      }
+      /* /* General Reset */
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+      }
+      /* Marquee Section */
+      .marquee {
+      overflow: hidden;
+      background-color: #0078d7;
+      color: #00f2fe;
+      padding: 15px 0; /* Increased padding for more space */
+      border-radius: 12px; /* Rounded corners for the marquee section */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      position: relative;
+      z-index: 100; /* Ensures it is above other elements */
+      margin: 2px 0; 
+      }
+      /* Marquee Content */
+      .marquee-content {
+      display: flex;
+      animation: scroll 15s linear infinite;
+      gap: 30px;
+      align-items: center; /* Centers the content vertically */
+      }
+      /* Animated Links */
+      .animated-link {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.2rem; /* Slightly larger font for more prominence */
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+      border-radius: 8px; /* Rounded corners for each link */
+      padding: 5px 10px; /* Add padding to make the link clickable */
+      }
+      /* Hover Effects for Links */
+      .animated-link:hover {
+      color: #00d1ff;
+      transform: scale(1.1); /* Slight zoom effect on hover */
+      background-color: rgba(0, 0, 0, 0.2); /* Light background on hover */
+      }
+      /* Scroll Animation */
+      @keyframes scroll {
+      0% {
+      transform: translateX(100%);
+      }
+      100% {
+      transform: translateX(-100%);
+      }
+      }
+      /* Hero Section */
+      .hero {
+      text-align: center;
+      padding: 60px 20px; /* Increased padding for better spacing */
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      color: #fff; /* Light text color for contrast */
+      border-radius: 12px; /* Rounded corners */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+      margin: 5px 0; /* Margin around the section */
+      }
+      .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #333;
+      }
+      .hero p {
+      font-size: 1.2rem;
+      color: #555;
+      }
+      /* Testimonials Section */
+      .testimonials {
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      text-align: center;
+      }
+      .testimonials h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0078d7;
+      }
+      .testimonials blockquote {
+      font-size: 1.1rem;
+      margin: 15px auto;
+      padding: 15px;
+      background-color: #fff;
+      color: #555;
+      border-left: 4px solid #0078d7;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      text-align: left;
+      }
+      /* softwares */
+      .software {
+      max-width: 1200px;
+      margin: 50px auto;
+      text-align: center;
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      }
+      .software h3 {
+      font-size: 2rem;
+      color: #333333;
+      margin-bottom: 20px;
+      }
+      /* Icon container styles */
+      .icon-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      }
+      /* Icon card styles */
+      .icon {
+      text-decoration: none;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 120px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .icon img {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+      }
+      .icon span {
+      font-size: 14px;
+      color: #333333;
+      font-weight: bold;
+      text-transform: capitalize;
+      text-align: justify;
+      }
+      /* Hover effects */
+      .icon:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      .icon:hover img {
+      transform: rotate(360deg);
+      }
+      /* Responsive Design */
+      @media (max-width: 768px) {
+      .icon {
+      width: 100px;
+      padding: 10px;
+      }
+      .icon img {
+      width: 40px;
+      height: 40px;
+      }
+      .icon span {
+      font-size: 12px;
+      text-align: justify;
+      }
+      }
+      @media (max-width: 480px) {
+      .icon {
+      width: 80px;
+      padding: 8px;
+      }
+      .icon img {
+      width: 50px;
+      height: 50px;
+      }
+      .icon span {
+      font-size: 10px;
+      text-align: center;
+      }
+      }
+      /* Call-to-Action Section */
+      .cta {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #e0f7fa;
+      }
+      .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #128C7E;
+      }
+      .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #333;
+      }
+      .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: rgb(75, 150, 75);
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .cta-button:hover {
+      background-color: green;
+      transform: scale(1.05);
+      }
+      /* Footer */
+      footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(145deg, #e0e0e0, #f8f9fa); /* Gradient background for modern look */
+      color: #333;
+      border-top: 2px solid #007bff; /* Adding a top border for separation */
+      border-bottom: 2px solid #007bff; /* Adding a bottom border for separation */
+      font-size: 1rem;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* Adding deeper shadow for more dimension */
+      border-radius: 10px; /* Rounded corners for a soft look */
+      transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+      }
+      /* Footer Social Links */
+      .footer-social-links {
+      margin-bottom: 20px; /* Adding some space below the social links */
+      }
+      .footer-social-links a {
+      margin: 0 15px;
+      font-size: 26px; /* Increased size for better visibility */
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease;
+      }
+      /* Hover Effects for Social Links */
+      .footer-social-links a:hover {
+      color: #007bff; /* Light blue color on hover */
+      transform: scale(1.2) rotate(10deg); /* Slightly enlarge and rotate the icon for dynamic effect */
+      }
+      /* Footer Text */
+      footer p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 15px;
+      font-weight: 500; /* Slightly bolder footer text */
+      }
+      /* Footer Links */
+      footer a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      }
+      footer a:hover {
+      color: #007bff; /* Changing link color on hover */
+      text-decoration: underline; /* Underline the link on hover for emphasis */
+      }
+      /* Responsive Design */
+      @media (max-width: 768px) {
+      footer {
+      padding: 20px 15px;
+      font-size: 0.95rem; /* Slightly smaller text for smaller screens */
+      }
+      .footer-social-links a {
+      font-size: 24px; /* Adjusting icon size for better mobile view */
+      }
+      footer p {
+      font-size: 0.85rem; /* Slightly smaller footer text */
+      }
+      }
+      @media (max-width: 480px) {
+      footer {
+      padding: 15px 10px;
+      font-size: 0.9rem; /* Ensuring proper font size for very small screens */
+      }
+      .footer-social-links a {
+      font-size: 22px; /* Reducing icon size further for small screens */
+      }
+      footer p {
+      font-size: 0.8rem; /* Further reduction in footer text size */
+      }
+      }
+   </style>
+   </head>
+   <body>
+      <!-- Header -->
+      <header class="main-header">
+         <div class="logo">
             <img src="NotesAura.png" alt="Logo" class="logo-img">
             <div class="logo-content">
-                <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
-                <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+               <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+               <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
             </div>
-        </div>    
-    
-        <div class="toggle-menu">
+         </div>
+         <div class="toggle-menu">
             <div class="toggle-bar"></div>
             <div class="toggle-bar"></div>
             <div class="toggle-bar"></div>
-        </div>
-        <nav class="nav-menu">
+         </div>
+         <nav class="nav-menu">
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="project.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li> 
+               <li><a href="home.html">Home</a></li>
+               <li><a href="courses.html">Courses</a></li>
+               <li><a href="project.html">Projects</a></li>
+               <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-    </header>
-
-<!-- Home -->
-<main>
-    <!-- Marquee Section -->
-    <section id="home">
-        <div class="marquee">
-            <div class="marquee-content">
-                <a href="#" class="animated-link">HTML</a>
-                <a href="#" class="animated-link">CSS</a>
-                <a href="#" class="animated-link">JavaScript</a>
-                <a href="#" class="animated-link">Python Programming</a>
-                <a href="#" class="animated-link">Java Programming</a>
-                <a href="#" class="animated-link">C Programming</a>
-                <a href="#" target="_blank" class="animated-link">C++ Programming</a>
-                <a href="#" class="animated-link">Kotlin Programming</a>
-                  
+         </nav>
+      </header>
+      <!-- Home -->
+      <main>
+         <!-- Marquee Section -->
+         <section id="home">
+            <div class="marquee">
+               <div class="marquee-content">
+                  <a href="#" class="animated-link">HTML</a>
+                  <a href="#" class="animated-link">CSS</a>
+                  <a href="#" class="animated-link">JavaScript</a>
+                  <a href="#" class="animated-link">Python Programming</a>
+                  <a href="#" class="animated-link">Java Programming</a>
+                  <a href="#" class="animated-link">C Programming</a>
+                  <a href="#" target="_blank" class="animated-link">C++ Programming</a>
+                  <a href="#" class="animated-link">Kotlin Programming</a>
+               </div>
             </div>
-        </div>
-
-        <!-- Hero Section -->
-        <div class="hero">
-            <h1>Welcome to NotesAura</h1>
-            <p>𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
-        </div>
-
-        <!-- Testimonials Section -->
-        <div class="testimonials">
-            <h2>✨ For High Quality Education ✨</h2>
-            <blockquote>  
-              <p>"At NotesAura, we provide free, high-quality educational resources for learners, including programming tutorials, web development guides, and class 10th and 12th notes."</p>  
-            </blockquote>  
-
-            <blockquote>  
-                <p>"Our programming tutorials cover popular languages like C, Java, Python, HTML, CSS, and JavaScript, making learning simple and effective."</p>  
-            </blockquote>  
-
-            <blockquote>  
-                <p>"NotesAura offers web development resources on technologies such as Node.js, Angular, and PHP to help you create modern websites and applications."</p>  
-            </blockquote>  
- 
-
-        </div>
-        
-        <!-- Apps -->
-        <div class="software">
-            <h3>✨ Our Useful Apps/Products✨ </h3>
+            <!-- Hero Section -->
+            <div class="hero">
+               <h1>Welcome to NotesAura</h1>
+               <p>𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+            </div>
+            <!-- Testimonials Section -->
+            <div class="testimonials">
+               <h2>✨ For High Quality Education ✨</h2>
+               <blockquote>
+                  <p>"At NotesAura, we provide free, high-quality educational resources for learners, including programming tutorials, web development guides, and class 10th and 12th notes."</p>
+               </blockquote>
+               <blockquote>
+                  <p>"Our programming tutorials cover popular languages like C, Java, Python, HTML, CSS, and JavaScript, making learning simple and effective."</p>
+               </blockquote>
+               <blockquote>
+                  <p>"NotesAura offers web development resources on technologies such as Node.js, Angular, and PHP to help you create modern websites and applications."</p>
+               </blockquote>
+            </div>
+            <!-- Apps -->
+            <div class="software">
+               <h3>✨ Our Useful Apps/Products✨ </h3>
+               <br>
+               <div class="icon-container">
+                  <a href="https://indusapp.store/g5inaxbu" class="icon" target="_blank">
+                  <img src="NotesAura.png" alt="NotesAura">
+                  <span>NotesAura</span>
+                  </a>
+                  <a href="https://indusapp.store/0vxq40fn" class="icon" target="_blank">
+                  <img src="bihar_board_12th.png" alt="Bihar Board 12th Guide">
+                  <span>Bihar Board 12th Guide</span>
+                  </a>
+                  <a href="https://indusapp.store/huqwid31" class="icon" target="_blank">
+                  <img src="c_logo.jpeg" alt="C programming Guide">
+                  <span>C programming Guide</span>
+                  </a>
+               </div>
+            </div>
             <br>
-            <div class="icon-container">
-                <a href="https://indusapp.store/g5inaxbu" class="icon" target="_blank">
-                    <img src="NotesAura.png" alt="NotesAura">
-                    <span>NotesAura</span>
-                </a>
-                <a href="https://indusapp.store/0vxq40fn" class="icon" target="_blank">
-                    <img src="bihar_board_12th.png" alt="Bihar Board 12th Guide">
-                    <span>Bihar Board 12th Guide</span>
-                </a>
-                <a href="https://indusapp.store/huqwid31" class="icon" target="_blank">
-                    <img src="c_logo.jpeg" alt="C programming Guide">
-                    <span>C programming Guide</span>
-                </a>
-            </div>
-        </div>
-<br>
-         <!-- Call-to-Action Section 
-        <div class="cta">
-            <h2>Stay Updated!</h2>
-            <p>With NotesAura</p>
-            <a href="https://wa.me/917667110195?text=Hello!%20I%20am%20interested%20in%20your%20services." target="_blank" class="cta-button">Join WhatsApp</a>
-        </div>-->
-    </section>
-</main>
-
-<!-- footer -->
-<footer>
-    <div class="footer-social-links">
-        <a href="https://facebook.com/hariomsonihr" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com/hariomsonihr" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://instagram.com/hariomsonihs" target="_blank"><i class="fab fa-instagram"></i></a>
-        <!-- Add more social icons as needed -->
-    </div>
-    <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
-</footer>
-
-
-    <script>
-        const toggleMenu = document.querySelector('.toggle-menu');
-const navMenu = document.querySelector('.nav-menu');
-
-toggleMenu.addEventListener('click', () => {
-    toggleMenu.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-const marquee = document.querySelector('.marquee-content');
-
-marquee.addEventListener('mouseover', () => {
-    marquee.style.animationPlayState = 'paused';
-});
-
-marquee.addEventListener('mouseout', () => {
-    marquee.style.animationPlayState = 'running';
-});
-
-    </script>
-</body>
+            <!-- Call-to-Action Section 
+               <div class="cta">
+                   <h2>Stay Updated!</h2>
+                   <p>With NotesAura</p>
+                   <a href="https://wa.me/917667110195?text=Hello!%20I%20am%20interested%20in%20your%20services." target="_blank" class="cta-button">Join WhatsApp</a>
+               </div>-->
+         </section>
+      </main>
+      <!-- footer -->
+      <footer>
+         <div class="footer-social-links">
+            <a href="https://facebook.com/hariomsonihr" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/hariomsonihr" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/hariomsonihs" target="_blank"><i class="fab fa-instagram"></i></a>
+            <!-- Add more social icons as needed -->
+         </div>
+         <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
+      </footer>
+      <script>
+         const toggleMenu = document.querySelector('.toggle-menu');
+         const navMenu = document.querySelector('.nav-menu');
+         
+         toggleMenu.addEventListener('click', () => {
+         toggleMenu.classList.toggle('active');
+         navMenu.classList.toggle('active');
+         });
+         
+         const marquee = document.querySelector('.marquee-content');
+         
+         marquee.addEventListener('mouseover', () => {
+         marquee.style.animationPlayState = 'paused';
+         });
+         
+         marquee.addEventListener('mouseout', () => {
+         marquee.style.animationPlayState = 'running';
+         });
+         
+      </script>
+   </body>
 </html>
