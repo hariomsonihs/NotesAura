@@ -16,11 +16,13 @@
 
 /* Header Styling */
 .main-header {
+     border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;  /* Reduced padding to fit better */
-    background-color: #0078d7;
+    background: linear-gradient(135deg, #6200ea, #0078d7);
     color: #fff;
     position: fixed;  /* This will keep the header at the top of the page even when scrolling */
     top: 0;           /* Ensures it is positioned at the top of the page */
@@ -32,6 +34,7 @@
 }
 body {
     padding-top: 60px; /* Add padding to the body content so it's not covered by the fixed header */
+    user-select: none;
 }
 
 /* Logo and Navigation Adjustments */
