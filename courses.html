@@ -16,11 +16,13 @@
 
 /* Header Styling */
 .main-header {
+     border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;  /* Reduced padding to fit better */
-    background-color: #0078d7;
+    background: linear-gradient(135deg, #6200ea, #0078d7);
     color: #fff;
     position: fixed;  /* This will keep the header at the top of the page even when scrolling */
     top: 0;           /* Ensures it is positioned at the top of the page */
@@ -239,6 +241,13 @@ h2 {
         font-size: 0.9rem;
     }
 } 
+.card img {
+    width: 50px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
 .section-title {
    text-align: left;
    margin-left: 65px;
@@ -272,24 +281,32 @@ h2 {
     <h2 class="section-title">Programming</h2>
     <div class="card-container">
         <div class="card">
-            <i class="fas fa-desktop"></i>
-            <h3>Windows Basics</h3>
-            <p>Learn the essentials of using Windows OS.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLsep1uQfemNFvT57-DOjzSnGspJv8efpS', '_blank')">Start Learning</button>
+            <i class="fas fa-c"></i>
+            <h3>C Programming</h3>
+            <p>Learn the essentials of C Programming.</p>
+            <a href="c.html"><button>Start Learning</button></a>
         </div>
         <div class="card">
-            <i class="fas fa-file-word"></i>
-            <h3>MS Word</h3>
-            <p>Master Microsoft Word.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLRQGNW3q__WkhDpHwdQ3buNntOX-gbsfI', '_blank')">Start Learning</button>
+            <i class="fab fa-java"></i>
+            <h3>Java Programming</h3>
+            <p>Learn the Java Programming.</p>
+            <a href="#"><button>Start Learning</button></a>
+
         </div>
         <div class="card">
-            <i class="fas fa-globe"></i>
-            <h3>Internet Basics</h3>
-            <p>Understand how to navigate and use the internet.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLVbRFL6i5RVIpYA6k8fF1UtL2YdResTXk', '_blank')">Start Learning</button>
+            <i class="fab fa-python"></i>
+            <h3>Python Programming</h3>
+            <p>Learn the Python Programming.</p>
+            <a href="#"><button>Start Learning</button></a>
         </div>
-    </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Logo" width="50">
+            <h3>Kotlin Programming</h3>
+            <p>Learn the Kotlin Programming.</p>
+            <a href="#"><button>Start Learning</button></a>
+        </div>
+
 </section>
 
 <!-- Basic Programming Section -->
