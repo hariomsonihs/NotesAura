@@ -6,35 +6,39 @@
     <title>Introduction to C Programming</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f8f9fa;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #ffffff;
             user-select: none;
         }
         h1 {
-            text-align: center;
-            color: #333;
-        }
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(135deg, #6200ea, #0078d7);
+    padding: 20px;
+    font-size: 24px; /* Adjust this value to make the text smaller or larger */
+    text-size-adjust: auto;
+}
         h2 {
-            background-color: #e0f2f1;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            border: 2px solid rgb(22, 160, 133);
-            color: #004d40;
+            color: #ffffff;
             cursor: pointer;
             padding: 10px;
             transition: background-color 0.3s;
-            border-left: 4px solid #4CAF50;
-            border-right: 4px solid #4CAF50; 
-            padding-left: 10px;
-            text-align:center;
+            text-align: center;
         }
         h2:hover {
-            background-color: #b2dfdb; /* Darker background on hover */
+            background-color: darkolivegreen; /* Darker background on hover */
         }
         p {
             line-height: 1.6;
-            color: #555;
+            color: #ffffff;
             text-align: justify;
         }
         pre {
@@ -64,28 +68,53 @@
         .conclusion {
             margin-top: 30px;
             padding: 15px;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #444;
+            color: #ffffff;
         }
-         h3 {
+        h3 {
             border-left: 5px solid #4CAF50;
             padding-left: 10px;
-            text-align:justify;
+            text-align: justify;
+            color: #ffffff;
+        }
+        footer {
+    text-align: center;
+    padding: 10px; /* Reduced padding */
+    background: linear-gradient(135deg, #6200ea, #0078d7);
+    color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    font-size: 14px; /* Reduced font size */
+}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5em;
+            }
+            p, pre {
+                font-size: 1em;
+            }
+        }
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.2em;
+            }
+            p, pre {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h2>Introduction of C Programming Languages</h2>
+    <h1>Introduction to C Programming Languages</h1>
+    <h2>What is C?</h2>
     <p>A programming language is a formal set of instructions that can be used to produce various types of output, including software applications, scripts, and algorithms. Programming languages allow developers to communicate with computers, enabling them to perform tasks and solve problems efficiently. They can be categorized into:</p>
     <ul>
         <li>Low-Level Languages: Closer to machine code (e.g., Assembly).</li>
         <li>High-Level Languages: Closer to human language (e.g., Python, Java).</li>
     </ul>
-
-    <h3>What is C?</h3>
-    <p>C is a general-purpose, procedural programming language developed in the early 1970s by Dennis Ritchie at Bell Labs. It has influenced many modern programming languages and remains widely used for system and application software development.</p>
 
     <h3>History of C</h3>
     <p>The C programming language was developed as an evolution of the B language, itself derived from BCPL, by Dennis Ritchie between 1969 and 1973. Initially, C was used to implement the UNIX operating system. Its combination of low-level access to memory and high-level features made it widely popular. In 1978, Brian Kernighan and Dennis Ritchie published "The C Programming Language," which further popularized C and standardized many of its features. In 1989, ANSI standardized C, leading to the creation of C89, followed by the C99 standard which introduced several new features, including inline functions and variable-length arrays.</p>
@@ -152,6 +181,5 @@
     <div class="conclusion">
         <p>C is a powerful and versatile programming language that serves as a foundation for many modern languages and applications. Its features, portability, and performance make it an excellent choice for system-level programming and application development. By understanding C, you can gain valuable skills that are applicable in various fields of software development.</p>
     </div>
-
 </body>
 </html>
