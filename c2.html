@@ -6,100 +6,116 @@
     <title>Features of C Programming Language</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: white;
-            color: #333;
-            margin: 20px;
-            line-height: 1.6;
-            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #ffffff;
             user-select: none;
         }
-        h1 { 
-	    background-color: #e0f7fa; /* Light background */
-            border-radius: 12px;
-            border: 2px solid rgb(22, 160, 133); /* Border color */
-            color: #004d40; /* Text color */
-            cursor: pointer;
-            padding: 10px;
-            transition: background-color 0.3s; /* Transition effect */
-	    text-align:center;
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            padding: 20px;
+            font-size: 24px;
+            text-size-adjust: auto;
         }
         h2 {
-            background-color: #e0f2f1;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            border: 2px solid rgb(22, 160, 133);
-            color: #004d40;
+            color: #ffffff;
             cursor: pointer;
             padding: 10px;
             transition: background-color 0.3s;
-            border-left: 4px solid #4CAF50;
-            border-right: 4px solid #4CAF50; 
-            padding-left: 10px;
-            text-align:center;
+            text-align: center;
         }
         h2:hover {
-            background-color: #b2ebf2; /* Darker background on hover */
+            background-color: darkolivegreen;
+        }
+        h3 {
+            border-left: 5px solid #4CAF50;
+            padding-left: 10px;
+            text-align: justify;
+            color: #ffffff;
+        }
+        p {
+            line-height: 1.6;
+            color: #ffffff;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            text-align: justify;
         }
         .code-snippet {
-            background-color: #f4f4f4; /* Light background for code */
+            background-color: #282c34;
+            color: #abb2bf;
             padding: 15px;
-            border: 2px solid #007bff; /* Border color */
             border-radius: 5px;
             overflow-x: auto;
             margin: 10px 0;
-            position: relative; /* For pseudo-elements */
+            position: relative;
         }
         .code-snippet::before {
             content: 'Code Example';
             position: absolute;
             top: -12px;
             left: 10px;
-            background-color: #007bff; /* Header background */
+            background-color: #007bff;
             color: white;
             padding: 2px 5px;
             border-radius: 3px;
             font-weight: bold;
         }
         code {
-            background-color: #e9ecef; /* Code background */
+            background-color: #e9ecef;
             padding: 2px 5px;
             border-radius: 3px;
-            color: #d63384; /* Code text color */
-        }
-        .example {
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: #e2f1ff;
-            margin: 10px 0;
-        }
-	p {
-            line-height: 1.6;
-            color: #555;
-            text-align: justify;
-        }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            text-align:justify;
+            color: #d63384;
         }
         .conclusion {
             margin-top: 30px;
             padding: 15px;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #444;
+            color: #ffffff;
         }
-          h3 {
-            border-left: 5px solid #4CAF50;
-            padding-left: 10px;
-            text-align:justify;
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5em;
+            }
+            p, .code-snippet {
+                font-size: 1em;
+            }
+        }
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.2em;
+            }
+            p, .code-snippet {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
-    <h2> Features of C Programming</h2>
-    <h3>Simple and Efficient</h3>
+    <h1>Features of C Programming Language</h1>
+    <h2>Simple and Efficient</h2>
     <p>The C programming language is celebrated for its simplicity and efficiency, making it an ideal choice for system-level programming.</p>
     <ul>
         <li><strong>Definition:</strong> C is a high-level programming language that provides a clear and straightforward syntax.</li>
@@ -112,7 +128,7 @@
         </li>
     </ul>
 
-    <h3>Structured Language</h3>
+    <h2>Structured Language</h2>
     <p>C is a structured programming language that encourages the division of programs into smaller, manageable functions.</p>
     <ul>
         <li><strong>Definition:</strong> Structured programming is a programming paradigm that emphasizes the use of functions and control structures to improve the clarity and maintainability of code.</li>
@@ -125,7 +141,7 @@
         </li>
     </ul>
 
-    <h3>Portability</h3>
+    <h2>Portability</h2>
     <p>C programs are inherently portable due to the language's standardization.</p>
     <ul>
         <li><strong>Definition:</strong> Portability refers to the ease with which software can be transferred from one environment to another.</li>
@@ -138,7 +154,7 @@
         </li>
     </ul>
 
-    <h3>Rich Library</h3>
+    <h2>Rich Library</h2>
     <p>The C programming language boasts a rich set of built-in functions and libraries that greatly simplify the programming process.</p>
     <ul>
         <li><strong>Definition:</strong> Libraries are collections of precompiled routines that programmers can use to develop software applications.</li>
@@ -151,7 +167,7 @@
         </li>
     </ul>
 
-    <h3>Memory Management</h3>
+    <h2>Memory Management</h2>
     <p>C provides powerful features for dynamic memory management, allowing developers to allocate and deallocate memory as needed.</p>
     <ul>
         <li><strong>Definition:</strong> Dynamic memory management refers to the process of allocating memory at runtime using pointers and memory allocation functions.</li>
@@ -164,7 +180,7 @@
         </li>
     </ul>
 
-    <h3>Low-level Access</h3>
+    <h2>Low-level Access</h2>
     <p>C offers low-level access to memory through the use of pointers.</p>
     <ul>
         <li><strong>Definition:</strong> Pointers are variables that store the memory address of another variable, allowing direct access to memory locations.</li>
@@ -177,7 +193,7 @@
         </li>
     </ul>
 
-    <h3>Function and Recursion</h3>
+    <h2>Function and Recursion</h2>
     <p>C supports the use of functions, which enables the modularization of code.</p>
     <ul>
         <li><strong>Definition:</strong> Functions are self-contained modules of code that perform a specific task and can be reused throughout a program.</li>
@@ -190,7 +206,7 @@
         </li>
     </ul>
 
-    <h3>Operator Overloading</h3>
+    <h2>Operator Overloading</h2>
     <p>Although C does not support operator overloading as a language feature, it allows developers to use operators in intuitive ways.</p>
     <ul>
         <li><strong>Definition:</strong> Operator overloading is the ability to redefine the behavior of operators for user-defined data types.</li>
@@ -203,7 +219,7 @@
         </li>
     </ul>
 
-    <h3>Extensible</h3>
+    <h2>Extensible</h2>
     <p>C is highly extensible, enabling developers to create libraries and modules that can be integrated into existing codebases.</p>
     <ul>
         <li><strong>Definition:</strong> Extensibility refers to the ability to add new features or functionality to an existing system without modifying its core structure.</li>
@@ -216,7 +232,7 @@
         </li>
     </ul>
 
-    <h3>Community and Support</h3>
+    <h2>Community and Support</h2>
     <p>The C programming language has a vast and active community of developers, providing a wealth of resources, libraries, frameworks, and documentation.</p>
     <ul>
         <li><strong>Definition:</strong> A programming community is a group of developers who share knowledge, resources, and support for a particular programming language.</li>
