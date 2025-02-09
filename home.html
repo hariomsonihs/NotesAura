@@ -25,28 +25,34 @@
       }
       /* Header Styling */
       .main-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      background: linear-gradient(90deg, #4facfe, #00f2fe);
-      color: #fff;
-      position: relative;
-      z-index: 1000; /* Ensures header is above most elements */
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      }
+         border-radius: 0 0 15px 15px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 10px 20px;  /* Reduced padding to fit better */
+         color: #fff;
+         position: fixed;  /* This will keep the header at the top of the page even when scrolling */
+         top: 0;           /* Ensures it is positioned at the top of the page */
+         left: 0;          /* Align to the left */
+         right: 0;         /* Align to the right */
+         z-index: 1000;
+         height: 60px;     /* Fixed height for the header */
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
+         }
       .logo {
-      display: flex; /* लोगो और टेक्स्ट लोगो को एक ही पंक्ति में दिखाएं */
-      align-items: center; /* वर्टिकल सेंटर करें */
-      text-align: left; /* टेक्स्ट को बाईं ओर रखें */
-      }
-      .logo-img {
-      width: 60px; /* लोगो का आकार */
-      height: 60px; /* लोगो की ऊंचाई */
-      margin-right: 10px; /* लोगो और टेक्स्ट लोगो के बीच स्पेस */
-      }
+         display: flex;
+         align-items: center;
+         }
+         .logo-img {
+         width: 40px;
+         height: 40px;
+         margin-right: 10px;
+         }
+         .logo-text {
+         font-size: 1.5rem;
+         font-weight: bold;
+         }
       .logo-content {
       display: flex;
       flex-direction: column; /* टेक्स्ट लोगो और स्लोगन को वर्टिकल रखें */
@@ -58,7 +64,7 @@
       font-weight: bold; /* टेक्स्ट लोगो को बोल्ड करें */
       }
       .slogan {
-      font-size: 0.9rem; /* स्लोगन का छोटा आकार */
+      font-size: 0.7rem; /* स्लोगन का छोटा आकार */
       color: yellow; /* स्लोगन का रंग */
       margin-top: 5px; /* स्लोगन और टेक्स्ट लोगो के बीच स्पेस */
       font-weight:bold;
@@ -81,15 +87,16 @@
       }
       /* Header Styling */
       .main-header {
+         border-radius: 0 0 15px 15px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
-      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      background: linear-gradient(135deg, #6200ea, #0078d7);
       color: #fff;
       position: relative;
       z-index: 1000; /* Ensures header stays above other elements */
-      border-radius: 12px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       overflow: visible; /* Allow child elements (like the nav menu) to overflow */
       }
@@ -186,8 +193,8 @@
       background-color: #0078d7;
       color: #00f2fe;
       padding: 15px 0; /* Increased padding for more space */
-      border-radius: 12px; /* Rounded corners for the marquee section */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+     border-radius: 0 0 15px 15px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       position: relative;
       z-index: 100; /* Ensures it is above other elements */
       margin: 2px 0; 

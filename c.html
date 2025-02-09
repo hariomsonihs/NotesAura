@@ -1,268 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>C Programming Language</title>
-      <style>
-         body {
-         font-family: Arial, sans-serif;
-         background: linear-gradient(to right, #141e30, #243b55);
-         margin: 0;
-         padding: 0;
-         color: #333;
-         user-select:none;
-         }
-         header {
-         border-radius: 0 0 15px 15px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-         background: linear-gradient(135deg, #6200ea, #0078d7);
-         color: white;
-         padding: 5px 5px; 
-         text-align: center;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-         }
-         .container {
-         max-width: 1200px;
-         margin: 20px auto;
-         padding: 20px;
-         background: linear-gradient(to right, #141e30, #243b55);
-         border-radius: 10px;
-         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-         display: flex;
-         flex-wrap: wrap;
-         gap: 20px;
-         justify-content: space-between;
-         }
-         .card {
-         background: linear-gradient(135deg, #141e30, #243b55);
-         color: white;
-         border-radius: 12px;
-         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-         width: calc(20% - 20px); /* 5 cards per row */
-         padding: 25px;
-         transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-         text-align: center;
-         display: flex;
-         flex-direction: column;
-         justify-content: space-between;
-         border: 2px solid yellow; /* Adding a border outline */
-         }
-         .card:hover {
-         border-color: yellow; /* Change the border color on hover */
-         }
-         .card:hover {
-         transform: translateY(-8px);
-         box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-         background: darkolivegreen
-         }
-         .card h2 {
-         color: #ffffff;
-         font-size: 1.6rem;
-         margin-bottom: 20px;
-         font-weight: bold;
-         text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-         }
-         .card ul {
-         list-style: none;
-         padding: 0;
-         margin-bottom: 20px;
-         font-size: 1rem;
-         }
-         .card ul li {
-         padding: 8px 0;
-         border-bottom: 1px solid #f0f0f0;
-         }
-         .card ul li:last-child {
-         border-bottom: none;
-         }
-         .card a {
-         text-decoration: none;
-         color: #ffffff;
-         font-size: 1.2rem;
-         }
-         .card a:hover {
-         text-decoration: underline;
-         color: #bb86fc;
-         }
-         .start-btn button {
-         background-color: yellow;
-         color: black;
-         border: none;
-         padding: 12px 25px;
-         border-radius: 5px;
-         font-size: 1.1rem;
-         cursor: pointer;
-         margin-top: 20px;
-         transition: background-color 0.3s ease, transform 0.3s ease;
-         }
-         .start-btn button:hover {
-         background-color: #3700b3;
-         transform: translateY(-2px);
-         }
-         @media (max-width: 1024px) {
-         .card {
-         width: calc(20% - 20px); /* 5 cards per row on laptop screens */
-         }
-         }
-         @media (max-width: 768px) {
-         .card {
-         width: calc(50% - 20px); /* Two cards per row on smaller screens */
-         }
-         }
-         @media (max-width: 480px) {
-         .card {
-         width: 100%; /* One card per row on mobile */
-         }
-         }
-         h1{
-         font-size: 1.6rem;
-         }
-      </style>
-   </head>
-   <body>
-      <header>
-         <h1>C Programming Language</h1>
-      </header>
-      <div class="container">
-         <!-- Chapter 1 -->
-         <div class="card">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Language</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            user-select: none;
+        }
+        header {
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(to right, #141e30, #243b55);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .card {
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            width: calc(20% - 20px); /* 5 cards per row */
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 2px solid yellow;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+            background: darkolivegreen;
+        }
+        .card h2 {
+            color: #ffffff;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        .card a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+        .card a:hover {
+            text-decoration: underline;
+            color: #bb86fc;
+        }
+        .start-btn button {
+            background-color: yellow;
+            color: black;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .start-btn button:hover {
+            background-color: #3700b3;
+            transform: translateY(-2px);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: white;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        @media (max-width: 1024px) {
+            .card {
+                width: calc(33.33% - 20px); /* 3 cards per row on tablet screens */
+            }
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px); /* 2 cards per row on smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .card {
+                width: 100%; /* 1 card per row on mobile */
+            }
+            header h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>C Programming Language</h1>
+    </header>
+    <div class="container">
+        <!-- Chapter 1 -->
+        <div class="card">
             <h2>Introduction to C</h2>
             <a href="c1.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 2 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 2 -->
+        <div class="card">
             <h2>Features of C</h2>
             <a href="c2.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 3 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 3 -->
+        <div class="card">
             <h2>Basic Syntax & Structure of C</h2>
             <a href="c3.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 4 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 4 -->
+        <div class="card">
             <h2>Comments in C</h2>
             <a href="c4.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 5 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 5 -->
+        <div class="card">
             <h2>C Tokens</h2>
             <a href="c5.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 6 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 6 -->
+        <div class="card">
             <h2>C Keywords</h2>
             <a href="c6.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 7 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 7 -->
+        <div class="card">
             <h2>Input & Output in C</h2>
             <a href="c7.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 8 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 8 -->
+        <div class="card">
             <h2>Variables in C</h2>
             <a href="c8.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 9 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 9 -->
+        <div class="card">
             <h2>Data Types in C</h2>
             <a href="c9.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 10 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 10 -->
+        <div class="card">
             <h2>Type Conversion in C</h2>
             <a href="c10.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 11 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 11 -->
+        <div class="card">
             <h2>Type Casting in C</h2>
             <a href="c11.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 12 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 12 -->
+        <div class="card">
             <h2>C Operators</h2>
             <a href="c12.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 13 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 13 -->
+        <div class="card">
             <h2>Decision Making in C</h2>
             <a href="c13.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 14 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 14 -->
+        <div class="card">
             <h2>Looping in C</h2>
             <a href="c14.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 15 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 15 -->
+        <div class="card">
             <h2>Array in C</h2>
             <a href="c15.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 16 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 16 -->
+        <div class="card">
             <h2>Pointer in C</h2>
             <a href="c16.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 17 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 17 -->
+        <div class="card">
             <h2>Function in C</h2>
             <a href="c17.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 18 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 18 -->
+        <div class="card">
             <h2>Structure in C</h2>
             <a href="c18.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 19 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 19 -->
+        <div class="card">
             <h2>Unions in C</h2>
             <a href="c19.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 20 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 20 -->
+        <div class="card">
             <h2>File Handling in C</h2>
             <a href="c20.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 21 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 21 -->
+        <div class="card">
             <h2>Memory Management in C</h2>
             <a href="c21.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 22 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 22 -->
+        <div class="card">
             <h2>Pointers and Arrays in C</h2>
             <a href="c22.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 23 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 23 -->
+        <div class="card">
             <h2>Dynamic Memory Allocation</h2>
             <a href="c23.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 24 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 24 -->
+        <div class="card">
             <h2>Structures and Unions</h2>
             <a href="c24.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- Chapter 25 -->
-         <div class="card">
+        </div>
+        <!-- Chapter 25 -->
+        <div class="card">
             <h2>Advanced File Handling</h2>
             <a href="c25.html" class="start-btn"><button>Learning</button></a>
-         </div>
-         <!-- footer -->
-         <footer>
-            <!--<div class="footer-social-links">
-               <a href="https://facebook.com/hariomsonihr" target="_blank"><i class="fab fa-facebook"></i></a>
-               <a href="https://twitter.com/hariomsonihr" target="_blank"><i class="fab fa-twitter"></i></a>
-               <a href="https://instagram.com/hariomsonihs" target="_blank"><i class="fab fa-instagram"></i></a>
-               </div>-->
-            <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
-         </footer>
-      </div>
-   </body>
-<<<<<<< HEAD
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 NotesAura. All rights reserved.</p>
+    </footer>
+</body>
 </html>
-=======
-</html>
->>>>>>> f8c77871cb287bf1109543abaa9ffb1d9ca79a56

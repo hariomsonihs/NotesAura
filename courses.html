@@ -1,416 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Courses - NotesAura</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-      <style>
-         /* General Reset */
-         * {
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-         }
-         /* Header Styling */
-         .main-header {
-         border-radius: 0 0 15px 15px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         padding: 10px 20px;  /* Reduced padding to fit better */
-         background: linear-gradient(135deg, #6200ea, #0078d7);
-         color: #fff;
-         position: fixed;  /* This will keep the header at the top of the page even when scrolling */
-         top: 0;           /* Ensures it is positioned at the top of the page */
-         left: 0;          /* Align to the left */
-         right: 0;         /* Align to the right */
-         z-index: 1000;
-         height: 60px;     /* Fixed height for the header */
-         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
-         }
-         body {
-         padding-top: 60px; /* Add padding to the body content so it's not covered by the fixed header */
-         user-select:none;
-         }
-         /* Logo and Navigation Adjustments */
-         .logo {
-         display: flex;
-         align-items: center;
-         }
-         .logo-img {
-         width: 40px;
-         height: 40px;
-         margin-right: 10px;
-         }
-         .logo-text {
-         font-size: 1.5rem;
-         font-weight: bold;
-         }
-         /* Toggle Menu Styling */
-         .toggle-menu {
-         display: flex;
-         flex-direction: column;
-         justify-content: space-between;
-         width: 30px;
-         height: 24px;
-         cursor: pointer;
-         }
-         .toggle-bar {
-         width: 100%;
-         height: 4px;
-         background-color: #fff;
-         border-radius: 2px;
-         transition: transform 0.3s ease, opacity 0.3s ease;
-         }
-         /* Navigation Menu */
-         .nav-menu {
-         position: absolute;
-         top: 100%;
-         right: 20px;
-         background-color: #fff;
-         color: #333;
-         border-radius: 8px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-         overflow: hidden;
-         transform: translateY(-20px);
-         opacity: 0;
-         visibility: hidden;
-         transition: opacity 0.3s ease, transform 0.3s ease;
-         }
-         .nav-menu ul {
-         list-style: none;
-         }
-         .nav-menu li {
-         border-bottom: 1px solid #f0f0f0;
-         }
-         .nav-menu li:last-child {
-         border-bottom: none;
-         }
-         .nav-menu a {
-         display: block;
-         padding: 10px 20px;
-         color: #333;
-         text-decoration: none;
-         font-size: 1rem;
-         transition: background-color 0.3s ease, color 0.3s ease;
-         }
-         .nav-menu a:hover {
-         background-color: #0078d7;
-         color: #fff;
-         }
-         /* Toggle Active State */
-         .toggle-menu.active .toggle-bar:nth-child(1) {
-         transform: translateY(10px) rotate(45deg);
-         }
-         .toggle-menu.active .toggle-bar:nth-child(2) {
-         opacity: 0;
-         }
-         .toggle-menu.active .toggle-bar:nth-child(3) {
-         transform: translateY(-10px) rotate(-45deg);
-         }
-         .nav-menu.active {
-         transform: translateY(0);
-         opacity: 1;
-         visibility: visible;
-         }
-         /* General Reset */
-         * {
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-         font-family: 'Arial', sans-serif;
-         }
-         body {
-         background: linear-gradient(to right, #141e30, #243b55);
-         color: #fff;
-         text-align: center;
-         padding: 20px;
-         }
-         /* Heading Style */
-         h2 {
-         margin-top: 80px;
-         text-align: center;
-         font-size: 2.5rem;
-         margin-bottom: 40px;
-         color: #fff;
-         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-         }
-         /* Card Grid Layout */
-         .card-container {
-         display: grid;
-         grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
-         gap: 20px;
-         max-width: 1200px;
-         margin: 0 auto;
-         }
-         .card {
-         background: rgba(255, 255, 255, 0.1);
-         border-radius: 15px;
-         padding: 20px;
-         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-         text-align: center;
-         border: 2px solid yellow;
-         }
-         .card:hover {
-         transform: translateY(-5px);
-         box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
-         }
-         .card i {
-         font-size: 40px;
-         margin-bottom: 15px;
-         color: #ffcc00;
-         }
-         /* Card Content */
-         .card h3 {
-         font-size: 1.5rem;
-         margin-bottom: 10px;
-         }
-         .card p {
-         font-size: 1rem;
-         color: #ddd;
-         margin-bottom: 15px;
-         }
-         .card button {
-         background: #ffcc00;
-         color: #141e30;
-         border: none;
-         padding: 10px 20px;
-         font-size: 1rem;
-         border-radius: 5px;
-         cursor: pointer;
-         transition: background 0.3s ease-in-out;
-         }
-         .card button:hover {
-         background: #e6b800;
-         }
-         /* Responsive Design */
-         @media (max-width: 1200px) {
-         .card-container {
-         grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
-         }
-         }
-         @media (max-width: 768px) {
-         h2 {
-         font-size: 2rem;
-         }
-         .card-container {
-         grid-template-columns: 1fr; /* Single column for small screens */
-         }
-         .card h3 {
-         font-size: 1.5rem;
-         }
-         .card p {
-         font-size: 0.9rem;
-         }
-         .card button {
-         font-size: 0.9rem;
-         }
-         } 
-         .card img {
-         width: 50px;
-         height: auto;
-         display: block;
-         margin: 0 auto 10px;
-         }
-         .section-title {
-         text-align: left;
-         margin-left: 65px;
-         }
-      </style>
-   </head>
-   <body>
-      <!-- Header -->
-      <header class="main-header">
-         <div class="logo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - NotesAura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* =========================
+        General Reset
+        ========================= */
+        html, body {
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            width: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            padding-top: 60px; /* Adjusted for fixed header */
+            user-select: none;
+        }
+
+        /* =========================
+        Header Styling
+        ========================= */
+        .main-header {
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 60px;
+        }
+
+        /* =========================
+        Logo and Navigation Adjustments
+        ========================= */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .slogan {
+            font-size: 0.7rem;
+            color: yellow;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* =========================
+        Toggle Menu Styling
+        ========================= */
+        .toggle-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .toggle-bar {
+            width: 100%;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* =========================
+        Navigation Menu
+        ========================= */
+        .nav-menu {
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: translateY(-20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .nav-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: #0078d7;
+            color: #fff;
+        }
+
+        /* =========================
+        Toggle Active State
+        ========================= */
+        .toggle-menu.active .toggle-bar:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .toggle-menu.active .toggle-bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .toggle-menu.active .toggle-bar:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        .nav-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* =========================
+        Heading Style
+        ========================= */
+        h2 {
+            margin-top: 30px; /* Reduced top margin */
+            text-align: center;
+            font-size: 1.5rem; /* Smaller font size */
+            margin-bottom: 20px; /* Reduced bottom margin */
+            color: yellow;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* =========================
+        Card Grid Layout
+        ========================= */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+            border: 2px solid yellow;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #ffcc00;
+        }
+
+        .card h3 {
+            font-size: 1.2rem; /* Smaller font size */
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.9rem; /* Smaller font size */
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .card button {
+            background: #ffcc00;
+            color: #141e30;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem; /* Smaller font size */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .card button:hover {
+            background: #e6b800;
+        }
+
+        /* =========================
+        Responsive Design
+        ========================= */
+        @media (max-width: 1200px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5rem; /* Adjusted for smaller screens */
+            }
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            .card h3, .card p, .card button {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* =========================
+        Additional Styles
+        ========================= */
+        .card img {
+            width: 50px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        .section-title {
+            text-align: left;
+            margin-left: 20px; /* Adjusted for better alignment */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo">
             <img src="NotesAura.png" alt="Logo" class="logo-img">
-            <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
-         </div>
-         <div class="toggle-menu">
+            <div class="logo-content">
+                <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+                <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+            </div>
+        </div>
+        <div class="toggle-menu">
             <div class="toggle-bar"></div>
             <div class="toggle-bar"></div>
             <div class="toggle-bar"></div>
-         </div>
-         <nav class="nav-menu">
+        </div>
+        <nav class="nav-menu">
             <ul>
-               <li><a href="home.html">Home</a></li>
-               <li><a href="courses.html">Courses</a></li>
-               <li><a href="project.html">Projects</a></li>
-               <li><a href="contact.html">Contact</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-         </nav>
-      </header>
-      <!-- Basic Computers Section -->
-      <section id="basic-computers">
-         <h2 class="section-title">Programming</h2>
-         <div class="card-container">
-         <div class="card">
-            <i class="fas fa-c"></i>
-            <h3>C Programming</h3>
-            <p>Learn the essentials of C Programming.</p>
-            <a href="c.html"><button>Start Learning</button></a>
-         </div>
-         <div class="card">
-            <i class="fab fa-java"></i>
-            <h3>Java Programming</h3>
-            <p>Learn the Java Programming.</p>
-            <a href="#"><button>Start Learning</button></a>
-         </div>
-         <div class="card">
-            <i class="fab fa-python"></i>
-            <h3>Python Programming</h3>
-            <p>Learn the Python Programming.</p>
-            <a href="#"><button>Start Learning</button></a>
-         </div>
-         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Logo" width="50">
-            <h3>Kotlin Programming</h3>
-            <p>Learn the Kotlin Programming.</p>
-            <a href="#"><button>Start Learning</button></a>
-         </div>
-         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" 
-     alt="C++ Logo" width="50">
-            <h3>C++ Programming</h3>
-            <p>Learn the C++ Programming.</p>
-            <a href="#"><button>Start Learning</button></a>
-         </div>
-      </section>
-      <!-- Basic Programming Section -->
-      <section id="Basic-Programming">
-         <h2 class="section-title">BASIC PROGRAMMING</h2>
-         <div class="card-container">
+        </nav>
+    </header>
+
+    <!-- Programming Section -->
+    <section id="basic-computers">
+        <h2 class="section-title">Programming</h2>
+        <div class="card-container">
             <div class="card">
-               <i class="fab fa-python"></i>
-               <h3>Python</h3>
-               <p>Learn the basics of Python programming.</p>
-               <button onclick="window.open('https://drive.google.com/file/d/17_09EX35hFwsZAoemefQiSILh8b61bQl', '_blank')">Start Learning</button>
+                <i class="fas fa-c"></i>
+                <h3>C Programming</h3>
+                <p>Learn the essentials of C Programming.</p>
+                <a href="c.html"><button>Start Learning</button></a>
             </div>
             <div class="card">
-               <i class="fas fa-code"></i>
-               <h3>C</h3>
-               <p>Learn C programming fundamentals.</p>
-               <button onclick="window.open('https://youtu.be/irqbmMNs2Bo', '_blank')">Start Learning</button>
+                <i class="fab fa-java"></i>
+                <h3>Java Programming</h3>
+                <p>Learn the Java Programming.</p>
+                <a href="#"><button>Start Learning</button></a>
             </div>
             <div class="card">
-               <i class="fas fa-laptop-code"></i>
-               <h3>C++</h3>
-               <p>Master C++ programming.</p>
-               <button onclick="window.open('https://youtu.be/e7sAf4SbS_g', '_blank')">Start Learning</button>
+                <i class="fab fa-python"></i>
+                <h3>Python Programming</h3>
+                <p>Learn the Python Programming.</p>
+                <a href="#"><button>Start Learning</button></a>
             </div>
             <div class="card">
-               <i class="fab fa-java"></i>
-               <h3>Java</h3>
-               <p>Learn Java programming.</p>
-               <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q', '_blank')">Start Learning</button>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Logo" width="50">
+                <h3>Kotlin Programming</h3>
+                <p>Learn the Kotlin Programming.</p>
+                <a href="#"><button>Start Learning</button></a>
             </div>
             <div class="card">
-               <i class="fab fa-c++"></i>
-               <h3>C++ Programming</h3>
-               <p>Learn C++ programming.</p>
-               <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q', '_blank')">Start Learning</button>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" alt="C++ Logo" width="50">
+                <h3>C++ Programming</h3>
+                <p>Learn the C++ Programming.</p>
+                <a href="#"><button>Start Learning</button></a>
             </div>
-         </div>
-      </section>
-      <!-- Web Development Section -->
-      <section id="web-development">
-         <h2 class="section-title">WEB DEVELOPMENT</h2>
-         <div class="card-container">
+        </div>
+    </section>
+
+    <!-- Basic Programming Section -->
+    <section id="Basic-Programming">
+        <h2 class="section-title">BASIC PROGRAMMING</h2>
+        <div class="card-container">
             <div class="card">
-               <i class="fab fa-html5"></i>
-               <h3>HTML</h3>
-               <p>Learn the structure of web pages using HTML.</p>
-               <button onclick="window.open('https://drive.google.com/drive/folders/13OVV2DhBQAErA5X8uOi9kz_yULhD10OE', '_blank')">Start Learning</button>
-            </div>
-            <div class="card">
-               <i class="fab fa-css3-alt"></i>
-               <h3>CSS</h3>
-               <p>Style web pages with CSS.</p>
-               <button onclick="window.open('https://drive.google.com/drive/folders/1_X2euVIAqAowaBAU-hvrjCOGO7yH1wAC', '_blank')">Start Learning</button>
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <p>Learn the basics of Python programming.</p>
+                <button onclick="window.open('https://drive.google.com/file/d/17_09EX35hFwsZAoemefQiSILh8b61bQl', '_blank')">Start Learning</button>
             </div>
             <div class="card">
-               <i class="fab fa-js"></i>
-               <h3>JavaScript</h3>
-               <p>Master interactive web development with JavaScript.</p>
-               <button onclick="window.open('https://drive.google.com/drive/folders/1Ni6JSu0x1357rbKz0AbMwMVvZnxKsdXM', '_blank')">Start Learning</button>
-            </div>
-         </div>
-      </section>
-      <!-- Data Structures Section -->
-      <section id="data-structures">
-         <h2 class="section-title">DATA STRUCTURE</h2>
-         <div class="card-container">
-            <div class="card">
-               <i class="fas fa-database"></i>
-               <h3>Design analysis with Algorithms (DAA)</h3>
-               <p>Learn algorithms with design analysis.</p>
-               <button onclick="window.open('https://youtube.com/playlist?list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa&si=x_aqBolE1o8kQj3J', '_blank')">Start Learning</button>
+                <i class="fas fa-code"></i>
+                <h3>C</h3>
+                <p>Learn C programming fundamentals.</p>
+                <button onclick="window.open('https://youtu.be/irqbmMNs2Bo', '_blank')">Start Learning</button>
             </div>
             <div class="card">
-               <i class="fas fa-database"></i>
-               <h3>DSA with C</h3>
-               <p>Learn data structures and algorithms using C.</p>
-               <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi', '_blank')">Start Learning</button>
+                <i class="fas fa-laptop-code"></i>
+                <h3>C++</h3>
+                <p>Master C++ programming.</p>
+                <button onclick="window.open('https://youtu.be/e7sAf4SbS_g', '_blank')">Start Learning</button>
             </div>
             <div class="card">
-               <i class="fas fa-database"></i>
-               <h3>DSA with Java</h3>
-               <p>Master data structures and algorithms using Java.</p>
-               <button onclick="window.open('https://youtube.com/playlist?list=PLH9iLcrNpXtQYQiudzpZpGw0mptHc06Su', '_blank')">Start Learning</button>
-            </div>
-         </div>
-      </section>
-      <!-- Advanced Programming Section -->
-      <section id="Advance-Programming">
-         <h2 class="section-title">ADVANCE PROGRAMMING</h2>
-         <div class="card-container">
-            <div class="card">
-               <i class="fas fa-mobile-alt"></i>
-               <h3>App Development</h3>
-               <p>Learn app development with real-world projects.</p>
-               <button onclick="window.open('https://drive.google.com/drive/folders/1cV7RcNpLVUXuUxNQTcr_0SDuDjs0yExP', '_blank')">Start Learning</button>
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+                <p>Learn Java programming.</p>
+                <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q', '_blank')">Start Learning</button>
             </div>
             <div class="card">
-               <i class="fab fa-php"></i>
-               <h3>PHP</h3>
-               <p>Master PHP for web development.</p>
-               <button onclick="window.open('https://youtu.be/V821daR3UcM', '_blank')">Start Learning</button>
+                <i class="fab fa-c++"></i>
+                <h3>C++ Programming</h3>
+                <p>Learn C++ programming.</p>
+                <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q', '_blank')">Start Learning</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Development Section -->
+    <section id="web-development">
+        <h2 class="section-title">WEB DEVELOPMENT</h2>
+        <div class="card-container">
+            <div class="card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML</h3>
+                <p>Learn the structure of web pages using HTML.</p>
+                <button onclick="window.open('https://drive.google.com/drive/folders/13OVV2DhBQAErA5X8uOi9kz_yULhD10OE', '_blank')">Start Learning</button>
             </div>
             <div class="card">
-               <i class="fas fa-database"></i>
-               <h3>SQL</h3>
-               <p>Learn database management using SQL.</p>
-               <button onclick="window.open('https://youtu.be/hlGoQC332VM', '_blank')">Start Learning</button>
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS</h3>
+                <p>Style web pages with CSS.</p>
+                <button onclick="window.open('https://drive.google.com/drive/folders/1_X2euVIAqAowaBAU-hvrjCOGO7yH1wAC', '_blank')">Start Learning</button>
             </div>
             <div class="card">
-               <i class="fab fa-github"></i>
-               <h3>Git & GitHub</h3>
-               <p>Learn version control with Git and GitHub.</p>
-               <button onclick="window.open('https://youtu.be/Ez8F0nW6S-w', '_blank')">Start Learning</button>
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+                <p>Master interactive web development with JavaScript.</p>
+                <button onclick="window.open('https://drive.google.com/drive/folders/1Ni6JSu0x1357rbKz0AbMwMVvZnxKsdXM', '_blank')">Start Learning</button>
             </div>
-         </div>
-      </section>
-      <br>
-      <!-- footer -->
-      <footer>
-         <!--<div class="footer-social-links">
-            <a href="https://facebook.com/hariomsonihr" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/hariomsonihr" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com/hariomsonihs" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>-->
-         <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
-      </footer>
-      <script>
-         const toggleMenu = document.querySelector('.toggle-menu');
-         const navMenu = document.querySelector('.nav-menu');
-         
-         toggleMenu.addEventListener('click', () => {
-             toggleMenu.classList.toggle('active');
-             navMenu.classList.toggle('active');
-         });
-         
-      </script>
-   </body>
+        </div>
+    </section>
+
+    <!-- Data Structures Section -->
+    <section id="data-structures">
+        <h2 class="section-title">DATA STRUCTURE</h2>
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>Design analysis with Algorithms (DAA)</h3>
+                <p>Learn algorithms with design analysis.</p>
+                <button onclick="window.open('https://youtube.com/playlist?list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa&si=x_aqBolE1o8kQj3J', '_blank')">Start Learning</button>
+            </div>
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>DSA with C</h3>
+                <p>Learn data structures and algorithms using C.</p>
+                <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi', '_blank')">Start Learning</button>
+            </div>
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>DSA with Java</h3>
+                <p>Master data structures and algorithms using Java.</p>
+                <button onclick="window.open('https://youtube.com/playlist?list=PLH9iLcrNpXtQYQiudzpZpGw0mptHc06Su', '_blank')">Start Learning</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Programming Section -->
+    <section id="Advance-Programming">
+        <h2 class="section-title">ADVANCE PROGRAMMING</h2>
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>App Development</h3>
+                <p>Learn app development with real-world projects.</p>
+                <button onclick="window.open('https://drive.google.com/drive/folders/1cV7RcNpLVUXuUxNQTcr_0SDuDjs0yExP', '_blank')">Start Learning</button>
+            </div>
+            <div class="card">
+                <i class="fab fa-php"></i>
+                <h3>PHP</h3>
+                <p>Master PHP for web development.</p>
+                <button onclick="window.open('https://youtu.be/V821daR3UcM', '_blank')">Start Learning</button>
+            </div>
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>SQL</h3>
+                <p>Learn database management using SQL.</p>
+                <button onclick="window.open('https://youtu.be/hlGoQC332VM', '_blank')">Start Learning</button>
+            </div>
+            <div class="card">
+                <i class="fab fa-github"></i>
+                <h3>Git & GitHub</h3>
+                <p>Learn version control with Git and GitHub.</p>
+                <button onclick="window.open('https://youtu.be/Ez8F0nW6S-w', '_blank')">Start Learning</button>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
+    </footer>
+
+    <script>
+        const toggleMenu = document.querySelector('.toggle-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        toggleMenu.addEventListener('click', () => {
+            toggleMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
 </html>
