@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Programming- NotesAura</title>
+    <title>Courses - NotesAura</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
     <style>
         /* =========================
         General Reset
@@ -76,6 +75,46 @@
             color: yellow;
             margin-top: 5px;
             font-weight: bold;
+        }
+
+        /* =========================
+        Search Bar Styling
+        ========================= */
+        .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Search bar ko center mein align karega */
+    width: 100%; /* Full width */
+    margin: 0 auto; /* Center mein lane ke liye */
+}
+
+        .search-bar input {
+            margin-top:5px;
+            align-items: center;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 0.9rem;
+            width: 200px; /* Adjust width as needed */
+        }
+
+        .search-bar button {
+            background: #ffcc00;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .search-bar button:hover {
+            background: #e6b800;
+        }
+
+        .search-bar i {
+            color: #141e30;
         }
 
         /* =========================
@@ -252,8 +291,26 @@
             .card h3, .card p, .card button {
                 font-size: 0.9rem;
             }
+
+            /* Adjust search bar for mobile */
+            .search-bar {
+                margin-right: 10px;
+            }
+
+            .search-bar input {
+                width: 150px; /* Smaller width for mobile */
+            }
         }
 
+        /* Laptop/Tablet View */
+@media (min-width: 768px) {
+    .search-bar {
+        justify-content: flex-end; /* Right side mein align karega */
+        margin-left: auto; /* Right side mein push karega */
+        margin-right: 20px; /* Right side se thoda space */
+        width: auto; /* Auto width */
+    }
+}
         /* =========================
         Additional Styles
         ========================= */
@@ -268,6 +325,10 @@
             text-align: left;
             margin-left: 20px; /* Adjusted for better alignment */
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -280,106 +341,116 @@
                 <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
             </div>
         </div>
+
+       
+        <!-- Toggle Menu -->
         <div class="toggle-menu">
             <div class="toggle-bar"></div>
             <div class="toggle-bar"></div>
             <div class="toggle-bar"></div>
         </div>
+
+        <!-- Navigation Menu -->
         <nav class="nav-menu">
             <ul>
-                 <li><a href="home.html">Home</a></li>
-               <li><a href="programming.html">Programming</a></li>
-               <li><a href="web-development.html">Web Development</a>
-               <li><a href="android-development.html">Android Development</a></li>
-               <li><a href="devops.html">DevOps</a></li>
-               <li><a href="about.html">Contact</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="programming.html">Programming</a></li>
+                <li><a href="web-development.html">Web Development</a></li>
+                <li><a href="android-development.html">Android Development</a></li>
+                <li><a href="devops.html">DevOps</a></li>
+                <li><a href="about.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+ <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search courses...">
+            <button onclick="searchCourses()"><i class="fas fa-search"></i></button>
+        </div>
 
     <!-- Programming Section -->
     <section id="basic-computers">
         <h2 class="section-title">BASIC PROGRAMMING</h2>
-        <div class="card-container">
+        <div class="card-container" id="cardContainer">
             <!-- C Programming -->
-<div class="card">
-    <i class="fas fa-c"></i>
-    <h3>C Programming</h3>
-    <p>Learn the essentials of C Programming.</p>
-    <a href="c.html"><button>Start Learning</button></a>
-</div>
+            <div class="card" data-name="c programming">
+                <i class="fas fa-c"></i>
+                <h3>C Programming</h3>
+                <p>Learn the essentials of C Programming.</p>
+                <a href="c.html"><button>Start Learning</button></a>
+            </div>
 
-<!-- C++ Programming -->
-<div class="card">
-    <i class="fas fa-c++"></i>
-    <h3>C++ Programming</h3>
-    <p>Master the fundamentals of C++ Programming.</p>
-    <a href="cpp.html"><button>Start Learning</button></a>
-</div>
+            <!-- C++ Programming -->
+            <div class="card" data-name="c++ programming">
+                <i class="fas fa-c++"></i>
+                <h3>C++ Programming</h3>
+                <p>Master the fundamentals of C++ Programming.</p>
+                <a href="cpp.html"><button>Start Learning</button></a>
+            </div>
 
-<!-- Python Programming -->
-<div class="card">
-    <i class="fab fa-python"></i>
-    <h3>Python Programming</h3>
-    <p>Learn Python for beginners and advanced concepts.</p>
-    <a href="python.html"><button>Start Learning</button></a>
-</div>
+            <!-- Python Programming -->
+            <div class="card" data-name="python programming">
+                <i class="fab fa-python"></i>
+                <h3>Python Programming</h3>
+                <p>Learn Python for beginners and advanced concepts.</p>
+                <a href="python.html"><button>Start Learning</button></a>
+            </div>
 
-<!-- Java Programming -->
-<div class="card">
-    <i class="fab fa-java"></i>
-    <h3>Java Programming</h3>
-    <p>Learn Java programming for desktop and web applications.</p>
-    <a href="java.html"><button>Start Learning</button></a>
-</div>
+            <!-- Java Programming -->
+            <div class="card" data-name="java programming">
+                <i class="fab fa-java"></i>
+                <h3>Java Programming</h3>
+                <p>Learn Java programming for desktop and web applications.</p>
+                <a href="java.html"><button>Start Learning</button></a>
+            </div>
 
-<!-- JavaScript Basics -->
-<div class="card">
-    <i class="fab fa-js"></i>
-    <h3>JavaScript Basics</h3>
-    <p>Learn the basics of JavaScript for web development.</p>
-    <a href="javascript.html"><button>Start Learning</button></a>
-</div>
+            <!-- JavaScript Basics -->
+            <div class="card" data-name="javascript basics">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript Basics</h3>
+                <p>Learn the basics of JavaScript for web development.</p>
+                <a href="javascript.html"><button>Start Learning</button></a>
+            </div>
 
-<!-- Ruby Programming -->
-<div class="card">
-    <i class="fas fa-gem"></i>
-    <h3>Ruby Programming</h3>
-    <p>Learn Ruby for web development and scripting.</p>
-    <a href="ruby.html"><button>Start Learning</button></a>
-</div>
+            <!-- Ruby Programming -->
+            <div class="card" data-name="ruby programming">
+                <i class="fas fa-gem"></i>
+                <h3>Ruby Programming</h3>
+                <p>Learn Ruby for web development and scripting.</p>
+                <a href="ruby.html"><button>Start Learning</button></a>
+            </div>
 
-<!-- Go (Golang) Basics -->
-<div class="card">
-    <i class="fas fa-code"></i>
-    <h3>Go (Golang) Basics</h3>
-    <p>Learn the basics of Go programming for modern applications.</p>
-    <a href="golang.html"><button>Start Learning</button></a>
-</div>
+            <!-- Go (Golang) Basics -->
+            <div class="card" data-name="go basics">
+                <i class="fas fa-code"></i>
+                <h3>Go (Golang) Basics</h3>
+                <p>Learn the basics of Go programming for modern applications.</p>
+                <a href="golang.html"><button>Start Learning</button></a>
+            </div>
 
-<!-- Rust Basics -->
-<div class="card">
-    <i class="fas fa-shield-alt"></i>
-    <h3>Rust Basics</h3>
-    <p>Learn Rust for safe and efficient system programming.</p>
-    <a href="rust.html"><button>Start Learning</button></a>
-</div>
+            <!-- Rust Basics -->
+            <div class="card" data-name="rust basics">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Rust Basics</h3>
+                <p>Learn Rust for safe and efficient system programming.</p>
+                <a href="rust.html"><button>Start Learning</button></a>
+            </div>
 
-<!-- Kotlin Basics -->
-<div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Logo" width="50">
-    <h3>Kotlin Basics</h3>
-    <p>Learn Kotlin for Android and modern applications.</p>
-    <a href="kotlin.html"><button>Start Learning</button></a>
-</div>
+            <!-- Kotlin Basics -->
+            <div class="card" data-name="kotlin basics">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Logo" width="50">
+                <h3>Kotlin Basics</h3>
+                <p>Learn Kotlin for Android and modern applications.</p>
+                <a href="kotlin.html"><button>Start Learning</button></a>
+            </div>
 
-<!-- Swift Basics -->
-<div class="card">
-    <i class="fab fa-swift"></i>
-    <h3>Swift Basics</h3>
-    <p>Learn Swift for iOS and macOS development.</p>
-    <a href="swift.html"><button>Start Learning</button></a>
-</div>
+            <!-- Swift Basics -->
+            <div class="card" data-name="swift basics">
+                <i class="fab fa-swift"></i>
+                <h3>Swift Basics</h3>
+                <p>Learn Swift for iOS and macOS development.</p>
+                <a href="swift.html"><button>Start Learning</button></a>
+            </div>
         </div>
     </section>
 
@@ -389,8 +460,9 @@
         <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
     </footer>
 
-    <!-- JavaScript for Toggle Menu -->
+    <!-- JavaScript for Toggle Menu and Search Functionality -->
     <script>
+        // Toggle Menu Functionality
         const toggleMenu = document.querySelector('.toggle-menu');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -398,6 +470,21 @@
             toggleMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
+
+        // Search Functionality
+        function searchCourses() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const cardName = card.getAttribute('data-name').toLowerCase();
+                if (cardName.includes(searchInput)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
     </script>
 </body>
 </html>
