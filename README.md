@@ -37,7 +37,7 @@ Welcome to **NotesAura**, your ultimate destination for high-quality educational
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/NotesAura.git
+   git clone https://github.com/hariomsoni08/notesaura.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -71,7 +71,7 @@ NotesAura/
 
 ## 🎥 Demo
 
-![NotesAura Demo](https://via.placeholder.com/800x400.png?text=NotesAura+Demo)
+![NotesAura Demo](https://notesaura.vercel.app/home.html)
 
 ---
 
@@ -141,13 +141,6 @@ Contributions are welcome! Please follow these steps:
 5. Open a pull request.
 
 ---
-
-## 📊 Stats
-
-![GitHub Repo Stars](https://img.shields.io/github/stars/your-username/NotesAura?style=social)  
-![GitHub Forks](https://img.shields.io/github/forks/your-username/NotesAura?style=social)  
-![GitHub Issues](https://img.shields.io/github/issues/your-username/NotesAura)  
-![GitHub License](https://img.shields.io/github/license/your-username/NotesAura)
 
 ---
 
