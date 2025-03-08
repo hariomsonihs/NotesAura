@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses - NotesAura</title>
+    <title>Android Development - NotesAura</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        /* =========================
+       /* =========================
         General Reset
         ========================= */
         html, body {
@@ -76,6 +76,46 @@
             color: yellow;
             margin-top: 5px;
             font-weight: bold;
+        }
+
+        /* =========================
+        Search Bar Styling
+        ========================= */
+        .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Search bar ko center mein align karega */
+    width: 100%; /* Full width */
+    margin: 0 auto; /* Center mein lane ke liye */
+}
+
+        .search-bar input {
+            margin-top:5px;
+            align-items: center;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 0.9rem;
+            width: 200px; /* Adjust width as needed */
+        }
+
+        .search-bar button {
+            background: #ffcc00;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .search-bar button:hover {
+            background: #e6b800;
+        }
+
+        .search-bar i {
+            color: #141e30;
         }
 
         /* =========================
@@ -252,8 +292,26 @@
             .card h3, .card p, .card button {
                 font-size: 0.9rem;
             }
+
+            /* Adjust search bar for mobile */
+            .search-bar {
+                margin-right: 10px;
+            }
+
+            .search-bar input {
+                width: 150px; /* Smaller width for mobile */
+            }
         }
 
+        /* Laptop/Tablet View */
+@media (min-width: 768px) {
+    .search-bar {
+        justify-content: flex-end; /* Right side mein align karega */
+        margin-left: auto; /* Right side mein push karega */
+        margin-right: 20px; /* Right side se thoda space */
+        width: auto; /* Auto width */
+    }
+}
         /* =========================
         Additional Styles
         ========================= */
@@ -267,6 +325,10 @@
         .section-title {
             text-align: left;
             margin-left: 20px; /* Adjusted for better alignment */
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -296,43 +358,49 @@
             </ul>
         </nav>
     </header>
+    <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search courses...">
+            <button onclick="searchCourses()"><i class="fas fa-search"></i></button>
+        </div>
+
 
 <section id="android-development">
-        <h2 class="section-title">ANDROID DEVELOPMENT</h2>
-        <div class="card-container">
-            <!-- Java (Android) -->
-            <div class="card">
-                <i class="fab fa-java"></i>
-                <h3>Java (Android)</h3>
-                <p>Learn Android development with Java.</p>
-                <a href="java-android.html"><button>Start Learning</button></a>
-            </div>
-
-            <!-- Kotlin -->
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Logo" width="50">
-                <h3>Kotlin</h3>
-                <p>Build modern Android apps with Kotlin.</p>
-                <a href="kotlin.html"><button>Start Learning</button></a>
-            </div>
-
-            <!-- Flutter -->
-            <div class="card">
-                <i class="fab fa-flutter"></i>
-                <h3>Flutter</h3>
-                <p>Create cross-platform apps with Flutter.</p>
-                <a href="flutter.html"><button>Start Learning</button></a>
-            </div>
-
-            <!-- React Native -->
-            <div class="card">
-                <i class="fab fa-react"></i>
-                <h3>React Native</h3>
-                <p>Build mobile apps using React Native.</p>
-                <a href="react-native.html"><button>Start Learning</button></a>
-            </div>
+    <h2 class="section-title">ANDROID DEVELOPMENT</h2>
+    <div class="card-container">
+        <!-- Java (Android) -->
+        <div class="card" data-name="java android">
+            <i class="fab fa-java"></i>
+            <h3>Java (Android)</h3>
+            <p>Learn Android development with Java.</p>
+            <a href="java-android.html"><button>Start Learning</button></a>
         </div>
-    </section>
+
+        <!-- Kotlin -->
+        <div class="card" data-name="kotlin">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Logo" width="50">
+            <h3>Kotlin</h3>
+            <p>Build modern Android apps with Kotlin.</p>
+            <a href="kotlin.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- Flutter -->
+        <div class="card" data-name="flutter">
+            <i class="fab fa-flutter"></i>
+            <h3>Flutter</h3>
+            <p>Create cross-platform apps with Flutter.</p>
+            <a href="flutter.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- React Native -->
+        <div class="card" data-name="react native">
+            <i class="fab fa-react"></i>
+            <h3>React Native</h3>
+            <p>Build mobile apps using React Native.</p>
+            <a href="react-native.html"><button>Start Learning</button></a>
+        </div>
+    </div>
+</section>
 
 
 
@@ -342,8 +410,9 @@
         <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
     </footer>
 
-    <!-- JavaScript for Toggle Menu -->
+   <!-- JavaScript for Toggle Menu and Search Functionality -->
     <script>
+        // Toggle Menu Functionality
         const toggleMenu = document.querySelector('.toggle-menu');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -351,6 +420,21 @@
             toggleMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
+
+        // Search Functionality
+        function searchCourses() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const cardName = card.getAttribute('data-name').toLowerCase();
+                if (cardName.includes(searchInput)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
     </script>
 </body>
 </html>
