@@ -1,8 +1,3 @@
-Here’s the **README file content** in a format you can directly copy and paste into your `README.md` file on GitHub. It includes **icons, badges, and a professional layout** to make your project stand out.
-
----
-
-```markdown
 # 📚 NotesAura - Complete Learning With Us 🚀
 
 Welcome to **NotesAura**, your ultimate destination for high-quality educational resources! Whether you're a beginner or an advanced learner, NotesAura provides comprehensive tutorials, notes, and guides for programming, web development, and more. 🌟
@@ -156,17 +151,5 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-Made with ❤️ by [Hariom Soni](https://github.com/hariomsoni)  
+Made with ❤️ by [Hariom Soni](https://github.com/hariomsoni08)  
 ✨ **Happy Learning!** ✨
-```
-
----
-
-### **How to Use**
-1. Copy the above content.
-2. Paste it into your `README.md` file in your GitHub repository.
-3. Replace placeholders like `your-username` with your actual GitHub username.
-4. Add your project's demo image or video link in the **Demo** section.
-5. Customize the **Developer** section with your details.
-
-Let me know if you need further assistance! 😊
