@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses - NotesAura</title>
+    <title>Web Development</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        /* =========================
+         /* =========================
         General Reset
         ========================= */
         html, body {
@@ -76,6 +76,46 @@
             color: yellow;
             margin-top: 5px;
             font-weight: bold;
+        }
+
+        /* =========================
+        Search Bar Styling
+        ========================= */
+        .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Search bar ko center mein align karega */
+    width: 100%; /* Full width */
+    margin: 0 auto; /* Center mein lane ke liye */
+}
+
+        .search-bar input {
+            margin-top:5px;
+            align-items: center;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 0.9rem;
+            width: 200px; /* Adjust width as needed */
+        }
+
+        .search-bar button {
+            background: #ffcc00;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .search-bar button:hover {
+            background: #e6b800;
+        }
+
+        .search-bar i {
+            color: #141e30;
         }
 
         /* =========================
@@ -252,8 +292,26 @@
             .card h3, .card p, .card button {
                 font-size: 0.9rem;
             }
+
+            /* Adjust search bar for mobile */
+            .search-bar {
+                margin-right: 10px;
+            }
+
+            .search-bar input {
+                width: 150px; /* Smaller width for mobile */
+            }
         }
 
+        /* Laptop/Tablet View */
+@media (min-width: 768px) {
+    .search-bar {
+        justify-content: flex-end; /* Right side mein align karega */
+        margin-left: auto; /* Right side mein push karega */
+        margin-right: 20px; /* Right side se thoda space */
+        width: auto; /* Auto width */
+    }
+}
         /* =========================
         Additional Styles
         ========================= */
@@ -268,40 +326,25 @@
             text-align: left;
             margin-left: 20px; /* Adjusted for better alignment */
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="main-header">
-        <div class="logo">
-            <img src="NotesAura.png" alt="Logo" class="logo-img">
-            <div class="logo-content">
-                <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
-                <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
-            </div>
-        </div>
-        <div class="toggle-menu">
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-        </div>
-        <nav class="nav-menu">
-            <ul>
-                 <li><a href="home.html">Home</a></li>
-               <li><a href="programming.html">Programming</a></li>
-               <li><a href="web-development.html">Web Development</a>
-               <li><a href="android-development.html">Android Development</a></li>
-               <li><a href="devops.html">DevOps</a></li>
-               <li><a href="about.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search courses...">
+        <button onclick="searchCourses()"><i class="fas fa-search"></i></button>
+    </div>
 
-<section id="web-development">
+    <!-- Web Development Section -->
+    <section id="web-development">
         <h2 class="section-title">WEB DEVELOPMENT</h2>
         <div class="card-container">
             <!-- HTML -->
-            <div class="card">
+            <div class="card" data-name="html">
                 <i class="fab fa-html5"></i>
                 <h3>HTML</h3>
                 <p>Learn the structure of web pages using HTML.</p>
@@ -309,7 +352,7 @@
             </div>
 
             <!-- CSS -->
-            <div class="card">
+            <div class="card" data-name="css">
                 <i class="fab fa-css3-alt"></i>
                 <h3>CSS</h3>
                 <p>Style web pages with CSS.</p>
@@ -317,7 +360,7 @@
             </div>
 
             <!-- JavaScript -->
-            <div class="card">
+            <div class="card" data-name="javascript">
                 <i class="fab fa-js"></i>
                 <h3>JavaScript</h3>
                 <p>Master interactive web development with JavaScript.</p>
@@ -325,7 +368,7 @@
             </div>
 
             <!-- React.js -->
-            <div class="card">
+            <div class="card" data-name="react">
                 <i class="fab fa-react"></i>
                 <h3>React.js</h3>
                 <p>Build dynamic user interfaces with React.js.</p>
@@ -333,7 +376,7 @@
             </div>
 
             <!-- Node.js -->
-            <div class="card">
+            <div class="card" data-name="node">
                 <i class="fab fa-node-js"></i>
                 <h3>Node.js</h3>
                 <p>Learn backend development with Node.js.</p>
@@ -341,7 +384,7 @@
             </div>
 
             <!-- Django -->
-            <div class="card">
+            <div class="card" data-name="django">
                 <i class="fab fa-python"></i>
                 <h3>Django</h3>
                 <p>Build web applications with Django.</p>
@@ -350,15 +393,15 @@
         </div>
     </section>
 
-
     <br>
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
     </footer>
 
-    <!-- JavaScript for Toggle Menu -->
+    <!-- JavaScript for Toggle Menu and Search Functionality -->
     <script>
+        // Toggle Menu Functionality
         const toggleMenu = document.querySelector('.toggle-menu');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -366,6 +409,21 @@
             toggleMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
+
+        // Search Functionality
+        function searchCourses() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const cardName = card.getAttribute('data-name').toLowerCase();
+                if (cardName.includes(searchInput)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
     </script>
 </body>
 </html>
