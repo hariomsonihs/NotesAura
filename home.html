@@ -274,60 +274,104 @@
       }
       /* softwares */
       .software {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 50px auto;
       text-align: center;
-      background-color: #ffffff;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      border-radius: 10px;
+      padding-left:10px;
+      padding-right:10px;
+      border-radius: 15px;
+       margin-top:50px;
+       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      color: white;
       }
-      .software h3 {
-      font-size: 2rem;
-      color: #333333;
-      margin-bottom: 20px;
-      }
-      /* Icon container styles */
-      .icon-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-      }
-      /* Icon card styles */
-      .icon {
-      text-decoration: none;
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      width: 120px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      }
-      .icon img {
-      width: 30px;
-      height: 30px;
-      margin-bottom: 10px;
-      transition: transform 0.3s ease;
-      }
-      .icon span {
-      font-size: 14px;
-      color: #333333;
-      font-weight: bold;
-      text-transform: capitalize;
-      text-align: justify;
-      }
-      /* Hover effects */
-      .icon:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-      .icon:hover img {
-      transform: rotate(360deg);
-      }
+
+.software h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.icon-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icon {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 150px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #333;
+}
+
+.icon:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.icon span {
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .software h3 {
+    font-size: 1.5rem;
+  }
+
+  .icon {
+    width: 120px;
+    padding: 15px;
+  }
+
+  .icon img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon span {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .software h3 {
+    font-size: 1.2rem;
+  }
+
+  .icon {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon span {
+    font-size: 0.8rem;
+  }
+}
+
       /* Responsive Design */
       @media (max-width: 768px) {
       .icon {
@@ -460,6 +504,99 @@
       font-size: 0.8rem; /* Further reduction in footer text size */
       }
       }
+      .courses-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.courses-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
+
+.course-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.course-box {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  width: 200px;
+  text-align: center;
+   text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.course-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #ffdd57;
+}
+
+.course-box h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .course-box {
+    width: 45%;
+    padding: 20px 10px;
+  border-radius: 10px;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+
+  .course-box h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-box {
+    width: 100%;
+    padding: 20px 10px;
+    border-radius: 10px;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+  }
+
+  .course-box h3 {
+    font-size: 0.9rem;
+  }
+}
+.courses-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 4px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  display: inline-block; /* Required for border */
+  padding: 10px 20px; /* Add padding for better spacing */
+  
+  border-radius: 10px; /* Rounded corners */
+}
+
    </style>
    </head>
    <body>
@@ -526,33 +663,99 @@
                   <p>"NotesAura offers web development resources on technologies such as Node.js, Angular, and PHP to help you create modern websites and applications."</p>
                </blockquote>
             </div>
-            <!-- Apps -->
-            <div class="software">
-               <h3>✨ Our Useful Apps/Products✨ </h3>
-               <br>
-               <div class="icon-container">
-                  <a href="https://indusapp.store/g5inaxbu" class="icon" target="_blank">
-                  <img src="NotesAura.png" alt="NotesAura">
-                  <span>NotesAura</span>
-                  </a>
-                  <a href="https://indusapp.store/0vxq40fn" class="icon" target="_blank">
-                  <img src="bihar_board_12th.png" alt="Bihar Board 12th Guide">
-                  <span>Bihar Board 12th Guide</span>
-                  </a>
-                  <a href="https://indusapp.store/huqwid31" class="icon" target="_blank">
-                  <img src="c_logo.jpeg" alt="C programming Guide">
-                  <span>C programming Guide</span>
-                  </a>
-               </div>
-            </div>
-            <br>
-            <!-- Call-to-Action Section 
-               <div class="cta">
-                   <h2>Stay Updated!</h2>
-                   <p>With NotesAura</p>
-                   <a href="https://wa.me/917667110195?text=Hello!%20I%20am%20interested%20in%20your%20services." target="_blank" class="cta-button">Join WhatsApp</a>
-               </div>-->
          </section>
+
+          <div class="courses-container">
+    <h1>Our Courses</h1>
+    <div class="course-boxes">
+       <!-- Basic Programming -->
+      <a href="programming.html" class="course-box">
+        <i class="fas fa-laptop icon"></i>
+        <h3>Basic Programming</h3>
+      </a>
+      <!-- Web Development -->
+      <a href="web-development.html" class="course-box">
+        <i class="fas fa-globe icon"></i>
+        <h3>Web Development</h3>
+      </a>
+      <!-- Android App Development -->
+      <a href="android-development.html" class="course-box">
+        <i class="fas fa-mobile-alt icon"></i>
+        <h3>Android App Development</h3>
+      </a>
+      <!-- DevOps Section -->
+      <a href="devops.html" class="course-box">
+         <i class="fas fa-cogs icon"></i> <!-- Docker Icon -->
+         <h3>DevOps</h3>
+      </a>
+      <!-- C Programming -->
+      <a href="c.html" class="course-box">
+        <i class="fas fa-code icon"></i>
+        <h3>C Programming</h3>
+      </a>
+      <!-- C++ Programming -->
+      <a href="cpp.html" class="course-box">
+        <i class="fas fa-laptop-code icon"></i>
+        <h3>C++ Programming</h3>
+      </a>
+      <!-- Java Programming -->
+      <a href="java.html" class="course-box">
+        <i class="fab fa-java icon"></i>
+        <h3>Java Programming</h3>
+      </a>
+      <!-- Python Programming -->
+      <a href="python.html" class="course-box">
+        <i class="fab fa-python icon"></i>
+        <h3>Python Programming</h3>
+      </a>
+       <!-- Ruby Programming -->
+      <a href="#.html" class="course-box">
+        <i class="fas fa-gem icon"></i> <!-- Ruby Icon -->
+        <h3>Ruby Programming</h3>
+      </a>
+      <!-- Go Programming -->
+      <a href="#" class="course-box">
+        <i class="fas fa-code icon"></i> <!-- Code Icon for Go -->
+        <h3>Go Programming</h3>
+      </a>
+      <!-- HTML -->
+      <a href="#" class="course-box">
+        <i class="fab fa-html5 icon"></i>
+        <h3>HTML</h3>
+      </a>
+      <!-- CSS -->
+      <a href="#" class="course-box">
+        <i class="fab fa-css3-alt icon"></i>
+        <h3>CSS</h3>
+      </a>
+      <!-- JavaScript -->
+      <a href="javascript.html" class="course-box">
+        <i class="fab fa-js-square icon"></i>
+        <h3>JavaScript</h3>
+      </a>
+    </div>
+  </div>
+
+ <!-- Apps Section -->
+  <div class="software">
+    <h3>✨ Our Useful Apps/Products ✨</h3>
+    <div class="icon-container">
+      <a href="https://indusapp.store/g5inaxbu" class="icon" target="_blank">
+        <img src="NotesAura.png" alt="NotesAura">
+        <span>NotesAura</span>
+      </a>
+      <a href="https://indusapp.store/0vxq40fn" class="icon" target="_blank">
+        <img src="bihar_board_12th.png" alt="Bihar Board 12th Guide">
+        <span>Bihar Board 12th Guide</span>
+      </a>
+      <a href="https://indusapp.store/huqwid31" class="icon" target="_blank">
+        <img src="c_logo.jpeg" alt="C programming Guide">
+        <span>C Programming Guide</span>
+      </a>
+    </div>
+  </div>
+
+
       </main>
       <!-- footer -->
       <footer>
@@ -561,7 +764,7 @@
             <a href="https://twitter.com/hariomsonihr" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="https://instagram.com/hariomsonihs" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.linkedin.com/in/hariomsonihs" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.github.com/hariomsonihs" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.github.com/hariomsoni08" target="_blank"><i class="fab fa-github"></i></a>
             <!-- Add more social icons as needed -->
          </div>
          <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
