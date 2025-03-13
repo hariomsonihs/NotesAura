@@ -504,14 +504,16 @@
       font-size: 0.8rem; /* Further reduction in footer text size */
       }
       }
+      /*course container*/
       .courses-container {
             text-align: center;
             padding: 40px 20px;
+            
         }
 
         .courses-container h1 {
             font-size: 2.5rem;
-            margin-bottom: 40px;
+            margin-bottom: 1px;
             background: linear-gradient(90deg, #6a11cb, #2575fc);
             -webkit-background-clip: text;
             background-clip: text;
@@ -590,7 +592,93 @@
                 font-size: 0.9rem;
             }
         }
+        /*Cheat Sheets*/
+        .cheatsheets-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
 
+        .cheatsheets-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .cheatsheet-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cheatsheet-box {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            width: 200px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cheatsheet-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cheatsheet-box .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffdd57;
+        }
+
+        .cheatsheet-box h3 {
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cheatsheet-box {
+                width: calc(50% - 20px); /* Two boxes per row with gap */
+                padding: 20px 10px;
+                border-radius: 10px;
+            }
+
+            .cheatsheet-box .icon {
+                font-size: 2rem;
+            }
+
+            .cheatsheet-box h3 {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cheatsheet-box {
+                width: calc(50% - 20px); /* Two boxes per row with gap */
+                padding: 20px 10px;
+                border-radius: 10px;
+            }
+
+            .cheatsheet-box .icon {
+                font-size: 1.8rem;
+            }
+
+            .cheatsheet-box h3 {
+                font-size: 0.9rem;
+            }
+        }
    </style>
    </head>
    <body>
@@ -745,7 +833,52 @@
         </div>
     </div>
 
-
+<!-- Cheat Sheets Section -->
+    <div class="cheatsheets-container">
+        <h1>Cheat Sheets</h1>
+        <div class="cheatsheet-boxes">
+            <!-- HTML Cheat Sheet -->
+            <a href="html-cheatsheet.html" class="cheatsheet-box">
+                <i class="fab fa-html5 icon"></i>
+                <h3>HTML Cheat Sheet</h3>
+            </a>
+            <!-- CSS Cheat Sheet -->
+            <a href="css-cheatsheet.html" class="cheatsheet-box">
+                <i class="fab fa-css3-alt icon"></i>
+                <h3>CSS Cheat Sheet</h3>
+            </a>
+            <!-- JavaScript Cheat Sheet -->
+            <a href="javascript-cheatsheet.html" class="cheatsheet-box">
+                <i class="fab fa-js-square icon"></i>
+                <h3>JavaScript Cheat Sheet</h3>
+            </a>
+            <!-- Python Cheat Sheet -->
+            <a href="python-cheatsheet.html" class="cheatsheet-box">
+                <i class="fab fa-python icon"></i>
+                <h3>Python Cheat Sheet</h3>
+            </a>
+            <!-- Git Cheat Sheet -->
+            <a href="git-cheatsheet.html" class="cheatsheet-box">
+                <i class="fab fa-git-alt icon"></i>
+                <h3>Git Cheat Sheet</h3>
+            </a>
+            <!-- Terminal Cheat Sheet -->
+            <a href="terminal-cheatsheet.html" class="cheatsheet-box">
+                <i class="fas fa-terminal icon"></i>
+                <h3>Terminal Cheat Sheet</h3>
+            </a>
+            <!-- Docker Cheat Sheet -->
+            <a href="docker-cheatsheet.html" class="cheatsheet-box">
+                <i class="fab fa-docker icon"></i>
+                <h3>Docker Cheat Sheet</h3>
+            </a>
+            <!-- Linux Cheat Sheet -->
+            <a href="linux-cheatsheet.html" class="cheatsheet-box">
+                <i class="fab fa-linux icon"></i>
+                <h3>Linux Cheat Sheet</h3>
+            </a>
+        </div>
+    </div>
  <!-- Apps Section -->
   <div class="software">
     <h3>✨ Our Useful Apps/Products ✨</h3>
