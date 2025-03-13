@@ -505,97 +505,91 @@
       }
       }
       .courses-container {
-  text-align: center;
-  padding: 40px 20px;
-}
+            text-align: center;
+            padding: 40px 20px;
+        }
 
-.courses-container h1 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #2c3e50;
-}
+        .courses-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
 
-.course-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
+        .course-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
 
-.course-box {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: white;
-  padding: 30px 20px;
-  border-radius: 15px;
-  width: 200px;
-  text-align: center;
-   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
+        .course-box {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            width: 200px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
 
-.course-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
+        .course-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
-.icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: #ffdd57;
-}
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffdd57;
+        }
 
-.course-box h3 {
-  font-size: 1.2rem;
-  margin: 0;
-  font-weight: 600;
-}
+        .course-box h3 {
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 600;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .course-box {
-    width: 45%;
-    padding: 20px 10px;
-  border-radius: 10px;
-  }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .course-box {
+                width: calc(50% - 20px); /* Two boxes per row with gap */
+                padding: 20px 10px;
+                border-radius: 10px;
+            }
 
-  .icon {
-    font-size: 2rem;
-  }
+            .icon {
+                font-size: 2rem;
+            }
 
-  .course-box h3 {
-    font-size: 1rem;
-  }
-}
+            .course-box h3 {
+                font-size: 1rem;
+            }
+        }
 
-@media (max-width: 480px) {
-  .course-box {
-    width: 100%;
-    padding: 20px 10px;
-    border-radius: 10px;
-  }
+        @media (max-width: 480px) {
+            .course-box {
+                width: calc(50% - 20px); /* Two boxes per row with gap */
+                padding: 20px 10px;
+                border-radius: 10px;
+            }
 
-  .icon {
-    font-size: 1.8rem;
-  }
+            .icon {
+                font-size: 1.8rem;
+            }
 
-  .course-box h3 {
-    font-size: 0.9rem;
-  }
-}
-.courses-container h1 {
-  font-size: 2.5rem;
-  margin-bottom: 4px;
-  background: linear-gradient(90deg, #6a11cb, #2575fc);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 600;
-  display: inline-block; /* Required for border */
-  padding: 10px 20px; /* Add padding for better spacing */
-  
-  border-radius: 10px; /* Rounded corners */
-}
+            .course-box h3 {
+                font-size: 0.9rem;
+            }
+        }
 
    </style>
    </head>
@@ -666,91 +660,91 @@
          </section>
 
           <div class="courses-container">
-    <h1>Our Courses</h1>
-    <div class="course-boxes">
-       <!-- Basic Programming -->
-      <a href="programming.html" class="course-box">
-        <i class="fas fa-laptop icon"></i>
-        <h3>Basic Programming</h3>
-      </a>
-      <!-- Web Development -->
-      <a href="web-development.html" class="course-box">
-        <i class="fas fa-globe icon"></i>
-        <h3>Web Development</h3>
-      </a>
-      <!-- Android App Development -->
-      <a href="android-development.html" class="course-box">
-        <i class="fas fa-mobile-alt icon"></i>
-        <h3>Android App Development</h3>
-      </a>
-      <!-- DevOps Section -->
-      <a href="devops.html" class="course-box">
-         <i class="fas fa-cogs icon"></i> <!-- Docker Icon -->
-         <h3>DevOps</h3>
-      </a>
-      <!-- C Programming -->
-      <a href="c.html" class="course-box">
-        <i class="fas fa-code icon"></i>
-        <h3>C Programming</h3>
-      </a>
-      <!-- C++ Programming -->
-      <a href="cpp.html" class="course-box">
-        <i class="fas fa-laptop-code icon"></i>
-        <h3>C++ Programming</h3>
-      </a>
-      <!-- Java Programming -->
-      <a href="java.html" class="course-box">
-        <i class="fab fa-java icon"></i>
-        <h3>Java Programming</h3>
-      </a>
-      <!-- Kotlin -->
-<a href="kotlin.html" class="course-box">
-    <i class="fab fa-korvue icon"></i> <!-- Font Awesome Kotlin icon (placeholder) -->
-    <h3>Kotlin</h3>
-</a>
-      <!-- Python Programming -->
-      <a href="python.html" class="course-box">
-        <i class="fab fa-python icon"></i>
-        <h3>Python Programming</h3>
-      </a>
-       <!-- Ruby Programming -->
-      <a href="ruby.html" class="course-box">
-        <i class="fas fa-gem icon"></i> <!-- Ruby Icon -->
-        <h3>Ruby Programming</h3>
-      </a>
-      <!-- Go Programming -->
-      <a href="go.html" class="course-box">
-        <i class="fas fa-code icon"></i> <!-- Code Icon for Go -->
-        <h3>Go Programming</h3>
-      </a>
-      <!-- HTML -->
-      <a href="#" class="course-box">
-        <i class="fab fa-html5 icon"></i>
-        <h3>HTML</h3>
-      </a>
-      <!-- CSS -->
-      <a href="#" class="course-box">
-        <i class="fab fa-css3-alt icon"></i>
-        <h3>CSS</h3>
-      </a>
-      <!-- JavaScript -->
-      <a href="javascript.html" class="course-box">
-        <i class="fab fa-js-square icon"></i>
-        <h3>JavaScript</h3>
-      </a>
-      <!-- Rust -->
-    <a href="#" class="course-box" target="_blank">
-        <i class="fas fa-cog icon"></i> <!-- Font Awesome cog icon for Rust -->
-        <span>Rust Programming</span>
-    </a>
-
-    <!-- Swift -->
-    <a href="#" class="course-box" target="_blank">
-        <i class="fab fa-swift icon"></i> <!-- Font Awesome Swift icon -->
-        <span>Swift Programming</span>
-    </a>
+        <h1>Our Courses</h1>
+        <div class="course-boxes">
+            <!-- Basic Programming -->
+            <a href="programming.html" class="course-box">
+                <i class="fas fa-laptop icon"></i>
+                <h3>Basic Programming</h3>
+            </a>
+            <!-- Web Development -->
+            <a href="web-development.html" class="course-box">
+                <i class="fas fa-globe icon"></i>
+                <h3>Web Development</h3>
+            </a>
+            <!-- Android App Development -->
+            <a href="android-development.html" class="course-box">
+                <i class="fas fa-mobile-alt icon"></i>
+                <h3>Android App Development</h3>
+            </a>
+            <!-- DevOps Section -->
+            <a href="devops.html" class="course-box">
+                <i class="fas fa-cogs icon"></i>
+                <h3>DevOps</h3>
+            </a>
+            <!-- C Programming -->
+            <a href="c.html" class="course-box">
+                <i class="fas fa-code icon"></i>
+                <h3>C Programming</h3>
+            </a>
+            <!-- C++ Programming -->
+            <a href="cpp.html" class="course-box">
+                <i class="fas fa-laptop-code icon"></i>
+                <h3>C++ Programming</h3>
+            </a>
+            <!-- Java Programming -->
+            <a href="java.html" class="course-box">
+                <i class="fab fa-java icon"></i>
+                <h3>Java Programming</h3>
+            </a>
+            <!-- Kotlin -->
+            <a href="kotlin.html" class="course-box">
+                <i class="fab fa-korvue icon"></i>
+                <h3>Kotlin</h3>
+            </a>
+            <!-- Python Programming -->
+            <a href="python.html" class="course-box">
+                <i class="fab fa-python icon"></i>
+                <h3>Python Programming</h3>
+            </a>
+            <!-- Ruby Programming -->
+            <a href="ruby.html" class="course-box">
+                <i class="fas fa-gem icon"></i>
+                <h3>Ruby Programming</h3>
+            </a>
+            <!-- Go Programming -->
+            <a href="go.html" class="course-box">
+                <i class="fas fa-code icon"></i>
+                <h3>Go Programming</h3>
+            </a>
+            <!-- HTML -->
+            <a href="#" class="course-box">
+                <i class="fab fa-html5 icon"></i>
+                <h3>HTML</h3>
+            </a>
+            <!-- CSS -->
+            <a href="#" class="course-box">
+                <i class="fab fa-css3-alt icon"></i>
+                <h3>CSS</h3>
+            </a>
+            <!-- JavaScript -->
+            <a href="javascript.html" class="course-box">
+                <i class="fab fa-js-square icon"></i>
+                <h3>JavaScript</h3>
+            </a>
+            <!-- Rust -->
+            <a href="#" class="course-box">
+                <i class="fas fa-cog icon"></i>
+                <h3>Rust Programming</h3>
+            </a>
+            <!-- Swift -->
+            <a href="#" class="course-box">
+                <i class="fab fa-swift icon"></i>
+                <h3>Swift Programming</h3>
+            </a>
+        </div>
     </div>
-  </div>
+
 
  <!-- Apps Section -->
   <div class="software">
