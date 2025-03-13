@@ -540,6 +540,19 @@
       font-size: 0.8rem; /* Further reduction in footer text size */
       }
       }
+      /* Highlight Creator Name */
+#creator {
+    color: #2575fc; /* Highlight color */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: underline; /* Underline text */
+    transition: color 0.3s ease; /* Smooth color transition */
+    text-decoration:none;
+}
+
+#creator:hover {
+    color: #6a11cb; /* Change color on hover */
+}
       /*course container*/
       .courses-container {
             text-align: center;
@@ -1028,21 +1041,19 @@
       
     </div>
   </div>
-
-
       </main>
       <!-- footer -->
-      <footer>
-         <div class="footer-social-links">
-            <a href="https://facebook.com/hariomsonihr" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/hariomsonihr" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com/hariomsonihs" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/hariomsonihs" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.github.com/hariomsoni08" target="_blank"><i class="fab fa-github"></i></a>
-            <!-- Add more social icons as needed -->
-         </div>
-         <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
-      </footer>
+<footer>
+    <div class="footer-social-links">
+        <a href="https://facebook.com/hariomsonihr" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/hariomsonihr" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/hariomsonihs" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/hariomsonihs" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.github.com/hariomsoni08" target="_blank"><i class="fab fa-github"></i></a>
+        <!-- Add more social icons as needed -->
+    </div>
+    <p>&copy; 2025 NotesAura. All rights reserved. <br><span id="creator">Designed and created by Hariom Soni</span></p>
+</footer>
       <script>
       
     // Toggle Menu Functionality
@@ -1097,6 +1108,10 @@
         if (e.key === 'Enter') {
             searchContent();
         }
+    });
+     // Open Instagram Link on Click
+    document.getElementById('creator').addEventListener('click', () => {
+        window.open('https://instagram.com/hariomsonihs', '_blank'); // Open Instagram profile in new tab
     });
 </script>
    </body>
