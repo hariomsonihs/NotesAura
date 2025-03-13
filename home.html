@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -1073,3 +1074,1080 @@
       </script>
    </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>NotesAura</title>
+      <link rel="icon" href="NotesAura.webp" type="image/x-icon">
+      <!-- <link rel="stylesheet" href="styles.css"> -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <style>
+         /* General Reset */
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         }
+         body, * {
+         user-select: none; /* Disables text selection for all elements */
+         -webkit-user-select: none; /* For Safari */
+         -moz-user-select: none; /* For Firefox */
+         -ms-user-select: none; /* For Internet Explorer/Edge */
+         }
+         /* Header Styling */
+         .main-header {
+         border-radius: 0 0 15px 15px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 10px 20px;  /* Reduced padding to fit better */
+         color: #fff;
+         position: fixed;  /* This will keep the header at the top of the page even when scrolling */
+         top: 0;           /* Ensures it is positioned at the top of the page */
+         left: 0;          /* Align to the left */
+         right: 0;         /* Align to the right */
+         z-index: 1000;
+         height: 60px;     /* Fixed height for the header */
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
+         }
+         .logo {
+         display: flex;
+         align-items: center;
+         }
+         .logo-img {
+         width: 40px;
+         height: 40px;
+         margin-right: 10px;
+         }
+         .logo-text {
+         font-size: 1.5rem;
+         font-weight: bold;
+         }
+         .logo-content {
+         display: flex;
+         flex-direction: column; /* टेक्स्ट लोगो और स्लोगन को वर्टिकल रखें */
+         justify-content: center; /* वर्टिकल कंटेंट को सेंटर करें */
+         align-items: flex-start;
+         }
+         .logo-text {
+         font-size: 1.5rem; /* टेक्स्ट लोगो का आकार */
+         font-weight: bold; /* टेक्स्ट लोगो को बोल्ड करें */
+         }
+         .slogan {
+         font-size: 0.7rem; /* स्लोगन का छोटा आकार */
+         color: yellow; /* स्लोगन का रंग */
+         margin-top: 5px; /* स्लोगन और टेक्स्ट लोगो के बीच स्पेस */
+         font-weight:bold;
+         }
+         /* Toggle Menu Styling */
+         .toggle-menu {
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         width: 30px;
+         height: 24px;
+         cursor: pointer;
+         }
+         .toggle-bar {
+         width: 100%;
+         height: 4px;
+         background-color: #fff;
+         border-radius: 2px;
+         transition: transform 0.3s ease, opacity 0.3s ease;
+         }
+         /* Header Styling */
+         .main-header {
+         border-radius: 0 0 15px 15px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 15px 20px;
+         background: linear-gradient(135deg, #6200ea, #0078d7);
+         color: #fff;
+         position: relative;
+         z-index: 1000; /* Ensures header stays above other elements */
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         overflow: visible; /* Allow child elements (like the nav menu) to overflow */
+         }
+         /* Toggle Menu Styling */
+         .toggle-menu {
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         width: 30px;
+         height: 24px;
+         cursor: pointer;
+         }
+         .toggle-bar {
+         width: 100%;
+         height: 4px;
+         background-color: #fff;
+         border-radius: 2px;
+         transition: transform 0.3s ease, opacity 0.3s ease;
+         }
+         /* Navigation Menu */
+         .nav-menu {
+         position: absolute;
+         top: 100%;
+         right: 20px;
+         background-color: #fff;
+         color: #333;
+         border-radius: 8px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         overflow: hidden;
+         transform: translateY(-20px);
+         opacity: 0;
+         visibility: hidden;
+         transition: opacity 0.3s ease, transform 0.3s ease;
+         }
+         .nav-menu ul {
+         list-style: none;
+         }
+         .nav-menu li {
+         border-bottom: 1px solid #f0f0f0;
+         }
+         .nav-menu li:last-child {
+         border-bottom: none;
+         }
+         .nav-menu a {
+         display: block;
+         padding: 10px 20px;
+         color: #333;
+         text-decoration: none;
+         font-size: 1rem;
+         transition: background-color 0.3s ease, color 0.3s ease;
+         }
+         .nav-menu a:hover {
+         background-color: #0078d7;
+         color: #fff;
+         }
+         /* Toggle Active State */
+         .toggle-menu.active .toggle-bar:nth-child(1) {
+         transform: translateY(10px) rotate(45deg);
+         }
+         .toggle-menu.active .toggle-bar:nth-child(2) {
+         opacity: 0;
+         }
+         .toggle-menu.active .toggle-bar:nth-child(3) {
+         transform: translateY(-10px) rotate(-45deg);
+         }
+         .nav-menu.active {
+         transform: translateY(0);
+         opacity: 1;
+         visibility: visible;
+         }
+         /* General Reset */
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: 'Arial', sans-serif;
+         }
+         /* Responsive Design */
+         @media (max-width: 768px) {
+         .nav-menu {
+         width: 200px;
+         }
+         }
+         /* /* General Reset */
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: 'Arial', sans-serif;
+         }
+         /* Marquee Section */
+         .marquee {
+         overflow: hidden;
+         background-color: #0078d7;
+         color: #00f2fe;
+         padding: 15px 0; /* Increased padding for more space */
+         border-radius: 0 0 15px 15px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         position: relative;
+         z-index: 100; /* Ensures it is above other elements */
+         margin: 2px 0; 
+         }
+         /* Marquee Content */
+         .marquee-content {
+         display: flex;
+         animation: scroll 15s linear infinite;
+         gap: 30px;
+         align-items: center; /* Centers the content vertically */
+         }
+         /* Animated Links */
+         .animated-link {
+         text-decoration: none;
+         color: #fff;
+         font-size: 1.2rem; /* Slightly larger font for more prominence */
+         font-weight: bold;
+         transition: color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+         border-radius: 8px; /* Rounded corners for each link */
+         padding: 5px 10px; /* Add padding to make the link clickable */
+         }
+         /* Hover Effects for Links */
+         .animated-link:hover {
+         color: #00d1ff;
+         transform: scale(1.1); /* Slight zoom effect on hover */
+         background-color: rgba(0, 0, 0, 0.2); /* Light background on hover */
+         }
+         /* Scroll Animation */
+         @keyframes scroll {
+         0% {
+         transform: translateX(100%);
+         }
+         100% {
+         transform: translateX(-100%);
+         }
+         }
+         /* Hero Section */
+         .hero {
+         text-align: center;
+         padding: 10px 20px; /* Compact padding */
+         background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+         color: white;
+         border-radius: 10px; /* Rounded corners */
+         margin: 10px auto; /* Center the section */
+         max-width: 600px; /* Limit width for better readability */
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+         }
+         .hero h1 {
+         font-size: 1.8rem; /* Smaller heading size */
+         margin: 0;
+         font-weight: 600;
+         }
+         .hero p {
+         font-size: 1rem; /* Smaller paragraph size */
+         margin: 5px 0 0;
+         font-style: italic;
+         }
+         /* Responsive Design */
+         @media (max-width: 768px) {
+         .hero {
+         padding: 8px 15px; /* Even more compact on mobile */
+         max-width: 90%; /* Adjust width for smaller screens */
+         }
+         .hero h1 {
+         font-size: 1.5rem; /* Smaller font size for mobile */
+         }
+         .hero p {
+         font-size: 0.9rem; /* Smaller font size for mobile */
+         }
+         }
+         @media (max-width: 480px) {
+         .hero {
+         padding: 5px 10px; /* Very compact for small devices */
+         border-radius: 8px; /* Slightly smaller rounded corners */
+         }
+         .hero h1 {
+         font-size: 1.2rem; /* Smaller font size for small devices */
+         }
+         .hero p {
+         font-size: 0.8rem; /* Smaller font size for small devices */
+         }
+         }
+         /* Testimonials Section */
+         .testimonials {
+         padding: 40px 20px;
+         background-color: #f9f9f9;
+         text-align: center;
+         }
+         .testimonials h2 {
+         font-size: 2rem;
+         margin-bottom: 20px;
+         color: #0078d7;
+         }
+         .testimonials blockquote {
+         font-size: 1.1rem;
+         margin: 15px auto;
+         padding: 15px;
+         background-color: #fff;
+         color: #555;
+         border-left: 4px solid #0078d7;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+         max-width: 600px;
+         text-align: left;
+         }
+         /* softwares */
+         .software {
+         max-width: 800px;
+         margin: 50px auto;
+         text-align: center;
+         background: linear-gradient(90deg, #6a11cb, #2575fc);
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+         padding-left:10px;
+         padding-right:10px;
+         border-radius: 15px;
+         margin-top:50px;
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+         color: white;
+         }
+         .software h3 {
+         font-size: 2rem;
+         margin-bottom: 20px;
+         font-weight: 600;
+         }
+         .icon-container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 20px;
+         }
+         .icon {
+         background: white;
+         padding: 20px;
+         border-radius: 15px;
+         text-align: center;
+         width: 150px;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         text-decoration: none;
+         color: #333;
+         }
+         .icon:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+         }
+         .icon img {
+         width: 60px;
+         height: 60px;
+         margin-bottom: 10px;
+         border-radius: 10px;
+         }
+         .icon span {
+         font-size: 1rem;
+         font-weight: 500;
+         display: block;
+         color: #2c3e50;
+         }
+         /* Responsive Design */
+         @media (max-width: 768px) {
+         .software h3 {
+         font-size: 1.5rem;
+         }
+         .icon {
+         width: 120px;
+         padding: 15px;
+         }
+         .icon img {
+         width: 50px;
+         height: 50px;
+         }
+         .icon span {
+         font-size: 0.9rem;
+         }
+         }
+         @media (max-width: 480px) {
+         .software h3 {
+         font-size: 1.2rem;
+         }
+         .icon {
+         width: 100%;
+         padding: 15px;
+         border-radius: 10px;
+         }
+         .icon img {
+         width: 40px;
+         height: 40px;
+         }
+         .icon span {
+         font-size: 0.8rem;
+         }
+         }
+         /* Responsive Design */
+         @media (max-width: 768px) {
+         .icon {
+         width: 100px;
+         padding: 10px;
+         }
+         .icon img {
+         width: 40px;
+         height: 40px;
+         }
+         .icon span {
+         font-size: 12px;
+         text-align: justify;
+         }
+         }
+         @media (max-width: 480px) {
+         .icon {
+         width: 80px;
+         padding: 8px;
+         }
+         .icon img {
+         width: 50px;
+         height: 50px;
+         }
+         .icon span {
+         font-size: 10px;
+         text-align: center;
+         }
+         }
+         /* Call-to-Action Section */
+         .cta {
+         text-align: center;
+         padding: 40px 20px;
+         background-color: #e0f7fa;
+         }
+         .cta h2 {
+         font-size: 2rem;
+         margin-bottom: 10px;
+         color: #128C7E;
+         }
+         .cta p {
+         font-size: 1.2rem;
+         margin-bottom: 20px;
+         color: #333;
+         }
+         .cta-button {
+         display: inline-block;
+         padding: 12px 24px;
+         background-color: rgb(75, 150, 75);
+         color: white;
+         text-decoration: none;
+         font-size: 1rem;
+         border-radius: 5px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         transition: background-color 0.3s ease, transform 0.3s ease;
+         }
+         .cta-button:hover {
+         background-color: green;
+         transform: scale(1.05);
+         }
+         /* Footer */
+         footer {
+         text-align: center;
+         padding: 30px 20px;
+         background: linear-gradient(145deg, #e0e0e0, #f8f9fa); /* Gradient background for modern look */
+         color: #333;
+         border-top: 2px solid #007bff; /* Adding a top border for separation */
+         border-bottom: 2px solid #007bff; /* Adding a bottom border for separation */
+         font-size: 1rem;
+         box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* Adding deeper shadow for more dimension */
+         border-radius: 10px; /* Rounded corners for a soft look */
+         transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+         }
+         /* Footer Social Links */
+         .footer-social-links {
+         margin-bottom: 20px; /* Adding some space below the social links */
+         }
+         .footer-social-links a {
+         margin: 0 15px;
+         font-size: 26px; /* Increased size for better visibility */
+         color: #333;
+         text-decoration: none;
+         transition: color 0.3s ease, transform 0.3s ease;
+         }
+         /* Hover Effects for Social Links */
+         .footer-social-links a:hover {
+         color: #007bff; /* Light blue color on hover */
+         transform: scale(1.2) rotate(10deg); /* Slightly enlarge and rotate the icon for dynamic effect */
+         }
+         /* Footer Text */
+         footer p {
+         font-size: 1.1rem;
+         color: #666;
+         margin-top: 15px;
+         font-weight: 500; /* Slightly bolder footer text */
+         }
+         /* Footer Links */
+         footer a {
+         color: #333;
+         text-decoration: none;
+         font-weight: bold;
+         transition: color 0.3s ease;
+         }
+         footer a:hover {
+         color: #007bff; /* Changing link color on hover */
+         text-decoration: underline; /* Underline the link on hover for emphasis */
+         }
+         /* Responsive Design */
+         @media (max-width: 768px) {
+         footer {
+         padding: 20px 15px;
+         font-size: 0.95rem; /* Slightly smaller text for smaller screens */
+         }
+         .footer-social-links a {
+         font-size: 24px; /* Adjusting icon size for better mobile view */
+         }
+         footer p {
+         font-size: 0.85rem; /* Slightly smaller footer text */
+         }
+         }
+         @media (max-width: 480px) {
+         footer {
+         padding: 15px 10px;
+         font-size: 0.9rem; /* Ensuring proper font size for very small screens */
+         }
+         .footer-social-links a {
+         font-size: 22px; /* Reducing icon size further for small screens */
+         }
+         footer p {
+         font-size: 0.8rem; /* Further reduction in footer text size */
+         }
+         }
+         /* Highlight Creator Name */
+         #creator {
+         color: #2575fc; /* Highlight color */
+         font-weight: bold; /* Bold text */
+         cursor: pointer; /* Pointer cursor on hover */
+         text-decoration: underline; /* Underline text */
+         transition: color 0.3s ease; /* Smooth color transition */
+         text-decoration:none;
+         }
+         #creator:hover {
+         color: #6a11cb; /* Change color on hover */
+         }
+         /*course container*/
+         .courses-container {
+         text-align: center;
+         padding: 40px 20px;
+         margin: 40px auto; /* Add margin to separate from other sections */
+         border: 2px solid #6a11cb; /* Border around the section */
+         border-radius: 15px; /* Rounded corners for the border */
+         background: #f9f9f9; /* Light background to make it stand out */
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+         max-width: 1200px; /* Limit width for better readability */
+         }
+         .courses-container h1 {
+         font-size: 1.8rem;
+         margin-bottom: 1px;
+         background: linear-gradient(90deg, #6a11cb, #2575fc);
+         -webkit-background-clip: text;
+         background-clip: text;
+         color: transparent;
+         font-weight: 600;
+         display: inline-block;
+         padding: 10px 20px;
+         border-radius: 10px;
+         }
+         .course-boxes {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 20px;
+         }
+         .course-box {
+         background: linear-gradient(135deg, #6a11cb, #2575fc);
+         color: white;
+         padding: 30px 20px;
+         border-radius: 15px;
+         width: 200px;
+         text-align: center;
+         text-decoration: none;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         cursor: pointer;
+         }
+         .course-box:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+         }
+         .icon {
+         font-size: 2.5rem;
+         margin-bottom: 15px;
+         color: #ffdd57;
+         }
+         .course-box h3 {
+         font-size: 1.2rem;
+         margin: 0;
+         font-weight: 600;
+         }
+         /* Responsive Design */
+         @media (max-width: 768px) {
+         .course-box {
+         width: calc(50% - 20px); /* Two boxes per row with gap */
+         padding: 20px 10px;
+         border-radius: 10px;
+         }
+         .icon {
+         font-size: 2rem;
+         }
+         .course-box h3 {
+         font-size: 1rem;
+         }
+         }
+         @media (max-width: 480px) {
+         .course-box {
+         width: calc(50% - 20px); /* Two boxes per row with gap */
+         padding: 20px 10px;
+         border-radius: 10px;
+         }
+         .icon {
+         font-size: 1.8rem;
+         }
+         .course-box h3 {
+         font-size: 0.9rem;
+         }
+         }
+         /*Cheat Sheets*/
+         .cheatsheets-container {
+         text-align: center;
+         padding: 40px 20px;
+         margin: 40px auto; /* Add margin to separate from other sections */
+         border: 2px solid #6a11cb; /* Border around the section */
+         border-radius: 15px; /* Rounded corners for the border */
+         background: #f9f9f9; /* Light background to make it stand out */
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+         max-width: 1200px; /* Limit width for better readability */
+         }
+         .cheatsheets-container h1 {
+         font-size: 1.8rem;
+         margin-bottom: 40px;
+         background: linear-gradient(90deg, #6a11cb, #2575fc);
+         -webkit-background-clip: text;
+         background-clip: text;
+         color: transparent;
+         font-weight: 600;
+         display: inline-block;
+         padding: 10px 20px;
+         border-radius: 10px;
+         }
+         .cheatsheet-boxes {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 20px;
+         }
+         .cheatsheet-box {
+         background: linear-gradient(135deg, #6a11cb, #2575fc);
+         color: white;
+         padding: 30px 20px;
+         border-radius: 15px;
+         width: 200px;
+         text-align: center;
+         text-decoration: none;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         cursor: pointer;
+         }
+         .cheatsheet-box:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+         }
+         .cheatsheet-box .icon {
+         font-size: 2.5rem;
+         margin-bottom: 15px;
+         color: #ffdd57;
+         }
+         .cheatsheet-box h3 {
+         font-size: 1.2rem;
+         margin: 0;
+         font-weight: 600;
+         }
+         /* Responsive Design */
+         @media (max-width: 768px) {
+         .cheatsheet-box {
+         width: calc(50% - 20px); /* Two boxes per row with gap */
+         padding: 20px 10px;
+         border-radius: 10px;
+         }
+         .cheatsheet-box .icon {
+         font-size: 2rem;
+         }
+         .cheatsheet-box h3 {
+         font-size: 1rem;
+         }
+         }
+         @media (max-width: 480px) {
+         .cheatsheet-box {
+         width: calc(50% - 20px); /* Two boxes per row with gap */
+         padding: 20px 10px;
+         border-radius: 10px;
+         }
+         .cheatsheet-box .icon {
+         font-size: 1.8rem;
+         }
+         .cheatsheet-box h3 {
+         font-size: 0.9rem;
+         }
+         }
+         /* Search Bar Container */
+         .search-container {
+         text-align: center;
+         padding: 10px; /* Reduced padding for mobile */
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+         }
+         /* Search Bar */
+         .search-bar {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         max-width: 90%; /* Adjusted width for mobile */
+         margin: 0 auto;
+         background: white;
+         border-radius: 30px; /* Rounded corners */
+         padding: 8px 15px; /* Reduced padding for mobile */
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Inner shadow */
+         }
+         .search-bar input[type="text"] {
+         width: 100%;
+         border: none;
+         outline: none;
+         font-size: 0.9rem; /* Smaller font size for mobile */
+         padding: 8px; /* Reduced padding for mobile */
+         background: transparent;
+         }
+         .search-bar button {
+         background: none;
+         border: none;
+         cursor: pointer;
+         font-size: 1rem; /* Smaller icon size for mobile */
+         color: #6a11cb; /* Icon color */
+         transition: color 0.3s ease;
+         }
+         .search-bar button:hover {
+         color: #2575fc; /* Icon hover color */
+         }
+         /* Responsive Design */
+         @media (max-width: 768px) {
+         .search-container {
+         padding: 8px; /* Further reduced padding for smaller screens */
+         }
+         .search-bar {
+         max-width: 95%; /* Adjusted width for smaller screens */
+         padding: 6px 12px; /* Further reduced padding for smaller screens */
+         }
+         .search-bar input[type="text"] {
+         font-size: 0.8rem; /* Smaller font size for smaller screens */
+         padding: 6px; /* Further reduced padding for smaller screens */
+         }
+         .search-bar button {
+         font-size: 0.9rem; /* Smaller icon size for smaller screens */
+         }
+         }
+         @media (max-width: 480px) {
+         .search-container {
+         padding: 5px; /* Minimal padding for very small devices */
+         }
+         .search-bar {
+         max-width: 100%; /* Full width on very small devices */
+         padding: 5px 10px; /* Minimal padding for very small devices */
+         }
+         .search-bar input[type="text"] {
+         font-size: 0.75rem; /* Smallest font size for very small devices */
+         padding: 5px; /* Minimal padding for very small devices */
+         }
+         .search-bar button {
+         font-size: 0.8rem; /* Smallest icon size for very small devices */
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Header -->
+      <header class="main-header">
+         <div class="logo">
+            <img src="NotesAura.png" alt="Logo" class="logo-img">
+            <div class="logo-content">
+               <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+               <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+            </div>
+         </div>
+         <div class="toggle-menu">
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+         </div>
+         <nav class="nav-menu">
+            <ul>
+               <li><a href="home.html">Home</a></li>
+               <li><a href="programming.html">Programming</a></li>
+               <li><a href="web-development.html">Web Development</a>
+               <li><a href="android-development.html">Android Development</a></li>
+               <li><a href="devops.html">DevOps</a></li>
+               <li><a href="about.html">Contact</a></li>
+            </ul>
+         </nav>
+      </header>
+      <!-- Home -->
+      <main>
+         <!-- Search Bar -->
+         <div class="search-container">
+            <div class="search-bar">
+               <input type="text" id="searchInput" placeholder="Search notes, courses, and more...">
+               <button type="button" onclick="searchContent()">
+                  <i class="fas fa-search"></i> <!-- Search icon -->
+               </button>
+            </div>
+         </div>
+         <!-- Marquee Section -->
+         <section id="home">
+            <div class="marquee">
+               <div class="marquee-content">
+                  <a href="#" class="animated-link">HTML</a>
+                  <a href="#" class="animated-link">CSS</a>
+                  <a href="#" class="animated-link">JavaScript</a>
+                  <a href="python.html" class="animated-link">Python Programming</a>
+                  <a href="java.html" class="animated-link">Java Programming</a>
+                  <a href="c.html" class="animated-link">C Programming</a>
+                  <a href="cpp.html" class="animated-link">C++ Programming</a>
+                  <a href="kotlin.html" class="animated-link">Kotlin Programming</a>
+                  <a href="web-development.html" class="animated-link">Web Development</a>
+                  <a href="android-development.html" class="animated-link">Android Development</a>
+                  <a href="#" class="animated-link">NodeJs</a>
+                  <a href="programming.html" class="animated-link">Basic Programming</a>
+               </div>
+            </div>
+            <!-- Hero Section -->
+            <div class="hero">
+               <h1>Welcome to NotesAura</h1>
+               <p>𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+            </div>
+         </section>
+         <div class="courses-container">
+            <h1>Top Courses</h1>
+            <div class="course-boxes">
+               <!-- Basic Programming -->
+               <a href="programming.html" class="course-box">
+                  <i class="fas fa-laptop icon"></i>
+                  <h3>Basic Programming</h3>
+               </a>
+               <!-- Web Development -->
+               <a href="web-development.html" class="course-box">
+                  <i class="fas fa-globe icon"></i>
+                  <h3>Web Development</h3>
+               </a>
+               <!-- Android App Development -->
+               <a href="android-development.html" class="course-box">
+                  <i class="fas fa-mobile-alt icon"></i>
+                  <h3>Android App Development</h3>
+               </a>
+               <!-- DevOps Section -->
+               <a href="devops.html" class="course-box">
+                  <i class="fas fa-cogs icon"></i>
+                  <h3>DevOps</h3>
+               </a>
+               <!-- C Programming -->
+               <a href="c.html" class="course-box">
+                  <i class="fas fa-code icon"></i>
+                  <h3>C Programming</h3>
+               </a>
+               <!-- C++ Programming -->
+               <a href="cpp.html" class="course-box">
+                  <i class="fas fa-laptop-code icon"></i>
+                  <h3>C++ Programming</h3>
+               </a>
+               <!-- Java Programming -->
+               <a href="java.html" class="course-box">
+                  <i class="fab fa-java icon"></i>
+                  <h3>Java Programming</h3>
+               </a>
+               <!-- Kotlin -->
+               <a href="kotlin.html" class="course-box">
+                  <i class="fab fa-korvue icon"></i>
+                  <h3>Kotlin</h3>
+               </a>
+            </div>
+         </div>
+         <!-- Programming Section -->
+         <div class="courses-container">
+            <h1>Programming</h1>
+            <div class="course-boxes">
+               <!-- C Programming -->
+               <a href="c.html" class="course-box">
+                  <i class="fas fa-code icon"></i>
+                  <h3>C Programming</h3>
+               </a>
+               <!-- C++ Programming -->
+               <a href="cpp.html" class="course-box">
+                  <i class="fas fa-laptop-code icon"></i>
+                  <h3>C++ Programming</h3>
+               </a>
+               <!-- Java Programming -->
+               <a href="java.html" class="course-box">
+                  <i class="fab fa-java icon"></i>
+                  <h3>Java Programming</h3>
+               </a>
+               <!-- Kotlin -->
+               <a href="kotlin.html" class="course-box">
+                  <i class="fab fa-korvue icon"></i>
+                  <h3>Kotlin</h3>
+               </a>
+               <!-- Python -->
+               <a href="python.html" class="course-box">
+                  <i class="fab fa-python icon"></i>
+                  <h3>Python</h3>
+               </a>
+               <a href="#" class="course-box">
+                  <i class="fas fa-code icon"></i> <!-- Generic code icon -->
+                  <h3>Go Programming</h3>
+               </a>
+            </div>
+         </div>
+         <!-- Web Development-->
+         <!-- Programming Section -->
+         <div class="courses-container">
+            <h1>Web Development</h1>
+            <div class="course-boxes">
+               <!-- HTML -->
+               <a href="#" class="course-box">
+                  <i class="fab fa-html5 icon"></i>
+                  <h3>HTML</h3>
+               </a>
+               <!-- CSS -->
+               <a href="#" class="course-box">
+                  <i class="fab fa-css3-alt icon"></i>
+                  <h3>CSS </h3>
+               </a>
+               <!-- JavaScript -->
+               <a href="#" class="course-box">
+                  <i class="fab fa-js icon"></i> <!-- JavaScript icon -->
+                  <h3>JavaScript</h3>
+               </a>
+               <a href="#" class="course-box">
+                  <i class="fab fa-node icon"></i> <!-- Node.js icon -->
+                  <h3>Node.js</h3>
+               </a>
+               <a href="#" class="course-box">
+                  <i class="fab fa-angular icon"></i> <!-- Angular icon -->
+                  <h3>Angular</h3>
+               </a>
+               <a href="#" class="course-box">
+                  <i class="fab fa-react icon"></i> <!-- React.js icon -->
+                  <h3>React.js</h3>
+               </a>
+            </div>
+         </div>
+         <!-- Cheat Sheets Section -->
+         <div class="cheatsheets-container">
+            <h1>Cheat Sheets</h1>
+            <div class="cheatsheet-boxes">
+               <!-- HTML Cheat Sheet -->
+               <a href="html-cheatsheet.html" class="cheatsheet-box">
+                  <i class="fab fa-html5 icon"></i>
+                  <h3>HTML Cheat Sheet</h3>
+               </a>
+               <!-- CSS Cheat Sheet -->
+               <a href="css-cheatsheet.html" class="cheatsheet-box">
+                  <i class="fab fa-css3-alt icon"></i>
+                  <h3>CSS Cheat Sheet</h3>
+               </a>
+               <!-- JavaScript Cheat Sheet -->
+               <a href="javascript-cheatsheet.html" class="cheatsheet-box">
+                  <i class="fab fa-js-square icon"></i>
+                  <h3>JavaScript Cheat Sheet</h3>
+               </a>
+               <!-- Python Cheat Sheet -->
+               <a href="python-cheatsheet.html" class="cheatsheet-box">
+                  <i class="fab fa-python icon"></i>
+                  <h3>Python Cheat Sheet</h3>
+               </a>
+               <!-- Git Cheat Sheet -->
+               <a href="git-cheatsheet.html" class="cheatsheet-box">
+                  <i class="fab fa-git-alt icon"></i>
+                  <h3>Git Cheat Sheet</h3>
+               </a>
+               <!-- Terminal Cheat Sheet -->
+               <a href="terminal-cheatsheet.html" class="cheatsheet-box">
+                  <i class="fas fa-terminal icon"></i>
+                  <h3>Terminal Cheat Sheet</h3>
+               </a>
+               <!-- Docker Cheat Sheet -->
+               <a href="docker-cheatsheet.html" class="cheatsheet-box">
+                  <i class="fab fa-docker icon"></i>
+                  <h3>Docker Cheat Sheet</h3>
+               </a>
+               <!-- Linux Cheat Sheet -->
+               <a href="linux-cheatsheet.html" class="cheatsheet-box">
+                  <i class="fab fa-linux icon"></i>
+                  <h3>Linux Cheat Sheet</h3>
+               </a>
+            </div>
+         </div>
+         <!-- Apps Section -->
+         <div class="software">
+            <h3>✨ Our Useful Apps/Products ✨</h3>
+            <div class="icon-container">
+               <a href="https://indusapp.store/g5inaxbu" class="icon" target="_blank">
+               <img src="NotesAura.png" alt="NotesAura">
+               <span>NotesAura</span>
+               </a>
+               <a href="https://indusapp.store/0vxq40fn" class="icon" target="_blank">
+               <img src="bihar_board_12th.png" alt="Bihar Board 12th Guide">
+               <span>Bihar Board 12th Guide</span>
+               </a>
+               <a href="https://indusapp.store/huqwid31" class="icon" target="_blank">
+               <img src="c_logo.jpeg" alt="C programming Guide">
+               <span>C Programming Guide</span>
+               </a>
+            </div>
+         </div>
+      </main>
+      <!-- footer -->
+      <footer>
+         <div class="footer-social-links">
+            <a href="https://facebook.com/hariomsonihr" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/hariomsonihr" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/hariomsonihs" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/hariomsonihs" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com/hariomsoni08" target="_blank"><i class="fab fa-github"></i></a>
+            <!-- Add more social icons as needed -->
+         </div>
+         <p>&copy; 2025 NotesAura. All rights reserved. <br><span id="creator">Designed and created by Hariom Soni</span></p>
+      </footer>
+      <script>
+         // Toggle Menu Functionality
+         const toggleMenu = document.querySelector('.toggle-menu');
+         const navMenu = document.querySelector('.nav-menu');
+         
+         toggleMenu.addEventListener('click', () => {
+             toggleMenu.classList.toggle('active');
+             navMenu.classList.toggle('active');
+         });
+         // Search Functionality for Courses and Cheat Sheets
+         function searchContent() {
+             const searchTerm = document.getElementById('searchInput').value.toLowerCase(); // Get search term
+             const courseBoxes = document.querySelectorAll('.course-boxes .course-box'); // Get all course boxes
+             const cheatsheetBoxes = document.querySelectorAll('.cheatsheet-boxes .cheatsheet-box'); // Get all cheat sheet boxes
+         
+             let foundMatch = false; // Flag to check if any match is found
+         
+             // Filter Course Boxes
+             courseBoxes.forEach(box => {
+                 const boxText = box.innerText.toLowerCase(); // Get text content of the box
+                 if (boxText.includes(searchTerm)) {
+                     box.style.display = 'block'; // Show the box
+                     foundMatch = true; // Set flag to true
+                 } else {
+                     box.style.display = 'none'; // Hide the box
+                 }
+             });
+         
+             // Filter Cheat Sheet Boxes
+             cheatsheetBoxes.forEach(box => {
+                 const boxText = box.innerText.toLowerCase(); // Get text content of the box
+                 if (boxText.includes(searchTerm)) {
+                     box.style.display = 'block'; // Show the box
+                     foundMatch = true; // Set flag to true
+                 } else {
+                     box.style.display = 'none'; // Hide the box
+                 }
+             });
+         
+             // Show Message if No Match Found
+             if (!foundMatch) {
+                 alert(`No results found for "${searchTerm}".`); // Show alert if no match
+             }
+         }
+         
+         // Attach Search Functionality to Search Button
+         document.querySelector('.search-bar button').addEventListener('click', searchContent);
+         
+         // Optional: Add Search on Enter Key Press
+         document.getElementById('searchInput').addEventListener('keypress', (e) => {
+             if (e.key === 'Enter') {
+                 searchContent();
+             }
+         });
+          // Open Instagram Link on Click
+         document.getElementById('creator').addEventListener('click', () => {
+             window.open('https://instagram.com/hariomsonihs', '_blank'); // Open Instagram profile in new tab
+         });
+      </script>
+   </body>
+</html>
+>>>>>>> 73e44819940c7efbb3e1cbd8412594f74a16583c

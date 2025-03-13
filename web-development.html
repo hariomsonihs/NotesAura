@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -479,3 +480,486 @@
 </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+            /* =========================
+            General Reset
+            ========================= */
+            html, body {
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            width: 100%;
+            }
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            }
+            body {
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            padding-top: 60px; /* Adjusted for fixed header */
+            user-select: none;
+            }
+            /* =========================
+            Header Styling
+            ========================= */
+            .main-header {
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 60px;
+            }
+            /* =========================
+            Logo and Navigation Adjustments
+            ========================= */
+            .logo {
+            display: flex;
+            align-items: center;
+            }
+            .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            }
+            .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            }
+            .slogan {
+            font-size: 0.7rem;
+            color: yellow;
+            margin-top: 5px;
+            font-weight: bold;
+            }
+            /* =========================
+            Toggle Menu Styling
+            ========================= */
+            .toggle-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            }
+            .toggle-bar {
+            width: 100%;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+            /* =========================
+            Navigation Menu
+            ========================= */
+            .nav-menu {
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: translateY(-20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            .nav-menu ul {
+            list-style: none;
+            }
+            .nav-menu li {
+            border-bottom: 1px solid #f0f0f0;
+            }
+            .nav-menu li:last-child {
+            border-bottom: none;
+            }
+            .nav-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            }
+            .nav-menu a:hover {
+            background-color: #0078d7;
+            color: #fff;
+            }
+            /* =========================
+            Toggle Active State
+            ========================= */
+            .toggle-menu.active .toggle-bar:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+            }
+            .toggle-menu.active .toggle-bar:nth-child(2) {
+            opacity: 0;
+            }
+            .toggle-menu.active .toggle-bar:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+            }
+            .nav-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+            }
+            /* =========================
+            Heading Style
+            ========================= */
+            h2 {
+            margin-top: 30px; /* Reduced top margin */
+            text-align: center;
+            font-size: 1.5rem; /* Smaller font size */
+            margin-bottom: 20px; /* Reduced bottom margin */
+            color: yellow;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            }
+            /* =========================
+            Card Grid Layout
+            ========================= */
+            .card-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            }
+            .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+            border: 2px solid yellow;
+            }
+            .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+            }
+            .card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            }
+            .card h3 {
+            font-size: 1.2rem; /* Smaller font size */
+            margin-bottom: 10px;
+            }
+            .card p {
+            font-size: 0.9rem; /* Smaller font size */
+            color: #ddd;
+            margin-bottom: 15px;
+            }
+            .card button {
+            background: #ffcc00;
+            color: #141e30;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem; /* Smaller font size */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            }
+            .card button:hover {
+            background: #e6b800;
+            }
+            /* =========================
+            Responsive Design
+            ========================= */
+            @media (max-width: 1200px) {
+            .card-container {
+            grid-template-columns: repeat(2, 1fr);
+            }
+            }
+            @media (max-width: 768px) {
+            h2 {
+            font-size: 1.5rem; /* Adjusted for smaller screens */
+            }
+            .card-container {
+            grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+            gap: 10px; /* Reduced gap between cards */
+            }
+            .card {
+            padding: 15px; /* Reduced padding for smaller screens */
+            }
+            .card h3, .card p, .card button {
+            font-size: 0.9rem;
+            }
+            }
+            /* Search Bar Container */
+            .search-container {
+            text-align: center;
+            padding: 10px; /* Reduced padding for mobile */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            }
+            /* Search Bar */
+            .search-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 90%; /* Adjusted width for mobile */
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px; /* Rounded corners */
+            padding: 8px 15px; /* Reduced padding for mobile */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Inner shadow */
+            }
+            .search-bar input[type="text"] {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 0.9rem; /* Smaller font size for mobile */
+            padding: 8px; /* Reduced padding for mobile */
+            background: transparent;
+            }
+            .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem; /* Smaller icon size for mobile */
+            color: #6a11cb; /* Icon color */
+            transition: color 0.3s ease;
+            }
+            .search-bar button:hover {
+            color: #2575fc; /* Icon hover color */
+            }
+            /* Responsive Design */
+            @media (max-width: 768px) {
+            .search-container {
+            padding: 8px; /* Further reduced padding for smaller screens */
+            }
+            .search-bar {
+            max-width: 95%; /* Adjusted width for smaller screens */
+            padding: 6px 12px; /* Further reduced padding for smaller screens */
+            }
+            .search-bar input[type="text"] {
+            font-size: 0.8rem; /* Smaller font size for smaller screens */
+            padding: 6px; /* Further reduced padding for smaller screens */
+            }
+            .search-bar button {
+            font-size: 0.9rem; /* Smaller icon size for smaller screens */
+            }
+            }
+            @media (max-width: 480px) {
+            .search-container {
+            padding: 5px; /* Minimal padding for very small devices */
+            }
+            .search-bar {
+            max-width: 100%; /* Full width on very small devices */
+            padding: 5px 10px; /* Minimal padding for very small devices */
+            }
+            .search-bar input[type="text"] {
+            font-size: 0.75rem; /* Smallest font size for very small devices */
+            padding: 5px; /* Minimal padding for very small devices */
+            }
+            .search-bar button {
+            font-size: 0.8rem; /* Smallest icon size for very small devices */
+            }
+            }
+            .hidden {
+            display: none;
+            }
+        </style>
+</head>
+<body>
+<!-- Header Section -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="NotesAura.png" alt="Logo" class="logo-img">
+            <div class="logo-content">
+                <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+                <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+            </div>
+        </div>
+
+       
+        <!-- Toggle Menu -->
+        <div class="toggle-menu">
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="programming.html">Programming</a></li>
+                <li><a href="web-development.html">Web Development</a></li>
+                <li><a href="android-development.html">Android Development</a></li>
+                <li><a href="devops.html">DevOps</a></li>
+                <li><a href="about.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Search Bar -->
+<div class="search-container">
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search notes, courses, and more...">
+        <button type="button" onclick="searchContent()">
+            <i class="fas fa-search"></i> <!-- Search icon -->
+        </button>
+    </div>
+</div>
+
+<!-- Web Development Section -->
+<section id="web-development">
+    <h2 class="section-title">WEB DEVELOPMENT</h2>
+    <div class="card-container" id="cardContainer">
+        <!-- HTML -->
+        <div class="card" data-name="html">
+            <i class="fab fa-html5"></i>
+            <h3>HTML</h3>
+            <p>Learn the structure of web pages using HTML.</p>
+            <a href="html.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- CSS -->
+        <div class="card" data-name="css">
+            <i class="fab fa-css3-alt"></i>
+            <h3>CSS</h3>
+            <p>Style web pages with CSS.</p>
+            <a href="css.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="card" data-name="javascript">
+            <i class="fab fa-js"></i>
+            <h3>JavaScript</h3>
+            <p>Master interactive web development with JavaScript.</p>
+            <a href="javascript.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- React.js -->
+        <div class="card" data-name="react">
+            <i class="fab fa-react"></i>
+            <h3>React.js</h3>
+            <p>Build dynamic user interfaces with React.js.</p>
+            <a href="react.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- Node.js -->
+        <div class="card" data-name="node">
+            <i class="fab fa-node-js"></i>
+            <h3>Node.js</h3>
+            <p>Learn backend development with Node.js.</p>
+            <a href="nodejs.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- Django -->
+        <div class="card" data-name="django">
+            <i class="fab fa-python"></i>
+            <h3>Django</h3>
+            <p>Build web applications with Django.</p>
+            <a href="django.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- Angular -->
+        <div class="card" data-name="angular">
+            <i class="fab fa-angular"></i>
+            <h3>Angular</h3>
+            <p>Learn Angular for building modern web applications.</p>
+            <a href="angular.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- Vue.js -->
+        <div class="card" data-name="vue">
+            <i class="fab fa-vuejs"></i>
+            <h3>Vue.js</h3>
+            <p>Master Vue.js for building reactive user interfaces.</p>
+            <a href="vue.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- PHP -->
+        <div class="card" data-name="php">
+            <i class="fab fa-php"></i>
+            <h3>PHP</h3>
+            <p>Learn PHP for server-side web development.</p>
+            <a href="php.html"><button>Start Learning</button></a>
+        </div>
+
+        <!-- MongoDB -->
+        <div class="card" data-name="mongodb">
+            <i class="fas fa-database"></i>
+            <h3>MongoDB</h3>
+            <p>Learn MongoDB for modern database management.</p>
+            <a href="mongodb.html"><button>Start Learning</button></a>
+        </div>
+    </div>
+</section>
+
+<br>
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
+</footer>
+
+<!-- JavaScript for Toggle Menu and Search Functionality -->
+<script>
+    // Toggle Menu Functionality
+    const toggleMenu = document.querySelector('.toggle-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    toggleMenu.addEventListener('click', () => {
+        toggleMenu.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Search Functionality
+    function searchContent() {
+        // Get the search input value and convert it to lowercase
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        console.log("Search Input:", searchInput); // Debugging
+
+        // Get all the cards
+        const cards = document.querySelectorAll('.card');
+
+        // Loop through each card
+        cards.forEach(card => {
+            // Get the value of the data-name attribute and convert it to lowercase
+            const cardName = card.getAttribute('data-name').toLowerCase();
+            console.log("Card Name:", cardName); // Debugging
+
+            // Check if the card's data-name includes the search input
+            if (cardName.includes(searchInput)) {
+                card.classList.remove('hidden'); // Show the card
+            } else {
+                card.classList.add('hidden'); // Hide the card
+            }
+        });
+    }
+
+    // Add event listener for Enter key
+    document.getElementById('searchInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            searchContent(); // Trigger search on Enter key press
+        }
+    });
+</script>
+</body>
+</html>
+>>>>>>> 73e44819940c7efbb3e1cbd8412594f74a16583c
