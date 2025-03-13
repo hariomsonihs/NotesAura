@@ -1044,6 +1044,15 @@
          <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
       </footer>
       <script>
+      
+    // Toggle Menu Functionality
+    const toggleMenu = document.querySelector('.toggle-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    toggleMenu.addEventListener('click', () => {
+        toggleMenu.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
     // Search Functionality for Courses and Cheat Sheets
     function searchContent() {
         const searchTerm = document.getElementById('searchInput').value.toLowerCase(); // Get search term
