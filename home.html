@@ -232,24 +232,60 @@
       }
       }
       /* Hero Section */
-      .hero {
-      text-align: center;
-      padding: 60px 20px; /* Increased padding for better spacing */
-      background: linear-gradient(135deg, #00f2fe, #4facfe);
-      color: #fff; /* Light text color for contrast */
-      border-radius: 12px; /* Rounded corners */
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-      margin: 5px 0; /* Margin around the section */
-      }
-      .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #333;
-      }
-      .hero p {
-      font-size: 1.2rem;
-      color: #555;
-      }
+        .hero {
+            text-align: center;
+            padding: 10px 20px; /* Compact padding */
+            background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+            color: white;
+            border-radius: 10px; /* Rounded corners */
+            margin: 10px auto; /* Center the section */
+            max-width: 600px; /* Limit width for better readability */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+
+        .hero h1 {
+            font-size: 1.8rem; /* Smaller heading size */
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1rem; /* Smaller paragraph size */
+            margin: 5px 0 0;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 8px 15px; /* Even more compact on mobile */
+                max-width: 90%; /* Adjust width for smaller screens */
+            }
+
+            .hero h1 {
+                font-size: 1.5rem; /* Smaller font size for mobile */
+            }
+
+            .hero p {
+                font-size: 0.9rem; /* Smaller font size for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 5px 10px; /* Very compact for small devices */
+                border-radius: 8px; /* Slightly smaller rounded corners */
+            }
+
+            .hero h1 {
+                font-size: 1.2rem; /* Smaller font size for small devices */
+            }
+
+            .hero p {
+                font-size: 0.8rem; /* Smaller font size for small devices */
+            }
+        }
+
       /* Testimonials Section */
       .testimonials {
       padding: 40px 20px;
@@ -744,19 +780,7 @@
                <h1>Welcome to NotesAura</h1>
                <p>𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
             </div>
-            <!-- Testimonials Section -->
-            <div class="testimonials">
-               <h2>✨ For High Quality Education ✨</h2>
-               <blockquote>
-                  <p>"At NotesAura, we provide free, high-quality educational resources for learners, including programming tutorials, web development guides, and class 10th and 12th notes."</p>
-               </blockquote>
-               <blockquote>
-                  <p>"Our programming tutorials cover popular languages like C, Java, Python, HTML, CSS, and JavaScript, making learning simple and effective."</p>
-               </blockquote>
-               <blockquote>
-                  <p>"NotesAura offers web development resources on technologies such as Node.js, Angular, and PHP to help you create modern websites and applications."</p>
-               </blockquote>
-            </div>
+           
          </section>
 
           <div class="courses-container">
