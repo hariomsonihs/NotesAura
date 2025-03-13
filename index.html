@@ -8,11 +8,12 @@
         // Redirect after 5 seconds (5000 milliseconds)
         setTimeout(function() {
             window.location.href = 'home.html';
-        }, 1591);
+        }, 3000);
     </script>
     <style>
+        /* General Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -26,44 +27,54 @@
             transition: all 0.3s ease;
         }
 
-        h1 {
-            font-size: 4rem;
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeIn 3s forwards;
-        }
-
+        /* Container Styles */
         .container {
             padding: 40px;
             background: rgba(0, 0, 0, 0.6);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
+            animation: scaleIn 1s ease-out;
         }
 
+        /* Heading Styles */
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            background: linear-gradient(45deg, #ffeb3b, #ff9800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Loading Spinner Styles */
+        .loading {
+            margin-top: 30px;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            border-top: 8px solid #ffeb3b;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1.5s linear infinite;
+            margin: 20px auto;
+        }
+
+        /* Message Styles */
         .message {
             font-size: 1.4rem;
             margin-top: 20px;
             opacity: 0;
-            animation: fadeIn 3s 1s forwards;
+            animation: fadeIn 2s 0.5s forwards;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .loading {
-            margin-top: 30px;
-            border: 8px solid #f3f3f3; /* Light grey background */
-            border-top: 8px solid #6200ea; /* Purple color */
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 2s linear infinite;
-            margin: 20px auto;
-        }
-
+        /* Redirect Link Styles */
         .redirect {
             margin-top: 30px;
             font-size: 1.1rem;
@@ -71,13 +82,15 @@
             text-decoration: none;
             cursor: pointer;
             opacity: 0;
-            animation: fadeIn 3s 2s forwards;
+            animation: fadeIn 2s 1s forwards;
+            transition: color 0.3s ease;
         }
 
         .redirect:hover {
             color: #ff9800;
         }
 
+        /* Keyframes for Animations */
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -88,10 +101,15 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Mobile responsiveness */
+        @keyframes scaleIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 600px) {
             h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
 
             .container {
@@ -108,10 +126,12 @@
             }
         }
     </style>
+    <!-- Google Fonts for Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</h1>
+        <h1>NotesAura</h1>
         <div class="loading"></div> <!-- Loading spinner -->
         <p class="message">Loading...</p>
         <!-- <p class="redirect" onclick="window.location.href='home.html';">Click here if you're not redirected.</p> -->
