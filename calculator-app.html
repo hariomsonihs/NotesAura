@@ -120,13 +120,13 @@
 
             pre code {
                 color: #00ff00;
-                font-family: 'Digital-7', monospace;
+                font-family: 'Courier New', monospace;
+                font-size: 0.9rem;
             }
 
             .copy-button, .download-button {
                 position: absolute;
                 top: 10px;
-                right: 10px;
                 background: #ffcc00;
                 color: #141e30;
                 border: none;
@@ -136,8 +136,12 @@
                 transition: background 0.3s ease;
             }
 
+            .copy-button {
+                right: 120px; /* Adjusted spacing */
+            }
+
             .download-button {
-                right: 100px;
+                right: 10px; /* Adjusted spacing */
             }
 
             .copy-button:hover, .download-button:hover {
@@ -148,9 +152,10 @@
             Screenshot Styling
             ========================= */
             .screenshot {
+                display: block;
                 max-width: 100%;
                 border-radius: 10px;
-                margin: 20px 0;
+                margin: 20px auto; /* Centered */
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             }
 
@@ -178,11 +183,35 @@
             }
 
             /* =========================
+            Footer Styling
+            ========================= */
+            footer {
+                text-align: center;
+                margin-top: 20px;
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            /* =========================
             Responsive Design
             ========================= */
             @media (max-width: 768px) {
                 body {
                     padding-top: 60px;
+                padding: 10px;
+                padding-top: 80px;
+                padding-bottom: 80px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                    align-items: center;
                 }
 
                 .project-content {
@@ -202,8 +231,12 @@
                     font-size: 0.9rem;
                 }
 
+                .copy-button {
+                    right: 100px; /* Adjusted spacing for mobile */
+                }
+
                 .download-button {
-                    right: 90px;
+                    right: 10px; /* Adjusted spacing for mobile */
                 }
             }
 
@@ -237,8 +270,12 @@
                     font-size: 0.8rem;
                 }
 
+                .copy-button {
+                    right: 90px; /* Adjusted spacing for small devices */
+                }
+
                 .download-button {
-                    right: 80px;
+                    right: 10px; /* Adjusted spacing for small devices */
                 }
             }
         </style>
@@ -263,7 +300,7 @@
                 <div class="project-overview">
                     <h3>Project Overview</h3>
                     <p>
-                        This project is a **Modern Calculator** built using HTML, CSS, and JavaScript. It features a sleek and responsive design with a digital display, support for basic arithmetic operations, and animations for a modern user experience.
+                        This project is a **Modern Calculator** built using HTML, CSS, and JavaScript. It features a sleek and responsive design with a digital display, support for basic arithmetic operations, and animations for a modern user experience. The calculator is designed to work seamlessly on both desktop and mobile devices.
                     </p>
                 </div>
 
@@ -283,18 +320,52 @@
                 <div class="process">
                     <h3>Process/Steps</h3>
                     <ol>
-                        <li><strong>Step 1:</strong> Set up the HTML structure for the calculator.</li>
-                        <li><strong>Step 2:</strong> Style the calculator using CSS for a modern look.</li>
-                        <li><strong>Step 3:</strong> Add JavaScript to handle button clicks and calculations.</li>
-                        <li><strong>Step 4:</strong> Test the calculator and deploy it.</li>
+                        <li><strong>Step 1: Create Project Files</strong>
+                            <ul>
+                                <li>Create a folder named <code>calculator-project</code>.</li>
+                                <li>Inside the folder, create three files:
+                                    <ul>
+                                        <li><code>index.html</code> - For the HTML structure.</li>
+                                        <li><code>styles.css</code> - For styling the calculator.</li>
+                                        <li><code>script.js</code> - For handling calculator logic.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 2: Write HTML Code</strong>
+                            <ul>
+                                <li>In <code>index.html</code>, create the basic structure of the calculator using HTML.</li>
+                                <li>Add buttons for digits (0-9), operators (+, -, *, /), and special functions (AC, ⌫, =).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 3: Style the Calculator</strong>
+                            <ul>
+                                <li>In <code>styles.css</code>, style the calculator to make it visually appealing.</li>
+                                <li>Use gradients, shadows, and animations for a modern look.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 4: Add JavaScript Logic</strong>
+                            <ul>
+                                <li>In <code>script.js</code>, write functions to handle button clicks, perform calculations, and update the display.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 5: Test and Deploy</strong>
+                            <ul>
+                                <li>Test the calculator on different devices to ensure responsiveness.</li>
+                                <li>Deploy the project using GitHub Pages or any hosting service.</li>
+                            </ul>
+                        </li>
                     </ol>
                 </div>
 
                 <!-- Code Explanation -->
                 <div class="code-explanation">
                     <h3>Code Explanation</h3>
+
+                    <!-- HTML Code -->
                     <div class="code-container">
-                        <pre><code id="codeSnippet">
+                        <h4>HTML Code</h4>
+                        <pre><code id="htmlCode">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
@@ -334,8 +405,244 @@
 &lt;/body&gt;
 &lt;/html&gt;
                         </code></pre>
-                        <button class="copy-button" onclick="copyCode()">Copy Code</button>
-                        <button class="download-button" onclick="downloadCode()">Download Code</button>
+                        <button class="copy-button" onclick="copyCode('htmlCode')">Copy HTML</button>
+                    </div>
+
+                    <!-- CSS Code -->
+                    <div class="code-container">
+                        <h4>CSS Code</h4>
+                        <pre><code id="cssCode">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #2c3e50, #8e44ad);
+  background-size: cover;
+  color: white;
+  user-select: none;
+  overflow: hidden;
+}
+
+.calculator {
+  background: rgba(13, 71, 161, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 90%;
+  max-width: 320px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 20px;
+}
+
+.display {
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  color: #00ff00;
+  font-size: 36px;
+  font-family: 'Digital-7', monospace;
+  padding: 20px;
+  text-align: right;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5), inset 0 -4px 8px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.display input {
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-size: 36px;
+  font-family: 'Digital-7', monospace;
+  width: 100%;
+  text-align: right;
+  outline: none;
+  caret-color: #00ff00;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+      transform: translateX(10px);
+      opacity: 0.5;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+.animate {
+  display: inline-block;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+.button {
+  background: linear-gradient(145deg, #4a4a4a, #3a3a3a);
+  color: #fff;
+  font-size: 24px;
+  font-family: 'Arial', sans-serif;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 -2px 4px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), inset 0 -2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button[onclick="calculateResult()"] {
+  background: linear-gradient(145deg, #ff6f61, #ff3b3f);
+  grid-column: span 2;
+}
+
+.button[onclick="calculateResult()"]:hover {
+  background: linear-gradient(145deg, #ff3b3f, #ff6f61);
+}
+
+.button[onclick="clearDisplay()"],
+.button[onclick="backspace()"] {
+  background: linear-gradient(145deg, #6c5ce7, #a29bfe);
+}
+
+.button[onclick="clearDisplay()"]:hover,
+.button[onclick="backspace()"]:hover {
+  background: linear-gradient(145deg, #a29bfe, #6c5ce7);
+}
+
+.button.zero {
+  grid-column: span 2;
+  background: linear-gradient(145deg, #5ce763, #82c714);
+}
+
+.button:nth-child(3),
+.button:nth-child(4),
+.button:nth-child(8),
+.button:nth-child(12),
+.button:nth-child(16) {
+  background: linear-gradient(45deg, yellow, orange);
+  color: black;
+  font-weight: bold;
+  border: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.button:nth-child(3):hover,
+.button:nth-child(4):hover,
+.button:nth-child(8):hover,
+.button:nth-child(12):hover,
+.button:nth-child(16):hover {
+  background: linear-gradient(45deg, orange, yellow);
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .display {
+    font-size: 28px;
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .buttons {
+    grid-gap: 5px;
+    padding: 10px;
+  }
+
+  .button {
+    font-size: 20px;
+    padding: 10px;
+  }
+}
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('cssCode')">Copy CSS</button>
+                    </div>
+
+                    <!-- JavaScript Code -->
+                    <div class="code-container">
+                        <h4>JavaScript Code</h4>
+                        <pre><code id="jsCode">
+function appendToDisplay(value) {
+  const display = document.getElementById("display");
+  if (display.value === "0" && value !== ".") {
+    display.value = value;
+  } else {
+    display.value += value;
+  }
+}
+
+function clearDisplay() {
+  document.getElementById("display").value = "0";
+}
+
+function backspace() {
+  const display = document.getElementById("display");
+  display.value = display.value.slice(0, -1) || "0";
+}
+
+function calculateResult() {
+  const display = document.getElementById("display");
+  try {
+    display.value = eval(display.value);
+  } catch (e) {
+    display.value = "Error";
+  }
+}
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('jsCode')">Copy JavaScript</button>
                     </div>
                 </div>
 
@@ -360,23 +667,11 @@
         <!-- JavaScript for Copy and Download Buttons -->
         <script>
             // Copy Code Functionality
-            function copyCode() {
-                const codeSnippet = document.getElementById("codeSnippet").innerText;
+            function copyCode(elementId) {
+                const codeSnippet = document.getElementById(elementId).innerText;
                 navigator.clipboard.writeText(codeSnippet).then(() => {
                     alert("Code copied to clipboard!");
                 });
-            }
-
-            // Download Code Functionality
-            function downloadCode() {
-                const codeSnippet = document.getElementById("codeSnippet").innerText;
-                const blob = new Blob([codeSnippet], { type: "text/plain" });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = "calculator-code.txt";
-                a.click();
-                URL.revokeObjectURL(url);
             }
         </script>
     </body>
