@@ -39,15 +39,15 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            justify-content: space-between;
+            justify-content: center; /* Center cards */
         }
         .card {
             background: linear-gradient(135deg, #1e2a3a, #2c3e50);
             color: white;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            width: calc(20% - 20px); /* 5 cards per row */
-            padding: 25px;
+            width: calc(50% - 20px); /* 2 cards per row on mobile */
+            padding: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             text-align: center;
             display: flex;
@@ -62,15 +62,15 @@
         }
         .card h2 {
             color: #ffffff;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
+            font-size: 1.2rem; /* Adjusted font size for better fit */
+            margin-bottom: 15px;
             font-weight: 600;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
         }
         .card a {
             text-decoration: none;
             color: #ffffff;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -83,11 +83,11 @@
             background: linear-gradient(135deg, #ffeb3b, #fbc02d);
             color: #000;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 15px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             align-items: center;
@@ -111,22 +111,21 @@
             margin: 0;
             font-size: 1rem;
         }
-        @media (max-width: 1024px) {
+
+        /* Responsive Adjustments */
+        @media (min-width: 600px) {
             .card {
-                width: calc(33.33% - 20px); /* 3 cards per row on tablet screens */
+                width: calc(33.33% - 20px); /* 3 cards per row on tablets */
             }
         }
-        @media (max-width: 768px) {
+        @media (min-width: 900px) {
             .card {
-                width: calc(50% - 20px); /* 2 cards per row on smaller screens */
+                width: calc(25% - 20px); /* 4 cards per row on larger screens */
             }
         }
-        @media (max-width: 480px) {
+        @media (min-width: 1200px) {
             .card {
-                width: 100%; /* 1 card per row on mobile */
-            }
-            header h1 {
-                font-size: 1.8rem;
+                width: calc(20% - 20px); /* 5 cards per row on desktops */
             }
         }
     </style>
@@ -136,12 +135,11 @@
         <h1>C Programming Language</h1>
     </header>
     <div class="container">
-        <!-- Chapter 1 -->
+        <!-- Chapter 1 to 25 -->
         <div class="card">
             <h2>Introduction to C</h2>
             <a href="c1.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
         </div>
-        <!-- Chapter 2 -->
         <div class="card">
             <h2>Features of C</h2>
             <a href="c2.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
