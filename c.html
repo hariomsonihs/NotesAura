@@ -13,6 +13,7 @@
             padding: 0;
             color: #fff;
             user-select: none;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
         header {
             border-radius: 0 0 15px 15px;
@@ -21,7 +22,6 @@
             color: white;
             padding: 30px 10px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         header h1 {
             font-size: 2.5rem;
@@ -29,105 +29,90 @@
             font-weight: 600;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center; /* Center cards */
-        }
-        .card {
-            background: linear-gradient(135deg, #1e2a3a, #2c3e50);
-            color: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            width: calc(50% - 20px); /* 2 cards per row on mobile */
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(135deg, #0078d7, #6200ea);
-        }
-        .card h2 {
-            color: #ffffff;
-            font-size: 1.2rem; /* Adjusted font size for better fit */
-            margin-bottom: 15px;
-            font-weight: 600;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-        }
-        .card a {
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .card a:hover {
-            color: #bb86fc;
-        }
-        .start-btn button {
-            background: linear-gradient(135deg, #ffeb3b, #fbc02d);
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .start-btn button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(255, 235, 59, 0.3);
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #141e30, #243b55);
-            color: white;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        footer p {
-            margin: 0;
-            font-size: 1rem;
-        }
 
-        /* Responsive Adjustments */
-        @media (min-width: 600px) {
-            .card {
-                width: calc(33.33% - 20px); /* 3 cards per row on tablets */
-            }
-        }
-        @media (min-width: 900px) {
-            .card {
-                width: calc(25% - 20px); /* 4 cards per row on larger screens */
-            }
-        }
-        @media (min-width: 1200px) {
-            .card {
-                width: calc(20% - 20px); /* 5 cards per row on desktops */
-            }
-        }
+       /* MAIN CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 20px auto; /* Centered layout */
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default: 2 cards per row */
+    gap: 15px;
+}
+
+/* CARD DESIGN */
+.card {
+    background: linear-gradient(135deg, #1e2a3a, #2c3e50);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #0078d7, #6200ea);
+}
+.card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+.start-btn button {
+    background: linear-gradient(135deg, #ffeb3b, #fbc02d);
+    color: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.start-btn button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 235, 59, 0.3);
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ RESPONSIVE FIXES */
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Mobile: 2 cards per row */
+    }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr); /* Tablet: 3 cards per row */
+    }
+}
+@media (min-width: 901px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr); /* Large screens: 4 cards per row */
+    }
+}
+
     </style>
 </head>
 <body>
@@ -135,7 +120,7 @@
         <h1>C Programming Language</h1>
     </header>
     <div class="container">
-        <!-- Chapter 1 to 25 -->
+        <!-- Cards -->
         <div class="card">
             <h2>Introduction to C</h2>
             <a href="c1.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
@@ -144,121 +129,15 @@
             <h2>Features of C</h2>
             <a href="c2.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
         </div>
-        <!-- Chapter 3 -->
         <div class="card">
-            <h2>Basic Syntax & Structure of C</h2>
+            <h2>Data Types</h2>
             <a href="c3.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
         </div>
-        <!-- Chapter 4 -->
         <div class="card">
-            <h2>Comments in C</h2>
+            <h2>Functions</h2>
             <a href="c4.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
         </div>
-        <!-- Chapter 5 -->
-        <div class="card">
-            <h2>C Tokens</h2>
-            <a href="c5.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 6 -->
-        <div class="card">
-            <h2>C Keywords</h2>
-            <a href="c6.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 7 -->
-        <div class="card">
-            <h2>Input & Output in C</h2>
-            <a href="c7.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 8 -->
-        <div class="card">
-            <h2>Variables in C</h2>
-            <a href="c8.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 9 -->
-        <div class="card">
-            <h2>Data Types in C</h2>
-            <a href="c9.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 10 -->
-        <div class="card">
-            <h2>Type Conversion in C</h2>
-            <a href="c10.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 11 -->
-        <div class="card">
-            <h2>Type Casting in C</h2>
-            <a href="c11.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 12 -->
-        <div class="card">
-            <h2>C Operators</h2>
-            <a href="c12.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 13 -->
-        <div class="card">
-            <h2>Decision Making in C</h2>
-            <a href="c13.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 14 -->
-        <div class="card">
-            <h2>Looping in C</h2>
-            <a href="c14.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 15 -->
-        <div class="card">
-            <h2>Array in C</h2>
-            <a href="c15.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 16 -->
-        <div class="card">
-            <h2>Pointer in C</h2>
-            <a href="c16.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 17 -->
-        <div class="card">
-            <h2>Function in C</h2>
-            <a href="c17.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 18 -->
-        <div class="card">
-            <h2>Structure in C</h2>
-            <a href="c18.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 19 -->
-        <div class="card">
-            <h2>Unions in C</h2>
-            <a href="c19.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 20 -->
-        <div class="card">
-            <h2>File Handling in C</h2>
-            <a href="c20.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 21 -->
-        <div class="card">
-            <h2>Memory Management in C</h2>
-            <a href="c21.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 22 -->
-        <div class="card">
-            <h2>Pointers and Arrays in C</h2>
-            <a href="c22.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 23 -->
-        <div class="card">
-            <h2>Dynamic Memory Allocation</h2>
-            <a href="c23.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 24 -->
-        <div class="card">
-            <h2>Structures and Unions</h2>
-            <a href="c24.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 25 -->
-        <div class="card">
-            <h2>Advanced File Handling</h2>
-            <a href="c25.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
+        <!-- More cards can be added -->
     </div>
     <footer>
         <p>&copy; 2025 NotesAura. All rights reserved.</p>
