@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Gallery - NotesAura</title>
+        <!-- Font Awesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Digital-7&display=swap" rel="stylesheet">
+        <style>
+            /* =========================
+General Reset
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: #fff;
+    padding: 20px;
+    padding-top: 80px; /* Adjusted for fixed header */
+    min-height: 100vh;
+    user-select: none;
+}
+
+/* =========================
+Header Styling
+========================= */
+.main-header {
+    background: linear-gradient(135deg, #6200ea, #0078d7);
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.slogan {
+    font-size: 0.7rem;
+    color: yellow;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* =========================
+Project Content Styling
+========================= */
+.project-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2, h3 {
+    color: yellow;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.project-overview p,
+.requirements ul,
+.process ol {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.requirements ul,
+.process ol {
+    padding-left: 20px;
+}
+
+.requirements ul li,
+.process ol li {
+    margin-bottom: 10px;
+}
+
+/* =========================
+Project Overview Styling
+========================= */
+.project-overview ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.project-overview ul li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.project-overview ul li::before {
+    content: "•";
+    color: #ffcc00;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.project-overview ul li strong {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.project-overview ul li:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+/* =========================
+Code Container Styling
+========================= */
+.code-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+pre {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+pre code {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.copy-button, .download-button {
+    position: absolute;
+    top: 10px;
+    background: #ffcc00;
+    color: #141e30;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.copy-button {
+    right: 120px; /* Adjusted spacing */
+}
+
+.download-button {
+    right: 10px; /* Adjusted spacing */
+}
+
+.copy-button:hover, .download-button:hover {
+    background: #e6b800;
+}
+
+/* =========================
+Screenshot Styling
+========================= */
+.screenshot {
+    display: block;
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px auto; /* Centered */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+Explore Button Styling
+========================= */
+.explore-button {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.explore-button button {
+    background: #ffcc00;
+    color: #141e30;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.explore-button button:hover {
+    background: #e6b800;
+}
+
+/* =========================
+Footer Styling
+========================= */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+Responsive Design
+========================= */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+        padding: 10px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .project-content {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .copy-button, .download-button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .copy-button {
+        right: 100px; /* Adjusted spacing for mobile */
+    }
+
+    .download-button {
+        right: 10px; /* Adjusted spacing for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 10px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .slogan {
+        font-size: 0.6rem;
+    }
+
+    .project-content {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .copy-button, .download-button {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    .copy-button {
+        right: 90px; /* Adjusted spacing for small devices */
+    }
+
+    .download-button {
+        right: 10px; /* Adjusted spacing for small devices */
+    }
+}
+/* Caution Line Styling */
+.caution {
+    color: #ff6b6b; /* Red color for emphasis */
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 107, 107, 0.1); /* Light red background */
+    border-left: 4px solid #ff6b6b; /* Red border on the left */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.caution i {
+    font-size: 1.2rem; /* Icon size */
+    color: #ff6b6b; /* Red color for icon */
+}
+        </style>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header class="main-header">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-content">
+                    <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+                    <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Project Details Section -->
+        <section id="project-details">
+            <h2 class="section-title">Image Gallery (Infinite Frame)</h2>
+            <div class="project-content">
+                <!-- Project Overview -->
+<div class="project-overview">
+    <h3>Project Overview</h3>
+    <p>
+        This project is a <strong>Modern Image Gallery (Infinite Frame)</strong> built using HTML, CSS, and JavaScript. It showcases a visually stunning collection of images organized into different categories, with a sleek and responsive design. The gallery supports the following features:
+        <ul>
+            <li><strong>Modern UI:</strong> A clean and elegant design with smooth animations, gradients, and interactive elements.</li>
+            <li><strong>Dynamic Icons:</strong> Icons for each category (e.g., nature, architecture, portraits) to enhance visual appeal.</li>
+            <li><strong>Image Categories:</strong> Organized sections for different types of images, such as <strong>Nature</strong>, <strong>Architecture</strong>, <strong>Portraits</strong>, and more.</li>
+            <li><strong>Navigation Drawer:</strong> A user-friendly navigation menu to easily switch between categories.</li>
+            <li><strong>Footer with Social Media Links:</strong> Includes social media icons for easy sharing and connecting.</li>
+            <li><strong>Free-to-Use Images:</strong> All images are free to use, with no copyright restrictions.</li>
+            <li><strong>Responsive Design:</strong> Works seamlessly on both desktop and mobile devices.</li>
+        </ul>
+        <div class="caution">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Caution:</strong> While the code is free to use, please do not copy and paste the full code with my images. Replace the images with your own to avoid copyright issues and make the project uniquely yours.
+        </div>
+    </p>
+</div>
+
+                <!-- Requirements -->
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li><strong>Programming Language:</strong> HTML, CSS, JavaScript</li>
+                        <li><strong>Tools:</strong> VS Code, Git, Vercel, Pexels (For Images)</li>
+                        <li><strong>Other Dependencies:</strong> Google Fonts, Font Awesome</li>
+                    </ul>
+                </div>
+
+                <!-- Process/Steps -->
+<div class="process">
+    <h3>Process/Steps</h3>
+    <ol>
+        <li><strong>Step 1: Create Project Files</strong>
+            <ul>
+                <li>Create a folder named <code>image-gallery-project</code>.</li>
+                <li>Inside the folder, create the following files:
+                    <ul>
+                        <li><code>index.html</code> - For the main gallery page.</li>
+                        <li><code>styles.css</code> - For styling the image gallery.</li>
+                        <li><code>script.js</code> - It is added in every HTML file for the functionality of the project, so no need to create this file in the project folder.</li>
+                        <li><code>nature.html</code> - For the Nature category.</li>
+                        <li><code>architecture.html</code> - For the Architecture category.</li>
+                        <li><code>portraits.html</code> - For the Portraits category.</li>
+                    </ul>
+                </li>
+                <li>Add a favicon by including an <code>infinite.ico</code> file in the project folder.</li>
+            </ul>
+        </li>
+        <li><strong>Step 2: Write HTML Code for Main Page</strong>
+            <ul>
+                <li>In <code>index.html</code>, create the basic structure of the image gallery using HTML.</li>
+                <li>Add a navigation drawer for categories (e.g., Nature, Architecture, Portraits).</li>
+                <li>Include a section for displaying images in a grid layout.</li>
+                <li>Add a footer with social media icons and links.</li>
+                <li>Link the favicon in the <code>&lt;head&gt;</code> section:
+                    <pre><code>&lt;link rel="icon" type="image/x-icon" href="infinite.ico"&gt;</code></pre>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Step 3: Create Category-Specific HTML Files</strong>
+            <ul>
+                <li>In <code>nature.html</code>, add the following code:
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Nature Gallery&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Navigation Bar --&gt;
+    &lt;nav class="navbar"&gt;
+        &lt;h2&gt;Infinit Frame&lt;/h2&gt;
+        &lt;div class="nav-links"&gt;
+            &lt;a href="index.html"&gt;Home&lt;/a&gt;
+            &lt;a href="nature.html"&gt;Nature&lt;/a&gt;
+            &lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;
+            &lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;
+            &lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-toggle" onclick="toggleSidenav()"&gt;&amp;#9776;&lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- Side Navigation for Mobile --&gt;
+    &lt;div class="sidenav" id="sidenav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="nature.html"&gt;Nature&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Gallery Section --&gt;
+    &lt;h1&gt;Nature Gallery&lt;/h1&gt;
+    &lt;div class="gallery"&gt;
+        &lt;div class="card" onclick="window.location.href='forest.html'"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/192136/pexels-photo-192136.jpeg" alt="Nature 1"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Forest&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" onclick="window.location.href='mountains.html'"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?cs=srgb&amp;dl=pexels-sagui-andrea-200115-618833.jpg&amp;fm=jpg" alt="Nature 2"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Mountains&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Add more images as needed --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Footer Section --&gt;
+    &lt;footer class="footer"&gt;
+        &lt;div class="social-links"&gt;
+            &lt;a href="https://facebook.com/hariomsonihr" target="_blank" class="social-icon"&gt;
+                &lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt; Facebook
+            &lt;/a&gt;
+            &lt;a href="https://instagram.com/hariomsonihs" target="_blank" class="social-icon"&gt;
+                &lt;i class="fab fa-instagram"&gt;&lt;/i&gt; Instagram
+            &lt;/a&gt;
+            &lt;a href="https://linkedin.com/in/hariomsonihs" target="_blank" class="social-icon"&gt;
+                &lt;i class="fab fa-linkedin-in"&gt;&lt;/i&gt; LinkedIn
+            &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="copyright"&gt;
+            &lt;p&gt;&amp;copy; 2025 Infinit Frame. Designed and Developed by &lt;a href="https://instagram.com/hariomsonihs/" target="_blank"&gt;Hariom Kumar&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;!-- Lightbox --&gt;
+    &lt;div id="lightbox" class="lightbox"&gt;
+        &lt;span class="close" onclick="closeLightbox()"&gt;&amp;times;&lt;/span&gt;
+        &lt;span class="prev" onclick="changeImage(-1)"&gt;&amp;#10094;&lt;/span&gt;
+        &lt;span class="next" onclick="changeImage(1)"&gt;&amp;#10095;&lt;/span&gt;
+        &lt;img id="lightbox-img" class="lightbox-img"&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // JavaScript for Side Navigation
+        function toggleSidenav() {
+            const sidenav = document.getElementById('sidenav');
+            sidenav.classList.toggle('active');
+        }
+
+        // JavaScript for Lightbox
+        let currentImageIndex = 0;
+        const images = [
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz3ZAVqtRgPHFqCSVkYLELMHgOo1xANXpiZw&amp;s.jpeg',
+            'https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?cs=srgb&amp;dl=pexels-sagui-andrea-200115-618833.jpg&amp;fm=jpg'
+            // Add more image URLs here
+        ];
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = 'block';
+            lightboxImg.src = src;
+            currentImageIndex = images.indexOf(src);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function changeImage(n) {
+            currentImageIndex += n;
+            if (currentImageIndex &gt;= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex &lt; 0) {
+                currentImageIndex = images.length - 1;
+            }
+            document.getElementById('lightbox-img').src = images[currentImageIndex];
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </li>
+                <li>In <code>architecture.html</code>, add the following code:
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Architecture Gallery&lt;/title&gt;
+    &lt;link rel="icon" type="image/x-icon" href="infinite.ico"&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Navigation Bar --&gt;
+    &lt;nav class="navbar"&gt;
+        &lt;h2&gt;Infinit Frame&lt;/h2&gt;
+        &lt;div class="nav-links"&gt;
+            &lt;a href="index.html"&gt;Home&lt;/a&gt;
+            &lt;a href="nature.html"&gt;Nature&lt;/a&gt;
+            &lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;
+            &lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;
+            &lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-toggle" onclick="toggleSidenav()"&gt;&amp;#9776;&lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- Side Navigation for Mobile --&gt;
+    &lt;div class="sidenav" id="sidenav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="nature.html"&gt;Nature&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Gallery Section --&gt;
+    &lt;h1&gt;Architecture Gallery&lt;/h1&gt;
+    &lt;div class="gallery"&gt;
+        &lt;div class="card" onclick="openLightbox('https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg')"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg" alt="Architecture 1"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Modern Skyscraper&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" onclick="openLightbox('https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg')"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg" alt="Architecture 2"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Historical Building&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Add more images as needed --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Lightbox --&gt;
+    &lt;div id="lightbox" class="lightbox"&gt;
+        &lt;span class="close" onclick="closeLightbox()"&gt;&amp;times;&lt;/span&gt;
+        &lt;span class="prev" onclick="changeImage(-1)"&gt;&amp;#10094;&lt;/span&gt;
+        &lt;span class="next" onclick="changeImage(1)"&gt;&amp;#10095;&lt;/span&gt;
+        &lt;img id="lightbox-img" class="lightbox-img"&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // JavaScript for Side Navigation
+        function toggleSidenav() {
+            const sidenav = document.getElementById('sidenav');
+            sidenav.classList.toggle('active');
+        }
+
+        // JavaScript for Lightbox
+        let currentImageIndex = 0;
+        const images = [
+            'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg',
+            'https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg'
+            // Add more image URLs here
+        ];
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = 'block';
+            lightboxImg.src = src;
+            currentImageIndex = images.indexOf(src);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function changeImage(n) {
+            currentImageIndex += n;
+            if (currentImageIndex &gt;= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex &lt; 0) {
+                currentImageIndex = images.length - 1;
+            }
+            document.getElementById('lightbox-img').src = images[currentImageIndex];
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </li>
+                <li>Repeat the same structure for <code>portraits.html</code> and other category files.</li>
+            </ul>
+        </li>
+        <li><strong>Step 4: Arrange and Add Images</strong>
+            <ul>
+                <li>Choose images from free platforms like <strong>Pexels</strong>, <strong>Unsplash</strong>, or <strong>Pixabay</strong>.</li>
+                <li>Download the images and organize them into folders based on categories (e.g., <code>nature</code>, <code>architecture</code>, <code>portraits</code>).</li>
+                <li>Copy the image paths and add them to your HTML files.</li>
+                <li>Alternatively, use direct image URLs from platforms like Pexels if you prefer not to download the images.</li>
+            </ul>
+        </li>
+        <li><strong>Step 5: Style the Image Gallery</strong>
+            <ul>
+                <li>In <code>styles.css</code>, style the gallery to make it visually appealing.</li>
+                <li>Use CSS Grid or Flexbox to create a responsive grid layout for the images.</li>
+                <li>Add hover effects, animations, and gradients for a modern look.</li>
+                <li>Style the navigation drawer and footer to match the overall design.</li>
+            </ul>
+        </li>
+        <li><strong>Step 6: Add JavaScript Logic</strong>
+            <ul>
+                <li>In <code>script.js</code>, write functions to filter images based on categories.</li>
+                <li>Add functionality to load more images dynamically (infinite scroll).</li>
+                <li>Implement smooth animations for transitions between categories.</li>
+            </ul>
+        </li>
+        <li><strong>Step 7: Test and Deploy</strong>
+            <ul>
+                <li>Test the image gallery on different devices to ensure responsiveness.</li>
+                <li>Deploy the project using GitHub Pages, Vercel, or any hosting service.</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+          <!-- Code Explanation -->
+                <div class="code-explanation">
+                    <h3>Code Explanation</h3>
+
+                    <!-- HTML Code -->
+                    <div class="code-container">
+                        <h4>HTML Code (index.html)</h4>
+                        <pre><code id="htmlCode">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Infinite Frame&lt;/title&gt;
+    &lt;link rel="icon" type="image/x-icon" href="infinite.ico"&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Navigation Bar --&gt;
+    &lt;nav class="navbar"&gt;
+        &lt;h2&gt;Infinit Frame&lt;/h2&gt;
+        &lt;div class="nav-links"&gt;
+            &lt;a href="index.html"&gt;Home&lt;/a&gt;
+            &lt;a href="nature.html"&gt;Nature&lt;/a&gt;
+            &lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;
+            &lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;
+            &lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-toggle" onclick="toggleSidenav()"&gt;&amp;#9776;&lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- Side Navigation for Mobile --&gt;
+    &lt;div class="sidenav" id="sidenav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="nature.html"&gt;Nature&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Gallery Section --&gt;
+    &lt;h1&gt;Explore the Infinit Frame Gallery&lt;/h1&gt;
+    &lt;div class="gallery"&gt;
+        &lt;!-- Nature Card --&gt;
+        &lt;div class="card" onclick="window.location.href='nature.html'"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg" alt="Nature"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Nature&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Architecture Card --&gt;
+        &lt;div class="card" onclick="window.location.href='architecture.html'"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg" alt="Architecture"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Architecture&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Portraits Card --&gt;
+        &lt;div class="card" onclick="window.location.href='portraits.html'"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" alt="Portraits"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Portraits&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Abstract Card --&gt;
+        &lt;div class="card" onclick="window.location.href='abstract.html'"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg" alt="Abstract"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Abstract&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Lightbox --&gt;
+    &lt;div id="lightbox" class="lightbox"&gt;
+        &lt;span class="close" onclick="closeLightbox()"&gt;&amp;times;&lt;/span&gt;
+        &lt;span class="prev" onclick="changeImage(-1)"&gt;&amp;#10094;&lt;/span&gt;
+        &lt;span class="next" onclick="changeImage(1)"&gt;&amp;#10095;&lt;/span&gt;
+        &lt;img id="lightbox-img" class="lightbox-img"&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Footer Section --&gt;
+    &lt;footer class="footer"&gt;
+        &lt;div class="social-links"&gt;
+            &lt;a href="https://facebook.com/hariomsonihr" target="_blank" class="social-icon"&gt;
+                &lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt; Facebook
+            &lt;/a&gt;
+            &lt;a href="https://instagram.com/hariomsonihs" target="_blank" class="social-icon"&gt;
+                &lt;i class="fab fa-instagram"&gt;&lt;/i&gt; Instagram
+            &lt;/a&gt;
+            &lt;a href="https://linkedin.com/in/hariomsonihs" target="_blank" class="social-icon"&gt;
+                &lt;i class="fab fa-linkedin-in"&gt;&lt;/i&gt; LinkedIn
+            &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="copyright"&gt;
+            &lt;p&gt;&amp;copy; 2025 Infinite Frame. Designed and Developed by &lt;a href="https://instagram.com/hariomsonihs/" target="_blank"&gt;Hariom Kumar&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+     &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('htmlCode')">Copy HTML</button>
+                    </div>
+
+<!-- (nature.html) HTML Code -->
+                    <div class="code-container">
+                        <h4>HTML Code (nature.html)</h4>
+                        <pre><code id="htmlCode">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Nature Gallery&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Navigation Bar --&gt;
+    &lt;nav class="navbar"&gt;
+        &lt;h2&gt;Infinit Frame&lt;/h2&gt;
+        &lt;div class="nav-links"&gt;
+            &lt;a href="index.html"&gt;Home&lt;/a&gt;
+            &lt;a href="nature.html"&gt;Nature&lt;/a&gt;
+            &lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;
+            &lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;
+            &lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-toggle" onclick="toggleSidenav()"&gt;&amp;#9776;&lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- Side Navigation for Mobile --&gt;
+    &lt;div class="sidenav" id="sidenav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="nature.html"&gt;Nature&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Gallery Section --&gt;
+    &lt;h1&gt;Nature Gallery&lt;/h1&gt;
+    &lt;div class="gallery"&gt;
+        &lt;div class="card" onclick="window.location.href='forest.html'"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/192136/pexels-photo-192136.jpeg" alt="Nature 1"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Forest&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" onclick="window.location.href='mountains.html'"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?cs=srgb&amp;dl=pexels-sagui-andrea-200115-618833.jpg&amp;fm=jpg" alt="Nature 2"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Mountains&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Add more images as needed --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Footer Section --&gt;
+    &lt;footer class="footer"&gt;
+        &lt;div class="social-links"&gt;
+            &lt;a href="https://facebook.com/hariomsonihr" target="_blank" class="social-icon"&gt;
+                &lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt; Facebook
+            &lt;/a&gt;
+            &lt;a href="https://instagram.com/hariomsonihs" target="_blank" class="social-icon"&gt;
+                &lt;i class="fab fa-instagram"&gt;&lt;/i&gt; Instagram
+            &lt;/a&gt;
+            &lt;a href="https://linkedin.com/in/hariomsonihs" target="_blank" class="social-icon"&gt;
+                &lt;i class="fab fa-linkedin-in"&gt;&lt;/i&gt; LinkedIn
+            &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="copyright"&gt;
+            &lt;p&gt;&amp;copy; 2025 Infinit Frame. Designed and Developed by &lt;a href="https://instagram.com/hariomsonihs/" target="_blank"&gt;Hariom Kumar&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;!-- Lightbox --&gt;
+    &lt;div id="lightbox" class="lightbox"&gt;
+        &lt;span class="close" onclick="closeLightbox()"&gt;&amp;times;&lt;/span&gt;
+        &lt;span class="prev" onclick="changeImage(-1)"&gt;&amp;#10094;&lt;/span&gt;
+        &lt;span class="next" onclick="changeImage(1)"&gt;&amp;#10095;&lt;/span&gt;
+        &lt;img id="lightbox-img" class="lightbox-img"&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // JavaScript for Side Navigation
+        function toggleSidenav() {
+            const sidenav = document.getElementById('sidenav');
+            sidenav.classList.toggle('active');
+        }
+
+        // JavaScript for Lightbox
+        let currentImageIndex = 0;
+        const images = [
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz3ZAVqtRgPHFqCSVkYLELMHgOo1xANXpiZw&amp;s.jpeg',
+            'https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?cs=srgb&amp;dl=pexels-sagui-andrea-200115-618833.jpg&amp;fm=jpg'
+            // Add more image URLs here
+        ];
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = 'block';
+            lightboxImg.src = src;
+            currentImageIndex = images.indexOf(src);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function changeImage(n) {
+            currentImageIndex += n;
+            if (currentImageIndex &gt;= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex &lt; 0) {
+                currentImageIndex = images.length - 1;
+            }
+            document.getElementById('lightbox-img').src = images[currentImageIndex];
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('htmlCode')">Copy HTML</button>
+                    </div>
+
+<!-- (architecture.html) HTML Code -->
+                    <div class="code-container">
+                        <h4>HTML Code (architecture.html)</h4>
+                        <pre><code id="htmlCode">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Architecture Gallery&lt;/title&gt;
+    &lt;link rel="icon" type="image/x-icon" href="infinite.ico"&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Navigation Bar --&gt;
+    &lt;nav class="navbar"&gt;
+        &lt;h2&gt;Infinit Frame&lt;/h2&gt;
+        &lt;div class="nav-links"&gt;
+            &lt;a href="index.html"&gt;Home&lt;/a&gt;
+            &lt;a href="nature.html"&gt;Nature&lt;/a&gt;
+            &lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;
+            &lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;
+            &lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-toggle" onclick="toggleSidenav()"&gt;&amp;#9776;&lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- Side Navigation for Mobile --&gt;
+    &lt;div class="sidenav" id="sidenav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="nature.html"&gt;Nature&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="architecture.html"&gt;Architecture&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="portraits.html"&gt;Portraits&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="abstract.html"&gt;Abstract&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Gallery Section --&gt;
+    &lt;h1&gt;Architecture Gallery&lt;/h1&gt;
+    &lt;div class="gallery"&gt;
+        &lt;div class="card" onclick="openLightbox('https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg')"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg" alt="Architecture 1"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Modern Skyscraper&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" onclick="openLightbox('https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg')"&gt;
+            &lt;div class="card-image"&gt;
+                &lt;img src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg" alt="Architecture 2"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="card-title"&gt;Historical Building&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Add more images as needed --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Lightbox --&gt;
+    &lt;div id="lightbox" class="lightbox"&gt;
+        &lt;span class="close" onclick="closeLightbox()"&gt;&amp;times;&lt;/span&gt;
+        &lt;span class="prev" onclick="changeImage(-1)"&gt;&amp;#10094;&lt;/span&gt;
+        &lt;span class="next" onclick="changeImage(1)"&gt;&amp;#10095;&lt;/span&gt;
+        &lt;img id="lightbox-img" class="lightbox-img"&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // JavaScript for Side Navigation
+        function toggleSidenav() {
+            const sidenav = document.getElementById('sidenav');
+            sidenav.classList.toggle('active');
+        }
+
+        // JavaScript for Lightbox
+        let currentImageIndex = 0;
+        const images = [
+            'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg',
+            'https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg'
+            // Add more image URLs here
+        ];
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = 'block';
+            lightboxImg.src = src;
+            currentImageIndex = images.indexOf(src);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function changeImage(n) {
+            currentImageIndex += n;
+            if (currentImageIndex &gt;= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex &lt; 0) {
+                currentImageIndex = images.length - 1;
+            }
+            document.getElementById('lightbox-img').src = images[currentImageIndex];
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('htmlCode')">Copy HTML</button>
+                    </div>
+
+                    <!-- CSS Code -->
+                    <div class="code-container">
+                        <h4>CSS Code</h4>
+                        <pre><code id="cssCode">
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #fff;
+    user-select:none;
+}
+
+/* Title */
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin: 40px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+h1:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation Bar */
+.navbar {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.navbar h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff9f43;
+    transform: scale(1.1);
+}
+
+/* Side Navigation */
+.sidenav {
+    display: none;
+    background: #1e3c72;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.sidenav.active {
+    transform: translateX(0);
+}
+
+.sidenav ul {
+    padding: 0;
+}
+
+.sidenav li {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.sidenav li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.sidenav li a:hover {
+    color: #ff9f43;
+    letter-spacing: 2px;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Gallery Styles */
+.gallery {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-content: center; /* Center the grid items */
+}
+
+.card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    cursor: pointer;
+    max-width: 100%; /* Ensure cards don't overflow */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ff9f43, #ff6f61);
+}
+
+.card:hover .card-title {
+    color: #fff;
+}
+
+.card-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1001;
+    text-align: center;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+}
+
+.prev {
+    left: 30px;
+}
+
+.next {
+    right: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .sidenav {
+        display: block;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for smaller screens */
+        gap: 15px; /* Reduce gap for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .card {
+        max-width: 100%; /* Ensure cards don't overflow */
+    }
+
+    .card-image img {
+        height: 180px; /* Adjust image height for smaller screens */
+    }
+
+    .card-title {
+        font-size: 1.2rem; /* Adjust title size for smaller screens */
+    }
+}
+/* Footer Section */
+.footer {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 1rem; /* Space between items */
+    margin-bottom: 1.5rem;
+}
+
+.social-icon {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon:hover {
+    color: #ffdd57;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon i {
+    font-size: 1.2rem;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.copyright a {
+    color: #ffdd57;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+    color: #ffffff;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .card {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .footer {
+        padding: 1.5rem 1rem;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .social-links {
+        gap: 0.5rem; /* Reduce gap for smaller screens */
+    }
+
+    .social-icon {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+        padding: 0.5rem; /* Smaller padding for mobile */
+    }
+}
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('cssCode')">Copy CSS</button>
+                    </div>
+
+                <!-- Screenshots/Output -->
+                <div class="screenshots">
+                    <h3>Screenshots/Output</h3>
+                    <img src="image-gallery.jpg" alt="Weather App Screenshot" class="screenshot">
+                    <img src="image-gallery-1.jpg" alt="Weather App Screenshot" class="screenshot">
+                </div>
+
+                <!-- Explore Button -->
+                <div class="explore-button">
+                    <a href="https://infinite-frame.vercel.app/"><button>Explore Project</button></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
+        </footer>
+
+        <!-- JavaScript for Copy and Download Buttons -->
+        <script>
+            // Copy Code Functionality
+            function copyCode(elementId) {
+                const codeSnippet = document.getElementById(elementId).innerText;
+                navigator.clipboard.writeText(codeSnippet).then(() => {
+                    alert("Code copied to clipboard!");
+                });
+            }
+        </script>
+    </body>
+</html>
