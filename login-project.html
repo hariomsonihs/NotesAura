@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page Project - NotesAura</title>
+        <!-- Font Awesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Digital-7&display=swap" rel="stylesheet">
+        <style>
+            /* =========================
+General Reset
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: #fff;
+    padding: 20px;
+    padding-top: 80px; /* Adjusted for fixed header */
+    min-height: 100vh;
+    user-select: none;
+}
+
+/* =========================
+Header Styling
+========================= */
+.main-header {
+    background: linear-gradient(135deg, #6200ea, #0078d7);
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.slogan {
+    font-size: 0.7rem;
+    color: yellow;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* =========================
+Project Content Styling
+========================= */
+.project-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2, h3 {
+    color: yellow;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.project-overview p,
+.requirements ul,
+.process ol {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.requirements ul,
+.process ol {
+    padding-left: 20px;
+}
+
+.requirements ul li,
+.process ol li {
+    margin-bottom: 10px;
+}
+
+/* =========================
+Project Overview Styling
+========================= */
+.project-overview ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.project-overview ul li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.project-overview ul li::before {
+    content: "•";
+    color: #ffcc00;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.project-overview ul li strong {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.project-overview ul li:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+/* =========================
+Code Container Styling
+========================= */
+.code-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+pre {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+pre code {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.copy-button, .download-button {
+    position: absolute;
+    top: 10px;
+    background: #ffcc00;
+    color: #141e30;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.copy-button {
+    right: 120px; /* Adjusted spacing */
+}
+
+.download-button {
+    right: 10px; /* Adjusted spacing */
+}
+
+.copy-button:hover, .download-button:hover {
+    background: #e6b800;
+}
+
+/* =========================
+Screenshot Styling
+========================= */
+.screenshot {
+    display: block;
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px auto; /* Centered */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+Explore Button Styling
+========================= */
+.explore-button {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.explore-button button {
+    background: #ffcc00;
+    color: #141e30;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.explore-button button:hover {
+    background: #e6b800;
+}
+
+/* =========================
+Footer Styling
+========================= */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+Responsive Design
+========================= */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+        padding: 10px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .project-content {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .copy-button, .download-button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .copy-button {
+        right: 100px; /* Adjusted spacing for mobile */
+    }
+
+    .download-button {
+        right: 10px; /* Adjusted spacing for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 10px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .slogan {
+        font-size: 0.6rem;
+    }
+
+    .project-content {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .copy-button, .download-button {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    .copy-button {
+        right: 90px; /* Adjusted spacing for small devices */
+    }
+
+    .download-button {
+        right: 10px; /* Adjusted spacing for small devices */
+    }
+}
+        
+/* General Styling for All Sections */
+.features,
+.technologies,
+.future-enhancements,
+.tools-resources {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #2c2c2c; /* Dark background for modern look */
+    color: #ffffff; /* White text for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Heading Styling */
+.features h3,
+.technologies h3,
+.future-enhancements h3,
+.tools-resources h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #00ff88; /* Neon green for headings */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* List Styling */
+.features ul,
+.technologies ul,
+.future-enhancements ul,
+.tools-resources ul {
+    list-style-type: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.features ul li,
+.technologies ul li,
+.future-enhancements ul li,
+.tools-resources ul li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #3a3a3a; /* Slightly lighter background for list items */
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.features ul li:hover,
+.technologies ul li:hover,
+.future-enhancements ul li:hover,
+.tools-resources ul li:hover {
+    background-color: #4a4a4a; /* Hover effect for list items */
+}
+
+/* Nested List Styling (for Technologies Section) */
+.technologies ul ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+.technologies ul ul li {
+    background-color: #2c2c2c; /* Darker background for nested items */
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+/* Icons and Highlighting */
+.features ul li strong,
+.technologies ul li strong,
+.future-enhancements ul li strong,
+.tools-resources ul li strong {
+    color: #00ff88; /* Neon green for emphasis */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .features,
+    .technologies,
+    .future-enhancements,
+    .tools-resources {
+        padding: 15px;
+    }
+
+    .features h3,
+    .technologies h3,
+    .future-enhancements h3,
+    .tools-resources h3 {
+        font-size: 20px;
+    }
+
+    .features ul li,
+    .technologies ul li,
+    .future-enhancements ul li,
+    .tools-resources ul li {
+        padding: 8px;
+        font-size: 14px;
+    }
+}        
+        </style>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header class="main-header">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-content">
+                    <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+                    <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Project Details Section -->
+        <section id="project-details">
+            <h2 class="section-title">Login Page Project</h2>
+            <div class="project-content">
+                <!-- Project Overview -->
+<div class="project-overview">
+    <h3>Project Overview</h3>
+    <p>
+        This project is a <strong>Modern Login Page</strong> built using HTML, CSS, and JavaScript. It features a sleek and professional design with interactive elements and animations. The login page includes the following features:
+        <ul>
+            <li><strong>Modern and Professional Design:</strong> Gradient background with a dark theme and glass morphism effect on the login box.</li>
+            <li><strong>Coding-Themed Animations:</strong> Floating coding icons (<code>{ }</code>, <code></></code>, <code>#</code>, <code>console.log();</code>, etc.) and terminal-like text animation.</li>
+            <li><strong>Interactive Login Form:</strong> Email and password input fields with real-time validation and focus effects.</li>
+            <li><strong>Funny and Interactive Button Behavior:</strong> Sign In button shakes and displays an error message if clicked without filling details.</li>
+            <li><strong>Success Feedback:</strong> Displays a success message with a bouncing checkmark icon upon successful submission.</li>
+            <li><strong>Responsive Design:</strong> Works seamlessly on all devices (desktop, tablet, mobile).</li>
+            <li><strong>Hover and Transition Effects:</strong> Smooth hover effects on buttons and links, and transitions for input fields and login box.</li>
+        </ul>
+        The login page is designed to be responsive and provides a dynamic user experience.
+    </p>
+</div>
+
+<!-- Requirements -->
+<div class="requirements">
+    <h3>Requirements</h3>
+    <ul>
+        <li><strong>Programming Language:</strong> HTML, CSS, JavaScript</li>
+        <li><strong>Frameworks/Libraries:</strong> None</li>
+        <li><strong>Tools:</strong> VS Code, Git</li>
+        <li><strong>APIs:</strong> None</li>
+        <li><strong>Other Dependencies:</strong> Font Awesome (for icons)</li>
+    </ul>
+</div>
+
+<!-- Process/Steps -->
+<div class="process">
+    <h3>Process/Steps</h3>
+    <ol>
+        <li><strong>Step 1: Create Project Files</strong>
+            <ul>
+                <li>Create a folder named <code>login-page-project</code>.</li>
+                <li>Inside the folder, create three files:
+                    <ul>
+                        <li><code>index.html</code> - For the HTML structure.</li>
+                        <li><code>styles.css</code> - For styling the login page.</li>
+                        <li><code>script.js</code> - For handling form validation and interactivity.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Step 2: Write HTML Code</strong>
+            <ul>
+                <li>In <code>index.html</code>, create the basic structure of the login page using HTML.</li>
+                <li>Add a login form with email and password fields, a Sign In button, and a registration link.</li>
+            </ul>
+        </li>
+        <li><strong>Step 3: Style the Login Page</strong>
+            <ul>
+                <li>In <code>styles.css</code>, style the login page to make it visually appealing.</li>
+                <li>Use gradients, glass morphism effects, and animations for a modern look.</li>
+            </ul>
+        </li>
+        <li><strong>Step 4: Add JavaScript Logic</strong>
+            <ul>
+                <li>In <code>script.js</code>, write functions to handle form validation, button behavior, and dynamic messages.</li>
+            </ul>
+        </li>
+        <li><strong>Step 5: Test and Deploy</strong>
+            <ul>
+                <li>Test the login page on different devices to ensure responsiveness.</li>
+                <li>Deploy the project using GitHub Pages or any hosting service.</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<!-- Features -->
+<div class="features">
+    <h3>Features</h3>
+    <ul>
+        <li><strong>Modern and Professional Design:</strong> Gradient background with a dark theme and glass morphism effect on the login box.</li>
+        <li><strong>Coding-Themed Animations:</strong> Floating coding icons and terminal-like text animation.</li>
+        <li><strong>Interactive Login Form:</strong> Email and password input fields with real-time validation and focus effects.</li>
+        <li><strong>Funny and Interactive Button Behavior:</strong> Sign In button shakes and displays an error message if clicked without filling details.</li>
+        <li><strong>Success Feedback:</strong> Displays a success message with a bouncing checkmark icon upon successful submission.</li>
+        <li><strong>Responsive Design:</strong> Works seamlessly on all devices (desktop, tablet, mobile).</li>
+        <li><strong>Hover and Transition Effects:</strong> Smooth hover effects on buttons and links, and transitions for input fields and login box.</li>
+    </ul>
+</div>
+
+<!-- Technologies Used -->
+<div class="technologies">
+    <h3>Technologies Used</h3>
+    <ul>
+        <li><strong>Frontend:</strong>
+            <ul>
+                <li><strong>HTML:</strong> For structuring the login form and content.</li>
+                <li><strong>CSS:</strong> For styling, animations, and responsive design.</li>
+                <li><strong>JavaScript:</strong> For form validation, button behavior, and dynamic messages.</li>
+            </ul>
+        </li>
+        <li><strong>Libraries:</strong>
+            <ul>
+                <li><strong>FontAwesome:</strong> For icons (e.g., checkmark in the success message).</li>
+            </ul>
+        </li>
+        <li><strong>Animations:</strong>
+            <ul>
+                <li>CSS keyframes for floating icons, shake animation, and terminal text animation.</li>
+            </ul>
+        </li>
+        <li><strong>Design Tools:</strong>
+            <ul>
+                <li>Gradient backgrounds and glass morphism effects using CSS.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<!-- Tools and Resources -->
+<div class="tools-resources">
+    <h3>Tools and Resources</h3>
+    <ul>
+        <li><strong>Code Editor:</strong> VS Code, Sublime Text, or any preferred editor.</li>
+        <li><strong>Browser:</strong> Chrome, Firefox, or Edge for testing.</li>
+        <li><strong>Fonts:</strong> Google Fonts or system fonts (Arial, Courier New).</li>
+        <li><strong>Icons:</strong> FontAwesome for icons.</li>
+        <li><strong>Hosting:</strong> GitHub Pages, Netlify, or Vercel for deployment.</li>
+    </ul>
+</div>
+
+<!-- Future Enhancements -->
+<div class="future-enhancements">
+    <h3>Future Enhancements</h3>
+    <ul>
+        <li><strong>Backend Integration:</strong> Connect the login form to a backend (e.g., Node.js, Firebase) for real user authentication.</li>
+        <li><strong>Password Visibility Toggle:</strong> Add an eye icon to toggle password visibility.</li>
+        <li><strong>Social Login Options:</strong> Add buttons for Google, GitHub, or Facebook login.</li>
+        <li><strong>Advanced Animations:</strong> Add more complex animations like typing effects or particle effects in the background.</li>
+        <li><strong>Dark/Light Mode Toggle:</strong> Allow users to switch between dark and light themes.</li>
+    </ul>
+</div>
+
+                <!-- Code Explanation -->
+                <div class="code-explanation">
+                    <h3>Code Explanation</h3>
+
+                    <!-- HTML Code -->
+                    <div class="code-container">
+                        <h4>HTML Code</h4>
+                        <pre><code id="htmlCode">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Login Page&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+  &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Background Icons --&gt;
+  &lt;div class="background-icons"&gt;
+    &lt;span&gt;{ }&lt;/span&gt;
+    &lt;span&gt;&lt;/&gt;&lt;/span&gt;
+    &lt;span&gt;#&lt;/span&gt;
+    &lt;span&gt;console.log();&lt;/span&gt;
+    &lt;span&gt;function()&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Terminal-like Text Animation --&gt;
+  &lt;div class="terminal-text"&gt;Created By Hariom Soni&lt;/div&gt;
+
+  &lt;!-- Login Box --&gt;
+  &lt;div class="login-box"&gt;
+    &lt;h1&gt;Login&lt;/h1&gt;
+    &lt;form&gt;
+      &lt;div class="input-group"&gt;
+        &lt;label for="email"&gt;Email&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" required&gt;
+      &lt;/div&gt;
+      &lt;div class="input-group"&gt;
+        &lt;label for="password"&gt;Password&lt;/label&gt;
+        &lt;input type="password" id="password" name="password" required&gt;
+      &lt;/div&gt;
+      &lt;button type="submit"&gt;Sign In&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;p&gt;Don't have an account? &lt;a href="#"&gt;Register&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Footer --&gt;
+  &lt;footer&gt;
+    &lt;p&gt;Design and Developed by &lt;strong&gt;Hariom Soni&lt;/strong&gt;&lt;/p&gt;
+  &lt;/footer&gt;
+
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('htmlCode')">Copy HTML</button>
+                    </div>
+
+                    <!-- CSS Code -->
+                    <div class="code-container">
+                        <h4>CSS Code</h4>
+                        <pre><code id="cssCode">
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+    color: white;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+
+}
+
+/* Background Animation */
+.background-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background-icons span {
+    position: absolute;
+    display: block;
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 20px;
+    font-family: 'Courier New', monospace;
+    animation: float 10s linear infinite;
+}
+
+.background-icons span:nth-child(1) {
+    top: -10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.background-icons span:nth-child(2) {
+    top: -20%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.background-icons span:nth-child(3) {
+    top: -15%;
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.background-icons span:nth-child(4) {
+    top: -25%;
+    left: 70%;
+    animation-delay: 6s;
+}
+
+.background-icons span:nth-child(5) {
+    top: -30%;
+    left: 90%;
+    animation-delay: 8s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Terminal-like Text Animation */
+.terminal-text {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Login Box */
+.login-box {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #6a11cb;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.input-group input {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.5);
+    outline: none;
+}
+
+/* Button */
+button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.5);
+}
+
+/* Link */
+p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+p a {
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #2575fc;
+}
+
+/* Success Message */
+.success-message {
+    display: none;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.success-message i {
+    margin-right: 10px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+/* Shake Animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Error Message */
+.error-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ff4d4d;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('cssCode')">Copy CSS</button>
+                    </div>
+
+                    <!-- JavaScript Code -->
+<div class="code-container">
+    <h4>JavaScript Code</h4>
+    <pre><code id="jsCode">
+document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent form submission
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const signInButton = document.querySelector('button');
+
+    if (!email || !password) {
+        // Add funny animation to the button
+        signInButton.style.position = 'relative';
+        signInButton.style.animation = 'shake 0.5s ease-in-out';
+
+        // Show a message on the screen
+        const message = document.createElement('div');
+        message.classList.add('error-message');
+        message.textContent = 'Fill the details before!';
+        document.querySelector('.login-box').appendChild(message);
+
+        // Remove the message after 2 seconds
+        setTimeout(() => {
+            message.remove();
+        }, 2000);
+
+        // Remove the shake animation after it ends
+        signInButton.addEventListener('animationend', () => {
+            signInButton.style.animation = '';
+        });
+    } else {
+        // Simulate successful login
+        const successMessage = document.createElement('div');
+        successMessage.classList.add('success-message');
+        successMessage.innerHTML = `<i class="fas fa-check-circle"></i> Sign In Successful!`;
+        document.querySelector('.login-box').appendChild(successMessage);
+
+        // Show the success message
+        successMessage.style.display = 'block';
+
+        // Reset the form after 2 seconds
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+            document.querySelector('form').reset();
+        }, 2000);
+    }
+});
+    </code></pre>
+    <button class="copy-button" onclick="copyCode('jsCode')">Copy JavaScript</button>
+</div>
+
+                <!-- Screenshots/Output -->
+                <div class="screenshots">
+                    <h3>Screenshots/Output</h3>
+                    <img src="login-page-2.jpg" alt="Login Page Screenshot" class="screenshot">
+                </div>
+
+                <!-- Explore Button -->
+                <div class="explore-button">
+                    <a href="https://login-page-kappa-ebon.vercel.app/"><button>Explore Project</button></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
+        </footer>
+
+        <!-- JavaScript for Copy and Download Buttons -->
+        <script>
+            // Copy Code Functionality
+            function copyCode(elementId) {
+                const codeSnippet = document.getElementById(elementId).innerText;
+                navigator.clipboard.writeText(codeSnippet).then(() => {
+                    alert("Code copied to clipboard!");
+                });
+            }
+        </script>
+    </body>
+</html>
