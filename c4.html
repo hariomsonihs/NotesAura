@@ -1,11 +1,11 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comments In C</title>
     <style>
-         body {
+        body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
@@ -130,11 +130,12 @@
     </style>
 </head>
 <body>
+    <h1>Comments in C Programming Language</h1>
+
     <h2>Introduction Of Comments in C</h2>
+    <p><b>In C programming, comments are lines or blocks of text that the compiler ignores during the compilation process. They are used to explain the code and providing documentation, making it easier for humans to understand.</b></p>
 
-   <p><b>In C programming, comments are lines or blocks of text that the compiler ignores during the compilation process. They are used to explain the code and providing documentation, making it easier for humans to understand.</b></p>
-
-    <h3 style="border-left: 4px solid #4CAF50; padding-left: 10px;">Benefits of Using Comments</h3>
+    <h3>Benefits of Using Comments</h3>
     <ul>
         <li><strong>Improved readability:</strong> Comments make code easier to understand by providing explanations and context.</li>
         <li><strong>Debugging:</strong> Comments can help you identify and fix errors in your code.</li>
@@ -152,28 +153,28 @@
     <h3>1. Single-Line Comments</h3>
     <p>Single-line comments are used to write brief explanations or notes in the code, which span a single line. Everything following the <code>//</code> on that line is treated as a comment and is ignored by the compiler.</p>
 
-    <div class="code-block">
-    <h4>Syntax</h4>
-    <pre><code><span style="color:green">// This is a single-line comment</span></code></pre>
-</div>
+    <div class="code-snippet">
+        <h4>Syntax</h4>
+        <pre><code><span class="comment">// This is a single-line comment</span></code></pre>
+    </div>
 
-<div class="code-block">
-    <h3>Example of Single Line Comments</h3>
-    <pre><code><span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;
+    <div class="code-snippet">
+        <h3>Example of Single Line Comments</h3>
+        <pre><code><span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;
 
 <span class="keyword">int main</span>() {
-    <span class="keyword">int</span> a = 5;  <span style="color:green">// Declare an integer variable 'a' and initialize it with the value 5</span>
-    <span class="keyword">printf</span>(<span class="string">"The value of a is: %d\n"</span>, a);  <span style="color:green">// Print the value of 'a' to the console</span>
+    <span class="keyword">int</span> a = 5;  <span class="comment">// Declare an integer variable 'a' and initialize it with the value 5</span>
+    <span class="keyword">printf</span>(<span class="string">"The value of a is: %d\n"</span>, a);  <span class="comment">// Print the value of 'a' to the console</span>
     <span class="keyword">return</span> 0;
 }
 </code></pre>
-</div>
+    </div>
 
     <div class="example">
         <h4>Explanation</h4>
         <ul>
-            <li><span class="keyword">// Declare an integer variable 'a' and initialize it with the value 5:</span> This comment explains the initialization of the variable <code>a</code>.</li>
-            <li><span class="keyword">// Print the value of 'a' to the console:</span> This comment explains the purpose of the print statement.</li>
+            <li><span class="comment">// Declare an integer variable 'a' and initialize it with the value 5:</span> This comment explains the initialization of the variable <code>a</code>.</li>
+            <li><span class="comment">// Print the value of 'a' to the console:</span> This comment explains the purpose of the print statement.</li>
             <li>These comments help humans understand the code while being ignored by the compiler.</li>
         </ul>
     </div>
@@ -181,20 +182,20 @@
     <h3>2. Multi-Line Comments</h3>
     <p>Multi-line comments are used to write longer descriptions or notes that span multiple lines. They begin with <code>/*</code> and end with <code>*/</code>.</p>
 
-    <div class="code-block">
-    <h4>Syntax</h4>
-    <pre><code><span style="color:green">/* 
+    <div class="code-snippet">
+        <h4>Syntax</h4>
+        <pre><code><span class="comment">/* 
    This is a multi-line comment.
    It can span across multiple lines.
 */</span></code></pre>
-</div>
+    </div>
 
-<div class="code-block">
-    <h3>Example of Multi-line Comments</h3>
-    <pre><code><span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;
+    <div class="code-snippet">
+        <h3>Example of Multi-line Comments</h3>
+        <pre><code><span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;
 
 <span class="keyword">int main</span>() {
-    <span class="keyword">int</span> b = 10;  <span style="color:green">/* This is a multi-line comment
+    <span class="keyword">int</span> b = 10;  <span class="comment">/* This is a multi-line comment
                    which explains that we are declaring 
                    an integer variable 'b' and initializing
                    it with the value 10 */</span>
@@ -202,12 +203,12 @@
     <span class="keyword">return</span> 0;
 }
 </code></pre>
-</div>
+    </div>
 
     <div class="example">
         <h4>Explanation</h4>
         <ul>
-            <li><span class="keyword">/* This is a multi-line comment... */:</span> This comment explains the initialization of the variable <code>b</code> over multiple lines.</li>
+            <li><span class="comment">/* This is a multi-line comment... */:</span> This comment explains the initialization of the variable <code>b</code> over multiple lines.</li>
             <li>Multi-line comments are useful for providing more detailed explanations.</li>
         </ul>
     </div>
@@ -224,13 +225,12 @@
     <ul>
         <li><strong>Keep comments concise:</strong> Write short, meaningful comments that explain why the code does something, not just what it does (e.g., <code>// Multiply two numbers</code> is better than <code>// This line multiplies a by b</code>).</li>
         <li><strong>Use comments to clarify logic:</strong> Add comments where logic may not be immediately clear to another developer.</li>
-        <li><strong>Avoid redundant comments:</strong> Don’t write comments for obvious code. For example, don’t write <code>// Declaring an integer</code> next to <code>int a;</code> unless it provides important context.</li>
+        <li><strong>Avoid redundant comments:</strong> Don't write comments for obvious code. For example, don't write <code>// Declaring an integer</code> next to <code>int a;</code> unless it provides important context.</li>
     </ul>
 
     <h2>Conclusion</h2>
-     <div class="conclusion">
-    <p>Comments play an essential role in making your C programs understandable and maintainable. They help document code, making it easier for you and others to follow and debug later. Using them effectively can save time and frustration.</p>
-</div>
-</div>
+    <div class="conclusion">
+        <p>Comments play an essential role in making your C programs understandable and maintainable. They help document code, making it easier for you and others to follow and debug later. Using them effectively can save time and frustration.</p>
+    </div>
 </body>
 </html>
