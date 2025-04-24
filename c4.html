@@ -5,48 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comments In C</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+         body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f8f9fa;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #ffffff;
             user-select: none;
         }
-        h1, h2 {
+        h1 {
             text-align: center;
-            color: #333;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            padding: 20px;
+            font-size: 24px;
+            text-size-adjust: auto;
         }
         h2 {
-            background-color: #e0f2f1;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            border: 2px solid rgb(22, 160, 133);
-            color: #004d40;
+            color: #ffffff;
             cursor: pointer;
             padding: 10px;
             transition: background-color 0.3s;
-            border-left: 4px solid #4CAF50;
-            border-right: 4px solid #4CAF50; 
-            padding-left: 10px;
+            text-align: center;
         }
         h2:hover {
-            background-color: #b2dfdb;
+            background-color: darkolivegreen;
         }
-        p, ul {
-            color: #555;
-            line-height: 1.6;
+        h3 {
+            border-left: 5px solid #4CAF50;
+            padding-left: 10px;
             text-align: justify;
-        
-        
+            color: #ffffff;
         }
-        pre {
+        p {
+            line-height: 1.6;
+            color: #ffffff;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            text-align: justify;
+        }
+        .code-snippet {
             background-color: #282c34;
             color: #abb2bf;
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            line-height: 1.5;
+            margin: 10px 0;
+            position: relative;
+        }
+        .code-snippet::before {
+            content: 'Code Example';
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        .conclusion {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #444;
+            color: #ffffff;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .example {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
         }
         .keyword {
             color: #d19a66;
@@ -56,30 +108,24 @@
         }
         .comment {
             color: #5c6370;
+            font-style: italic;
         }
-        .example {
-            border-left: 4px solid #007bff;
-            padding-left: 10px;
-            margin: 20px 0;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5em;
+            }
+            p, .code-snippet {
+                font-size: 1em;
+            }
         }
-        .conclusion {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-        }
-        h3 {
-            border-left: 5px solid #4CAF50;
-            padding-left: 10px;
-            text-align:justify;
-        }
-        .conclusion {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.2em;
+            }
+            p, .code-snippet {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
