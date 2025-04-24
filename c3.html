@@ -6,48 +6,99 @@
     <title>Syntax and Structure of C</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f8f9fa;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #ffffff;
             user-select: none;
         }
-        h1, h2 {
+        h1 {
             text-align: center;
-            color: #333;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            padding: 20px;
+            font-size: 24px;
+            text-size-adjust: auto;
         }
         h2 {
-            background-color: #e0f2f1;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            border: 2px solid rgb(22, 160, 133);
-            color: #004d40;
+            color: #ffffff;
             cursor: pointer;
             padding: 10px;
             transition: background-color 0.3s;
-            border-left: 4px solid #4CAF50;
-            border-right: 4px solid #4CAF50; 
-            padding-left: 10px;
-            text-align:center;
+            text-align: center;
         }
         h2:hover {
-            background-color: #b2dfdb;
+            background-color: darkolivegreen;
         }
-        p, ul {
-            color: #555;
-            line-height: 1.6;
+        h3 {
+            border-left: 5px solid #4CAF50;
+            padding-left: 10px;
             text-align: justify;
-        
-        
+            color: #ffffff;
         }
-        pre {
+        p {
+            line-height: 1.6;
+            color: #ffffff;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            text-align: justify;
+        }
+        .code-snippet {
             background-color: #282c34;
             color: #abb2bf;
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            line-height: 1.5;
+            margin: 10px 0;
+            position: relative;
+        }
+        .code-snippet::before {
+            content: 'Code Example';
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        .conclusion {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #444;
+            color: #ffffff;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .example {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
         }
         .keyword {
             color: #d19a66;
@@ -57,27 +108,29 @@
         }
         .comment {
             color: #5c6370;
+            font-style: italic;
         }
-        .example {
-            border-left: 4px solid #007bff;
-            padding-left: 10px;
-            margin: 20px 0;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5em;
+            }
+            p, .code-snippet {
+                font-size: 1em;
+            }
         }
-        .conclusion {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-        }
-          h3 {
-            border-left: 5px solid #4CAF50;
-            padding-left: 10px;
-            text-align:justify;
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.2em;
+            }
+            p, .code-snippet {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
+    <h1>Syntax and Structure of C Programming Language</h1>
 
     <h2>Syntax of C, Structure & Basic Terms</h2>
     <p>The syntax of a programming language defines the rules that dictate how code must be written. In C, the syntax is quite rigid, and a small mistake can lead to compilation errors.</p>
@@ -90,7 +143,8 @@
     </ul>
 
     <h3>Example</h3>
-    <pre>
+    <div class="code-snippet">
+        <pre>
 <span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;
 
 <span class="keyword">int</span> <span class="keyword">main</span>() 
@@ -98,10 +152,11 @@
     <span class="keyword">printf</span>(<span class="string">"Hello, World!"</span>);
     <span class="keyword">return</span> 0; 
 }
-    </pre>
+        </pre>
+    </div>
     <p><strong>Output</strong>: Hello, World!</p>
 
-<div class="example">
+    <div class="example">
         <h4>Explanation</h4>
         <ul>
             <li><span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;: This directive tells the compiler to include the standard input-output library, which provides functionalities for input and output operations.</li>
@@ -109,7 +164,7 @@
             <li><span class="keyword">printf</span>(<span class="string">"Hello, World!"</span>): This line calls the <span class="keyword">printf</span> function to output the text "Hello, World!" to the console.</li>
             <li><span class="keyword">return</span> 0;: This line indicates that the program has finished executing successfully, returning 0 to the operating system.</li>
         </ul>
-</div>
+    </div>
 
     <h2>Structure of a C Program</h2>
     <p>A C program typically follows a specific structure, which includes several key components:</p>
@@ -122,88 +177,88 @@
         <li><strong>Functions</strong>: Modular sections of code that perform specific tasks.</li>
     </ul>
 
-
-<h3><b>stdio:</b></h3>
-  <ul>
-    <li><b>Stands for standard input/output.</b></li>
-    <li><b>Collection of predefined functions/methods.</b></li>
-    <li><b>Also known as the C library.</b></li>
-  </ul>
-
-  <h3><b>include:</b></h3>
-  <ul>
-    <li><b>Used to include header files into the program.</b></li>
-    <li><b>Allows inclusion of standard or user-defined header files for accessing predefined functions or declaring custom functions.</b></li>
-  </ul>
-
-  <h3><b>#:</b></h3>
-  <ul>
-    <li><b>Called preprocessor.</b></li>
-    <li><b>Includes the C library into the program before execution.</b></li>
-    <li><b>Used for preprocessor directives, which are instructions for the compiler.</b></li>
-    <li><b>Common directives include #include, #define, and #ifdef.</b></li>
-  </ul>
-
-  <p><b>There are two ways for using the #include directive:</b></p>
-  <ul>
-    <li><b><span style= color: orange;>#include&lt;filename&gt;</span>: with angle brackets.</b></li>
-    <li><b>#include"filename": with quotes.</b></li>
-  </ul>
-
-  <h3><b>conio:</b></h3>
-  <ul>
-    <li><b>Stands for console input/output.</b></li>
-    <li><b>Provides functions for handling console input/output.</b></li>
-    <li><b>Allows reading and writing to the console.</b></li>
-  </ul>
-
- <h3><b>return:</b></h3>
-  <ul>
-    <li><b>A statement to exit from a function.</b></li>
-    <li><b>In the main function, it returns a value to the operating system.</b></li>
-       <li><b>It signifies successful termination of the program.</b></li>
-  </ul>
-
-  <h3><b>Function:</b></h3>
-  <ul>
-    <li><b>Block of code that performs a specific task.</b></li>
-    <li><b>Can be reused multiple times throughout the program.</b></li>
-    <li><b>C allows both built-in functions and user-defined functions.</b></li>
-  </ul>
-
-  <h3><b>int:</b></h3>
-  <ul>
-    <li><b>Data type that denotes an integer value.</b></li>
-    <li><b>Indicates that the function will return an integer value.</b></li>
-  </ul>
-
-  <h3><b>void:</b></h3>
-  <ul>
-    <li><b>Indicates that a function does not return a value.</b></li>
-    <li><b>Commonly used for functions that perform tasks but do not need to return any result.</b></li>
-  </ul>
-
-  <h3><b>Variable:</b></h3>
-  <ul>
-    <li><b>Memory location with a name that can hold data.</b></li>
-    <li><b>Variable values can change during program execution.</b></li>
-    <li><b>Must be declared with a data type before use.</b></li>
-  </ul>
-
-  <h3><b>Data Types:</b></h3>
-  <ul>
-    <li><b>Types of data that can be stored in a variable.</b></li>
-    <li><b>C supports various data types including:</b></li>
+    <h3><b>stdio:</b></h3>
     <ul>
-      <li><b>int: Integer values</b></li>
-      <li><b>float: Floating-point numbers</b></li>
-      <li><b>char: Character values</b></li>
-      <li><b>double: Double-precision floating-point numbers</b></li>
+        <li><b>Stands for standard input/output.</b></li>
+        <li><b>Collection of predefined functions/methods.</b></li>
+        <li><b>Also known as the C library.</b></li>
     </ul>
-  </ul>
 
-    <h3>4. Example Structure</h3>
-    <pre>
+    <h3><b>include:</b></h3>
+    <ul>
+        <li><b>Used to include header files into the program.</b></li>
+        <li><b>Allows inclusion of standard or user-defined header files for accessing predefined functions or declaring custom functions.</b></li>
+    </ul>
+
+    <h3><b>#:</b></h3>
+    <ul>
+        <li><b>Called preprocessor.</b></li>
+        <li><b>Includes the C library into the program before execution.</b></li>
+        <li><b>Used for preprocessor directives, which are instructions for the compiler.</b></li>
+        <li><b>Common directives include #include, #define, and #ifdef.</b></li>
+    </ul>
+
+    <p><b>There are two ways for using the #include directive:</b></p>
+    <ul>
+        <li><b><span style= color: orange;>#include&lt;filename&gt;</span>: with angle brackets.</b></li>
+        <li><b>#include"filename": with quotes.</b></li>
+    </ul>
+
+    <h3><b>conio:</b></h3>
+    <ul>
+        <li><b>Stands for console input/output.</b></li>
+        <li><b>Provides functions for handling console input/output.</b></li>
+        <li><b>Allows reading and writing to the console.</b></li>
+    </ul>
+
+    <h3><b>return:</b></h3>
+    <ul>
+        <li><b>A statement to exit from a function.</b></li>
+        <li><b>In the main function, it returns a value to the operating system.</b></li>
+        <li><b>It signifies successful termination of the program.</b></li>
+    </ul>
+
+    <h3><b>Function:</b></h3>
+    <ul>
+        <li><b>Block of code that performs a specific task.</b></li>
+        <li><b>Can be reused multiple times throughout the program.</b></li>
+        <li><b>C allows both built-in functions and user-defined functions.</b></li>
+    </ul>
+
+    <h3><b>int:</b></h3>
+    <ul>
+        <li><b>Data type that denotes an integer value.</b></li>
+        <li><b>Indicates that the function will return an integer value.</b></li>
+    </ul>
+
+    <h3><b>void:</b></h3>
+    <ul>
+        <li><b>Indicates that a function does not return a value.</b></li>
+        <li><b>Commonly used for functions that perform tasks but do not need to return any result.</b></li>
+    </ul>
+
+    <h3><b>Variable:</b></h3>
+    <ul>
+        <li><b>Memory location with a name that can hold data.</b></li>
+        <li><b>Variable values can change during program execution.</b></li>
+        <li><b>Must be declared with a data type before use.</b></li>
+    </ul>
+
+    <h3><b>Data Types:</b></h3>
+    <ul>
+        <li><b>Types of data that can be stored in a variable.</b></li>
+        <li><b>C supports various data types including:</b></li>
+        <ul>
+            <li><b>int: Integer values</b></li>
+            <li><b>float: Floating-point numbers</b></li>
+            <li><b>char: Character values</b></li>
+            <li><b>double: Double-precision floating-point numbers</b></li>
+        </ul>
+    </ul>
+
+    <h3>Example Structure</h3>
+    <div class="code-snippet">
+        <pre>
 <span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;
 
 <span class="comment">// Global variable</span>
@@ -226,10 +281,11 @@
 {
     <span class="keyword">printf</span>(<span class="string">"Hello, from a function!\n"</span>);
 }
-    </pre>
+        </pre>
+    </div>
     <p><strong>Output</strong>: <br> Hello, from a function! <br> Global Variable: 10 <br> Local Variable: 20</p>
 
-<div class="example">
+    <div class="example">
         <h4>Explanation</h4>
         <ul>
             <li><span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;: This directive includes the standard input-output library, enabling the use of functions like <span class="keyword">printf</span>.</li>
@@ -244,10 +300,9 @@
             <li><span class="keyword">void greet()</span>: This defines the <span class="keyword">greet</span> function.</li>
             <li><span class="keyword">printf</span>(<span class="string">"Hello, from a function!\n"</span>): This line within the <span class="keyword">greet</span> function prints a message to the console.</li>
         </ul>
-</div>
+    </div>
 
-
-    <h2>5. Some Rules to Write a C Program</h2>
+    <h2>Some Rules to Write a C Program</h2>
     <p>While writing a C program, follow these rules to ensure it compiles and runs successfully:</p>
     <ul>
         <li><strong>Every program must include a <code>main()</code> function</strong>.</li>
@@ -260,6 +315,8 @@
         <li><strong>Whitespace is ignored</strong> except inside string literals.</li>
     </ul>
 
-
+    <div class="conclusion">
+        <p>The C programming language has a well-defined syntax and structure that makes it powerful yet accessible. Understanding these fundamental concepts is crucial for writing efficient and error-free C programs. The language's rigid syntax rules ensure consistency across different implementations, while its structured approach promotes modular and maintainable code.</p>
+    </div>
 </body>
 </html>
