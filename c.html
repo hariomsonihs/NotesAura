@@ -3,253 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C Programming Language</title>
+    <meta name="description" content="Learn C Programming with interactive lessons, from basics to advanced topics like pointers, structures, and memory management.">
+    <meta name="keywords" content="C Programming, Learn C, C Tutorials, Programming for Beginners">
+    <meta name="author" content="NotesAura">
+    <title>C Programming Language - NotesAura</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Same CSS as the C Programming Page */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #141e30, #243b55);
-            margin: 0;
-            padding: 0;
-            color: #fff;
-            user-select: none;
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        header {
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #6200ea, #0078d7);
-            color: white;
-            padding: 30px 10px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
         }
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            font-weight: 600;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
-        }
-        .card {
-            background: linear-gradient(135deg, #1e2a3a, #2c3e50);
-            color: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            width: calc(20% - 20px);
-            padding: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(135deg, #0078d7, #6200ea);
-        }
-        .card h2 {
-            color: #ffffff;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-        }
-        .card a {
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .card a:hover {
-            color: #bb86fc;
-        }
-        .start-btn button {
-            background: linear-gradient(135deg, #ffeb3b, #fbc02d);
-            color: #000;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .start-btn button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(255, 235, 59, 0.3);
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #141e30, #243b55);
-            color: white;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        footer p {
-            margin: 0;
-            font-size: 1rem;
-        }
-        @media (max-width: 1024px) {
-            .card {
-                width: calc(33.33% - 20px);
-            }
-        }
-        @media (max-width: 768px) {
-            .card {
-                width: calc(50% - 20px);
-            }
-        }
-        @media (max-width: 480px) {
-            .card {
-                width: 100%;
-            }
-            header h1 {
-                font-size: 1.8rem;
-            }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>C Programming Language</h1>
+<body class="bg-gray-900 text-white font-sans">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-gradient-to-r from-indigo-600 to-blue-500 shadow-lg">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 class="text-3xl font-bold">C Programming Language</h1>
+            <nav>
+                <a href="#home" class="text-white hover:text-yellow-300 mx-4">Home</a>
+                <a href="#chapters" class="text-white hover:text-yellow-300 mx-4">Chapters</a>
+                <a href="#contact" class="text-white hover:text-yellow-300 mx-4">Contact</a>
+            </nav>
+        </div>
     </header>
-    <div class="container">
-        <!-- Chapter 1 -->
-        <div class="card">
-            <h2>Introduction to C</h2>
-            <a href="c1.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-800 py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Master C Programming</h2>
+            <p class="text-lg md:text-xl mb-8">Dive into the world of C with our comprehensive, beginner-friendly tutorials.</p>
+            <a href="#chapters" class="inline-block bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition">Start Learning</a>
         </div>
-        <!-- Chapter 2 -->
-        <div class="card">
-            <h2>Features of C</h2>
-            <a href="c2.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
+    </section>
+
+    <!-- Chapters Section -->
+    <section id="chapters" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Explore Chapters</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Chapter 1 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Introduction to C</h3>
+                    <a href="c1.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 2 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Features of C</h3>
+                    <a href="c2.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 3 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Basic Syntax & Structure</h3>
+                    <a href="c3.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 4 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Comments in C</h3>
+                    <a href="c4.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 5 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">C Tokens</h3>
+                    <a href="c5.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 6 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">C Keywords</h3>
+                    <a href="c6.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 7 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">C Identifiers</h3>
+                    <a href="c7.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 8 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Input & Output In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 9 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Variables In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 10 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Data Types In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 11 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Type Conversion In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 12 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Type Casting In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 13 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">C Operators</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 14 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Decision Making In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 15 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Looping In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 16 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Arrays In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 17 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Functions In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 18 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Pointers In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 19 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Structures In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 20 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Unions In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 21 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">File Handling In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+                <!-- Chapter 22 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl hover:bg-indigo-600 transition transform hover:-translate-y-2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Memory Management In C</h3>
+                    <a href="coming-soon.html" class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-play mr-2"></i> Start Learning
+                    </a>
+                </div>
+            </div>
         </div>
-        <!-- Chapter 3 -->
-        <div class="card">
-            <h2>Basic Syntax & Structure</h2>
-            <a href="c3.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 NotesAura. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#contact" class="text-yellow-400 hover:text-yellow-300 mx-2">Contact</a>
+                <a href="#privacy" class="text-yellow-400 hover:text-yellow-300 mx-2">Privacy Policy</a>
+                <a href="#terms" class="text-yellow-400 hover:text-yellow-300 mx-2">Terms of Service</a>
+            </div>
         </div>
-        <!-- Chapter 4 -->
-        <div class="card">
-            <h2>Comments in C</h2>
-            <a href="c4.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 5 -->
-        <div class="card">
-            <h2>C Tokens</h2>
-            <a href="c5.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 6 -->
-        <div class="card">
-            <h2>C Keywords</h2>
-            <a href="c6.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 7 -->
-        <div class="card">
-            <h2>C Identifiers</h2>
-            <a href="c7.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 8 -->
-        <div class="card">
-            <h2>Input & Output In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 9 -->
-        <div class="card">
-            <h2>Variables In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 10 -->
-        <div class="card">
-            <h2>Data Types In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 11 -->
-        <div class="card">
-            <h2>Type Conversion In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 12 -->
-        <div class="card">
-            <h2>Type Casting In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 13 -->
-        <div class="card">
-            <h2>C Operators</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 14 -->
-        <div class="card">
-            <h2>decision Making In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 15 -->
-        <div class="card">
-            <h2>Looping In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 16 -->
-        <div class="card">
-            <h2>Arrays In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 17 -->
-        <div class="card">
-            <h2>Functions In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 18 -->
-        <div class="card">
-            <h2>Pointers In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 19 -->
-        <div class="card">
-            <h2>Structures In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 20 -->
-        <div class="card">
-            <h2>Unions In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 21 -->
-        <div class="card">
-            <h2>File Handling In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-        <!-- Chapter 22 -->
-        <div class="card">
-            <h2>Memory Management In C</h2>
-            <a href="coming-soon.html" class="start-btn"><button><i class="fas fa-play"></i>Start Learning</button></a>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2025 NotesAura. All rights reserved.</p>
     </footer>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "C Programming Language",
+        "description": "Learn C Programming with interactive lessons, from basics to advanced topics like pointers, structures, and memory management.",
+        "provider": {
+            "@type": "Organization",
+            "name": "NotesAura",
+            "sameAs": "https://www.notesaura.com"
+        },
+        "hasPart": [
+            {
+                "@type": "Course",
+                "name": "Introduction to C",
+                "url": "c1.html"
+            },
+            {
+                "@type": "Course",
+                "name": "Features of C",
+                "url": "c2.html"
+            }
+        ]
+    }
+    </script>
 </body>
 </html>
