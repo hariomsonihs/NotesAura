@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes & Objects in C++</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .section-card {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+        .section-card {
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border-radius: 1.25rem;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+        .section-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .icon {
+            color: #2563eb;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .icon:hover {
+            color: #1e40af;
+            transform: scale(1.2);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .code-block {
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header {
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+        }
+        footer {
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+            color: white;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="header shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-center items-center">
+            <h1 class="text-3xl font-extrabold gradient-text">C++ Language</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="text-center mb-20">
+            <h2 class="text-4xl sm:text-5xl font-extrabold gradient-text mb-6 fade-in">Classes & Objects in C++</h2>
+            <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto fade-in">
+                Dive into the core of object-oriented programming in C++ by mastering classes and objects, the building blocks for creating modular and reusable code.
+            </p>
+            <i class="fa-solid fa-cube text-5xl sm:text-6xl mt-8 icon fade-in"></i>
+        </section>
+
+        <!-- Introduction to Classes Section -->
+        <section id="intro-classes" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-book-open mr-3 icon"></i> What are Classes?
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    A class is a user-defined blueprint that defines properties (data members) and behaviors (member functions) for objects, enabling structured programming.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+public:
+    double length;
+    double width;
+    double area() {
+        return length * width;
+    }
+};
+
+int main() {
+    Rectangle rect;
+    rect.length = 5.0;
+    rect.width = 3.0;
+    cout << "Area: " << rect.area() << endl;
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>class Rectangle</code>: Defines a class with data members (<code>length</code>, <code>width</code>) and a method (<code>area</code>).</li>
+                    <li><code>public:</code>: Allows access to class members from outside the class.</li>
+                    <li><code>rect.area()</code>: Calls the method to compute the area.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Objects Section -->
+        <section id="objects" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-object-group mr-3 icon"></i> Creating Objects
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Objects are instances of a class, created to use the class’s properties and methods in a program.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int rollNo;
+    void display() {
+        cout << "Name: " << name << ", Roll No: " << rollNo << endl;
+    }
+};
+
+int main() {
+    Student s1, s2;
+    s1.name = "Alice";
+    s1.rollNo = 101;
+    s2.name = "Bob";
+    s2.rollNo = 102;
+    s1.display();
+    s2.display();
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>Student s1, s2</code>: Creates two objects of the <code>Student</code> class.</li>
+                    <li><code>s1.name</code>: Assigns values to object properties.</li>
+                    <li><code>s1.display()</code>: Calls the method for each object.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Access Specifiers Section -->
+        <section id="access-specifiers" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-lock mr-3 icon"></i> Access Specifiers
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Access specifiers (<code>public</code>, <code>private</code>, <code>protected</code>) control the visibility of class members, ensuring data encapsulation.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+private:
+    double balance;
+public:
+    void setBalance(double amount) {
+        if (amount >= 0) balance = amount;
+    }
+    double getBalance() {
+        return balance;
+    }
+};
+
+int main() {
+    BankAccount account;
+    account.setBalance(500.75);
+    cout << "Balance: $" << account.getBalance() << endl;
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>private: double balance</code>: Restricts direct access to the data member.</li>
+                    <li><code>public: setBalance</code>: Provides controlled access to modify data.</li>
+                    <li><code>getBalance()</code>: Allows safe retrieval of the private member.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Constructors Section -->
+        <section id="constructors" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-tools mr-3 icon"></i> Constructors
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Constructors are special member functions that initialize objects when they are created, with optional parameters for customization.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+class Book {
+public:
+    string title;
+    int pages;
+    Book(string t, int p) {
+        title = t;
+        pages = p;
+    }
+    void display() {
+        cout << "Book: " << title << ", Pages: " << pages << endl;
+    }
+};
+
+int main() {
+    Book book1("C++ Primer", 1200);
+    book1.display();
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>Book(string t, int p)</code>: Defines a parameterized constructor.</li>
+                    <li><code>Book book1("C++ Primer", 1200)</code>: Creates an object with initialized values.</li>
+                    <li><code>display()</code>: Shows the initialized data.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Destructors Section -->
+        <section id="destructors" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-trash mr-3 icon"></i> Destructors
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Destructors are special functions that clean up resources when an object goes out of scope, ensuring proper memory management.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+class Resource {
+public:
+    Resource() {
+        cout << "Resource allocated" << endl;
+    }
+    ~Resource() {
+        cout << "Resource deallocated" << endl;
+    }
+};
+
+int main() {
+    {
+        Resource res;
+    } // Destructor called when res goes out of scope
+    cout << "After scope" << endl;
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>~Resource()</code>: Defines the destructor, called automatically.</li>
+                    <li><code>{ Resource res; }</code>: Creates an object within a scope.</li>
+                    <li>Destructor output: Triggered when the object’s scope ends.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Practical Applications Section -->
+        <section id="applications" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-rocket mr-3 icon"></i> Practical Applications
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Classes and objects are used to model real-world entities in applications like games, simulations, and software systems.
+                </p>
+                <div class="highlight-box">
+                    <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                        <li><strong>Game Development:</strong> Classes for characters, items, and environments.</li>
+                        <li><strong>Database Systems:</strong> Objects to represent records and queries.</li>
+                        <li><strong>GUI Applications:</strong> Classes for buttons, windows, and controls.</li>
+                        <li><strong>Simulations:</strong> Modeling physical systems with object interactions.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-check-circle mr-3 icon"></i> Conclusion
+                </h3>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    Classes and objects are the heart of object-oriented programming in C++, enabling you to create structured, reusable, and maintainable code. By understanding class definitions, object creation, access specifiers, constructors, and destructors, you can model complex systems with ease. Experiment with these concepts to build robust applications, from games to enterprise software, and unlock the full potential of C++!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm font-medium">© 2025 NotesAura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js" defer></script>
+    <script>
+        // IntersectionObserver Polyfill
+        if (!('IntersectionObserver' in window)) {
+            console.warn('IntersectionObserver not supported, animations disabled.');
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+        } else {
+            try {
+                const fadeIns = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeIns.forEach(fadeIn => observer.observe(fadeIn));
+            } catch (e) {
+                console.error('Error with IntersectionObserver:', e);
+            }
+        }
+
+        // Fallback for Prism.js
+        window.addEventListener('load', () => {
+            if (typeof Prism === 'undefined') {
+                console.warn('Prism.js failed to load, syntax highlighting disabled.');
+                document.querySelectorAll('.code-block code').forEach(code => {
+                    code.style.background = '#1f2937';
+                    code.style.color = '#e5e7eb';
+                    code.style.padding = '1rem';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
