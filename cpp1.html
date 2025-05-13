@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to C++ Programming Language</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .section-card {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+        .section-card {
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border-radius: 1.25rem;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+        .section-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .icon {
+            color: #2563eb;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .icon:hover {
+            color: #1e40af;
+            transform: scale(1.2);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .code-block {
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header {
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+        }
+        footer {
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+            color: white;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="header shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-center items-center">
+            <h1 class="text-3xl font-extrabold gradient-text">NotesAura</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="text-center mb-20">
+            <h2 class="text-4xl sm:text-5xl font-extrabold gradient-text mb-6 fade-in">Introduction to C++ Programming</h2>
+            <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto fade-in">
+                Dive into C++, a versatile and powerful programming language that drives everything from game engines to high-performance systems. Start your coding journey with this comprehensive guide!
+            </p>
+            <i class="fa-solid fa-code text-5xl sm:text-6xl mt-8 icon fade-in"></i>
+        </section>
+
+        <!-- Why Learn C++ Section -->
+        <section id="why-learn" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-brain mr-3 icon"></i> Why Learn C++?
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    C++ is a cornerstone of modern software development, offering unmatched control and efficiency. Whether you're building games, operating systems, or real-time applications, C++ empowers you to create robust solutions.
+                </p>
+                <div class="highlight-box">
+                    <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                        <li><strong>High Performance:</strong> Ideal for resource-intensive applications like games and simulations.</li>
+                        <li><strong>Versatility:</strong> Used in industries from finance to embedded systems.</li>
+                        <li><strong>Community & Resources:</strong> Backed by a vast ecosystem of libraries and frameworks.</li>
+                        <li><strong>Career Opportunities:</strong> Proficiency in C++ is highly valued in tech roles.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-book-open mr-3 icon"></i> What is C++?
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    C++ is a general-purpose, object-oriented programming language created by Bjarne Stroustrup in 1979 as an extension of C. It blends low-level memory management with high-level abstractions, making it ideal for system programming, game development, and more.
+                </p>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Key Features</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><strong>Object-Oriented Programming:</strong> Supports classes, objects, inheritance, and polymorphism for modular code.</li>
+                    <li><strong>Performance Optimization:</strong> Provides direct hardware access for speed-critical applications.</li>
+                    <li><strong>Standard Template Library (STL):</strong> Offers reusable data structures (e.g., vectors, maps) and algorithms.</li>
+                    <li><strong>Cross-Platform:</strong> Runs on Windows, Linux, macOS, and embedded systems.</li>
+                    <li><strong>Memory Management:</strong> Allows manual control with pointers and references.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Syntax Section -->
+        <section id="syntax" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-code mr-3 icon"></i> Basic Syntax
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Let’s explore the structure of a C++ program with a classic "Hello, World!" example, which introduces the core components of the language.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>#include <iostream></code>: Imports the input/output stream library for console operations.</li>
+                    <li><code>using namespace std;</code>: Simplifies access to standard library functions like <code>cout</code>.</li>
+                    <li><code>int main()</code>: The program’s entry point where execution begins.</li>
+                    <li><code>cout << "Hello, World!";</code>: Prints text to the console.</li>
+                    <li><code>return 0;</code>: Signals successful program completion.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Examples Section -->
+        <section id="examples" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-laptop-code mr-3 icon"></i> Practical Examples
+                </h3>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Example 1: Sum of Two Numbers</h4>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    int sum = a + b;
+    cout << "Sum: " << sum << endl;
+    return 0;
+}
+                </code></pre>
+                <p class="text-gray-600 mt-4 mb-6 text-sm sm:text-base">
+                    This program takes two numbers as input, calculates their sum, and displays the result, demonstrating basic input/output operations.
+                </p>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3 mt-8">Example 2: Factorial Calculation</h4>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter a positive number: ";
+    cin >> n;
+    unsigned long long factorial = 1;
+    for (int i = 1; i <= n; i++) {
+        factorial *= i;
+    }
+    cout << "Factorial of " << n << " is: " << factorial << endl;
+    return 0;
+}
+                </code></pre>
+                <p class="text-gray-600 mt-4 mb-6 text-sm sm:text-base">
+                    This program calculates the factorial of a user-provided number using a loop, showcasing control structures and arithmetic operations.
+                </p>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3 mt-8">Example 3: Simple Class</h4>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+public:
+    double length, width;
+    double area() {
+        return length * width;
+    }
+};
+
+int main() {
+    Rectangle rect;
+    rect.length = 5.0;
+    rect.width = 3.0;
+    cout << "Area of rectangle: " << rect.area() << endl;
+    return 0;
+}
+                </code></pre>
+                <p class="text-gray-600 mt-4 text-sm sm:text-base">
+                    This example introduces object-oriented programming by defining a <code>Rectangle</code> class to calculate its area, highlighting classes and methods.
+                </p>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-rocket mr-3 icon"></i> Common Use Cases
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    C++ is a versatile language with applications across various domains. Here are some popular use cases:
+                </p>
+                <div class="highlight-box">
+                    <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                        <li><strong>Game Development:</strong> Powers engines like Unreal Engine for AAA games.</li>
+                        <li><strong>System Programming:</strong> Used in operating systems like Windows and Linux kernels.</li>
+                        <li><strong>Embedded Systems:</strong> Drives firmware for IoT devices and microcontrollers.</li>
+                        <li><strong>High-Performance Computing:</strong> Supports simulations in finance, physics, and AI.</li>
+                        <li><strong>Desktop Applications:</strong> Underpins software like Adobe Photoshop and Microsoft Office.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-check-circle mr-3 icon"></i> Conclusion
+                </h3>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    C++ is a powerhouse programming language that combines performance, flexibility, and rich features. From building cutting-edge games to crafting operating systems, C++ empowers developers to create efficient and scalable solutions. Begin with simple programs, leverage the Standard Template Library, and explore advanced concepts like multithreading and memory management to unlock its full potential. With C++, the possibilities are endless—start coding today!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm font-medium">© 2025 NotesAura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js" defer></script>
+    <script>
+        // IntersectionObserver Polyfill
+        if (!('IntersectionObserver' in window)) {
+            console.warn('IntersectionObserver not supported, animations disabled.');
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+        } else {
+            try {
+                const fadeIns = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeIns.forEach(fadeIn => observer.observe(fadeIn));
+            } catch (e) {
+                console.error('Error with IntersectionObserver:', e);
+            }
+        }
+
+        // Fallback for Prism.js
+        window.addEventListener('load', () => {
+            if (typeof Prism === 'undefined') {
+                console.warn('Prism.js failed to load, syntax highlighting disabled.');
+                document.querySelectorAll('.code-block code').forEach(code => {
+                    code.style.background = '#1f2937';
+                    code.style.color = '#e5e7eb';
+                    code.style.padding = '1rem';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
