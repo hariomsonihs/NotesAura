@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Flow in Python Programming Language</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .section-card {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+        .section-card {
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border-radius: 1.25rem;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+        .section-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .icon {
+            color: #2563eb;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .icon:hover {
+            color: #1e40af;
+            transform: scale(1.2);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .code-block {
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header {
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+        }
+        footer {
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+            color: white;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="header shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-center items-center">
+            <h1 class="text-3xl font-extrabold gradient-text">Python Language</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="text-center mb-20">
+            <h2 class="text-4xl sm:text-5xl font-extrabold gradient-text mb-6 fade-in">Control Flow in Python</h2>
+            <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto fade-in">
+                Master Python’s control flow tools to direct the execution of your programs using conditionals, loops, and control statements, enabling dynamic and efficient code.
+            </p>
+            <i class="fa-solid fa-code-branch text-5xl sm:text-6xl mt-8 icon fade-in"></i>
+        </section>
+
+        <!-- Conditional Statements Section -->
+        <section id="conditionals" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-check-double mr-3 icon"></i> Conditional Statements
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Conditional statements (<code>if</code>, <code>elif</code>, <code>else</code>) allow you to execute code based on specific conditions, using indentation to define scope.
+                </p>
+                <pre class="code-block"><code class="language-python">
+score = 85
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else:
+    grade = "F"
+print(f"Score: {score}, Grade: {grade}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>if score >= 90:</code>: Checks the first condition, executes if true.</li>
+                    <li><code>elif score >= 80:</code>: Checks subsequent conditions if prior ones fail.</li>
+                    <li><code>else:</code>: Executes if no conditions are met.</li>
+                    <li>Indentation: Defines the block of code for each branch.</li>
+                    <li>Logical operators: Can use <code>and</code>, <code>or</code>, <code>not</code> for complex conditions.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- For Loop Section -->
+        <section id="for-loop" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-repeat mr-3 icon"></i> For Loop
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    The <code>for</code> loop iterates over a sequence (e.g., list, range, string), executing a block of code for each element.
+                </p>
+                <pre class="code-block"><code class="language-python">
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(f"Fruit: {fruit}")
+total = 0
+for num in range(1, 6):
+    total += num
+print(f"Sum of 1 to 5: {total}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>for fruit in fruits:</code>: Iterates over each element in the list.</li>
+                    <li><code>range(1, 6)</code>: Generates numbers from 1 to 5 (excludes 6).</li>
+                    <li><code>total += num</code>: Accumulates sum during iteration.</li>
+                    <li>Indentation: Defines the loop’s code block.</li>
+                    <li>Use cases: Ideal for iterating over known sequences or fixed ranges.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- While Loop Section -->
+        <section id="while-loop" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-sync-alt mr-3 icon"></i> While Loop
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    The <code>while</code> loop executes a block of code as long as a condition remains true, suitable for indefinite iterations.
+                </p>
+                <pre class="code-block"><code class="language-python">
+count = 1
+while count <= 5:
+    print(f"Count: {count}")
+    count += 1
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>while count <= 5:</code>: Continues loop while condition is true.</li>
+                    <li><code>count += 1</code>: Increments counter to avoid infinite loop.</li>
+                    <li>Indentation: Defines the loop’s code block.</li>
+                    <li>Caution: Ensure condition eventually becomes false to prevent infinite loops.</li>
+                    <li>Use cases: Useful when the number of iterations is unknown.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Loop Control Statements Section -->
+        <section id="loop-control" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-stop-circle mr-3 icon"></i> Loop Control Statements
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Loop control statements (<code>break</code>, <code>continue</code>, <code>pass</code>) modify loop behavior, allowing precise control over iteration.
+                </p>
+                <pre class="code-block"><code class="language-python">
+# Break example
+for num in range(1, 10):
+    if num == 5:
+        break
+    print(f"Number: {num}")
+
+# Continue example
+for num in range(1, 6):
+    if num % 2 == 0:
+        continue
+    print(f"Odd number: {num}")
+
+# Pass example
+for num in range(1, 4):
+    if num == 2:
+        pass  # Placeholder, does nothing
+    print(f"Number: {num}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>break</code>: Exits the loop immediately when <code>num == 5</code>.</li>
+                    <li><code>continue</code>: Skips the rest of the loop body for even numbers, continuing with the next iteration.</li>
+                    <li><code>pass</code>: Acts as a placeholder, allowing empty blocks without errors.</li>
+                    <li>Use cases: <code>break</code> for early termination, <code>continue</code> for skipping iterations, <code>pass</code> for future implementation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Nested Control Structures Section -->
+        <section id="nested-structures" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-layer-group mr-3 icon"></i> Nested Control Structures
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Nested control structures involve placing conditionals or loops inside others, enabling complex logic and pattern generation.
+                </p>
+                <pre class="code-block"><code class="language-python">
+# Nested loops for a multiplication table
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(f"{i} * {j} = {i * j}")
+    print()  # Newline after each row
+
+# Nested conditional and loop
+numbers = [1, 2, 3, 4, 5]
+for num in numbers:
+    if num % 2 == 0:
+        print(f"{num} is even")
+    else:
+        print(f"{num} is odd")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>for i in range(1, 4):</code>: Outer loop for rows.</li>
+                    <li><code>for j in range(1, 4):</code>: Inner loop for columns, generating multiplication table.</li>
+                    <li>Nested <code>if</code>: Checks even/odd within a loop.</li>
+                    <li>Indentation: Critical for defining nested block boundaries.</li>
+                    <li>Use cases: Patterns, matrix operations, hierarchical decision-making.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Practical Example Section -->
+        <section id="practical-example" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-laptop-code mr-3 icon"></i> Practical Example
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    This example combines conditionals, loops, and control statements to create a number guessing game, showcasing real-world control flow application.
+                </p>
+                <pre class="code-block"><code class="language-python">
+import random
+
+secret = random.randint(1, 10)
+attempts = 3
+
+while attempts > 0:
+    guess = int(input("Guess a number (1-10): "))
+    if guess == secret:
+        print("Congratulations! You guessed it!")
+        break
+    elif guess < secret:
+        print("Too low!")
+    else:
+        print("Too high!")
+    attempts -= 1
+    if attempts == 0:
+        print(f"Game over! The number was {secret}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>while attempts > 0:</code>: Loops until attempts are exhausted.</li>
+                    <li><code>if guess == secret:</code>: Checks for correct guess, breaks loop if true.</li>
+                    <li><code>elif guess < secret:</code>: Provides feedback for incorrect guesses.</li>
+                    <li><code>attempts -= 1</code>: Decrements attempts each iteration.</li>
+                    <li><code>break</code>: Exits loop on correct guess, avoiding unnecessary iterations.</li>
+                    <li>Real-world use: Interactive applications, games, decision systems.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-check-circle mr-3 icon"></i> Conclusion
+                </h3>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    Control flow in Python, with its intuitive conditionals, versatile loops, and powerful control statements, enables you to craft dynamic and efficient programs. By mastering <code>if</code>, <code>for</code>, <code>while</code>, <code>break</code>, <code>continue</code>, <code>pass</code>, and nested structures, you can handle complex logic and build interactive applications. Practice these constructs through examples like the number guessing game to unlock Python’s full potential!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm font-medium">© 2025 NotesAura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+    <script>
+        // IntersectionObserver Polyfill
+        if (!('IntersectionObserver' in window)) {
+            console.warn('IntersectionObserver not supported, animations disabled.');
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+        } else {
+            try {
+                const fadeIns = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeIns.forEach(fadeIn => observer.observe(fadeIn));
+            } catch (e) {
+                console.error('Error with IntersectionObserver:', e);
+            }
+        }
+
+        // Fallback for Prism.js
+        window.addEventListener('load', () => {
+            if (typeof Prism === 'undefined') {
+                console.warn('Prism.js failed to load, syntax highlighting disabled.');
+                document.querySelectorAll('.code-block code').forEach(code => {
+                    code.style.background = '#1f2937';
+                    code.style.color = '#e5e7eb';
+                    code.style.padding = '1rem';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
