@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Syntax & Structure of C++ Programming Language</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .section-card {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+        .section-card {
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border-radius: 1.25rem;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+        .section-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .icon {
+            color: #2563eb;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .icon:hover {
+            color: #1e40af;
+            transform: scale(1.2);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .code-block {
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header {
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+        }
+        footer {
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+            color: white;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="header shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-center items-center">
+            <h1 class="text-3xl font-extrabold gradient-text">C++ Language</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="text-center mb-20">
+            <h2 class="text-4xl sm:text-5xl font-extrabold gradient-text mb-6 fade-in">Basic Syntax & Structure of C++</h2>
+            <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto fade-in">
+                Unlock the fundamentals of C++ programming by mastering its syntax and structure. This guide introduces the building blocks of C++ with clear examples and explanations.
+            </p>
+            <i class="fa-solid fa-code text-5xl sm:text-6xl mt-8 icon fade-in"></i>
+        </section>
+
+        <!-- Program Structure Section -->
+        <section id="program-structure" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-sitemap mr-3 icon"></i> Program Structure
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    A C++ program follows a specific structure, including headers, namespaces, and a main function, as shown in this classic "Hello, World!" example.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>#include <iostream></code>: Includes the input/output stream library.</li>
+                    <li><code>using namespace std;</code>: Allows use of standard library names like <code>cout</code>.</li>
+                    <li><code>int main()</code>: The program’s entry point.</li>
+                    <li><code>cout <<</code>: Outputs text to the console.</li>
+                    <li><code>return 0;</code>: Indicates successful execution.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Variables and Data Types Section -->
+        <section id="variables" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-database mr-3 icon"></i> Variables and Data Types
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Variables store data, and C++ supports various data types like integers, floats, and strings to handle different kinds of information.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int age = 25;
+    double salary = 55000.50;
+    string name = "Alice";
+    cout << "Name: " << name << ", Age: " << age << ", Salary: " << salary << endl;
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>int</code>: Stores whole numbers (e.g., <code>age</code>).</li>
+                    <li><code>double</code>: Stores decimal numbers (e.g., <code>salary</code>).</li>
+                    <li><code>string</code>: Stores text (e.g., <code>name</code>).</li>
+                    <li><code>=</code>: Assigns values to variables.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Control Structures Section -->
+        <section id="control-structures" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-code-branch mr-3 icon"></i> Control Structures
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Control structures like conditionals (<code>if</code>) and loops (<code>for</code>, <code>while</code>) direct the flow of a program.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 10;
+    if (num > 0) {
+        cout << num << " is positive" << endl;
+    }
+    for (int i = 1; i <= 5; i++) {
+        cout << i << " ";
+    }
+    cout << endl;
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>if</code>: Executes code if a condition is true.</li>
+                    <li><code>for</code>: Repeats code for a specified number of iterations.</li>
+                    <li><code>cout</code>: Displays output within control structures.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Functions Section -->
+        <section id="functions" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-cogs mr-3 icon"></i> Functions
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Functions are reusable blocks of code that perform specific tasks, improving modularity and readability.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int x = 5, y = 3;
+    int sum = add(x, y);
+    cout << "Sum of " << x << " and " << y << ": " << sum << endl;
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>int add(int a, int b)</code>: Defines a function with two parameters.</li>
+                    <li><code>return</code>: Sends back the result to the caller.</li>
+                    <li><code>sum = add(x, y)</code>: Calls the function with arguments.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Input/Output Section -->
+        <section id="input-output" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-terminal mr-3 icon"></i> Input/Output
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    C++ uses <code>cin</code> for input and <code>cout</code> for output, enabling interaction with users via the console.
+                </p>
+                <pre class="code-block"><code class="language-cpp">
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name;
+    cout << "Enter your name: ";
+    getline(cin, name);
+    cout << "Hello, " << name << "!" << endl;
+    return 0;
+}
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>cout <<</code>: Outputs text to the console.</li>
+                    <li><code>getline(cin, name)</code>: Reads a full line of input, including spaces.</li>
+                    <li><code>endl</code>: Adds a newline and flushes the output buffer.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-check-circle mr-3 icon"></i> Conclusion
+                </h3>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    Understanding C++’s basic syntax and structure is the foundation for mastering this powerful language. From crafting simple programs to building complex systems, these elements—program structure, variables, control structures, functions, and I/O—enable you to write efficient and interactive code. Practice these basics, experiment with examples, and pave the way for advanced C++ programming!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm font-medium">© 2025 NotesAura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js" defer></script>
+    <script>
+        // IntersectionObserver Polyfill
+        if (!('IntersectionObserver' in window)) {
+            console.warn('IntersectionObserver not supported, animations disabled.');
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+        } else {
+            try {
+                const fadeIns = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeIns.forEach(fadeIn => observer.observe(fadeIn));
+            } catch (e) {
+                console.error('Error with IntersectionObserver:', e);
+            }
+        }
+
+        // Fallback for Prism.js
+        window.addEventListener('load', () => {
+            if (typeof Prism === 'undefined') {
+                console.warn('Prism.js failed to load, syntax highlighting disabled.');
+                document.querySelectorAll('.code-block code').forEach(code => {
+                    code.style.background = '#1f2937';
+                    code.style.color = '#e5e7eb';
+                    code.style.padding = '1rem';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
