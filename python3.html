@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Syntax & Structure of Python Programming Language</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .section-card {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+        .section-card {
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border-radius: 1.25rem;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+        .section-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .icon {
+            color: #2563eb;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .icon:hover {
+            color: #1e40af;
+            transform: scale(1.2);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .code-block {
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header {
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+        }
+        footer {
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+            color: white;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="header shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-center items-center">
+            <h1 class="text-3xl font-extrabold gradient-text">Python Language</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="text-center mb-20">
+            <h2 class="text-4xl sm:text-5xl font-extrabold gradient-text mb-6 fade-in">Basic Syntax & Structure of Python</h2>
+            <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto fade-in">
+                Master the fundamentals of Python programming with its simple and intuitive syntax. This guide covers the essential building blocks to start coding in Python.
+            </p>
+            <i class="fa-solid fa-code text-5xl sm:text-6xl mt-8 icon fade-in"></i>
+        </section>
+
+        <!-- Program Structure Section -->
+        <section id="program-structure" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-sitemap mr-3 icon"></i> Program Structure
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Python programs are structured with minimal boilerplate, using indentation to define code blocks. Here’s a simple example to illustrate.
+                </p>
+                <pre class="code-block"><code class="language-python">
+# Simple Python program
+print("Welcome to Python!")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>#</code>: Denotes a comment, ignored by the interpreter.</li>
+                    <li><code>print()</code>: Outputs text to the console.</li>
+                    <li>No main function: Python executes code sequentially without a mandatory entry point.</li>
+                    <li>Indentation: Defines scope and hierarchy, replacing braces.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Variables and Data Types Section -->
+        <section id="variables" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-database mr-3 icon"></i> Variables and Data Types
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Python supports dynamic typing, allowing variables to hold various data types like integers, floats, strings, and lists without explicit declarations.
+                </p>
+                <pre class="code-block"><code class="language-python">
+name = "Alice"  # String
+age = 25  # Integer
+salary = 55000.50  # Float
+skills = ["Python", "Java"]  # List
+print(f"Name: {name}, Age: {age}, Salary: {salary}, Skills: {skills}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>name = "Alice"</code>: Assigns a string without type declaration.</li>
+                    <li><code>age = 25</code>: Integer variable.</li>
+                    <li><code>salary = 55000.50</code>: Float for decimal numbers.</li>
+                    <li><code>skills = ["Python", "Java"]</code>: List to store multiple values.</li>
+                    <li><code>f"..."</code>: F-string for formatted output.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Control Structures Section -->
+        <section id="control-structures" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-code-branch mr-3 icon"></i> Control Structures
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Python uses conditionals (<code>if</code>) and loops (<code>for</code>, <code>while</code>) to control program flow, with indentation defining scope.
+                </p>
+                <pre class="code-block"><code class="language-python">
+num = 10
+if num > 0:
+    print(f"{num} is positive")
+else:
+    print(f"{num} is non-positive")
+
+for i in range(1, 6):
+    print(i, end=" ")
+print()  # Newline
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>if num > 0:</code>: Conditional statement with colon and indented block.</li>
+                    <li><code>for i in range(1, 6):</code>: Loops from 1 to 5.</li>
+                    <li><code>end=" "</code>: Customizes print output to avoid newlines.</li>
+                    <li>Indentation: Defines the scope of <code>if</code> and <code>for</code> blocks.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Functions Section -->
+        <section id="functions" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-cogs mr-3 icon"></i> Functions
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Functions in Python are defined using the <code>def</code> keyword, enabling reusable code blocks for specific tasks.
+                </p>
+                <pre class="code-block"><code class="language-python">
+def add(a, b):
+    return a + b
+
+x, y = 5, 3
+result = add(x, y)
+print(f"Sum of {x} and {y} is: {result}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>def add(a, b):</code>: Defines a function with two parameters.</li>
+                    <li><code>return a + b</code>: Returns the computed sum.</li>
+                    <li><code>result = add(x, y)</code>: Calls the function with arguments.</li>
+                    <li>F-string: Formats output for readability.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Input/Output Section -->
+        <section id="input-output" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-terminal mr-3 icon"></i> Input/Output
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Python uses <code>input()</code> for user input and <code>print()</code> for output, enabling interactive console applications.
+                </p>
+                <pre class="code-block"><code class="language-python">
+name = input("Enter your name: ")
+print(f"Hello, {name}!")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>input()</code>: Captures user input as a string.</li>
+                    <li><code>print(f"Hello, {name}!")</code>: Outputs formatted text.</li>
+                    <li>Simple I/O: Facilitates user interaction in scripts.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-check-circle mr-3 icon"></i> Conclusion
+                </h3>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    Python’s basic syntax and structure, with its clean indentation, dynamic typing, and intuitive constructs, make it an ideal language for beginners and experts alike. By mastering program structure, variables, control structures, functions, and I/O, you can build a strong foundation for creating powerful Python applications. Practice these basics and explore Python’s vast potential!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm font-medium">© 2025 NotesAura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+    <script>
+        // IntersectionObserver Polyfill
+        if (!('IntersectionObserver' in window)) {
+            console.warn('IntersectionObserver not supported, animations disabled.');
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+        } else {
+            try {
+                const fadeIns = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeIns.forEach(fadeIn => observer.observe(fadeIn));
+            } catch (e) {
+                console.error('Error with IntersectionObserver:', e);
+            }
+        }
+
+        // Fallback for Prism.js
+        window.addEventListener('load', () => {
+            if (typeof Prism === 'undefined') {
+                console.warn('Prism.js failed to load, syntax highlighting disabled.');
+                document.querySelectorAll('.code-block code').forEach(code => {
+                    code.style.background = '#1f2937';
+                    code.style.color = '#e5e7eb';
+                    code.style.padding = '1rem';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
