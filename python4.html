@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables & Data Types in Python Programming Language</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .section-card {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+        .section-card {
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border-radius: 1.25rem;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+        .section-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .icon {
+            color: #2563eb;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .icon:hover {
+            color: #1e40af;
+            transform: scale(1.2);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .code-block {
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header {
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+        }
+        footer {
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+            color: white;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="header shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-center items-center">
+            <h1 class="text-3xl font-extrabold gradient-text">Python Language</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="text-center mb-20">
+            <h2 class="text-4xl sm:text-5xl font-extrabold gradient-text mb-6 fade-in">Variables & Data Types in Python</h2>
+            <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto fade-in">
+                Unlock the power of Python by understanding variables and data types, the foundation for storing and manipulating data in your programs.
+            </p>
+            <i class="fa-solid fa-database text-5xl sm:text-6xl mt-8 icon fade-in"></i>
+        </section>
+
+        <!-- Variable Declaration Section -->
+        <section id="variable-declaration" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-pen mr-3 icon"></i> Variable Declaration
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    In Python, variables are created by assigning a value using the <code>=</code> operator, with no need for explicit type declarations due to dynamic typing.
+                </p>
+                <pre class="code-block"><code class="language-python">
+name = "Alice"
+age = 25
+print(f"Name: {name}, Age: {age}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>name = "Alice"</code>: Assigns a string to the variable <code>name</code>.</li>
+                    <li><code>age = 25</code>: Assigns an integer to <code>age</code>.</li>
+                    <li>No type declaration: Python infers the type dynamically.</li>
+                    <li><code>f"..."</code>: F-string formats output for display.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Numeric Types Section -->
+        <section id="numeric-types" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-calculator mr-3 icon"></i> Numeric Types
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Python supports numeric data types like integers (<code>int</code>) and floating-point numbers (<code>float</code>) for mathematical operations.
+                </p>
+                <pre class="code-block"><code class="language-python">
+count = 100  # Integer
+price = 19.99  # Float
+total = count * price
+print(f"Total cost: ${total}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>count = 100</code>: Integer for whole numbers.</li>
+                    <li><code>price = 19.99</code>: Float for decimal numbers.</li>
+                    <li><code>total = count * price</code>: Performs multiplication, resulting in a float.</li>
+                    <li><code>print</code>: Displays the computed result.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- String Type Section -->
+        <section id="string-type" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-quote-left mr-3 icon"></i> String Type
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Strings (<code>str</code>) in Python are sequences of characters, used for text manipulation, and support various operations like concatenation and slicing.
+                </p>
+                <pre class="code-block"><code class="language-python">
+greeting = "Hello"
+name = "World"
+message = greeting + ", " + name + "!"
+print(message)
+print(message[0:5])  # Slicing
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>greeting = "Hello"</code>: String variable.</li>
+                    <li><code>+</code>: Concatenates strings.</li>
+                    <li><code>message[0:5]</code>: Extracts substring "Hello" using slicing.</li>
+                    <li>Immutable: Strings cannot be modified in-place.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Boolean Type Section -->
+        <section id="boolean-type" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-toggle-on mr-3 icon"></i> Boolean Type
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Booleans (<code>bool</code>) represent <code>True</code> or <code>False</code> values, commonly used in conditional statements and logic operations.
+                </p>
+                <pre class="code-block"><code class="language-python">
+is_adult = True
+age = 15
+if age >= 18:
+    is_adult = True
+else:
+    is_adult = False
+print(f"Is adult? {is_adult}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>is_adult = True</code>: Boolean variable initialization.</li>
+                    <li><code>if age >= 18</code>: Updates boolean based on condition.</li>
+                    <li><code>print</code>: Displays the boolean value.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- List Type Section -->
+        <section id="list-type" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-list mr-3 icon"></i> List Type
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Lists (<code>list</code>) are mutable, ordered collections that can hold mixed data types, supporting operations like appending and indexing.
+                </p>
+                <pre class="code-block"><code class="language-python">
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(f"Fruits: {fruits}")
+print(f"First fruit: {fruits[0]}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>fruits = ["apple", "banana", "cherry"]</code>: Creates a list.</li>
+                    <li><code>fruits.append("orange")</code>: Adds an item to the list.</li>
+                    <li><code>fruits[0]</code>: Accesses the first element via indexing.</li>
+                    <li>Mutable: Lists can be modified after creation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tuple Type Section -->
+        <section id="tuple-type" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-brackets-curly mr-3 icon"></i> Tuple Type
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Tuples (<code>tuple</code>) are immutable, ordered collections, ideal for fixed data sets, with similar indexing to lists.
+                </p>
+                <pre class="code-block"><code class="language-python">
+coordinates = (10, 20)
+print(f"Coordinates: {coordinates}")
+print(f"X: {coordinates[0]}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>coordinates = (10, 20)</code>: Creates a tuple.</li>
+                    <li><code>coordinates[0]</code>: Accesses the first element.</li>
+                    <li>Immutable: Tuples cannot be modified after creation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Dictionary Type Section -->
+        <section id="dictionary-type" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-book mr-3 icon"></i> Dictionary Type
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Dictionaries (<code>dict</code>) store key-value pairs, allowing efficient data retrieval using unique keys.
+                </p>
+                <pre class="code-block"><code class="language-python">
+student = {"name": "Bob", "age": 20, "grade": "A"}
+student["major"] = "Computer Science"
+print(f"Student: {student}")
+print(f"Name: {student['name']}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>student = {"name": "Bob", ...}</code>: Creates a dictionary.</li>
+                    <li><code>student["major"] = "Computer Science"</code>: Adds a new key-value pair.</li>
+                    <li><code>student['name']</code>: Retrieves value using the key.</li>
+                    <li>Mutable: Dictionaries can be modified.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Set Type Section -->
+        <section id="set-type" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-venn-diagram mr-3 icon"></i> Set Type
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Sets (<code>set</code>) are unordered collections of unique elements, useful for operations like union and intersection.
+                </p>
+                <pre class="code-block"><code class="language-python">
+unique_numbers = {1, 2, 2, 3}  # Duplicates removed
+unique_numbers.add(4)
+print(f"Unique numbers: {unique_numbers}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>unique_numbers = {1, 2, 2, 3}</code>: Creates a set, removing duplicates.</li>
+                    <li><code>unique_numbers.add(4)</code>: Adds an element to the set.</li>
+                    <li>Unordered: Set elements have no specific order.</li>
+                    <li>Mutable: Sets can be modified, but elements must be immutable.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Type Conversion Section -->
+        <section id="type-conversion" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-exchange-alt mr-3 icon"></i> Type Conversion
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
+                    Python allows converting between data types using functions like <code>int()</code>, <code>float()</code>, <code>str()</code>, and others for flexible data handling.
+                </p>
+                <pre class="code-block"><code class="language-python">
+num_str = "123"
+num_int = int(num_str)
+num_float = float(num_str)
+print(f"String: {num_str}, Integer: {num_int}, Float: {num_float}")
+                </code></pre>
+                <h4 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-6 mb-3">Explanation</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base">
+                    <li><code>int(num_str)</code>: Converts string to integer.</li>
+                    <li><code>float(num_str)</code>: Converts string to float.</li>
+                    <li>Explicit conversion: Ensures compatibility in operations.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="mb-20">
+            <div class="section-card p-6 sm:p-8 fade-in">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa-solid fa-check-circle mr-3 icon"></i> Conclusion
+                </h3>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    Variables and data types are the backbone of Python programming, enabling you to store and manipulate data efficiently. With dynamic typing and a rich set of data types—integers, floats, strings, booleans, lists, tuples, dictionaries, and sets—Python offers flexibility and power. Practice using these types and type conversion to build robust programs, from simple scripts to complex applications!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm font-medium">© 2025 NotesAura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+    <script>
+        // IntersectionObserver Polyfill
+        if (!('IntersectionObserver' in window)) {
+            console.warn('IntersectionObserver not supported, animations disabled.');
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+        } else {
+            try {
+                const fadeIns = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeIns.forEach(fadeIn => observer.observe(fadeIn));
+            } catch (e) {
+                console.error('Error with IntersectionObserver:', e);
+            }
+        }
+
+        // Fallback for Prism.js
+        window.addEventListener('load', () => {
+            if (typeof Prism === 'undefined') {
+                console.warn('Prism.js failed to load, syntax highlighting disabled.');
+                document.querySelectorAll('.code-block code').forEach(code => {
+                    code.style.background = '#1f2937';
+                    code.style.color = '#e5e7eb';
+                    code.style.padding = '1rem';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
