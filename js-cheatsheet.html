@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Cheatsheet - NotesAura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .copy-button {
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+        .copy-button:hover {
+            background-color: #4f46e5;
+        }
+        .responsive-table {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            width: calc(100% + 2rem);
+        }
+        table {
+            min-width: 100%;
+            border-collapse: collapse;
+            white-space: nowrap;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #4b5563;
+        }
+        pre {
+            background-color: #2d2d2d;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            position: relative;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre code {
+            display: block;
+            color: #f8f8f2;
+        }
+        ::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #374151;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+        @media (max-width: 640px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            th, td {
+                padding: 6px 8px;
+                font-size: 14px;
+            }
+            pre {
+                padding: 12px;
+                font-size: 13px;
+                scrollbar-width: thin;
+                scrollbar-color: #4f46e5 #374151;
+            }
+            .section-card {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-indigo-900 text-white font-sans">
+    <header class="bg-indigo-800 p-4 md:p-6 shadow-lg">
+        <h1 class="text-3xl md:text-4xl font-bold text-center">JavaScript Cheatsheet - NotesAura</h1>
+        <p class="text-center mt-2 text-sm md:text-lg">Your Ultimate Guide to JavaScript: From Basics to Advanced</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-6 max-w-5xl">
+
+    <!-- JavaScript Introduction -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-info-circle mr-2"></i> JavaScript Introduction</h2>
+            <p class="mb-3 md:mb-4">JavaScript is a versatile programming language used for web development, adding interactivity to websites.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>Dynamic</strong>: Executes in the browser, enabling real-time updates.</li>
+                <li class="text-sm md:text-base"><strong>Client-Side</strong>: Runs on the user's device, not the server.</li>
+                <li class="text-sm md:text-base"><strong>Versatile</strong>: Used for front-end, back-end, and more with frameworks.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">// This is a JavaScript comment
+console.log("Hello, World!");
+document.body.style.backgroundColor = "#f0f0f0";
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>console.log</code> for debugging in the browser console.</p>
+        </section>
+        <!-- JavaScript Syntax -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-code mr-2"></i> JavaScript Syntax</h2>
+            <p class="mb-3 md:mb-4">JavaScript syntax defines the rules for writing code.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Semicolon</code></td><td>Ends statements</td><td><code>let x = 10;</code></td></tr>
+                        <tr><td><code>Case Sensitivity</code></td><td>Variable names are case-sensitive</td><td><code>let Name; let name;</code></td></tr>
+                        <tr><td><code>Identifiers</code></td><td>Rules for naming variables</td><td><code>let userName;</code></td></tr>
+                        <tr><td><code>Blocks</code></td><td>Code within curly braces</td><td><code>{ let x = 1; }</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">let userName = "Alex"; // Case-sensitive identifier
+{
+    let count = 5; // Block scope
+    console.log(count); // 5
+}
+console.log(userName); // "Alex"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Always use semicolons to avoid automatic semicolon insertion issues.</p>
+        </section>
+
+        <!-- Data Types and Variables -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-database mr-2"></i> Data Types and Variables</h2>
+            <p class="mb-3 md:mb-4">JavaScript supports various data types and variable declarations.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type/Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>var</code></td><td>Variable declaration (function-scoped)</td><td><code>var x = 10;</code></td></tr>
+                        <tr><td><code>let</code></td><td>Block-scoped variable</td><td><code>let y = 20;</code></td></tr>
+                        <tr><td><code>const</code></td><td>Block-scoped, cannot be reassigned</td><td><code>const z = 30;</code></td></tr>
+                        <tr><td><code>Number</code></td><td>Numeric values</td><td><code>let num = 42;</code></td></tr>
+                        <tr><td><code>String</code></td><td>Text values</td><td><code>let str = "Hello";</code></td></tr>
+                        <tr><td><code>Boolean</code></td><td>True or false</td><td><code>let bool = true;</code></td></tr>
+                        <tr><td><code>Null</code></td><td>Represents no value</td><td><code>let n = null;</code></td></tr>
+                        <tr><td><code>Undefined</code></td><td>Variable not assigned</td><td><code>let u;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">let name = "NotesAura";
+const PI = 3.14;
+var count = 100;
+
+console.log(typeof name); // "string"
+console.log(typeof PI); // "number"
+console.log(typeof count); // "number"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> Use <code>const</code> for values that won't change to prevent accidental reassignment.</p>
+        </section>
+
+        <!-- JavaScript Input -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-keyboard mr-2"></i> JavaScript Input</h2>
+            <p class="mb-3 md:mb-4">Methods to capture user input.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>prompt</code></td><td>Shows input dialog</td><td><code>let name = prompt("Enter name");</code></td></tr>
+                        <tr><td><code>input.value</code></td><td>Gets input field value</td><td><code>input.value;</code></td></tr>
+                        <tr><td><code>confirm</code></td><td>Shows confirmation dialog</td><td><code>let ok = confirm("Proceed?");</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">let name = prompt("What's your name?", "Guest");
+let proceed = confirm("Do you want to continue?");
+let input = document.querySelector("input");
+console.log(name, proceed, input.value);
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>input.value</code> for dynamic input from form fields.</p>
+        </section>
+
+        <!-- JavaScript Comments -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-comment mr-2"></i> JavaScript Comments</h2>
+            <p class="mb-3 md:mb-4">Comments document code and are ignored during execution.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Single-line</code></td><td>Comments one line</td><td><code>// This is a comment</code></td></tr>
+                        <tr><td><code>Multi-line</code></td><td>Comments multiple lines</td><td><code>/* This is a comment */</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">// Calculate sum of two numbers
+function add(a, b) {
+    /* Returns the sum
+       of a and b */
+    return a + b;
+}
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use comments to explain complex logic for better code readability.</p>
+        </section>
+
+        <!-- JavaScript Output -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-desktop mr-2"></i> JavaScript Output</h2>
+            <p class="mb-3 md:mb-4">Methods to display output in JavaScript.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>console.log</code></td><td>Logs to console</td><td><code>console.log("Hello");</code></td></tr>
+                        <tr><td><code>alert</code></td><td>Shows popup message</td><td><code>alert("Warning!");</code></td></tr>
+                        <tr><td><code>document.write</code></td><td>Writes to document</td><td><code>document.write("Text");</code></td></tr>
+                        <tr><td><code>innerHTML</code></td><td>Sets element content</td><td><code>elem.innerHTML = "Text";</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">console.log("Debug message");
+alert("Welcome to NotesAura!");
+document.getElementById("output").innerHTML = "Hello, World!";
+document.write("This is a test.");
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>console.log</code> for debugging, as it doesn’t affect the UI.</p>
+        </section>
+
+        <!-- Constants -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-lock mr-2"></i> Constants</h2>
+            <p class="mb-3 md:mb-4">Constants are immutable variables declared with <code>const</code>.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>const</code></td><td>Declares immutable variable</td><td><code>const PI = 3.14;</code></td></tr>
+                        <tr><td><code>Object Mutation</code></td><td>Object properties can change</td><td><code>const obj = {}; obj.key = 1;</code></td></tr>
+                        <tr><td><code>Block Scope</code></td><td>Limited to block</td><td><code>{ const x = 10; }</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const PI = 3.14;
+const config = { theme: "dark" };
+config.theme = "light"; // Allowed
+// PI = 3.1415; // Error: Assignment to constant
+console.log(PI, config.theme); // 3.14, "light"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> <code>const</code> prevents reassignment but allows object property mutations.</p>
+        </section>
+
+        <!-- Operators -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-calculator mr-2"></i> Operators</h2>
+            <p class="mb-3 md:mb-4">Operators perform operations on variables and values.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Arithmetic</code></td><td>Add, subtract, etc.</td><td><code>5 + 3;</code></td></tr>
+                        <tr><td><code>Comparison</code></td><td>Compare values</td><td><code>5 > 3;</code></td></tr>
+                        <tr><td><code>Logical</code></td><td>AND, OR, NOT</td><td><code>true && false;</code></td></tr>
+                        <tr><td><code>Assignment</code></td><td>Assign values</td><td><code>x = 10;</code></td></tr>
+                        <tr><td><code>Ternary</code></td><td>Conditional expression</td><td><code>x > 5 ? "Yes" : "No";</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">let x = 10;
+let y = 5;
+console.log(x + y); // 15
+console.log(x > y); // true
+console.log(x > 5 && y < 10); // true
+let result = x > 5 ? "Greater" : "Smaller";
+console.log(result); // "Greater"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use strict equality (<code>===</code>) to avoid type coercion.</p>
+        </section>
+
+        <!-- Conditional Statements -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-code-branch mr-2"></i> Conditional Statements</h2>
+            <p class="mb-3 md:mb-4">Control flow with <code>if</code>, <code>else</code>, and <code>switch</code>.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Statement</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>if</code></td><td>Executes if condition is true</td><td><code>if (x > 5) { ... }</code></td></tr>
+                        <tr><td><code>else</code></td><td>Executes if condition is false</td><td><code>else { ... }</code></td></tr>
+                        <tr><td><code>else if</code></td><td>Checks additional condition</td><td><code>else if (x > 0) { ... }</code></td></tr>
+                        <tr><td><code>switch</code></td><td>Multi-way branch</td><td><code>switch (x) { case 1: ... }</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">let x = 10;
+if (x > 5) {
+    console.log("Greater than 5");
+} else if (x === 5) {
+    console.log("Equal to 5");
+} else {
+    console.log("Less than 5");
+}
+
+switch (x) {
+    case 10:
+        console.log("Ten");
+        break;
+    default:
+        console.log("Other");
+}
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>switch</code> for multiple fixed conditions to improve readability.</p>
+        </section>
+
+        <!-- Loops -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-redo mr-2"></i> Loops</h2>
+            <p class="mb-3 md:mb-4">Execute code repeatedly with loops.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Loop</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>for</code></td><td>Loops with counter</td><td><code>for (let i = 0; i < 5; i++) { ... }</code></td></tr>
+                        <tr><td><code>while</code></td><td>Loops while condition is true</td><td><code>while (x > 0) { ... }</code></td></tr>
+                        <tr><td><code>do-while</code></td><td>Runs at least once</td><td><code>do { ... } while (x > 0);</code></td></tr>
+                        <tr><td><code>forEach</code></td><td>Loops over array</td><td><code>arr.forEach(item => ...);</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">for (let i = 0; i < 3; i++) {
+    console.log(i); // 0, 1, 2
+}
+
+let x = 5;
+while (x > 0) {
+    console.log(x);
+    x--;
+}
+
+const arr = [1, 2, 3];
+arr.forEach(item => console.log(item));
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>forEach</code> for simple array iteration to avoid manual indexing.</p>
+        </section>
+
+        <!-- Break and Continue -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-sign-out-alt mr-2"></i> Break and Continue</h2>
+            <p class="mb-3 md:mb-4">Control loop execution flow.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Statement</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>break</code></td><td>Exits loop</td><td><code>break;</code></td></tr>
+                        <tr><td><code>continue</code></td><td>Skips to next iteration</td><td><code>continue;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">for (let i = 0; i < 5; i++) {
+    if (i === 3) break; // Exit at 3
+    console.log(i); // 0, 1, 2
+}
+
+for (let i = 0; i < 5; i++) {
+    if (i === 2) continue; // Skip 2
+    console.log(i); // 0, 1, 3, 4
+}
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>break</code> to avoid unnecessary loop iterations.</p>
+        </section>
+
+        <!-- Functions -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-cogs mr-2"></i> Functions</h2>
+            <p class="mb-3 md:mb-4">Functions are reusable blocks of code that perform specific tasks.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Function Declaration</code></td><td>Named function</td><td><code>function add(a, b) { return a + b; }</code></td></tr>
+                        <tr><td><code>Function Expression</code></td><td>Function as a variable</td><td><code>const add = function(a, b) { return a + b; };</code></td></tr>
+                        <tr><td><code>Arrow Function</code></td><td>Concise syntax, no own <code>this</code></td><td><code>const add = (a, b) => a + b;</code></td></tr>
+                        <tr><td><code>Default Parameters</code></td><td>Sets default values</td><td><code>function greet(name = "Guest") { ... }</code></td></tr>
+                        <tr><td><code>Rest Parameters</code></td><td>Collects arguments into array</td><td><code>function sum(...numbers) { ... }</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">function greet(name = "User") {
+    return `Hello, ${name}!`;
+}
+
+const multiply = (a, b) => a * b;
+
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(greet()); // "Hello, User!"
+console.log(multiply(5, 3)); // 15
+console.log(sum(1, 2, 3, 4)); // 10
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use arrow functions for concise one-liners and to preserve <code>this</code> context.</p>
+        </section>
+
+        <!-- Maps -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-map mr-2"></i> Maps</h2>
+            <p class="mb-3 md:mb-4">The <code>Map</code> object stores key-value pairs.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>set</code></td><td>Adds key-value pair</td><td><code>map.set(key, value);</code></td></tr>
+                        <tr><td><code>get</code></td><td>Gets value by key</td><td><code>map.get(key);</code></td></tr>
+                        <tr><td><code>has</code></td><td>Checks if key exists</td><td><code>map.has(key);</code></td></tr>
+                        <tr><td><code>delete</code></td><td>Removes key-value pair</td><td><code>map.delete(key);</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const map = new Map();
+map.set("name", "Alex");
+map.set("age", 25);
+console.log(map.get("name")); // "Alex"
+console.log(map.has("age")); // true
+map.delete("age");
+console.log(map); // Map { "name" => "Alex" }
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> <code>Map</code> allows any data type as keys, unlike objects.</p>
+        </section>
+
+        <!-- Strings -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-quote-left mr-2"></i> Strings</h2>
+            <p class="mb-3 md:mb-4">Strings represent text and have useful methods.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>length</code></td><td>Gets string length</td><td><code>str.length;</code></td></tr>
+                        <tr><td><code>toUpperCase</code></td><td>Converts to uppercase</td><td><code>str.toUpperCase();</code></td></tr>
+                        <tr><td><code>slice</code></td><td>Extracts substring</td><td><code>str.slice(0, 5);</code></td></tr>
+                        <tr><td><code>replace</code></td><td>Replaces text</td><td><code>str.replace("old", "new");</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">let str = "Hello, World!";
+console.log(str.length); // 13
+console.log(str.toUpperCase()); // "HELLO, WORLD!"
+console.log(str.slice(0, 5)); // "Hello"
+console.log(str.replace("World", "JavaScript")); // "Hello, JavaScript!"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use template literals for easier string interpolation.</p>
+        </section>
+
+        <!-- Numbers -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-sort-numeric-up mr-2"></i> Numbers</h2>
+            <p class="mb-3 md:mb-4">Numbers represent integers and floating-point values.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>toFixed</code></td><td>Formats to fixed decimals</td><td><code>num.toFixed(2);</code></td></tr>
+                        <tr><td><code>parseInt</code></td><td>Parses string to integer</td><td><code>parseInt("123");</code></td></tr>
+                        <tr><td><code>parseFloat</code></td><td>Parses string to float</td><td><code>parseFloat("12.34");</code></td></tr>
+                        <tr><td><code>isNaN</code></td><td>Checks if value is NaN</td><td><code>isNaN(NaN);</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">let num = 123.456;
+console.log(num.toFixed(2)); // "123.46"
+console.log(parseInt("42px")); // 42
+console.log(parseFloat("42.99")); // 42.99
+console.log(isNaN("text")); // true
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>Number</code> methods for precise numeric formatting.</p>
+        </section>
+
+         <!-- Arrays and Objects -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-list mr-2"></i> Arrays and Objects</h2>
+            <p class="mb-3 md:mb-4">Arrays and objects are core data structures in JavaScript.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method/Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Array.push()</code></td><td>Adds element to end</td><td><code>arr.push(4);</code></td></tr>
+                        <tr><td><code>Array.pop()</code></td><td>Removes last element</td><td><code>arr.pop();</code></td></tr>
+                        <tr><td><code>Array.map()</code></td><td>Creates new array with results</td><td><code>arr.map(x => x * 2);</code></td></tr>
+                        <tr><td><code>Array.filter()</code></td><td>Filters elements</td><td><code>arr.filter(x => x > 2);</code></td></tr>
+                        <tr><td><code>Object.keys()</code></td><td>Gets object keys</td><td><code>Object.keys(obj);</code></td></tr>
+                        <tr><td><code>Object.values()</code></td><td>Gets object values</td><td><code>Object.values(obj);</code></td></tr>
+                        <tr><td><code>Destructuring</code></td><td>Unpacks values</td><td><code>const { name } = obj;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const numbers = [1, 2, 3];
+numbers.push(4); // [1, 2, 3, 4]
+const doubled = numbers.map(num => num * 2); // [2, 4, 6, 8]
+
+const user = { name: "Alex", age: 25 };
+const { name, age } = user;
+
+console.log(Object.keys(user)); // ["name", "age"]
+console.log(doubled); // [2, 4, 6, 8]
+console.log(name); // "Alex"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use destructuring to simplify accessing object properties and array elements.</p>
+        </section>
+
+        <!-- Booleans -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-toggle-on mr-2"></i> Booleans</h2>
+            <p class="mb-3 md:mb-4">Booleans represent <code>true</code> or <code>false</code>.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>true</code></td><td>Represents true value</td><td><code>let x = true;</code></td></tr>
+                        <tr><td><code>false</code></td><td>Represents false value</td><td><code>let y = false;</code></td></tr>
+                        <tr><td><code>Boolean()</code></td><td>Converts to boolean</td><td><code>Boolean(0);</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">let isActive = true;
+let isEmpty = Boolean("");
+console.log(isActive); // true
+console.log(isEmpty); // false
+console.log(!!"text"); // true
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use double negation (<code>!!</code>) to convert values to booleans.</p>
+        </section>
+
+        <!-- Date -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-calendar mr-2"></i> Date</h2>
+            <p class="mb-3 md:mb-4">The <code>Date</code> object handles dates and times.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>new Date()</code></td><td>Creates new date</td><td><code>new Date();</code></td></tr>
+                        <tr><td><code>getFullYear</code></td><td>Gets year</td><td><code>date.getFullYear();</code></td></tr>
+                        <tr><td><code>getMonth</code></td><td>Gets month (0-11)</td><td><code>date.getMonth();</code></td></tr>
+                        <tr><td><code>toDateString</code></td><td>Gets date string</td><td><code>date.toDateString();</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const today = new Date();
+console.log(today.getFullYear()); // e.g., 2025
+console.log(today.getMonth()); // 0-11 (e.g., 4 for May)
+console.log(today.toDateString()); // e.g., "Fri May 16 2025"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Months are 0-based; add 1 for human-readable format.</p>
+        </section>
+
+        <!-- Math -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-square-root-alt mr-2"></i> Math</h2>
+            <p class="mb-3 md:mb-4">The <code>Math</code> object provides mathematical functions.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Math.random</code></td><td>Generates random number (0-1)</td><td><code>Math.random();</code></td></tr>
+                        <tr><td><code>Math.floor</code></td><td>Rounds down</td><td><code>Math.floor(3.7);</code></td></tr>
+                        <tr><td><code>Math.ceil</code></td><td>Rounds up</td><td><code>Math.ceil(3.2);</code></td></tr>
+                        <tr><td><code>Math.round</code></td><td>Rounds to nearest</td><td><code>Math.round(3.5);</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">console.log(Math.random()); // e.g., 0.723...
+console.log(Math.floor(3.7)); // 3
+console.log(Math.ceil(3.2)); // 4
+console.log(Math.round(3.5)); // 4
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>Math.floor(Math.random() * n)</code> for random integers.</p>
+        </section>
+
+        <!-- Classes and Inheritance -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-object-group mr-2"></i> Classes and Inheritance</h2>
+            <p class="mb-3 md:mb-4">ES6 classes provide object-oriented programming.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>class</code></td><td>Defines a class</td><td><code>class User {}</code></td></tr>
+                        <tr><td><code>constructor</code></td><td>Initializes class</td><td><code>constructor(name) {}</code></td></tr>
+                        <tr><td><code>extends</code></td><td>Inherits from parent</td><td><code>class Admin extends User {}</code></td></tr>
+                        <tr><td><code>super</code></td><td>Calls parent constructor</td><td><code>super(name);</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">class User {
+    constructor(name) {
+        this.name = name;
+    }
+    greet() {
+        return `Hello, ${this.name}`;
+    }
+}
+
+class Admin extends User {
+    constructor(name, role) {
+        super(name);
+        this.role = role;
+    }
+}
+
+const admin = new Admin("Alex", "admin");
+console.log(admin.greet()); // "Hello, Alex"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use classes for structured, reusable code.</p>
+        </section>
+
+        <!-- Encapsulation -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-shield-alt mr-2"></i> Encapsulation</h2>
+            <p class="mb-3 md:mb-4">Restrict access to object properties.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>#private</code></td><td>Private field</td><td><code>#name;</code></td></tr>
+                        <tr><td><code>getter</code></td><td>Gets property</td><td><code>get name() {}</code></td></tr>
+                        <tr><td><code>setter</code></td><td>Sets property</td><td><code>set name(value) {}</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">class User {
+    #name;
+    constructor(name) {
+        this.#name = name;
+    }
+    get name() {
+        return this.#name;
+    }
+    set name(value) {
+        this.#name = value;
+    }
+}
+
+const user = new User("Alex");
+console.log(user.name); // "Alex"
+user.name = "Bob";
+console.log(user.name); // "Bob"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use private fields (<code>#</code>) for true encapsulation.</p>
+        </section>
+
+        <!-- Polymorphism -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-shapes mr-2"></i> Polymorphism</h2>
+            <p class="mb-3 md:mb-4">Override methods in subclasses for different behaviors.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Method Override</code></td><td>Redefines parent method</td><td><code>method() {}</code></td></tr>
+                        <tr><td><code>super</code></td><td>Calls parent method</td><td><code>super.method();</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">class Animal {
+    speak() {
+        return "Sound";
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        return "Woof!";
+    }
+}
+
+class Cat extends Animal {
+    speak() {
+        return "Meow!";
+    }
+}
+
+const dog = new Dog();
+console.log(dog.speak()); // "Woof!"
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use polymorphism to customize behavior in subclasses.</p>
+        </section>
+
+        <!-- Exception Handling -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-exclamation-triangle mr-2"></i> Exception Handling</h2>
+            <p class="mb-3 md:mb-4">Handle errors gracefully with <code>try</code>, <code>catch</code>, and <code>throw</code>.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Statement</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>try</code></td><td>Tests code for errors</td><td><code>try { ... }</code></td></tr>
+                        <tr><td><code>catch</code></td><td>Handles errors</td><td><code>catch (err) { ... }</code></td></tr>
+                        <tr><td><code>finally</code></td><td>Runs regardless of result</td><td><code>finally { ... }</code></td></tr>
+                        <tr><td><code>throw</code></td><td>Throws custom error</td><td><code>throw new Error("Msg");</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">try {
+    let x = undefinedVar;
+} catch (err) {
+    console.log("Error:", err.message);
+} finally {
+    console.log("Done");
+}
+
+function checkAge(age) {
+    if (age < 18) throw new Error("Too young");
+    return "Access granted";
+}
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>finally</code> for cleanup code that always runs.</p>
+        </section>
+
+        <!-- Template Literals -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-quote-right mr-2"></i> Template Literals</h2>
+            <p class="mb-3 md:mb-4">String interpolation with backticks for dynamic strings.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Backticks</code></td><td>Defines template literal</td><td><code>`Hello, ${name}`</code></td></tr>
+                        <tr><td><code>${}</code></td><td>Embeds expressions</td><td><code>`Sum: ${2 + 3}`</code></td></tr>
+                        <tr><td><code>Multi-line</code></td><td>Supports multiple lines</td><td><code>`Line1\nLine2`</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const name = "Alex";
+const greeting = `Hello, ${name}!`;
+const multiLine = `
+    Line 1
+    Line 2
+`;
+console.log(greeting); // "Hello, Alex!"
+console.log(multiLine);
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use template literals for cleaner string concatenation.</p>
+        </section>
+
+        <!-- Destructuring and Spread/Rest -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-expand-arrows-alt mr-2"></i> Destructuring and Spread/Rest</h2>
+            <p class="mb-3 md:mb-4">Unpack values and collect arguments.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Array Destructuring</code></td><td>Unpacks array elements</td><td><code>const [a, b] = arr;</code></td></tr>
+                        <tr><td><code>Object Destructuring</code></td><td>Unpacks object properties</td><td><code>const { key } = obj;</code></td></tr>
+                        <tr><td><code>Spread</code></td><td>Spreads elements</td><td><code>[...arr]</code></td></tr>
+                        <tr><td><code>Rest</code></td><td>Collects remaining elements</td><td><code>const [first, ...rest] = arr;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const arr = [1, 2, 3];
+const [first, second] = arr;
+const obj = { name: "Alex", age: 25 };
+const { name } = obj;
+const newArr = [...arr, 4];
+const [x, ...rest] = arr;
+console.log(first, name, newArr, rest); // 1, "Alex", [1,2,3,4], [2,3]
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use spread to create shallow copies of arrays or objects.</p>
+        </section>
+
+        <!-- DOM Manipulation -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-tree mr-2"></i> DOM Manipulation</h2>
+            <p class="mb-3 md:mb-4">Interact with the Document Object Model to modify webpage content.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method/Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>getElementById</code></td><td>Selects element by ID</td><td><code>document.getElementById("id");</code></td></tr>
+                        <tr><td><code>querySelector</code></td><td>Selects first matching element</td><td><code>document.querySelector(".class");</code></td></tr>
+                        <tr><td><code>querySelectorAll</code></td><td>Selects all matching elements</td><td><code>document.querySelectorAll("p");</code></td></tr>
+                        <tr><td><code>textContent</code></td><td>Sets/gets text content</td><td><code>elem.textContent = "Hello";</code></td></tr>
+                        <tr><td><code>classList</code></td><td>Manages classes</td><td><code>elem.classList.add("active");</code></td></tr>
+                        <tr><td><code>createElement</code></td><td>Creates new element</td><td><code>document.createElement("div");</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const header = document.querySelector("h1");
+header.textContent = "Welcome!";
+
+const div = document.createElement("div");
+div.classList.add("alert");
+div.textContent = "New Content";
+document.body.appendChild(div);
+
+const paragraphs = document.querySelectorAll("p");
+paragraphs.forEach(p => p.style.color = "#4f46e5");
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>querySelector</code> for modern, CSS-like element selection.</p>
+        </section>
+
+        
+        <!-- Event Handling -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-mouse mr-2"></i> Event Handling</h2>
+            <p class="mb-3 md:mb-4">Handle user interactions like clicks, keypresses, and more.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method/Event</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>addEventListener</code></td><td>Attaches event listener</td><td><code>elem.addEventListener("click", fn);</code></td></tr>
+                        <tr><td><code>click</code></td><td>Mouse click event</td><td><code>btn.addEventListener("click", () => {});</code></td></tr>
+                        <tr><td><code>input</code></td><td>Input field changes</td><td><code>input.addEventListener("input", fn);</code></td></tr>
+                        <tr><td><code>keydown</code></td><td>Key press event</td><td><code>document.addEventListener("keydown", fn);</code></td></tr>
+                        <tr><td><code>event.preventDefault</code></td><td>Prevents default behavior</td><td><code>event.preventDefault();</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const button = document.querySelector(".btn");
+button.addEventListener("click", () => {
+    alert("Button clicked!");
+});
+
+const input = document.querySelector("input");
+input.addEventListener("input", (e) => {
+    console.log(e.target.value);
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") e.preventDefault();
+});
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> Use <code>event.preventDefault()</code> to stop default actions like form submissions.</p>
+        </section>
+
+        <!-- Promises and Async/Await -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-hourglass mr-2"></i> Promises and Async/Await</h2>
+            <p class="mb-3 md:mb-4">Handle asynchronous operations like API calls.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Promise</code></td><td>Represents future value</td><td><code>new Promise((resolve, reject) => {});</code></td></tr>
+                        <tr><td><code>.then()</code></td><td>Handles resolved value</td><td><code>promise.then(data => console.log(data));</code></td></tr>
+                        <tr><td><code>.catch()</code></td><td>Handles errors</td><td><code>promise.catch(err => console.error(err));</code></td></tr>
+                        <tr><td><code>async</code></td><td>Declares async function</td><td><code>async function fetchData() {}</code></td></tr>
+                        <tr><td><code>await</code></td><td>Pauses for promise resolution</td><td><code>const data = await promise;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Success!"), 1000);
+});
+
+myPromise
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+
+async function fetchData() {
+    try {
+        const response = await fetch("https://api.example.com/data");
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>try/catch</code> with <code>async/await</code> for cleaner error handling.</p>
+        </section>
+
+        <!-- Modules -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-cubes mr-2"></i> Modules</h2>
+            <p class="mb-3 md:mb-4">ES6 modules organize code into reusable files.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>export</code></td><td>Exports a variable or function</td><td><code>export const name = "value";</code></td></tr>
+                        <tr><td><code>import</code></td><td>Imports from another module</td><td><code>import { name } from "./module.js";</code></td></tr>
+                        <tr><td><code>export default</code></td><td>Exports default value</td><td><code>export default function() {}</code></td></tr>
+                        <tr><td><code>import as</code></td><td>Aliases imported items</td><td><code>import { name as alias } from "./module.js";</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">// math.js
+export const add = (a, b) => a + b;
+export default function multiply(a, b) {
+    return a * b;
+}
+
+// main.js
+import multiply, { add as sum } from "./math.js";
+
+console.log(sum(2, 3)); // 5
+console.log(multiply(4, 5)); // 20
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use modules to keep code modular and maintainable.</p>
+        </section>
+
+        <!-- Arrow Functions and Scope -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-arrow-right mr-2"></i> Arrow Functions and Scope</h2>
+            <p class="mb-3 md:mb-4">Arrow functions and lexical scoping.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Arrow Function</code></td><td>Concise function syntax</td><td><code>const fn = () => {};</code></td></tr>
+                        <tr><td><code>Lexical this</code></td><td>Inherits <code>this</code> from parent</td><td><code>() => this.value;</code></td></tr>
+                        <tr><td><code>Block Scope</code></td><td>Variables in block</td><td><code>{ let x = 1; }</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const obj = {
+    value: 42,
+    regular: function() { return this.value; },
+    arrow: () => this.value
+};
+console.log(obj.regular()); // 42
+console.log(obj.arrow()); // undefined
+
+const add = (a, b) => a + b;
+console.log(add(2, 3)); // 5
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Avoid arrow functions in methods needing <code>this</code>.</p>
+        </section>
+
+        <!-- Array Methods (Advanced) -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-list-ul mr-2"></i> Array Methods (Advanced)</h2>
+            <p class="mb-3 md:mb-4">Advanced array methods for data manipulation.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>reduce</code></td><td>Reduces array to single value</td><td><code>arr.reduce((a, b) => a + b);</code></td></tr>
+                        <tr><td><code>find</code></td><td>Finds first matching element</td><td><code>arr.find(x => x > 5);</code></td></tr>
+                        <tr><td><code>some</code></td><td>Checks if any element matches</td><td><code>arr.some(x => x > 5);</code></td></tr>
+                        <tr><td><code>every</code></td><td>Checks if all elements match</td><td><code>arr.every(x => x > 0);</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const arr = [1, 2, 3, 6];
+const sum = arr.reduce((total, num) => total + num, 0);
+const firstBig = arr.find(num => num > 5);
+const hasBig = arr.some(num => num > 5);
+console.log(sum, firstBig, hasBig); // 12, 6, true
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>reduce</code> for aggregating data like sums or products.</p>
+        </section>
+
+        <!-- Set Object -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-object-ungroup mr-2"></i> Set Object</h2>
+            <p class="mb-3 md:mb-4">The <code>Set</code> object stores unique values.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>add</code></td><td>Adds value</td><td><code>set.add(value);</code></td></tr>
+                        <tr><td><code>has</code></td><td>Checks if value exists</td><td><code>set.has(value);</code></td></tr>
+                        <tr><td><code>delete</code></td><td>Removes value</td><td><code>set.delete(value);</code></td></tr>
+                        <tr><td><code>size</code></td><td>Gets number of values</td><td><code>set.size;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const set = new Set();
+set.add(1);
+set.add(2);
+set.add(1); // Ignored (unique values)
+console.log(set.has(1)); // true
+set.delete(2);
+console.log(set.size); // 1
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> <code>Set</code> automatically removes duplicates.</p>
+        </section>
+
+        <!-- Regular Expressions -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-search mr-2"></i> Regular Expressions</h2>
+            <p class="mb-3 md:mb-4">Pattern matching with <code>RegExp</code>.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>test</code></td><td>Tests pattern match</td><td><code>regex.test(str);</code></td></tr>
+                        <tr><td><code>exec</code></td><td>Executes pattern search</td><td><code>regex.exec(str);</code></td></tr>
+                        <tr><td><code>/pattern/</code></td><td>Defines regex</td><td><code>/\d+/;</code></td></tr>
+                        <tr><td><code>flags</code></td><td>Modifies regex behavior</td><td><code>/pattern/gi;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-javascript">const regex = /\d+/;
+console.log(regex.test("123")); // true
+console.log(regex.test("abc")); // false
+const str = "Hello 123 World";
+console.log(str.match(/\d+/g)); // ["123"]
+</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>g</code> flag for global regex matches.</p>
+        </section>
+    </main>
+
+    <footer class="bg-indigo-800 p-4 md:p-6 text-center">
+        <p class="text-sm md:text-base">© 2025 NotesAura. All rights reserved.</p>
+        <p class="text-sm md:text-base mt-2">Built with <i class="fas fa-heart text-red-500"></i> for developers learning JavaScript.</p>
+    </footer>
+</body>
+</html>
