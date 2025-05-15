@@ -31,10 +31,14 @@
         .responsive-table {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            width: calc(100% + 2rem);
         }
         table {
             min-width: 100%;
             border-collapse: collapse;
+            white-space: nowrap;
         }
         th, td {
             padding: 8px 12px;
@@ -57,6 +61,33 @@
         pre code {
             display: block;
             color: #f8f8f2;
+        }
+        @media (max-width: 640px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            th, td {
+                padding: 6px 8px;
+                font-size: 14px;
+            }
+            pre {
+                padding: 12px;
+                font-size: 13px;
+            }
+            .section-card {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
