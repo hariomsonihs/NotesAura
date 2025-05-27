@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Cheatsheet - NotesAura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .copy-button {
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+        .copy-button:hover {
+            background-color: #4f46e5;
+        }
+        .responsive-table {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            width: calc(100% + 2rem);
+        }
+        table {
+            min-width: 100%;
+            border-collapse: collapse;
+            white-space: nowrap;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #4b5563;
+        }
+        pre {
+            background-color: #2d2d2d;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            position: relative;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre code {
+            display: block;
+            color: #f8f8f2;
+        }
+        @media (max-width: 640px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            th, td {
+                padding: 6px 8px;
+                font-size: 14px;
+            }
+            pre {
+                padding: 12px;
+                font-size: 13px;
+            }
+            .section-card {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-indigo-900 text-white font-sans">
+    <header class="bg-indigo-800 p-4 md:p-6 shadow-lg">
+        <h1 class="text-3xl md:text-4xl font-bold text-center">HTML Cheatsheet - NotesAura</h1>
+        <p class="text-center mt-2 text-sm md:text-lg">Your Ultimate Guide to HTML: From Basics to Advanced</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-6 max-w-5xl">
+        <!-- Common HTML Tags -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-tags mr-2"></i> Common HTML Tags</h2>
+            <p class="mb-3 md:mb-4">A list of frequently used HTML tags and their purposes.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>&lt;div&gt;</code></td><td>Block container</td><td><code>&lt;div&gt;Content&lt;/div&gt;</code></td></tr>
+                        <tr><td><code>&lt;span&gt;</code></td><td>Inline container</td><td><code>&lt;span&gt;Text&lt;/span&gt;</code></td></tr>
+                        <tr><td><code>&lt;a&gt;</code></td><td>Hyperlink</td><td><code>&lt;a href="url"&gt;Link&lt;/a&gt;</code></td></tr>
+                        <tr><td><code>&lt;img&gt;</code></td><td>Image</td><td><code>&lt;img src="image.jpg"&gt;</code></td></tr>
+                        <tr><td><code>&lt;p&gt;</code></td><td>Paragraph</td><td><code>&lt;p&gt;Text&lt;/p&gt;</code></td></tr>
+                        <tr><td><code>&lt;ul&gt;</code></td><td>Unordered list</td><td><code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use semantic tags over generic <code>&lt;div&gt;</code> for better structure.</p>
+        </section>
+
+        <!-- Basic HTML Structure -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-code mr-2"></i> Basic HTML Structure</h2>
+            <p class="mb-3 md:mb-4">The foundational structure of an HTML document.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;!DOCTYPE html&gt;</strong>: Declares the document as HTML5.</li>
+                <li class="text-sm md:text-base"><strong>&lt;html&gt;</strong>: Root element of the HTML page.</li>
+                <li class="text-sm md:text-base"><strong>&lt;head&gt;</strong>: Contains metadata, links to CSS, and scripts.</li>
+                <li class="text-sm md:text-base"><strong>&lt;body&gt;</strong>: Contains the visible content of the page.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Always include <code>lang="en"</code> in the <code>&lt;html&gt;</code> tag for accessibility.</p>
+        </section>
+
+        <!-- HTML Comments -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-comment mr-2"></i> HTML Comments</h2>
+            <p class="mb-3 md:mb-4">Comments are used to add notes in the code that are not displayed in the browser.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;!-- Comment --&gt;</strong>: Syntax for adding comments.</li>
+                <li class="text-sm md:text-base">Comments can span multiple lines.</li>
+                <li class="text-sm md:text-base">Useful for debugging or explaining code sections.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;!-- This is a comment --&gt;
+&lt;p&gt;This is visible text.&lt;/p&gt;
+&lt;!-- &lt;p&gt;This is hidden text.&lt;/p&gt; --&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Trick:</strong> Use comments to temporarily disable code during testing.</p>
+        </section>
+
+        <!-- Inline and Internal Styles -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-paint-brush mr-2"></i> Inline and Internal Styles</h2>
+            <p class="mb-3 md:mb-4">Apply CSS styles directly in HTML for quick styling.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>style attribute</strong>: Inline CSS applied directly to an element.</li>
+                <li class="text-sm md:text-base"><strong>&lt;style&gt;</strong>: Internal CSS defined in the <code>&lt;head&gt;</code>.</li>
+                <li class="text-sm md:text-base">Inline styles override internal/external styles.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;!-- Inline CSS --&gt;
+&lt;p style="color: blue; font-size: 16px;"&gt;Blue text&lt;/p&gt;
+
+&lt;!-- Internal CSS --&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        p { color: red; }
+    &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Prefer external CSS for maintainability, use inline for quick tests.</p>
+        </section>
+
+        <!-- Text Formatting Tags -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-text-height mr-2"></i> Text Formatting Tags</h2>
+            <p class="mb-3 md:mb-4">Tags for styling and structuring text content.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>&lt;strong&gt;</code></td><td>Bold text</td><td><code>&lt;strong&gt;Bold&lt;/strong&gt;</code></td></tr>
+                        <tr><td><code>&lt;em&gt;</code></td><td>Italic text</td><td><code>&lt;em&gt;Italic&lt;/em&gt;</code></td></tr>
+                        <tr><td><code>&lt;mark&gt;</code></td><td>Highlighted text</td><td><code>&lt;mark&gt;Highlight&lt;/mark&gt;</code></td></tr>
+                        <tr><td><code>&lt;small&gt;</code></td><td>Smaller text</td><td><code>&lt;small&gt;Fine print&lt;/small&gt;</code></td></tr>
+                        <tr><td><code>&lt;del&gt;</code></td><td>Strikethrough text</td><td><code>&lt;del&gt;Deleted&lt;/del&gt;</code></td></tr>
+                        <tr><td><code>&lt;ins&gt;</code></td><td>Inserted text</td><td><code>&lt;ins&gt;Inserted&lt;/ins&gt;</code></td></tr>
+                        <tr><td><code>&lt;sub&gt;</code></td><td>Subscript text</td><td><code>&lt;sub&gt;2&lt;/sub&gt;</code></td></tr>
+                        <tr><td><code>&lt;sup&gt;</code></td><td>Superscript text</td><td><code>&lt;sup&gt;2&lt;/sup&gt;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, &lt;mark&gt;highlighted&lt;/mark&gt;, &lt;del&gt;deleted&lt;/del&gt;, &lt;ins&gt;inserted&lt;/ins&gt; text.&lt;/p&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O and x&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Trick:</strong> Use CSS for advanced text styling instead of deprecated tags like <code>&lt;font&gt;</code>.</p>
+        </section>
+
+        <!-- Quotations -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-quote-left mr-2"></i> Quotations</h2>
+            <p class="mb-3 md:mb-4">Tags for quoting text or citing sources.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;blockquote&gt;</strong>: Long quotations, often indented.</li>
+                <li class="text-sm md:text-base"><strong>&lt;q&gt;</strong>: Short inline quotations.</li>
+                <li class="text-sm md:text-base"><strong>&lt;cite&gt;</strong>: Reference to a source or work.</li>
+                <li class="text-sm md:text-base"><strong>&lt;abbr&gt;</strong>: Abbreviations with a title attribute.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;blockquote cite="https://example.com"&gt;
+    &lt;p&gt;A long quote here.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;He said, &lt;q&gt;Hello!&lt;/q&gt;&lt;/p&gt;
+&lt;cite&gt;Book Title&lt;/cite&gt;
+&lt;abbr title="World Health Organization"&gt;WHO&lt;/abbr&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>cite</code> attribute in <code>&lt;blockquote&gt;</code> to link to the source.</p>
+        </section>
+
+        <!-- Class and ID Attributes -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-tag mr-2"></i> Class and ID Attributes</h2>
+            <p class="mb-3 md:mb-4">Attributes to identify and style elements.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>class</strong>: Assigns multiple elements to a group for styling or scripting.</li>
+                <li class="text-sm md:text-base"><strong>id</strong>: Unique identifier for a single element.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;div class="container"&gt;Content&lt;/div&gt;
+&lt;div id="header"&gt;Header&lt;/div&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> <code>id</code> must be unique per page, while <code>class</code> can be reused.</p>
+        </section>
+
+        <!-- Marquee -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-scroll mr-2"></i> Marquee</h2>
+            <p class="mb-3 md:mb-4">Creates scrolling text (deprecated, use CSS animations instead).</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;marquee&gt;</strong>: Scrolls text horizontally or vertically.</li>
+                <li class="text-sm md:text-base"><strong>direction</strong>: Sets scroll direction (left, right, up, down).</li>
+                <li class="text-sm md:text-base"><strong>behavior</strong>: Sets scroll type (scroll, slide, alternate).</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;marquee direction="left" behavior="scroll"&gt;Scrolling text&lt;/marquee&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Avoid <code>&lt;marquee&gt;</code> in modern web design; use CSS <code>@keyframes</code> instead.</p>
+        </section>
+
+        <!-- HTML Symbols and Entities -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-icons mr-2"></i> HTML Symbols and Entities</h2>
+            <p class="mb-3 md:mb-4">Use entity codes for special characters and symbols.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entity</th>
+                            <th>Character</th>
+                            <th>Code</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>&amp;lt;</code></td><td>&lt;</td><td><code>&amp;#60;</code></td><td>Less than</td></tr>
+                        <tr><td><code>&amp;gt;</code></td><td>&gt;</td><td><code>&amp;#62;</code></td><td>Greater than</td></tr>
+                        <tr><td><code>&amp;amp;</code></td><td>&amp;</td><td><code>&amp;#38;</code></td><td>Ampersand</td></tr>
+                        <tr><td><code>&amp;quot;</code></td><td>&quot;</td><td><code>&amp;#34;</code></td><td>Quotation mark</td></tr>
+                        <tr><td><code>&amp;copy;</code></td><td>&copy;</td><td><code>&amp;#169;</code></td><td>Copyright</td></tr>
+                        <tr><td><code>&amp;reg;</code></td><td>&reg;</td><td><code>&amp;#174;</code></td><td>Registered</td></tr>
+                        <tr><td><code>&amp;euro;</code></td><td>&euro;</td><td><code>&amp;#8364;</code></td><td>Euro</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;p&gt;Copyright &amp;copy; 2025&lt;/p&gt;
+&lt;p&gt;Less than: &amp;lt; &amp;gt; Greater than&lt;/p&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> Entities ensure special characters render correctly across browsers.</p>
+        </section>
+
+        <!-- Meta Tags -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-info-circle mr-2"></i> Meta Tags</h2>
+            <p class="mb-3 md:mb-4">Metadata for defining document properties and behavior.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>&lt;meta charset&gt;</code></td><td>Sets character encoding</td><td><code>&lt;meta charset="UTF-8"&gt;</code></td></tr>
+                        <tr><td><code>&lt;meta name="viewport"&gt;</code></td><td>Controls viewport for responsive design</td><td><code>&lt;meta name="viewport" content="width=device-width"&gt;</code></td></tr>
+                        <tr><td><code>&lt;meta name="description"&gt;</code></td><td>Page description for SEO</td><td><code>&lt;meta name="description" content="Page info"&gt;</code></td></tr>
+                        <tr><td><code>&lt;meta name="keywords"&gt;</code></td><td>Keywords for search engines</td><td><code>&lt;meta name="keywords" content="html, css"&gt;</code></td></tr>
+                        <tr><td><code>&lt;meta name="author"&gt;</code></td><td>Author of the page</td><td><code>&lt;meta name="author" content="Name"&gt;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta name="description" content="Learn HTML"&gt;
+&lt;/head&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Always include <code>charset</code> and <code>viewport</code> meta tags for compatibility.</p>
+        </section>
+
+        <!-- Lists -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-list mr-2"></i> Lists</h2>
+            <p class="mb-3 md:mb-4">Organize content with ordered and unordered lists.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;ul&gt;</strong>: Unordered list (bulleted).</li>
+                <li class="text-sm md:text-base"><strong>&lt;ol&gt;</strong>: Ordered list (numbered).</li>
+                <li class="text-sm md:text-base"><strong>&lt;li&gt;</strong>: List item within <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>.</li>
+                <li class="text-sm md:text-base"><strong>&lt;dl&gt;</strong>, <strong>&lt;dt&gt;</strong>, <strong>&lt;dd&gt;</strong>: Description list for terms and definitions.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+    &lt;li&gt;Step 1&lt;/li&gt;
+    &lt;li&gt;Step 2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;dl&gt;
+    &lt;dt&gt;Term&lt;/dt&gt;
+    &lt;dd&gt;Definition&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> Nested lists can create multi-level menus.</p>
+        </section>
+
+        <!-- Links and Navigation -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-link mr-2"></i> Links and Navigation</h2>
+            <p class="mb-3 md:mb-4">Create hyperlinks for navigation.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;a href="URL"&gt;</strong>: Anchor tag for links.</li>
+                <li class="text-sm md:text-base"><strong>target="_blank"</strong>: Opens link in a new tab.</li>
+                <li class="text-sm md:text-base"><strong>rel="nofollow"</strong>: Prevents search engine crawling.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;a href="https://example.com" target="_blank"&gt;Visit Example&lt;/a&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use relative URLs for internal links to improve portability.</p>
+        </section>
+
+        <!-- Images and Media -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-image mr-2"></i> Images and Media</h2>
+            <p class="mb-3 md:mb-4">Embed images, videos, and audio.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;img src="path" alt="description"&gt;</strong>: Embeds an image.</li>
+                <li class="text-sm md:text-base"><strong>&lt;video&gt;</strong>: Embeds video content.</li>
+                <li class="text-sm md:text-base"><strong>&lt;audio&gt;</strong>: Embeds audio content.</li>
+                <li class="text-sm md:text-base"><strong>&lt;figure&gt;</strong> & <strong>&lt;figcaption&gt;</strong>: Groups media with captions.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;img src="image.jpg" alt="Description" width="300"&gt;
+&lt;video controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+&lt;figure&gt;
+    &lt;img src="image.jpg" alt="Description"&gt;
+    &lt;figcaption&gt;Image caption&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Trick:</strong> Always include <code>alt</code> attributes for accessibility and SEO.</p>
+        </section>
+
+        <!-- Multimedia: Audio, Video, Embedded Content -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-play-circle mr-2"></i> Multimedia: Audio, Video, Embedded Content</h2>
+            <p class="mb-3 md:mb-4">Embed multimedia and external content.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>&lt;audio&gt;</code></td><td>Embeds audio files</td><td><code>&lt;audio controls src="audio.mp3"&gt;</code></td></tr>
+                        <tr><td><code>&lt;video&gt;</code></td><td>Embeds video files</td><td><code>&lt;video controls src="video.mp4"&gt;</code></td></tr>
+                        <tr><td><code>&lt;source&gt;</code></td><td>Specifies media sources</td><td><code>&lt;source src="video.mp4" type="video/mp4"&gt;</code></td></tr>
+                        <tr><td><code>&lt;iframe&gt;</code></td><td>Embeds external content</td><td><code>&lt;iframe src="https://example.com"&gt;</code></td></tr>
+                        <tr><td><code>&lt;embed&gt;</code></td><td>Embeds external content (deprecated)</td><td><code>&lt;embed src="content.swf"&gt;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;
+&lt;video controls width="300"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+&lt;iframe src="https://example.com" width="300" height="200"&gt;&lt;/iframe&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>&lt;source&gt;</code> for multiple formats to ensure browser compatibility.</p>
+        </section>
+
+        <!-- Forms -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-form mr-2"></i> Forms</h2>
+            <p class="mb-3 md:mb-4">Create interactive forms for user input.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;form&gt;</strong>: Container for form elements.</li>
+                <li class="text-sm md:text-base"><strong>&lt;input&gt;</strong>: Input fields (text, email, password, etc.).</li>
+                <li class="text-sm md:text-base"><strong>&lt;label&gt;</strong>: Labels for input fields.</li>
+                <li class="text-sm md:text-base"><strong>&lt;select&gt;</strong> & <strong>&lt;option&gt;</strong>: Dropdown menus.</li>
+                <li class="text-sm md:text-base"><strong>&lt;textarea&gt;</strong>: Multi-line text input.</li>
+                <li class="text-sm md:text-base"><strong>&lt;button&gt;</strong>: Submit or reset buttons.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Input Types:</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>text</code></td><td>Single-line text input</td><td><code>&lt;input type="text"&gt;</code></td></tr>
+                        <tr><td><code>password</code></td><td>Hidden text input</td><td><code>&lt;input type="password"&gt;</code></td></tr>
+                        <tr><td><code>email</code></td><td>Email input with validation</td><td><code>&lt;input type="email"&gt;</code></td></tr>
+                        <tr><td><code>number</code></td><td>Numeric input</td><td><code>&lt;input type="number"&gt;</code></td></tr>
+                        <tr><td><code>checkbox</code></td><td>Multiple selection</td><td><code>&lt;input type="checkbox"&gt;</code></td></tr>
+                        <tr><td><code>radio</code></td><td>Single selection</td><td><code>&lt;input type="radio"&gt;</code></td></tr>
+                        <tr><td><code>file</code></td><td>File upload</td><td><code>&lt;input type="file"&gt;</code></td></tr>
+                        <tr><td><code>date</code></td><td>Date picker</td><td><code>&lt;input type="date"&gt;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;form action="/submit"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;
+    &lt;select name="choice"&gt;
+        &lt;option value="1"&gt;Option 1&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;textarea name="message"&gt;&lt;/textarea&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>required</code> attribute to enforce input validation.</p>
+        </section>
+
+        <!-- Tables -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-table mr-2"></i> Tables</h2>
+            <p class="mb-3 md:mb-4">Display data in a tabular format.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;table&gt;</strong>: Table container.</li>
+                <li class="text-sm md:text-base"><strong>&lt;tr&gt;</strong>: Table row.</li>
+                <li class="text-sm md:text-base"><strong>&lt;th&gt;</strong>: Table header cell.</li>
+                <li class="text-sm md:text-base"><strong>&lt;td&gt;</strong>: Table data cell.</li>
+                <li class="text-sm md:text-base"><strong>&lt;caption&gt;</strong>: Table caption.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;table&gt;
+    &lt;caption&gt;Data Table&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Header&lt;/th&gt;
+        &lt;th&gt;Header&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Data&lt;/td&gt;
+        &lt;td&gt;Data&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> Use <code>scope="col"</code> or <code>scope="row"</code> in <code>&lt;th&gt;</code> for accessibility.</p>
+        </section>
+
+        <!-- Semantic HTML -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-sitemap mr-2"></i> Semantic HTML</h2>
+            <p class="mb-3 md:mb-4">Use tags that convey meaning and structure.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;header&gt;</strong>: Page or section header.</li>
+                <li class="text-sm md:text-base"><strong>&lt;nav&gt;</strong>: Navigation links.</li>
+                <li class="text-sm md:text-base"><strong>&lt;main&gt;</strong>: Main content area.</li>
+                <li class="text-sm md:text-base"><strong>&lt;footer&gt;</strong>: Page or section footer.</li>
+                <li class="text-sm md:text-base"><strong>&lt;article&gt;</strong>: Independent content block.</li>
+                <li class="text-sm md:text-base"><strong>&lt;section&gt;</strong>: Thematic content grouping.</li>
+                <li class="text-sm md:text-base"><strong>&lt;aside&gt;</strong>: Sidebar or supplementary content.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;header&gt;
+    &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+    &lt;article&gt;...&lt;/article&gt;
+    &lt;aside&gt;Sidebar&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Trick:</strong> Semantic tags improve SEO and accessibility.</p>
+        </section>
+
+        <!-- Advanced HTML5 Elements -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-cogs mr-2"></i> Advanced HTML5 Elements</h2>
+            <p class="mb-3 md:mb-4">HTML5-specific elements for modern web development.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>&lt;canvas&gt;</strong>: For drawing graphics via JavaScript.</li>
+                <li class="text-sm md:text-base"><strong>&lt;svg&gt;</strong>: Scalable vector graphics.</li>
+                <li class="text-sm md:text-base"><strong>&lt;details&gt;</strong> & <strong>&lt;summary&gt;</strong>: Collapsible content.</li>
+                <li class="text-sm md:text-base"><strong>&lt;picture&gt;</strong>: Responsive image sources.</li>
+                <li class="text-sm md:text-base"><strong>&lt;datalist&gt;</strong>: Autocomplete options for inputs.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;details&gt;
+    &lt;summary&gt;More Info&lt;/summary&gt;
+    &lt;p&gt;Hidden content here.&lt;/p&gt;
+&lt;/details&gt;
+&lt;input list="options"&gt;
+&lt;datalist id="options"&gt;
+    &lt;option value="Option 1"&gt;
+    &lt;option value="Option 2"&gt;
+&lt;/datalist&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>&lt;picture&gt;</code> for responsive images with <code>&lt;source&gt;</code> tags.</p>
+        </section>
+
+        <!-- Accessibility (ARIA) -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-universal-access mr-2"></i> Accessibility (ARIA)</h2>
+            <p class="mb-3 md:mb-4">Enhance accessibility with ARIA attributes.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>role</strong>: Defines element role (e.g., <code>role="button"</code>).</li>
+                <li class="text-sm md:text-base"><strong>aria-label</strong>: Provides accessible name for elements.</li>
+                <li class="text-sm md:text-base"><strong>aria-hidden</strong>: Hides elements from screen readers.</li>
+                <li class="text-sm md:text-base"><strong>aria-live</strong>: Indicates live content updates.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-html">&lt;button aria-label="Close"&gt;X&lt;/button&gt;
+&lt;div aria-live="polite"&gt;Updated content&lt;/div&gt;</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> ARIA attributes improve usability for screen reader users.</p>
+        </section>
+    </main>
+
+    <footer class="bg-indigo-800 p-4 md:p-6 text-center">
+        <p class="text-sm md:text-base">&copy; 2025 HTML Cheatsheet by NotesAura. All rights reserved.</p>
+    </footer>
+</body>
+</html>

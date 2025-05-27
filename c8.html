@@ -1,53 +1,103 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Identifiers in C</title>
+    <title>Input and Output in C Programming Language</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f8f9fa;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #ffffff;
             user-select: none;
         }
-        h1, h2 {
+        h1 {
             text-align: center;
-            color: #333;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            padding: 20px;
+            font-size: 24px;
+            text-size-adjust: auto;
         }
         h2 {
-            background-color: #e0f2f1;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            border: 2px solid rgb(22, 160, 133);
-            color: #004d40;
+            color: #ffffff;
             cursor: pointer;
             padding: 10px;
             transition: background-color 0.3s;
-            border-left: 4px solid #4CAF50;
-            border-right: 4px solid #4CAF50; 
-            padding-left: 10px;
+            text-align: center;
         }
         h2:hover {
-            background-color: #b2dfdb;
+            background-color: darkolivegreen;
         }
-        p, ul {
-            color: #555;
-            line-height: 1.6;
+        h3 {
+            border-left: 5px solid #4CAF50;
+            padding-left: 10px;
             text-align: justify;
-        
-        
+            color: #ffffff;
         }
-        pre {
+        p {
+            line-height: 1.6;
+            color: #ffffff;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            text-align: justify;
+        }
+        .code-snippet {
             background-color: #282c34;
             color: #abb2bf;
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            line-height: 1.5;
+            margin: 10px 0;
+            position: relative;
+        }
+        .code-snippet::before {
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        .conclusion {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #444;
+            color: #ffffff;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(135deg, #6200ea, #0078d7);
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .example {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
         }
         .keyword {
             color: #d19a66;
@@ -57,149 +107,272 @@
         }
         .comment {
             color: #5c6370;
+            font-style: italic;
         }
-        .example {
-            border-left: 4px solid #007bff;
-            padding-left: 10px;
-            margin: 20px 0;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5em;
+            }
+            p, .code-snippet {
+                font-size: 1em;
+            }
         }
-        .conclusion {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-        }
-        h3 {
-            border-left: 5px solid #4CAF50;
-            padding-left: 10px;
-            text-align:justify;
-        }
-        .conclusion {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.2em;
+            }
+            p, .code-snippet {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
-    <h2>Introduction to Identifiers in C</h2>
+    <h1>Input and Output in C Programming Language</h1>
 
-    <p><b>In C programming, identifiers are names given to various program elements like variables, functions, arrays, etc. Identifiers make it easier for programmers to understand the code, as they allow referencing different parts of the program by meaningful names.</b></p>
-
-    <h3>Rules for Identifiers</h3>
+    <h2>Introduction to Input and Output in C</h2>
+    <p>Input and Output (I/O) operations in C are essential for interacting with users and handling data. Input operations allow a program to receive data from users or external sources, while output operations display results to the console or other devices. The C standard library, primarily through <code>stdio.h</code>, provides functions to perform these operations efficiently.</p>
+    <p>Below are the key aspects of I/O in C:</p>
     <ul>
-    <li><strong>Character Set:</strong> Identifiers can contain alphabets (both uppercase and lowercase), digits, and underscores (<code>_</code>).</li>
-    <li><strong>Case-Sensitive:</strong> Identifiers in C are case-sensitive (<code>example</code> and <code>Example</code> are considered different identifiers).</li>
-    <li><strong>Cannot Start with a Digit:</strong> Identifiers must start with an alphabet or an underscore, not a digit.</li>
-    <li><strong>Keywords Not Allowed:</strong> C keywords (like <code>int</code>, <code>float</code>, <code>if</code>, etc.) cannot be used as identifiers.</li>
-    <li><strong>No Special Characters:</strong> Identifiers cannot include special characters other than an underscore (<code>_</code>).</li>
+        <li><strong>Standard Input</strong>: Typically refers to the keyboard, where users enter data using functions like <code>scanf()</code> or <code>getchar()</code>.</li>
+        <li><strong>Standard Output</strong>: Refers to the console or screen, where data is displayed using functions like <code>printf()</code> or <code>putchar()</code>.</li>
+        <li><strong>Formatted I/O</strong>: Allows precise control over the format of input and output data using format specifiers.</li>
+        <li><strong>Character I/O</strong>: Handles individual characters for precise input/output operations.</li>
     </ul>
 
-    <p> <b>As per the above rules, some examples of the valid and invalid identifiers are: </b></p>
-    
+    <h2>Key Input/Output Functions</h2>
+    <p>The <code>stdio.h</code> library provides several functions for input and output operations. Below are the most commonly used ones:</p>
 
-    <h3>Valid C Identifiers:</h3>
-    <pre><code>age, Age, AGE, average_age, __temp, address1, phone_no_personal, _my_name</code></pre>
-
-    <h3>Invalid C Identifiers:</h3>
-    <pre><code>Average-age, my name, $age, #phone, 1mg, phy+maths</code></pre>
-
-        <h4>Syntax for writing Identifiers</h4>
-        <pre><code><span class="data_type">&lt;data_type&gt;</span> <span class="identifier">identifier_name</span>;</code></pre>
-
-        <h3>Example of Identifiers using C program</h3>
-       <pre><code><span class="keyword">#include</span> &lt;<span class="header">stdio.h</span>&gt;
-
-<span class="comment">// Function prototype</span>
-<span class="keyword">void</span> <span class="function">greetUser</span>();
-
-<span class="comment">// Global variable</span>
-<span class="keyword">int</span> <span class="variable">count</span> = <span class="number">5</span>;
-
-<span class="keyword">int</span> <span class="function">main</span>() {
-    <span class="comment">// Local variable</span>
-    <span class="keyword">int</span> <span class="variable">localValue</span> = <span class="number">10</span>;
-
-    <span class="function">greetUser</span>(); <span class="comment">// Function call</span>
-
-    <span class="keyword">printf</span>(<span class="string">"Global count: %d\n"</span>, <span class="variable">count</span>);        <span class="comment">// Print global variable</span>
-    <span class="keyword">printf</span>(<span class="string">"Local value: %d\n"</span>, <span class="variable">localValue</span>);    <span class="comment">// Print local variable</span>
-
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-
-<span class="comment">// Function definition</span>
-<span class="keyword">void</span> <span class="function">greetUser</span>() {
-    <span class="keyword">printf</span>(<span class="string">"Hello, user!\n"</span>);
-}
-</code></pre>
-
-<div class="example"> 
-    <h4>Explanation</h4> 
-    <ul> 
-        <li><span class="keyword">#include</span> &lt;<span class="string">stdio.h</span>&gt;: Includes the standard input-output library to use functions like <span class="keyword">printf</span>.</li> 
-        <li><span class="keyword">int count</span> = 5;: A global variable named <span class="keyword">count</span> initialized with a value of 5, accessible throughout the program.</li> 
-        <li><span class="keyword">int localValue</span> = 10;: A local variable named <span class="keyword">localValue</span> initialized with a value of 10, accessible only within the <span class="keyword">main</span> function.</li> 
-        <li><span class="keyword">greetUser();</span>: Calls the <span class="keyword">greetUser</span> function to print a greeting message.</li> 
-        <li><span class="keyword">printf</span>(<span class="string">"Global count: %d\n"</span>, <span class="variable">count</span>): Prints the value of the global variable <span class="keyword">count</span> to the console.</li> 
-        <li><span class="keyword">printf</span>(<span class="string">"Local value: %d\n"</span>, <span class="variable">localValue</span>): Prints the value of the local variable <span class="keyword">localValue</span> to the console.</li> 
-        <li><span class="keyword">void greetUser()</span>: Defines the <span class="keyword">greetUser</span> function, which prints a greeting message to the console.</li> 
-    </ul> 
-</div>    
-
-    <h3>Types of Identifiers in C</h3>
-   <ul>
-    <li><strong>Variable Identifiers:</strong> Names given to variables, such as <code>age</code>, <code>height</code>, etc.</li>
-    <li><strong>Function Identifiers:</strong> Names assigned to functions, such as <code>printData</code>, <code>calculateSum</code>, etc.</li>
-    <li><strong>Array Identifiers:</strong> Names given to arrays, like <code>data</code>, <code>values</code>, etc.</li>
+    <h3><b>printf:</b></h3>
+    <ul>
+        <li><b>Stands for "print formatted."</b></li>
+        <li><b>Used to display formatted output to the console.</b></li>
+        <li><b>Supports format specifiers like <code>%d</code> (integer), <code>%f</code> (float), <code>%c</code> (character), and <code>%s</code> (string).</b></li>
     </ul>
+    <h3>Example of printf</h3>
+    <div class="code-snippet">
+        <pre>
+<span class="keyword">#include</span> <<span class="string">stdio.h</span>>
 
-    <h3>Example of Variable Identifier</h3>
-    <pre><code><span class="keyword">int</span> <span class="variable">marks1</span> = <span class="number">50</span>, <span class="variable">marks2</span> = <span class="number">60</span>;
-<span class="keyword">float</span> <span class="variable">avg</span> = (<span class="keyword">float</span>) (<span class="variable">marks1</span> + <span class="variable">marks2</span>) / <span class="number">2</span>;
-</code></pre>
-
-<h3>Example of Function Identifier</h3>
-<pre><code><span class="keyword">int</span> <span class="function">average</span>(<span class="keyword">int</span> <span class="variable">marks1</span>, <span class="keyword">int</span> <span class="variable">marks2</span>) 
+<span class="keyword">int</span> <span class="keyword">main</span>() 
 {
-    <span class="keyword">return</span> (<span class="keyword">float</span>) (<span class="variable">marks1</span> + <span class="variable">marks2</span>) / <span class="number">2</span>;
+    <span class="keyword">int</span> num = 42;
+    <span class="keyword">float</span> pi = 3.14159;
+    <span class="keyword">char</span> ch = 'A';
+    <span class="keyword">printf</span>(<span class="string">"Integer: %d, Float: %.2f, Character: %c\n"</span>, num, pi, ch);
+    <span class="keyword">return</span> 0;
 }
-</code></pre>
-
-<h3>Example of User-define Identifier</h3>
-<pre><code><span class="keyword">struct</span> <span class="type">student</span> 
-{
-    <span class="keyword">int</span> <span class="variable">rollno</span>;
-    <span class="keyword">char</span> *<span class="variable">name</span>;
-    <span class="keyword">int</span> <span class="variable">m1</span>, <span class="variable">m2</span>, <span class="variable">m3</span>;
-    <span class="keyword">float</span> <span class="variable">percent</span>;
-};
-
-<span class="keyword">struct</span> <span class="type">student</span> <span class="variable">s1</span> = {<span class="number">1</span>, <span class="string">"Raju"</span>, <span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">60.00</span>};
-</code></pre>
-
-<h3>Common Mistakes with Identifiers</h3>
-<ul>
-    <li><strong>Using Keywords:</strong> Attempting to name an identifier with a reserved keyword, like <code>int</code>, <code>float</code>.</li>
-    <li><strong>Starting with a Digit:</strong> Naming an identifier like <code>2data</code> instead of <code>data2</code>.</li>
-    <li><strong>Special Characters:</strong> Using characters like <code>#</code>, <code>@</code>, <code>&</code> which are not allowed in identifiers.</li>
-</ul>
-
-<h3>Best practice for writing identifiers</h3>
-
-<ul>
-    <li><strong>Meaningful Names:</strong> Use descriptive names that indicate the purpose of the identifier, like <code>totalAmount</code> or <code>calculateAverage</code>.</li>
-    <li><strong>Consistent Casing:</strong> Follow a consistent casing style (e.g., <code>camelCase</code> for variables, <code>PascalCase</code> for function names).</li>
-    <li><strong>Avoid Long Names:</strong> Keep identifiers concise but meaningful, avoiding overly long names.</li>
-</ul>
-
-    <h2>Conclusion</h2>
-    <div class="conclusion">
-        <p>Identifiers are fundamental in making the code readable, organized, and understandable for others working on the same code. Remember to follow the rules and best practices for creating effective identifiers in C programs.</p>
+        </pre>
+    </div>
+    <p><strong>Output</strong>: Integer: 42, Float: 3.14, Character: A</p>
+    <div class="example">
+        <h4>Explanation</h4>
+        <ul>
+            <li><span class="keyword">#include</span> <<span class="string">stdio.h</span>>: Includes the standard I/O library for using <span class="keyword">printf</span>.</li>
+            <li><span class="keyword">int num</span>, <span class="keyword">float pi</span>, <span class="keyword">char ch</span>: Declares variables of different data types.</li>
+            <li><span class="keyword">printf</span>(<span class="string">"Integer: %d, Float: %.2f, Character: %c\n"</span>, num, pi, ch): Uses format specifiers to print the values of <span class="keyword">num</span>, <span class="keyword">pi</span>, and <span class="keyword">ch</span>. The <code>%.2f</code> ensures the float is displayed with two decimal places.</li>
+            <li><span class="keyword">return</span> 0: Indicates successful program termination.</li>
+        </ul>
     </div>
 
+    <h3><b>scanf:</b></h3>
+    <ul>
+        <li><b>Stands for "scan formatted."</b></li>
+        <li><b>Used to read formatted input from the standard input (usually the keyboard).</b></li>
+        <li><b>Requires the address of variables (using the <code>&</code> operator) to store input values.</b></li>
+    </ul>
+    <h3>Example of scanf</h3>
+    <div class="code-snippet">
+        <pre>
+<span class="keyword">#include</span> <<span class="string">stdio.h</span>>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() 
+{
+    <span class="keyword">int</span> age;
+    <span class="keyword">float</span> height;
+    <span class="keyword">printf</span>(<span class="string">"Enter your age and height: "</span>);
+    <span class="keyword">scanf</span>(<span class="string">"%d %f"</span>, &age, &height);
+    <span class="keyword">printf</span>(<span class="string">"Age: %d, Height: %.1f\n"</span>, age, height);
+    <span class="keyword">return</span> 0;
+}
+        </pre>
+    </div>
+    <p><strong>Output</strong> (if user inputs 25 and 5.9): <br> Enter your age and height: 25 5.9 <br> Age: 25, Height: 5.9</p>
+    <div class="example">
+        <h4>Explanation</h4>
+        <ul>
+            <li><span class="keyword">printf</span>(<span class="string">"Enter your age and height: "</span>): Prompts the user to input data.</li>
+            <li><span class="keyword">scanf</span>(<span class="string">"%d %f"</span>, &age, &height): Reads an integer and a float from the user, storing them in <span class="keyword">age</span> and <span class="keyword">height</span>. The <code>&</code> operator provides the memory address of the variables.</li>
+            <li><span class="keyword">printf</span>(<span class="string">"Age: %d, Height: %.1f\n"</span>, age, height): Displays the input values with formatted output.</li>
+        </ul>
+    </div>
+
+    <h3><b>getchar and putchar:</b></h3>
+    <ul>
+        <li><b><code>getchar()</code>: Reads a single character from the standard input.</b></li>
+        <li><b><code>putchar()</code>: Outputs a single character to the standard output.</b></li>
+        <li><b>Useful for character-based I/O operations.</b></li>
+    </ul>
+    <h3>Example of getchar and putchar</h3>
+    <div class="code-snippet">
+        <pre>
+<span class="keyword">#include</span> <<span class="string">stdio.h</span>>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() 
+{
+    <span class="keyword">char</span> ch;
+    <span class="keyword">printf</span>(<span class="string">"Enter a character: "</span>);
+    ch = <span class="keyword">getchar</span>();
+    <span class="keyword">printf</span>(<span class="string">"You entered: "</span>);
+    <span class="keyword">putchar</span>(ch);
+    <span class="keyword">putchar</span>(<span class="string">'\n'</span>);
+    <span class="keyword">return</span> 0;
+}
+        </pre>
+    </div>
+    <p><strong>Output</strong> (if user inputs 'X'): <br> Enter a character: X <br> You entered: X</p>
+    <div class="example">
+        <h4>Explanation</h4>
+        <ul>
+            <li><span class="keyword">getchar</span>(): Reads a single character from the keyboard and stores it in <span class="keyword">ch</span>.</li>
+            <li><span class="keyword">putchar</span>(ch): Outputs the character stored in <span class="keyword">ch</span> to the console.</li>
+            <li><span class="keyword">putchar</span>(<span class="string">'\n'</span>): Outputs a newline for formatting.</li>
+        </ul>
+    </div>
+
+    <h3><b>gets and puts:</b></h3>
+    <ul>
+        <li><b><code>gets()</code>: Reads a line of text (string) from standard input (deprecated due to security issues).</b></li>
+        <li><b><code>puts()</code>: Outputs a string to the standard output, automatically adding a newline.</b></li>
+        <li><b><code>fgets()</code> is recommended over <code>gets()</code> for safer string input.</b></li>
+    </ul>
+    <h3>Example of fgets and puts</h3>
+    <div class="code-snippet">
+        <pre>
+<span class="keyword">#include</span> <<span class="string">stdio.h</span>>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() 
+{
+    <span class="keyword">char</span> str[100];
+    <span class="keyword">printf</span>(<span class="string">"Enter a string: "</span>);
+    <span class="keyword">fgets</span>(str, 100, <span class="keyword">stdin</span>);
+    <span class="keyword">printf</span>(<span class="string">"You entered: "</span>);
+    <span class="keyword">puts</span>(str);
+    <span class="keyword">return</span> 0;
+}
+        </pre>
+    </div>
+    <p><strong>Output</strong> (if user inputs "Hello C"): <br> Enter a string: Hello C <br> You entered: Hello C</p>
+    <div class="example">
+        <h4>Explanation</h4>
+        <ul>
+            <li><span class="keyword">fgets</span>(str, 100, <span class="keyword">stdin</span>): Reads up to 100 characters from standard input into the <span class="keyword">str</span> array, including the newline character if present.</li>
+            <li><span class="keyword">puts</span>(str): Outputs the string stored in <span class="keyword">str</span>, automatically appending a newline.</li>
+        </ul>
+    </div>
+
+    <h2>Format Specifiers in C</h2>
+    <p>Format specifiers are used in <code>printf</code> and <code>scanf</code> to define the type and format of data being read or written. Common format specifiers include:</p>
+    <ul>
+        <li><code>%d</code>: Integer</li>
+        <li><code>%f</code>: Float</li>
+        <li><code>%c</code>: Character</li>
+        <li><code>%s</code>: String</li>
+        <li><code>%lf</code>: Double</li>
+        <li><code>%x</code>: Hexadecimal</li>
+        <li><code>%o</code>: Octal</li>
+    </ul>
+    <h3>Example with Multiple Format Specifiers</h3>
+    <div class="code-snippet">
+        <pre>
+<span class="keyword">#include</span> <<span class="string">stdio.h</span>>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() 
+{
+    <span class="keyword">int</span> num = 255;
+    <span class="keyword">printf</span>(<span class="string">"Decimal: %d\n"</span>, num);
+    <span class="keyword">printf</span>(<span class="string">"Hexadecimal: %x\n"</span>, num);
+    <span class="keyword">printf</span>(<span class="string">"Octal: %o\n"</span>, num);
+    <span class="keyword">return</span> 0;
+}
+        </pre>
+    </div>
+    <p><strong>Output</strong>: <br> Decimal: 255 <br> Hexadecimal: ff <br> Octal: 377</p>
+
+    <h2>Console I/O with conio.h</h2>
+    <p>The <code>conio.h</code> library (console input/output) provides additional functions for console-based I/O, primarily used in older systems like DOS. Note that <code>conio.h</code> is non-standard and may not be available on all compilers.</p>
+    <h3><b>conio.h Functions:</b></h3>
+    <ul>
+        <li><b><code>getch()</code>: Reads a character from the keyboard without echoing it to the console.</b></li>
+        <li><b><code>getche()</code>: Reads a character and echoes it to the console.</b></li>
+        <li><b><code>clrscr()</code>: Clears the console screen (not portable).</b></li>
+    </ul>
+    <h3>Example of conio.h</h3>
+    <div class="code-snippet">
+        <pre>
+<span class="keyword">#include</span> <<span class="string">stdio.h</span>>
+<span class="keyword">#include</span> <<span class="string">conio.h</span>>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() 
+{
+    <span class="keyword">printf</span>(<span class="string">"Press a key: "</span>);
+    <span class="keyword">char</span> ch = <span class="keyword">getch</span>();
+    <span class="keyword">printf</span>(<span class="string">\n"You pressed: %c\n"</span>, ch);
+    <span class="keyword">return</span> 0;
+}
+        </pre>
+    </div>
+    <p><strong>Output</strong> (if user presses 'K'): <br> Press a key: <br> You pressed: K</p>
+
+    <h2>Rules for Input/Output in C</h2>
+    <p>To ensure effective and error-free I/O operations in C, follow these guidelines:</p>
+    <ul>
+        <li><strong>Include <code>stdio.h</code></strong> for standard I/O functions.</li>
+        <li><strong>Use <code>&</code> with <code>scanf</code></strong> for non-array variables to pass their address.</li>
+        <li><strong>Match format specifiers</strong> with the correct data types to avoid undefined behavior.</li>
+        <li><strong>Handle input buffer issues</strong>, such as clearing the buffer after <code>scanf</code> using <code>getchar()</code> or <code>fflush(stdin)</code> (non-standard).</li>
+        <li><strong>Avoid <code>gets()</code></strong> due to buffer overflow risks; use <code>fgets()</code> instead.</li>
+        <li><strong>Check return values</strong> of input functions to handle errors (e.g., <code>scanf</code> returns the number of items successfully read).</li>
+    </ul>
+
+    <h2>Advanced Example: Combining Input and Output</h2>
+    <div class="code-snippet">
+        <pre>
+<span class="keyword">#include</span> <<span class="string">stdio.h</span>>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() 
+{
+    <span class="keyword">char</span> name[50];
+    <span class="keyword">int</span> age;
+    <span class="keyword">float</span> salary;
+    
+    <span class="keyword">printf</span>(<span class="string">"Enter your name: "</span>);
+    <span class="keyword">fgets</span>(name, 50, <span class="keyword">stdin</span>);
+    <span class="keyword">printf</span>(<span class="string">"Enter your age and salary: "</span>);
+    <span class="keyword">scanf</span>(<span class="string">"%d %f"</span>, &age, &salary);
+    
+    <span class="keyword">printf</span>(<span class="string">\n--- User Details ---\n"</span>);
+    <span class="keyword">printf</span>(<span class="string">"Name: %s"</span>, name);
+    <span class="keyword">printf</span>(<span class="string">"Age: %d\n"</span>, age);
+    <span class="keyword">printf</span>(<span class="string">"Salary: $%.2f\n"</span>, salary);
+    
+    <span class="keyword">return</span> 0;
+}
+        </pre>
+    </div>
+    <p><strong>Output</strong> (if user inputs "John Doe", 30, and 50000.75): <br> Enter your name: John Doe <br> Enter your age and salary: 30 50000.75 <br> --- User Details --- <br> Name: John Doe <br> Age: 30 <br> Salary: $50000.75</p>
+    <div class="example">
+        <h4>Explanation</h4>
+        <ul>
+            <li><span class="keyword">fgets</span>(name, 50, <span class="keyword">stdin</span>): Safely reads a string input for the name.</li>
+            <li><span class="keyword">scanf</span>(<span class="string">"%d %f"</span>, &age, &salary): Reads an integer and a float from the user.</li>
+            <li><span class="keyword">printf</span> statements: Display formatted output with the user's details, including the string, integer, and float values.</li>
+        </ul>
+    </div>
+
+    <div class="conclusion">
+        <p>Input and output operations in C are fundamental for creating interactive and dynamic programs. The <code>stdio.h</code> library provides a robust set of functions like <code>printf</code>, <code>scanf</code>, <code>getchar</code>, and <code>fgets</code> to handle various I/O tasks. By understanding format specifiers, proper function usage, and safety considerations (e.g., avoiding <code>gets</code>), developers can create efficient and user-friendly C programs. Mastering I/O ensures effective communication between the program and its users, making it a cornerstone of C programming.</p>
+    </div>
 </body>
 </html>
