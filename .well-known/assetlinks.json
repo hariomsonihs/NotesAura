@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hariomsonihs.notesaura",
+      "sha256_cert_fingerprints": [
+        "1A:D0:49:33:54:3F:87:F0:B7:E6:92:D6:48:10:FB:ED:4A:EE:BE:79:04:EE:51:AB:A6:16:10:AE:91:6F:7C:D9"
+      ]
+    }
+  }
+]
