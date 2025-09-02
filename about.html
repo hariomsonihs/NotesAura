@@ -1,185 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - NotesAura</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to right, #ecf6fd, #ffffff);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #1f2937;
             overflow-x: hidden;
-            transition: background 0.5s ease;
-            user-select: none;
         }
-
-        .container {
-            width: 100%;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
         }
-
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 10px;
-            transition: color 0.3s ease;
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-
-        h1:hover {
-            color: #3498db;
-        }
-
-        h2 {
-            color: #34495e;
-            margin-top: 20px;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: #3498db;
-            margin-top: 5px;
-            transition: width 0.3s ease;
-        }
-
-        h2:hover::after {
-            width: 100%;
-        }
-
-        p {
-            line-height: 1.6;
-            text-align: justify;
-        }
-
-        .contact {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #3498db;
-            border-radius: 5px;
-            background-color: #ecf6fd;
+        .hover-scale {
             transition: transform 0.3s ease;
         }
-
-        .contact:hover {
-            transform: scale(1.02);
-        }
-
-        .developer-info {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-            background: #f8f8f8;
-            border-radius: 5px;
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s ease;
-        }
-
-        .developer-info:hover {
-            background: #eaeaea;
-        }
-
-        .developer-info img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .developer-info img:hover {
+        .hover-scale:hover {
             transform: scale(1.05);
         }
-
-        .social-icons {
-            margin-top: 10px;
+        .underline-animation {
+            position: relative;
         }
-
-        .social-icons a {
-            margin-right: 10px;
-            text-decoration: none;
+        .underline-animation::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
         }
-
-        .social-icons img {
-            width: 24px;
-            height: 24px;
-            transition: transform 0.3s ease;
+        .underline-animation:hover::after {
+            width: 100%;
         }
-
-        .social-icons img:hover {
-            transform: scale(1.2);
+        .play-store-btn img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .play-store-btn:hover img {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-8">
+    <div class="container max-w-4xl w-full bg-white rounded-2xl shadow-2xl p-8 sm:p-12 fade-in">
+        <h1 class="text-4xl sm:text-5xl font-bold text-center text-gray-800 mb-8 underline-animation">About NotesAura</h1>
 
-<body>
-    <div class="container">
-        <h1>About NotesAura</h1>
-        <h2>About the App</h2>
-        <p>
-            Welcome to <strong>NotesAura</strong>, your ultimate learning companion! This app is designed to provide students with comprehensive and easy-to-understand notes, tutorials, and resources for various programming languages, web development, data structures, and more. Whether you're a beginner or an advanced learner, NotesAura has something for everyone.
-        </p>
-        <p>
-            Our app features:
-        </p>
-        <ul>
-            <li><strong>Programming Languages:</strong> Learn C, C++, Java, Python, Kotlin, and more with detailed notes and examples.</li>
-            <li><strong>Web Development:</strong> Master HTML, CSS, JavaScript, React, Node.js, and other web technologies.</li>
-            <li><strong>Data Structures and Algorithms:</strong> Understand arrays, linked lists, trees, graphs, and dynamic programming with step-by-step explanations.</li>
-            <li><strong>Android Development:</strong> Build Android apps using Java, Kotlin, Flutter, and React Native.</li>
-            <li><strong>Database Management:</strong> Learn SQL, MySQL, MongoDB, and Firebase for efficient data handling.</li>
-            <li><strong>Artificial Intelligence and Machine Learning:</strong> Explore Python, TensorFlow, PyTorch, and Scikit-Learn for AI and ML.</li>
-        </ul>
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4 underline-animation">About the App</h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                Welcome to <strong>NotesAura</strong>, your ultimate learning companion! Designed for students and lifelong learners, NotesAura offers comprehensive, easy-to-understand notes, tutorials, and resources for various programming languages, web development, data structures, and more. Whether you're a beginner or an advanced learner, NotesAura empowers you to achieve your learning goals.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed mb-4">Our app features:</p>
+            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
+                <li><strong>Programming Languages:</strong> Master C, C++, Java, Python, Kotlin, and more with detailed notes and examples.</li>
+                <li><strong>Web Development:</strong> Learn HTML, CSS, JavaScript, React, Node.js, and other web technologies.</li>
+                <li><strong>Data Structures and Algorithms:</strong> Understand arrays, linked lists, trees, graphs, and dynamic programming with step-by-step explanations.</li>
+                <li><strong>Android Development:</strong> Build Android apps using Java, Kotlin, Flutter, and React Native.</li>
+                <li><strong>Database Management:</strong> Explore SQL, MySQL, MongoDB, and Firebase for efficient data handling.</li>
+                <li><strong>Artificial Intelligence and Machine Learning:</strong> Dive into Python, TensorFlow, PyTorch, and Scikit-Learn for AI and ML.</li>
+            </ul>
+        </section>
 
-        <h2>Why Choose NotesAura?</h2>
-        <p>
-            NotesAura is more than just an app; it's a complete learning ecosystem. Here's why students love us:
-        </p>
-        <ul>
-            <li><strong>Comprehensive Content:</strong> Detailed notes, tutorials, and examples for every topic.</li>
-            <li><strong>Beginner-Friendly:</strong> Easy-to-understand explanations for beginners.</li>
-            <li><strong>Advanced Topics:</strong> In-depth coverage of advanced concepts for experienced learners.</li>
-            <li><strong>Interactive Learning:</strong> Quizzes, projects, and hands-on exercises to reinforce learning.</li>
-            <li><strong>Free Resources:</strong> Access to free tutorials, notes, and practice questions.</li>
-        </ul>
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4 underline-animation">Why Choose NotesAura?</h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                NotesAura is more than just an app—it's a complete learning ecosystem crafted to make education accessible and engaging. Here's why students love us:
+            </p>
+            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
+                <li><strong>Comprehensive Content:</strong> Detailed notes, tutorials, and examples for every topic.</li>
+                <li><strong>Beginner-Friendly:</strong> Easy-to-understand explanations for those just starting out.</li>
+                <li><strong>Advanced Topics:</strong> In-depth coverage for experienced learners.</li>
+                <li><strong>Interactive Learning:</strong> Quizzes, projects, and hands-on exercises to reinforce learning.</li>
+                <li><strong>Free Resources:</strong> Access free tutorials, notes, and practice questions.</li>
+            </ul>
+        </section>
 
-        <h2>Developer Information</h2>
-        <div class="developer-info">
-            <img src="hariom.jpg" alt="Developer's Photo">
-            <div>
-                <p>This app has been developed by <strong>[Hariom Soni]</strong>, a passionate programmer and educator with a vision to make learning accessible and enjoyable for everyone. With a background in Computer Science and years of experience in teaching and development, [Hariom Soni] has created NotesAura to help students achieve their learning goals.</p>
-                <div class="social-icons">
-                    <a href="https://instagram.com/yourprofile">
-                        <img src="insta_logo.png" alt="Instagram Icon">
-                    </a>
-                    <a href="https://facebook.com/yourprofile">
-                        <img src="fb_icon.png" alt="Facebook Icon">
-                    </a>
-                    <a href="https://www.linkedin.com/in/hariomsonihs">
-                        <img src="linkedin_icon.jpg" alt="LinkedIn Icon">
-                    </a>
+        <section class="mb-12 text-center">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4 underline-animation">Download NotesAura</h2>
+            <p class="text-lg text-gray-600 mb-6">Take your learning on the go! Download the NotesAura app from the Google Play Store and access all our resources anytime, anywhere.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.hariomsonihs.notesaura" target="_blank" class="play-store-btn inline-block hover-scale">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="w-48 sm:w-56">
+            </a>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4 underline-animation">Developer Information</h2>
+            <div class="developer-info flex flex-col sm:flex-row items-center bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors hover-scale">
+                <img src="hariom.jpg" alt="Developer's Photo" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mb-4 sm:mb-0 sm:mr-6 object-cover">
+                <div>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        NotesAura was crafted by <strong>Hariom Soni</strong>, a passionate programmer and educator dedicated to making learning accessible and enjoyable. With a background in Computer Science and extensive experience in teaching and development, Hariom Soni created NotesAura to empower students worldwide.
+                    </p>
+                    <div class="social-icons flex mt-4 space-x-4">
+                        <a href="https://instagram.com/yourprofile" target="_blank" class="hover-scale">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon" class="w-8 h-8">
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" class="hover-scale">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon" class="w-8 h-8">
+                        </a>
+                        <a href="https://www.linkedin.com/in/hariomsonihs" target="_blank" class="hover-scale">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Icon" class="w-8 h-8">
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="contact">
-            <h2>Contact Us</h2>
-            <p>If you have any questions, feedback, or suggestions, feel free to reach out:</p>
-            <p><strong>Mobile:</strong> [+91 7667110195]</p>
-            <p><strong>Email:</strong> <a href="mailto:hariomsoni0818@gmail.com">hariomsoni0818@gmail.com</a></p>
-        </div>
+        <section class="contact bg-blue-50 rounded-lg p-6 hover-scale">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4 underline-animation">Contact Us</h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-4">Have questions, feedback, or suggestions? We're here to help!</p>
+            <p class="text-lg text-gray-600"><strong>Mobile:</strong> +91 7667110195</p>
+            <p class="text-lg text-gray-600"><strong>Email:</strong> <a href="mailto:hariomsoni0818@gmail.com" class="text-blue-500 hover:underline">hariomsoni0818@gmail.com</a></p>
+        </section>
     </div>
 </body>
 </html>
