@@ -1,1 +1,410 @@
-hello 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokens in C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Tokens in C Programming Language</h1>
+    <div class="card">
+        <h2>Introduction to Tokens</h2>
+        <p>Tokens in C are the smallest individual units in a program that the compiler recognizes. They form the building blocks of C source code.</p>
+        <ul>
+            <li><b>Definition:</b> A token is the smallest element of a C program that carries meaning for the compiler.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>C programs are composed of tokens, which are processed by the compiler during lexical analysis.</li>
+                    <li>Tokens include keywords, identifiers, constants, operators, and special symbols.</li>
+                    <li>Understanding tokens is essential for writing syntactically correct C programs.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Types of Tokens in C</h2>
+        <p>C tokens are categorized into six main types, each serving a specific purpose in the language.</p>
+        <ul>
+            <li><b>Definition:</b> Tokens are classified based on their role in the program, such as defining operations, naming variables, or specifying constants.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Keywords:</b> Reserved words with predefined meanings (e.g., <span class="keyword">int</span>, <span class="keyword">if</span>, <span class="keyword">return</span>).</li>
+                    <li><b>Identifiers:</b> User-defined names for variables, functions, or other entities.</li>
+                    <li><b>Constants:</b> Fixed values that cannot be modified (e.g., integers, floating-point numbers, characters).</li>
+                    <li><b>Operators:</b> Symbols that perform operations (e.g., +, -, *, /).</li>
+                    <li><b>Special Symbols:</b> Punctuation marks like braces, commas, and semicolons.</li>
+                    <li><b>Strings:</b> Sequences of characters enclosed in double quotes.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Identifying Tokens</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> num = 10; <span class="comment">// Tokens: int, num, =, 10, ;</span>
+    <span class="keyword">printf</span>(<span class="string">"Value: %d\\n"</span>, num); <span class="comment">// Tokens: printf, (, "Value: %d\\n", ,, num, ), ;</span>
+    <span class="keyword">return</span> 0; <span class="comment">// Tokens: return, 0, ;</span>
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">int</span>: Keyword token.</li>
+                <li><span class="keyword">num</span>: Identifier token.</li>
+                <li><span class="keyword">=</span>: Operator token.</li>
+                <li><span class="keyword">10</span>: Constant token.</li>
+                <li><span class="keyword">;</span>: Special symbol token.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Keywords</h2>
+        <p>Keywords are reserved words in C that have special meanings and cannot be used as identifiers.</p>
+        <ul>
+            <li><b>Definition:</b> Keywords are predefined words reserved by the C language for specific purposes.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>C has 32 keywords in the C89 standard, with additional ones in C99 and C11 (e.g., <span class="keyword">_Bool</span>, <span class="keyword">_Complex</span>).</li>
+                    <li>Examples: <span class="keyword">auto</span>, <span class="keyword">break</span>, <span class="keyword">case</span>, <span class="keyword">const</span>, <span class="keyword">do</span>, <span class="keyword">else</span>, <span class="keyword">for</span>, <span class="keyword">if</span>, <span class="keyword">return</span>, <span class="keyword">void</span>.</li>
+                    <li>Keywords are case-sensitive and must be written in lowercase.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="callout">
+            <b>Note:</b> Avoid using keywords as variable or function names to prevent compilation errors.
+        </div>
+    </div>
+    <div class="card">
+        <h2>Identifiers</h2>
+        <p>Identifiers are user-defined names given to variables, functions, and other entities in a C program.</p>
+        <ul>
+            <li><b>Definition:</b> An identifier is a name used to identify a variable, function, or any other user-defined item.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Can contain letters (a-z, A-Z), digits (0-9), and underscores (_).</li>
+                    <li>Must start with a letter or underscore.</li>
+                    <li>Case-sensitive (e.g., <span class="keyword">count</span> and <span class="keyword">Count</span> are different).</li>
+                    <li>Should be descriptive for better code readability.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Valid and Invalid Identifiers</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> student_count = 50; <span class="comment">// Valid identifier</span>
+    <span class="keyword">float</span> averageMarks = 85.5; <span class="comment">// Valid identifier</span>
+    <span class="keyword">char</span> _grade = <span class="string">'A'</span>; <span class="comment">// Valid identifier</span>
+    <span class="comment">// int 2marks = 90; // Invalid: starts with a digit</span>
+    <span class="comment">// int for = 10; // Invalid: uses a keyword</span>
+    <span class="keyword">printf</span>(<span class="string">"Count: %d, Marks: %.1f, Grade: %c\\n"</span>, student_count, averageMarks, _grade);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">student_count</span>: Valid identifier, descriptive and follows rules.</li>
+                <li><span class="keyword">2marks</span>: Invalid, starts with a digit.</li>
+                <li><span class="keyword">for</span>: Invalid, uses a reserved keyword.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Constants</h2>
+        <p>Constants are fixed values that cannot be modified during program execution.</p>
+        <ul>
+            <li><b>Definition:</b> Constants represent immutable values used in a program.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Types include integer constants (e.g., 42), floating-point constants (e.g., 3.14), character constants (e.g., <span class="string">'A'</span>), and string constants (e.g., <span class="string">"Hello"</span>).</li>
+                    <li>Can be defined using <span class="keyword">const</span> keyword or <span class="keyword">#define</span> directive.</li>
+                    <li>Constants improve code safety and readability.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Using Constants</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">#define</span> MAX_STUDENTS 100 <span class="comment">// Macro constant</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">const</span> <span class="keyword">float</span> PI = 3.14159; <span class="comment">// Constant variable</span>
+    <span class="keyword">int</span> total = MAX_STUDENTS;
+    <span class="keyword">printf</span>(<span class="string">"Max Students: %d, PI: %.5f\\n"</span>, total, PI);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">#define MAX_STUDENTS</span>: Macro constant for fixed value.</li>
+                <li><span class="keyword">const float PI</span>: Constant variable, unmodifiable.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Operators</h2>
+        <p>Operators are symbols that perform operations on variables and values.</p>
+        <ul>
+            <li><b>Definition:</b> Operators specify computations like arithmetic, logical, or relational operations.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Arithmetic Operators:</b> +, -, *, /, % (modulus).</li>
+                    <li><b>Relational Operators:</b> ==, !=, >, <, >=, <=.</li>
+                    <li><b>Logical Operators:</b> &&, ||, !.</li>
+                    <li><b>Bitwise Operators:</b> &, |, ^, ~, <<, >>.</li>
+                    <li><b>Assignment Operators:</b> =, +=, -=, *=, /=, etc.</li>
+                    <li><b>Other Operators:</b> sizeof, & (address), * (pointer), etc.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Using Operators</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> a = 10, b = 5;
+    <span class="keyword">int</span> sum = a + b; <span class="comment">// Arithmetic operator</span>
+    <span class="keyword">int</span> isEqual = (a == b); <span class="comment">// Relational operator</span>
+    <span class="keyword">int</span> bitwiseAnd = a & b; <span class="comment">// Bitwise operator</span>
+    <span class="keyword">printf</span>(<span class="string">"Sum: %d, Equal: %d, Bitwise AND: %d\\n"</span>, sum, isEqual, bitwiseAnd);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">+</span>: Arithmetic addition.</li>
+                <li><span class="keyword">==</span>: Relational equality check.</li>
+                <li><span class="keyword">&</span>: Bitwise AND operation.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Special Symbols</h2>
+        <p>Special symbols are punctuation marks and other characters used to structure C programs.</p>
+        <ul>
+            <li><b>Definition:</b> Special symbols include braces, parentheses, semicolons, and other characters with syntactic roles.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Braces {}</b>: Define blocks of code.</li>
+                    <li><b>Parentheses ()</b>: Used in function calls and expressions.</li>
+                    <li><b>Semicolon ;</b>: Terminates statements.</li>
+                    <li><b>Comma ,</b>: Separates elements in lists.</li>
+                    <li><b>Other Symbols:</b> #, [], *, &amp;, etc.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Special Symbols</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> arr[2] = {10, 20}; <span class="comment">// Braces, brackets, comma</span>
+    <span class="keyword">printf</span>(<span class="string">"Array: %d, %d\\n"</span>, arr[0], arr[1]); <span class="comment">// Parentheses, comma, semicolon</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">{}</span>: Defines the array initialization block.</li>
+                <li><span class="keyword">[]</span>: Array indexing.</li>
+                <li><span class="keyword">,</span>: Separates array elements.</li>
+                <li><span class="keyword">;</span>: Terminates the statement.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Strings</h2>
+        <p>Strings in C are sequences of characters stored as arrays and terminated by a null character.</p>
+        <ul>
+            <li><b>Definition:</b> A string is a sequence of characters enclosed in double quotes, ending with a null character (\0).</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Declared as <span class="keyword">char</span> arrays or pointers (e.g., <span class="keyword">char str[] = "Hello"</span>).</li>
+                    <li>Strings are manipulated using standard library functions like <span class="keyword">strlen</span>, <span class="keyword">strcpy</span>, etc.</li>
+                    <li>The null character (\0) marks the end of a string.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Using Strings</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">#include</span> <span class="string">&lt;string.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">char</span> str[] = <span class="string">"Hello, World!"</span>;
+    <span class="keyword">printf</span>(<span class="string">"String: %s, Length: %zu\\n"</span>, str, <span class="keyword">strlen</span>(str));
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">"Hello, World!"</span>: String constant with null terminator.</li>
+                <li><span class="keyword">strlen</span>: Calculates string length, excluding \0.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Advanced Token Concepts</h2>
+        <p>Advanced understanding of tokens involves their role in preprocessing, lexical analysis, and optimization.</p>
+        <ul>
+            <li><b>Definition:</b> Advanced token concepts relate to how tokens are processed by the compiler and preprocessor.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Preprocessing Tokens:</b> Tokens processed by the preprocessor (e.g., <span class="keyword">#define</span>, <span class="keyword">#include</span>).</li>
+                    <li><b>Token Pasting:</b> Combining tokens using the ## operator in macros.</li>
+                    <li><b>Stringification:</b> Converting tokens to strings using the # operator in macros.</li>
+                    <li><b>Token Scope:</b> Identifiers have specific scopes (local, global) affecting their visibility.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Token Pasting and Stringi
