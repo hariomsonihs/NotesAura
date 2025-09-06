@@ -1,1 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features of C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Features of C Programming Language</h1>
+    <div class="card">
+        <h2>Simple and Efficient</h2>
+        <p>The C programming language is celebrated for its simplicity and efficiency, making it an ideal choice for system-level programming.</p>
+        <ul>
+            <li><b>Definition:</b> C is a high-level programming language that provides a clear and straightforward syntax.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Low-level language that interacts closely with hardware.</li>
+                    <li>Allows programmers to write clean and understandable code.</li>
+                    <li>High performance, making it suitable for resource-intensive applications.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Structured Language</h2>
+        <p>C is a structured programming language that encourages the division of programs into smaller, manageable functions.</p>
+        <ul>
+            <li><b>Definition:</b> Structured programming is a programming paradigm that emphasizes the use of functions and control structures to improve the clarity and maintainability of code.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Promotes modularization of code into reusable functions.</li>
+                    <li>Enhances code readability and makes debugging easier.</li>
+                    <li>Encourages a systematic approach to programming, reducing complexity.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Portability</h2>
+        <p>C programs are inherently portable due to the language's standardization.</p>
+        <ul>
+            <li><b>Definition:</b> Portability refers to the ease with which software can be transferred from one environment to another.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Code can be compiled and executed on different platforms with minimal changes.</li>
+                    <li>Facilitates cross-platform development for applications.</li>
+                    <li>Standardization ensures compatibility across various systems and architectures.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Rich Library</h2>
+        <p>The C programming language boasts a rich set of built-in functions and libraries that greatly simplify the programming process.</p>
+        <ul>
+            <li><b>Definition:</b> Libraries are collections of precompiled routines that programmers can use to develop software applications.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Includes functions for input/output operations, string manipulations, and mathematical computations.</li>
+                    <li>Reduces development time by providing ready-made solutions for common tasks.</li>
+                    <li>Allows developers to focus on application logic rather than implementing standard functionalities.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Memory Management</h2>
+        <p>C provides powerful features for dynamic memory management, allowing developers to allocate and deallocate memory as needed.</p>
+        <ul>
+            <li><b>Definition:</b> Dynamic memory management refers to the process of allocating memory at runtime using pointers and memory allocation functions.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Allows for flexible memory usage, which is crucial for complex data structures.</li>
+                    <li>Functions like <span class="keyword">malloc()</span> and <span class="keyword">free()</span> provide control over memory allocation and deallocation.</li>
+                    <li>Optimizes resource usage in applications, especially those with varying memory requirements.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Low-level Access</h2>
+        <p>C offers low-level access to memory through the use of pointers.</p>
+        <ul>
+            <li><b>Definition:</b> Pointers are variables that store the memory address of another variable, allowing direct access to memory locations.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Enables manipulation of data at the memory address level, essential for system programming.</li>
+                    <li>Useful for implementing complex data structures like linked lists and trees.</li>
+                    <li>Allows for efficient use of memory, leading to performance optimization in applications.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Function and Recursion</h2>
+        <p>C supports the use of functions, which enables the modularization of code.</p>
+        <ul>
+            <li><b>Definition:</b> Functions are self-contained modules of code that perform a specific task and can be reused throughout a program.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Facilitates the creation of reusable code blocks, enhancing maintainability.</li>
+                    <li>Supports recursion, allowing functions to call themselves to solve problems efficiently.</li>
+                    <li>Promotes code organization, making programs easier to understand and modify.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Recursive Function in C</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
 
+<span class="keyword">int</span> factorial(<span class="keyword">int</span> n) {
+    <span class="keyword">if</span> (n == 0) <span class="keyword">return</span> 1; <span class="comment">// Base case</span>
+    <span class="keyword">return</span> n * factorial(n - 1); <span class="comment">// Recursive call</span>
+}
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">printf</span>(<span class="string">"Factorial of 5 is %d\\n"</span>, factorial(5));
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">factorial()</span>: A recursive function that calculates the factorial of a number.</li>
+                <li><span class="keyword">if (n == 0)</span>: Base case to prevent infinite recursion.</li>
+                <li><span class="keyword">return n * factorial(n - 1)</span>: Recursive call to compute factorial.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Operator Overloading</h2>
+        <p>Although C does not support operator overloading as a language feature, it allows developers to use operators in intuitive ways.</p>
+        <ul>
+            <li><b>Definition:</b> Operator overloading is the ability to redefine the behavior of operators for user-defined data types.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Operators can perform different operations based on the data types they are applied to.</li>
+                    <li>Promotes expressive coding, making it easier to read and understand code.</li>
+                    <li>Helps developers write code that is more aligned with mathematical and logical operations.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Extensible</h2>
+        <p>C is highly extensible, enabling developers to create libraries and modules that can be integrated into existing codebases.</p>
+        <ul>
+            <li><b>Definition:</b> Extensibility refers to the ability to add new features or functionality to an existing system without modifying its core structure.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Encourages code reuse and simplifies the integration of new functionalities.</li>
+                    <li>Facilitates the development of complex applications by encapsulating functionality into libraries.</li>
+                    <li>Supports collaboration on projects by allowing multiple developers to work on separate modules.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Community and Support</h2>
+        <p>The C programming language has a vast and active community of developers, providing a wealth of resources, libraries, frameworks, and documentation.</p>
+        <ul>
+            <li><b>Definition:</b> A programming community is a group of developers who share knowledge, resources, and support for a particular programming language.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Access to numerous online platforms, forums, and tutorials for learning and problem-solving.</li>
+                    <li>Collaboration and networking opportunities with other developers and experts in the field.</li>
+                    <li>Continuous contributions to libraries and tools that enhance the development experience.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>The C programming language remains a powerful and influential tool in software development. Its features such as simplicity, efficiency, low-level access to memory, and strong community support make it a preferred choice for system programming and application development. C's enduring popularity is a testament to its capabilities and relevance in the evolving landscape of programming languages.</p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+</body>
+</html>
