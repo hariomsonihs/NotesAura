@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to C Programming</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Introduction to C Programming</h1>
+    <div class="card">
+        <h2>What is C?</h2>
+        <p>
+            C is a high-level, general-purpose programming language that provides low-level access to memory and system processes. It is widely used for system programming, embedded systems, and application development.
+        </p>
+        <ul>
+            <li><b>Low-Level Languages:</b> Closer to machine code (e.g., Assembly).</li>
+            <li><b>High-Level Languages:</b> Closer to human language (e.g., Python, Java, C).</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>History of C</h3>
+        <p>
+            Developed by Dennis Ritchie at Bell Labs (1969–1973), C evolved from the B language and was used to implement UNIX. The 1978 book by Kernighan and Ritchie standardized C, and ANSI C (C89) and C99 further improved it.
+        </p>
+    </div>
+    <div class="card">
+        <h3>Key Features of C</h3>
+        <ul>
+            <li><b>Simple & Efficient:</b> Straightforward syntax, fast execution.</li>
+            <li><b>Structured Programming:</b> Modular code via functions.</li>
+            <li><b>Portability:</b> Runs on many platforms with minimal changes.</li>
+            <li><b>Low-Level Access:</b> Direct memory and hardware manipulation.</li>
+            <li><b>Rich Library:</b> Standard library for I/O, math, and more.</li>
+            <li><b>Recursion:</b> Functions can call themselves.</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Where is C Used?</h3>
+        <ul>
+            <li>Operating systems (UNIX, Linux, Windows parts)</li>
+            <li>Embedded systems, device drivers</li>
+            <li>Database engines (MySQL, Oracle core)</li>
+            <li>Compilers, interpreters, and networking</li>
+            <li>Game engines and high-performance apps</li>
+        </ul>
+    </div>
+    <div class="callout">
+        <b>Why Learn C?</b><br>
+        <ul>
+            <li>Foundation for C++, Java, Python, and more</li>
+            <li>High performance and control</li>
+            <li>Still in demand for system-level and embedded jobs</li>
+            <li>Large community and resources</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Basic Syntax & Structure</h2>
+        <ul>
+            <li><b>Preprocessor Directives:</b> e.g., <span class="keyword">#include</span></li>
+            <li><b>Main Function:</b> Entry point (<span class="keyword">int main()</span>)</li>
+            <li><b>Declarations:</b> Variables and functions</li>
+            <li><b>Statements:</b> Instructions to execute</li>
+        </ul>
+    </div>
+    <div class="example">
+        <h3>Example: Simple C Program</h3>
+        <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">printf</span>(<span class="string">\"Hello, World!\\n\"</span>); <span class="comment">// Print message</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+        <ul>
+            <li><span class="keyword">#include &lt;stdio.h&gt;</span>: Includes standard I/O library.</li>
+            <li><span class="keyword">int main()</span>: Program entry point.</li>
+            <li><span class="keyword">printf</span>: Prints text to the console.</li>
+            <li><span class="keyword">return 0;</span>: Ends the program successfully.</li>
+        </ul>
+    </div>
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>
+            C is a foundational language for modern software. Its speed, portability, and power make it essential for system-level programming and a great starting point for learning other languages.
+        </p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+</body>
+</html>
