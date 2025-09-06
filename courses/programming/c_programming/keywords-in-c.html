@@ -1,1 +1,348 @@
-hello 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keywords in C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Keywords in C Programming Language</h1>
+    <div class="card">
+        <h2>Introduction to Keywords</h2>
+        <p>Keywords in C are reserved words with predefined meanings in the language. They are fundamental to the syntax and structure of C programs and cannot be used as identifiers (e.g., variable or function names).</p>
+        <ul>
+            <li><b>Definition:</b> Keywords are predefined, reserved words that have special significance in the C programming language.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Keywords are case-sensitive and typically lowercase.</li>
+                    <li>They define the syntax and control the flow of a C program.</li>
+                    <li>There are 32 keywords in C89/C90, with additional ones introduced in C99 and C11 standards.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>List of Keywords in C</h2>
+        <p>The C programming language has a set of reserved keywords that vary slightly depending on the standard (C89, C99, C11). Below is a comprehensive list of keywords in standard C.</p>
+        <ul>
+            <li><b>C89/C90 Keywords (32):</b>
+                <ul>
+                    <li><span class="keyword">auto</span>, <span class="keyword">break</span>, <span class="keyword">case</span>, <span class="keyword">char</span>, <span class="keyword">const</span>, <span class="keyword">continue</span>, <span class="keyword">default</span>, <span class="keyword">do</span></li>
+                    <li><span class="keyword">double</span>, <span class="keyword">else</span>, <span class="keyword">enum</span>, <span class="keyword">extern</span>, <span class="keyword">float</span>, <span class="keyword">for</span>, <span class="keyword">goto</span>, <span class="keyword">if</span></li>
+                    <li><span class="keyword">int</span>, <span class="keyword">long</span>, <span class="keyword">register</span>, <span class="keyword">return</span>, <span class="keyword">short</span>, <span class="keyword">signed</span>, <span class="keyword">sizeof</span>, <span class="keyword">static</span></li>
+                    <li><span class="keyword">struct</span>, <span class="keyword">switch</span>, <span class="keyword">typedef</span>, <span class="keyword">union</span>, <span class="keyword">unsigned</span>, <span class="keyword">void</span>, <span class="keyword">volatile</span>, <span class="keyword">while</span></li>
+                </ul>
+            </li>
+            <li><b>C99 Additional Keywords (5):</b>
+                <ul>
+                    <li><span class="keyword">_Bool</span>, <span class="keyword">_Complex</span>, <span class="keyword">_Imaginary</span>, <span class="keyword">inline</span>, <span class="keyword">restrict</span></li>
+                </ul>
+            </li>
+            <li><b>C11 Additional Keywords (7):</b>
+                <ul>
+                    <li><span class="keyword">_Alignas</span>, <span class="keyword">_Alignof</span>, <span class="keyword">_Atomic</span>, <span class="keyword">_Generic</span>, <span class="keyword">_Noreturn</span>, <span class="keyword">_Static_assert</span>, <span class="keyword">_Thread_local</span></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="callout">
+            <b>Note:</b> Always verify the C standard used by your compiler, as support for newer keywords (C99, C11) may vary.
+        </div>
+    </div>
+    <div class="card">
+        <h2>Categories of Keywords</h2>
+        <p>Keywords in C can be grouped based on their functionality in the language.</p>
+        <ul>
+            <li><b>Definition:</b> Categories classify keywords based on their role in controlling program flow, defining data types, or modifying behavior.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Data Type Keywords:</b> Define variable types (e.g., <span class="keyword">int</span>, <span class="keyword">float</span>, <span class="keyword">char</span>, <span class="keyword">void</span>).</li>
+                    <li><b>Control Flow Keywords:</b> Manage program execution (e.g., <span class="keyword">if</span>, <span class="keyword">else</span>, <span class="keyword">for</span>, <span class="keyword">while</span>, <span class="keyword">switch</span>).</li>
+                    <li><b>Storage Class Keywords:</b> Define scope and lifetime (e.g., <span class="keyword">auto</span>, <span class="keyword">static</span>, <span class="keyword">extern</span>, <span class="keyword">register</span>).</li>
+                    <li><b>Modifier Keywords:</b> Alter variable properties (e.g., <span class="keyword">const</span>, <span class="keyword">volatile</span>, <span class="keyword">signed</span>, <span class="keyword">unsigned</span>).</li>
+                    <li><b>Others:</b> Specialized tasks like defining structures (<span class="keyword">struct</span>, <span class="keyword">union</span>, <span class="keyword">enum</span>) or type aliases (<span class="keyword">typedef</span>).</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Using Different Categories of Keywords</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+<span class="keyword">struct</span> <span class="keyword">Point</span> { <span class="comment">// Structure keyword</span>
+    <span class="keyword">int</span> x, y; <span class="comment">// Data type keyword</span>
+};
+<span class="keyword">static</span> <span class="keyword">int</span> counter = 0; <span class="comment">// Storage class keyword</span>
+<span class="keyword">void</span> <span class="keyword">printPoint</span>(<span class="keyword">const</span> <span class="keyword">struct</span> Point p) { <span class="comment">// Modifier and structure keywords</span>
+    <span class="keyword">printf</span>(<span class="string">"Point: (%d, %d)\\n"</span>, p.x, p.y);
+}
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">struct</span> Point p1 = {5, 10};
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i < 3; i++) { <span class="comment">// Control flow keyword</span>
+        counter++;
+        <span class="keyword">if</span> (counter == 2) { <span class="comment">// Control flow keyword</span>
+            <span class="keyword">continue</span>;
+        }
+        printPoint(p1);
+    }
+    <span class="keyword">return</span> 0; <span class="comment">// Control flow keyword</span>
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">struct</span>: Defines a user-defined data type.</li>
+                <li><span class="keyword">int</span>: Specifies integer data type.</li>
+                <li><span class="keyword">static</span>: Controls variable lifetime and scope.</li>
+                <li><span class="keyword">const</span>: Ensures parameter immutability.</li>
+                <li><span class="keyword">for</span>, <span class="keyword">if</span>, <span class="keyword">continue</span>: Control program flow.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Keywords vs Identifiers</h2>
+        <p>Keywords cannot be used as identifiers because they are reserved for specific purposes in the C language.</p>
+        <ul>
+            <li><b>Definition:</b> Identifiers are user-defined names for variables, functions, etc., while keywords are predefined.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Attempting to use a keyword as an identifier causes a compilation error.</li>
+                    <li>Keywords are integral to the language syntax, unlike identifiers which are user-defined.</li>
+                    <li>Examples of invalid identifiers: <span class="keyword">int</span>, <span class="keyword">for</span>, <span class="keyword">while</span>.</li>
+                    <li>Valid identifiers follow naming rules and do not conflict with keywords.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Keywords Cannot Be Used as Identifiers</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> <span class="keyword">if</span> = 5; <span class="comment">// ERROR: 'if' is a keyword</span>
+    <span class="keyword">int</span> <span class="keyword">while</span> = 10; <span class="comment">// ERROR: 'while' is a keyword</span>
+    <span class="keyword">int</span> myVar = 15; <span class="comment">// Valid identifier</span>
+    <span class="keyword">printf</span>(<span class="string">"Valid identifier: %d\\n"</span>, myVar);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">if</span>, <span class="keyword">while</span>: Reserved keywords, cannot be used as identifiers.</li>
+                <li><span class="keyword">myVar</span>: Valid user-defined identifier.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Scope and Usage of Keywords</h2>
+        <p>Keywords have specific scopes and usage rules depending on their function in the program.</p>
+        <ul>
+            <li><b>Definition:</b> The scope and context in which keywords are used determine their behavior.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Global Scope Keywords:</b> Keywords like <span class="keyword">extern</span> and <span class="keyword">static</span> define file-level visibility.</li>
+                    <li><b>Block Scope Keywords:</b> Keywords like <span class="keyword">auto</span> or <span class="keyword">register</span> apply to variables within a block.</li>
+                    <li><b>Function Scope Keywords:</b> Keywords like <span class="keyword">return</span> or <span class="keyword">inline</span> (C99) affect function behavior.</li>
+                    <li><b>Program Flow Keywords:</b> Keywords like <span class="keyword">break</span>, <span class="keyword">continue</span>, and <span class="keyword">goto</span> control execution flow.</li>
+                    <li><b>Special Keywords:</b> C99/C11 keywords like <span class="keyword">_Atomic</span> or <span class="keyword">_Thread_local</span> handle advanced features like concurrency.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Scope and Usage of Keywords</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+<span class="keyword">static</span> <span class="keyword">int</span> globalCount = 0; <span class="comment">// File scope keyword</span>
+<span class="keyword">void</span> <span class="keyword">increment</span>() {
+    <span class="keyword">auto</span> <span class="keyword">int</span> localCount = 5; <span class="comment">// Block scope keyword</span>
+    globalCount += localCount;
+    <span class="keyword">printf</span>(<span class="string">"Global Count: %d\\n"</span>, globalCount);
+}
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i < 2; i++) {
+        increment();
+        <span class="keyword">if</span> (globalCount > 5) {
+            <span class="keyword">break</span>; <span class="comment">// Control flow keyword</span>
+        }
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">static</span>: Limits globalCount to file scope.</li>
+                <li><span class="keyword">auto</span>: Defines localCount with automatic storage duration.</li>
+                <li><span class="keyword">break</span>: Exits the loop when condition is met.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Best Practices for Using Keywords</h2>
+        <p>Proper use of keywords ensures efficient, readable, and error-free C programs.</p>
+        <ul>
+            <li><b>Definition:</b> Best practices guide the effective use of keywords to enhance code quality.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Use <span class="keyword">const</span> for variables that should not be modified to enhance code safety.</li>
+                    <li>Prefer <span class="keyword">static</span> for variables/functions that don’t need external linkage.</li>
+                    <li>Avoid <span class="keyword">goto</span> unless absolutely necessary, as it can make code harder to follow.</li>
+                    <li>Use modern keywords like <span class="keyword">inline</span> or <span class="keyword">_Bool</span> (C99) only when targeting compatible compilers.</li>
+                    <li>Combine keywords appropriately (e.g., <span class="keyword">static const int</span>) for clear intent.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="callout">
+            <b>Note:</b> Overusing certain keywords like <span class="keyword">register</span> or <span class="keyword">volatile</span> may not yield performance benefits in modern compilers, as optimizations are often automatic.
+        </div>
+    </div>
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>Keywords are the building blocks of C programming, defining its syntax and controlling program behavior. Understanding their roles, categories, and proper usage is essential for writing robust and efficient C code. By adhering to best practices and respecting the constraints of keywords, developers can create clear, maintainable, and error-free programs.</p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+</body>
+</html>
