@@ -1,1 +1,355 @@
-hello 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input and Output in C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Input and Output in C Programming Language</h1>
+    <div class="card">
+        <h2>Introduction to Input and Output</h2>
+        <p>Input and output operations in C are essential for interacting with users and processing data. The C standard library provides functions to handle input from users and output to the console.</p>
+        <ul>
+            <li><b>Definition:</b> Input refers to reading data from a source (e.g., keyboard), and output refers to displaying data to a destination (e.g., console).</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Input/output operations are primarily handled using the <span class="keyword">stdio.h</span> library.</li>
+                    <li>Functions like <span class="keyword">printf</span> and <span class="keyword">scanf</span> are commonly used for console I/O.</li>
+                    <li>Proper I/O handling ensures user-friendly and interactive programs.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Output Functions</h2>
+        <p>C provides several functions for outputting data to the console, with <span class="keyword">printf</span> being the most versatile.</p>
+        <ul>
+            <li><b>Definition:</b> Output functions display data to the console or other output devices.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><span class="keyword">printf</span>: Formats and prints data to the console.</li>
+                    <li><span class="keyword">putchar</span>: Outputs a single character.</li>
+                    <li><span class="keyword">puts</span>: Outputs a string followed by a newline.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Using Output Functions</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> num = 42;
+    <span class="keyword">printf</span>(<span class="string">"Number: %d\\n"</span>, num); <span class="comment">// Formatted output</span>
+    <span class="keyword">putchar</span>(<span class="string">'A'</span>); <span class="comment">// Output single character</span>
+    <span class="keyword">putchar</span>(<span class="string">'\\n'</span>); <span class="comment">// Newline</span>
+    <span class="keyword">puts</span>(<span class="string">"Hello, C Programming!"</span>); <span class="comment">// Output string with newline</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">printf</span>: Uses format specifiers like <span class="string">%d</span> for integers.</li>
+                <li><span class="keyword">putchar</span>: Outputs one character at a time.</li>
+                <li><span class="keyword">puts</span>: Automatically adds a newline after the string.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Input Functions</h2>
+        <p>C provides functions like <span class="keyword">scanf</span> to read input from the user via the console.</p>
+        <ul>
+            <li><b>Definition:</b> Input functions read data from the user or other input sources and store it in variables.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><span class="keyword">scanf</span>: Reads formatted input from the console.</li>
+                    <li><span class="keyword">getchar</span>: Reads a single character.</li>
+                    <li><span class="keyword">gets</span> or <span class="keyword">fgets</span>: Reads a string (use <span class="keyword">fgets</span> for safer input).</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Using Input Functions</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> age;
+    <span class="keyword">char</span> name[50];
+    <span class="keyword">printf</span>(<span class="string">"Enter your age: "</span>);
+    <span class="keyword">scanf</span>(<span class="string">"%d"</span>, &age); <span class="comment">// Read integer</span>
+    <span class="keyword">printf</span>(<span class="string">"Enter your name: "</span>);
+    <span class="keyword">fgets</span>(name, 50, <span class="keyword">stdin</span>); <span class="comment">// Read string</span>
+    <span class="keyword">printf</span>(<span class="string">"Name: %sAge: %d\\n"</span>, name, age);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">scanf</span>: Uses format specifiers and requires the address of variables (e.g., <span class="string">&age</span>).</li>
+                <li><span class="keyword">fgets</span>: Safely reads a string with a specified maximum length.</li>
+                <li>Input functions store user data in variables for further processing.</li>
+            </ul>
+        </div>
+        <div class="callout">
+            <b>Note:</b> Avoid using <span class="keyword">gets</span> as it is unsafe and deprecated; use <span class="keyword">fgets</span> for secure string input.
+        </div>
+    </div>
+    <div class="card">
+        <h2>Format Specifiers</h2>
+        <p>Format specifiers in C are used with <span class="keyword">printf</span> and <span class="keyword">scanf</span> to define the type of data being read or written.</p>
+        <ul>
+            <li><b>Definition:</b> Format specifiers are placeholders that indicate the data type of variables in I/O operations.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><span class="string">%d</span>: Integer.</li>
+                    <li><span class="string">%f</span>: Float (use <span class="string">%.nf</span> for n decimal places).</li>
+                    <li><span class="string">%c</span>: Character.</li>
+                    <li><span class="string">%s</span>: String.</li>
+                    <li><span class="string">%lf</span>: Double.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Format Specifiers</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> num = 10;
+    <span class="keyword">float</span> pi = 3.14159;
+    <span class="keyword">char</span> ch = <span class="string">'X'</span>;
+    <span class="keyword">printf</span>(<span class="string">"Integer: %d, Float: %.2f, Char: %c\\n"</span>, num, pi, ch);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="string">%d</span>: Displays the integer value of <span class="keyword">num</span>.</li>
+                <li><span class="string">%.2f</span>: Limits <span class="keyword">pi</span> to two decimal places.</li>
+                <li><span class="string">%c</span>: Displays the character <span class="keyword">ch</span>.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Buffering in Input/Output</h2>
+        <p>C uses buffering to optimize input and output operations, which can affect how data is read or displayed.</p>
+        <ul>
+            <li><b>Definition:</b> Buffering is the temporary storage of data during I/O operations to reduce direct access to devices.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Line Buffering:</b> Output is stored until a newline is encountered.</li>
+                    <li><b>Full Buffering:</b> Output is stored until the buffer is full or explicitly flushed.</li>
+                    <li><span class="keyword">fflush</span>: Forces buffered data to be written immediately.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Using fflush</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">printf</span>(<span class="string">"This will be buffered..."</span>);
+    <span class="keyword">fflush</span>(<span class="keyword">stdout</span>); <span class="comment">// Force output immediately</span>
+    <span class="keyword">printf</span>(<span class="string">"This appears right after!\\n"</span>);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">fflush(stdout)</span>: Ensures immediate output of buffered data.</li>
+                <li>Buffering improves performance but may delay output display.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Error Handling in Input/Output</h2>
+        <p>Proper error handling in I/O operations ensures robust and reliable programs.</p>
+        <ul>
+            <li><b>Definition:</b> Error handling involves checking for and managing errors during I/O operations.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><span class="keyword">scanf</span> returns the number of successfully read items.</li>
+                    <li>Check for invalid input to prevent program crashes.</li>
+                    <li>Use <span class="keyword">fflush(stdin)</span> cautiously to clear input buffer (non-standard, platform-dependent).</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Error Handling in Input</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> num;
+    <span class="keyword">printf</span>(<span class="string">"Enter a number: "</span>);
+    <span class="keyword">if</span> (<span class="keyword">scanf</span>(<span class="string">"%d"</span>, &num) != 1) {
+        <span class="keyword">printf</span>(<span class="string">"Invalid input!\\n"</span>);
+    } <span class="keyword">else</span> {
+        <span class="keyword">printf</span>(<span class="string">"You entered: %d\\n"</span>, num);
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">scanf</span> return value: Checks if input was successfully read.</li>
+                <li>Error message: Informs user of invalid input.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>Input and output operations are critical for creating interactive C programs. Functions like <span class="keyword">printf</span>, <span class="keyword">scanf</span>, and others in the <span class="keyword">stdio.h</span> library provide robust tools for handling user input and displaying output. Understanding format specifiers, buffering, and error handling enhances the reliability and user-friendliness of C programs, making them suitable for a wide range of applications.</p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+</body>
+</html>
