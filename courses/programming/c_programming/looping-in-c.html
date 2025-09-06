@@ -1,1 +1,457 @@
-hello 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping in C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Looping in C Programming Language</h1>
+    <div class="card">
+        <h2>Introduction to Looping</h2>
+        <p>Looping in C allows a set of instructions to be executed repeatedly based on a condition or a fixed number of iterations. Loops are essential for automating repetitive tasks and processing collections of data.</p>
+        <ul>
+            <li><b>Definition:</b> Loops are control structures that execute a block of code multiple times until a condition is met or a specified number of iterations is completed.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Loops reduce code redundancy by automating repetitive tasks.</li>
+                    <li>They rely on conditions, counters, or expressions to control execution.</li>
+                    <li>C provides several looping constructs for different use cases.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Types of Loops in C</h2>
+        <p>C supports three primary looping constructs, each designed for specific scenarios, along with control statements to modify loop behavior.</p>
+        <ul>
+            <li><b>Definition:</b> Loop types are constructs that facilitate repeated execution of code blocks.</li>
+            <li><b>Types:</b>
+                <ul>
+                    <li><span class="keyword">for</span>: Ideal for loops with a known number of iterations.</li>
+                    <li><span class="keyword">while</span>: Executes as long as a condition is true.</li>
+                    <li><span class="keyword">do-while</span>: Executes at least once, then continues if the condition is true.</li>
+                </ul>
+            </li>
+            <li><b>Control Statements:</b>
+                <ul>
+                    <li><span class="keyword">break</span>: Exits the loop immediately.</li>
+                    <li><span class="keyword">continue</span>: Skips the current iteration and proceeds to the next.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="callout">
+            <b>Note:</b> Choose the loop type based on whether the number of iterations is known and whether the loop needs to execute at least once.
+        </div>
+    </div>
+    <div class="card">
+        <h2>The <span class="keyword">for</span> Loop</h2>
+        <p>The <span class="keyword">for</span> loop is used when the number of iterations is known in advance, typically involving a counter.</p>
+        <ul>
+            <li><b>Syntax:</b>
+                <pre>
+<span class="keyword">for</span> (initialization; condition; update) {
+    <span class="comment">// Code to execute repeatedly</span>
+}
+                </pre>
+            </li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Initialization:</b> Executed once before the loop starts (e.g., <span class="keyword">int i = 0</span>).</li>
+                    <li><b>Condition:</b> Checked before each iteration; loop continues if true.</li>
+                    <li><b>Update:</b> Executed after each iteration (e.g., <span class="keyword">i++</span>).</li>
+                    <li>All three parts are optional, but semicolons are required.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: <span class="keyword">for</span> Loop</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = 1; i <= 5; i++) {
+        <span class="keyword">printf</span>(<span class="string">"Iteration %d\\n"</span>, i);
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">for</span>: Iterates from i=1 to i=5.</li>
+                <li>Output: "Iteration 1" to "Iteration 5".</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>The <span class="keyword">while</span> Loop</h2>
+        <p>The <span class="keyword">while</span> loop executes a block of code as long as a condition is true, suitable when the number of iterations is unknown.</p>
+        <ul>
+            <li><b>Syntax:</b>
+                <pre>
+<span class="keyword">while</span> (condition) {
+    <span class="comment">// Code to execute repeatedly</span>
+}
+                </pre>
+            </li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Condition is checked before each iteration.</li>
+                    <li>Loop may not execute if the condition is initially false.</li>
+                    <li>Ensure the condition eventually becomes false to avoid infinite loops.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: <span class="keyword">while</span> Loop</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> i = 1;
+    <span class="keyword">while</span> (i <= 5) {
+        <span class="keyword">printf</span>(<span class="string">"Iteration %d\\n"</span>, i);
+        i++;
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">while</span>: Continues until i exceeds 5.</li>
+                <li>Output: "Iteration 1" to "Iteration 5".</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>The <span class="keyword">do-while</span> Loop</h2>
+        <p>The <span class="keyword">do-while</span> loop executes a block of code at least once before checking the condition.</p>
+        <ul>
+            <li><b>Syntax:</b>
+                <pre>
+<span class="keyword">do</span> {
+    <span class="comment">// Code to execute repeatedly</span>
+} <span class="keyword">while</span> (condition);
+                </pre>
+            </li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Condition is checked after each iteration.</li>
+                    <li>Guaranteed to execute at least once.</li>
+                    <li>Useful for scenarios requiring initial execution (e.g., user input validation).</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: <span class="keyword">do-while</span> Loop</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> i = 1;
+    <span class="keyword">do</span> {
+        <span class="keyword">printf</span>(<span class="string">"Iteration %d\\n"</span>, i);
+        i++;
+    } <span class="keyword">while</span> (i <= 5);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">do-while</span>: Executes code, then checks if i <= 5.</li>
+                <li>Output: "Iteration 1" to "Iteration 5".</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Control Statements: <span class="keyword">break</span> and <span class="keyword">continue</span></h2>
+        <p>Control statements modify the flow of loops, allowing early termination or skipping iterations.</p>
+        <ul>
+            <li><b><span class="keyword">break</span>:</b> Exits the loop entirely, regardless of the condition.</li>
+            <li><b><span class="keyword">continue</span>:</b> Skips the current iteration and proceeds to the next.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><span class="keyword">break</span> is useful for stopping a loop when a specific condition is met.</li>
+                    <li><span class="keyword">continue</span> skips remaining code in the current iteration.</li>
+                    <li>Both can be used in all loop types and <span class="keyword">switch</span> statements.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: <span class="keyword">break</span> and <span class="keyword">continue</span></h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = 1; i <= 10; i++) {
+        <span class="keyword">if</span> (i == 3) {
+            <span class="keyword">continue</span>; <span class="comment">// Skip iteration when i is 3</span>
+        }
+        <span class="keyword">if</span> (i == 7) {
+            <span class="keyword">break</span>; <span class="comment">// Exit loop when i is 7</span>
+        }
+        <span class="keyword">printf</span>(<span class="string">"Iteration %d\\n"</span>, i);
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">continue</span>: Skips printing when i is 3.</li>
+                <li><span class="keyword">break</span>: Stops loop when i is 7.</li>
+                <li>Output: "Iteration 1", "Iteration 2", "Iteration 4", "Iteration 5", "Iteration 6".</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Nested Loops</h2>
+        <p>Nested loops involve placing one loop inside another, useful for processing multi-dimensional data or complex iterations.</p>
+        <ul>
+            <li><b>Definition:</b> A loop within another loop, where the inner loop completes all iterations for each iteration of the outer loop.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Commonly used for tasks like matrix operations or pattern printing.</li>
+                    <li>Can impact performance if deeply nested; optimize where possible.</li>
+                    <li><span class="keyword">break</span> and <span class="keyword">continue</span> affect only the innermost loop unless labeled (non-standard in C).</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Nested Loops</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = 1; i <= 3; i++) {
+        <span class="keyword">for</span> (<span class="keyword">int</span> j = 1; j <= 2; j++) {
+            <span class="keyword">printf</span>(<span class="string">"i=%d, j=%d\\n"</span>, i, j);
+        }
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li>Nested <span class="keyword">for</span>: Inner loop runs twice for each outer loop iteration.</li>
+                <li>Output: Prints pairs (i=1, j=1), (i=1, j=2), (i=2, j=1), (i=2, j=2), (i=3, j=1), (i=3, j=2).</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Infinite Loops</h2>
+        <p>An infinite loop runs indefinitely unless terminated externally or with a <span class="keyword">break</span> statement.</p>
+        <ul>
+            <li><b>Definition:</b> A loop that never terminates naturally due to a condition that remains true.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Can be intentional (e.g., in embedded systems) or accidental (e.g., due to logic errors).</li>
+                    <li>Commonly created with <span class="keyword">for(;;)</span> or <span class="keyword">while(1)</span>.</li>
+                    <li>Use <span class="keyword">break</span> or external conditions to exit intentional infinite loops.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Infinite Loop with <span class="keyword">break</span></h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> count = 0;
+    <span class="keyword">while</span> (1) {
+        count++;
+        <span class="keyword">printf</span>(<span class="string">"Count: %d\\n"</span>, count);
+        <span class="keyword">if</span> (count == 5) {
+            <span class="keyword">break</span>;
+        }
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">while(1)</span>: Creates an infinite loop.</li>
+                <li><span class="keyword">break</span>: Exits when count reaches 5.</li>
+                <li>Output: "Count: 1" to "Count: 5".</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Loop Control with <span class="keyword">goto</span> (Advanced)</h2>
+        <p>The <span class="keyword">goto</span> statement can be used to jump to a labeled statement, but it is rarely recommended for loop control.</p>
+        <ul>
+            <li><b>Syntax:</b>
+                <pre>
+label:
+    <span class="comment">// Code</span>
+<span class="keyword">goto</span> label;
+                </pre>
+            </li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Avoid <span class="keyword">goto</span> in favor of structured loops for clarity.</li>
+                    <li>Used in specific cases like error handling in low-level programming.</li>
+                    <li>Can make code harder to maintain and debug.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: <span class="keyword">goto</span> in Loop</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> i = 1;
+start:
+    <span class="keyword">if</span> (i > 5) {
+        <span class="keyword">goto</span> end;
+    }
+    <span class="keyword">printf</span>(<span class="string">"Iteration %d\\n"</span>, i);
+    i++;
+    <span class="keyword">goto</span> start;
+end:
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">goto</span>: Jumps to start or end labels.</li>
+                <li>Output: "Iteration 1" to "Iteration 5".</li>
+                <li>Note: Structured loops are preferred over <span class="keyword">goto</span>.</li>
+            </ul>
+        </div>
+        <div class="callout">
+            <b>Caution:</b> Use <span class="keyword">goto</span> sparingly, as it can lead to spaghetti code. Structured loops like <span
