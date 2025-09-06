@@ -1,1 +1,421 @@
-hello 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Casting in C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Type Casting in C Programming Language</h1>
+    <div class="card">
+        <h2>Introduction to Type Casting</h2>
+        <p>Type casting in C is the process of converting a variable from one data type to another to perform specific operations or ensure compatibility.</p>
+        <ul>
+            <li><b>Definition:</b> Type casting changes the data type of a value or variable temporarily or explicitly for computations or assignments.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Type casting can be implicit (automatic) or explicit (manual).</li>
+                    <li>It ensures proper data handling in expressions and function calls.</li>
+                    <li>Misuse can lead to data loss or undefined behavior.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Implicit Type Casting</h2>
+        <p>Implicit type casting, also called automatic type conversion, is performed by the compiler when different data types are used in an expression.</p>
+        <ul>
+            <li><b>Definition:</b> The compiler automatically converts a smaller or less precise type to a larger or more precise type.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Follows the type promotion hierarchy: <span class="keyword">char</span> → <span class="keyword">int</span> → <span class="keyword">float</span> → <span class="keyword">double</span>.</li>
+                    <li>Occurs in arithmetic operations, assignments, or function calls.</li>
+                    <li>No explicit syntax is needed; handled by the compiler.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Implicit Type Casting</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> a = 10;
+    <span class="keyword">float</span> b = 5.5;
+    <span class="keyword">float</span> result = a + b; <span class="comment">// int promoted to float</span>
+    <span class="keyword">printf</span>(<span class="string">"Result: %.2f\\n"</span>, result); <span class="comment">// Outputs 15.50</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">int a</span>: Promoted to <span class="keyword">float</span> for addition with <span class="keyword">b</span>.</li>
+                <li><span class="keyword">result</span>: Stores the sum as a <span class="keyword">float</span>.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Explicit Type Casting</h2>
+        <p>Explicit type casting involves manually converting a value to a specific type using a cast operator.</p>
+        <ul>
+            <li><b>Definition:</b> Explicit casting uses the syntax <span class="keyword">(type) expression</span> to convert a value to the specified type.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Used when implicit conversion is not possible or desired.</li>
+                    <li>Can lead to data loss (e.g., casting <span class="keyword">float</span> to <span class="keyword">int</span> truncates decimal part).</li>
+                    <li>Improves code clarity by making conversions explicit.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Explicit Type Casting</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">float</span> f = 9.75;
+    <span class="keyword">int</span> i = (<span class="keyword">int</span>)f; <span class="comment">// Explicit cast to int</span>
+    <span class="keyword">printf</span>(<span class="string">"Float: %.2f, Int: %d\\n"</span>, f, i); <span class="comment">// Outputs 9.75, 9</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">(int)f</span>: Converts <span class="keyword">float</span> to <span class="keyword">int</span>, truncating decimal part.</li>
+                <li>Data loss occurs as 0.75 is discarded.</li>
+            </ul>
+        </div>
+        <div class="callout">
+            <b>Warning:</b> Explicit casting from a larger to a smaller type (e.g., <span class="keyword">double</span> to <span class="keyword">int</span>) may result in data loss.
+        </div>
+    </div>
+    <div class="card">
+        <h2>Type Promotion in Expressions</h2>
+        <p>Type promotion ensures compatible types in expressions by converting smaller types to larger ones.</p>
+        <ul>
+            <li><b>Definition:</b> Automatic conversion of operands to a common type during arithmetic or logical operations.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Follows hierarchy: <span class="keyword">char</span> → <span class="keyword">short</span> → <span class="keyword">int</span> → <span class="keyword">long</span> → <span class="keyword">float</span> → <span class="keyword">double</span>.</li>
+                    <li>Signed and unsigned types are handled carefully to avoid overflow.</li>
+                    <li>Ensures accurate arithmetic results without manual casting.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Type Promotion</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">char</span> c = 100;
+    <span class="keyword">int</span> i = 200;
+    <span class="keyword">float</span> f = c + i; <span class="comment">// char promoted to int, then to float</span>
+    <span class="keyword">printf</span>(<span class="string">"Result: %.2f\\n"</span>, f); <span class="comment">// Outputs 300.00</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">char c</span>: Promoted to <span class="keyword">int</span> for addition with <span class="keyword">i</span>.</li>
+                <li>Resulting <span class="keyword">int</span> promoted to <span class="keyword">float</span> for assignment.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Casting with Pointers</h2>
+        <p>Pointer type casting converts a pointer of one type to another, often used with <span class="keyword">void</span> pointers.</p>
+        <ul>
+            <li><b>Definition:</b> Converting a pointer to point to a different data type, enabling flexible memory access.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><span class="keyword">void</span> pointers can hold addresses of any type and require casting.</li>
+                    <li>Used in dynamic memory allocation and generic functions.</li>
+                    <li>Incorrect casting can lead to undefined behavior.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Pointer Casting</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> num = 42;
+    <span class="keyword">void</span> *vptr = &num; <span class="comment">// Void pointer</span>
+    <span class="keyword">int</span> *iptr = (<span class="keyword">int</span>*)vptr; <span class="comment">// Cast to int pointer</span>
+    <span class="keyword">printf</span>(<span class="string">"Value: %d\\n"</span>, *iptr); <span class="comment">// Outputs 42</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">void *vptr</span>: Generic pointer to <span class="keyword">int</span>.</li>
+                <li><span class="keyword">(int*)vptr</span>: Casts to <span class="keyword">int</span> pointer for dereferencing.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Casting in Arithmetic Operations</h2>
+        <p>Type casting is often used in arithmetic to control precision or avoid integer division issues.</p>
+        <ul>
+            <li><b>Definition:</b> Casting ensures correct results in operations involving mixed data types.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Integer division truncates; casting to <span class="keyword">float</span> preserves decimals.</li>
+                    <li>Casting can adjust operand types for specific function requirements.</li>
+                    <li>Improves accuracy in calculations with mixed types.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Casting in Division</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> a = 5, b = 2;
+    <span class="keyword">float</span> result = (<span class="keyword">float</span>)a / b; <span class="comment">// Cast to float for decimal division</span>
+    <span class="keyword">printf</span>(<span class="string">"Result: %.2f\\n"</span>, result); <span class="comment">// Outputs 2.50</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">(float)a</span>: Ensures floating-point division.</li>
+                <li>Without casting, <span class="keyword">a / b</span> yields 2 (integer division).</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Advanced Type Casting</h2>
+        <p>Advanced type casting includes handling complex types, unions, and function pointers.</p>
+        <ul>
+            <li><b>Definition:</b> Casting in complex scenarios like structures, unions, or function pointers.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Union Casting:</b> Access different members of a union via casting.</li>
+                    <li><b>Function Pointer Casting:</b> Convert function pointers for generic callbacks.</li>
+                    <li><b>Bit-Level Casting:</b> Reinterpret memory layout (e.g., casting <span class="keyword">int</span> to <span class="keyword">float</span> bits).</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Union and Function Pointer Casting</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">union</span> Data {
+    <span class="keyword">int</span> i;
+    <span class="keyword">float</span> f;
+};
+
+<span class="keyword">void</span> printInt(<span class="keyword">int</span> x) {
+    <span class="keyword">printf</span>(<span class="string">"Int: %d\\n"</span>, x);
+}
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">union</span> Data d;
+    d.f = 3.14;
+    <span class="keyword">int</span> i = *(<span class="keyword">int</span>*)&d.f; <span class="comment">// Bit-level casting</span>
+    <span class="keyword">printf</span>(<span class="string">"Bit-level cast: %x\\n"</span>, i); <span class="comment">// Outputs bit representation</span>
+    
+    <span class="keyword">void</span> (*funcPtr)(<span class="keyword">int</span>) = printInt;
+    ((<span class="keyword">void</span> (*)(<span class="keyword">int</span>))funcPtr)(42); <span class="comment">// Function pointer casting</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">*(int*)&d.f</span>: Reinterprets <span class="keyword">float</span> bits as <span class="keyword">int</span>.</li>
+                <li><span class="keyword">funcPtr</span>: Cast to ensure correct function signature.</li>
+            </ul>
+        </div>
+        <div class="callout">
+            <b>Warning:</b> Bit-level casting and function pointer casting are advanced techniques and should be used cautiously to avoid undefined behavior.
+        </div>
+    </div>
+    <div class="card">
+        <h2>Type Casting with Standard Library Functions</h2>
+        <p>Type casting is often required when using standard library functions or handling dynamic memory.</p>
+        <ul>
+            <li><b>Definition:</b> Casting ensures compatibility with function arguments or return types.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Functions like <span class="keyword">malloc</span> return <span class="keyword">void*</span>, requiring casting.</li>
+                    <li>String conversion functions (e.g., <span class="keyword">atoi</span>, <span class="keyword">atof</span>) implicitly handle type conversion.</li>
+                    <li>Explicit casts clarify intent in complex function calls.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Casting with malloc</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">#include</span> <span class="string">&lt;stdlib.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> *arr = (<span class="keyword">int</span>*)<span class="keyword">malloc</span>(5 * <span class="keyword">sizeof</span>(<span class="keyword">int</span>)); <span class="comment">// Cast void* to int*</span>
+    <span class="keyword">if</span> (arr == NULL) {
+        <span class="keyword">printf</span>(<span class="string">"Memory allocation failed\\n"</span>);
+        <span class="keyword">return</span> 1;
+    }
+    arr[0] = 100;
+    <span class="keyword">printf</span>(<span class="string">"Value: %d\\n"</span>, arr[0]);
+    <span class="keyword">free</span>(arr);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">(int*)malloc</span>: Casts <span class="keyword">void*</span> to <span class="keyword">int*</span>.</li>
+                <li>Ensures type safety for array access.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Common Pitfalls and Best Practices</h2>
+        <p>Type casting requires careful handling to avoid errors like data loss or undefined behavior.</p>
+        <ul>
+            <li><b>Definition:</b> Common issues include loss of precision, incorrect pointer cast
