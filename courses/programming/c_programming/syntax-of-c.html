@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntax and Structure of C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Syntax and Structure of C Programming Language</h1>
+    <div class="card">
+        <h2>Syntax of C, Structure & Basic Terms</h2>
+        <p>The syntax of a programming language defines the rules that dictate how code must be written. In C, the syntax is quite rigid, and a small mistake can lead to compilation errors.</p>
+        <p>Below are key elements of C syntax:</p>
+        <ul>
+            <li><b>Semicolon:</b> Every statement in C ends with a semicolon (<span class="keyword">;</span>).</li>
+            <li><b>Braces:</b> Curly braces (<span class="keyword">{}</span>) define the scope of functions, loops, and other structures.</li>
+            <li><b>Case Sensitivity:</b> C is case-sensitive, so <span class="keyword">int</span> and <span class="keyword">Int</span> are different identifiers.</li>
+            <li><b>Main Function:</b> Every C program must have a <span class="keyword">main()</span> function, which is the entry point of the program.</li>
+        </ul>
+        <div class="example">
+            <h3>Example</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">printf</span>(<span class="string">"Hello, World!\n"</span>);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <p><b>Output:</b> Hello, World!</p>
+            <ul>
+                <li><span class="keyword">#include &lt;stdio.h&gt;</span>: This directive tells the compiler to include the standard input-output library, which provides functionalities for input and output operations.</li>
+                <li><span class="keyword">int main()</span>: This defines the main function where the program execution starts. Every C program must have a <span class="keyword">main</span> function.</li>
+                <li><span class="keyword">printf("Hello, World!\n")</span>: This line calls the <span class="keyword">printf</span> function to output the text "Hello, World!" to the console.</li>
+                <li><span class="keyword">return 0;</span>: This line indicates that the program has finished executing successfully, returning 0 to the operating system.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Structure of a C Program</h2>
+        <p>A C program typically follows a specific structure, which includes several key components:</p>
+        <ul>
+            <li><b>Preprocessor Directives:</b> Lines that begin with <span class="keyword">#</span>, used to include libraries or define macros.</li>
+            <li><b>Global Declarations:</b> Variables and functions declared outside of <span class="keyword">main()</span> are global and can be accessed throughout the program.</li>
+            <li><b>Main Function:</b> The point where program execution begins. Every C program must have a <span class="keyword">main()</span> function.</li>
+            <li><b>Local Declarations:</b> Variables declared inside functions are local to those functions.</li>
+            <li><b>Statements & Expressions:</b> These are the executable parts of the program.</li>
+            <li><b>Functions:</b> Modular sections of code that perform specific tasks.</li>
+        </ul>
+        <div class="example">
+            <h3>Example Structure</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="comment">// Global variable</span>
+<span class="keyword">int</span> globalVar = 10;
+
+<span class="comment">// Function prototype</span>
+<span class="keyword">void</span> greet();
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> localVar = 20;  <span class="comment">// Local variable</span>
+    greet(); <span class="comment">// Function call</span>
+    <span class="keyword">printf</span>(<span class="string">"Global Variable: %d\n"</span>, globalVar);
+    <span class="keyword">printf</span>(<span class="string">"Local Variable: %d\n"</span>, localVar);
+    <span class="keyword">return</span> 0;
+}
+
+<span class="comment">// Function definition</span>
+<span class="keyword">void</span> greet() {
+    <span class="keyword">printf</span>(<span class="string">"Hello, from a function!\n"</span>);
+}
+            </pre>
+            <p><b>Output:</b><br>Hello, from a function!<br>Global Variable: 10<br>Local Variable: 20</p>
+            <ul>
+                <li><span class="keyword">#include &lt;stdio.h&gt;</span>: This directive includes the standard input-output library, enabling the use of functions like <span class="keyword">printf</span>.</li>
+                <li><span class="keyword">int globalVar = 10;</span>: This declares a global variable named <span class="keyword">globalVar</span> and initializes it with the value 10. Global variables can be accessed from any function within the same file.</li>
+                <li><span class="keyword">void greet();</span>: This is a function prototype for the <span class="keyword">greet</span> function, indicating that it will be defined later in the program.</li>
+                <li><span class="keyword">int main()</span>: This is the main function where program execution begins.</li>
+                <li><span class="keyword">int localVar = 20;</span>: This declares a local variable named <span class="keyword">localVar</span> and initializes it with the value 20. Local variables can only be accessed within the function they are declared in.</li>
+                <li><span class="keyword">greet();</span>: This line calls the <span class="keyword">greet</span> function, executing its code.</li>
+                <li><span class="keyword">printf("Global Variable: %d\n", globalVar)</span>: This line prints the value of the global variable <span class="keyword">globalVar</span> to the console.</li>
+                <li><span class="keyword">printf("Local Variable: %d\n", localVar)</span>: This line prints the value of the local variable <span class="keyword">localVar</span> to the console.</li>
+                <li><span class="keyword">return 0;</span>: This indicates that the program has finished executing successfully, returning 0 to the operating system.</li>
+                <li><span class="keyword">void greet()</span>: This defines the <span class="keyword">greet</span> function.</li>
+                <li><span class="keyword">printf("Hello, from a function!\n")</span>: This line within the <span class="keyword">greet</span> function prints a message to the console.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Key Components of C Syntax</h2>
+        <h3>stdio</h3>
+        <ul>
+            <li>Stands for standard input/output.</li>
+            <li>Collection of predefined functions/methods.</li>
+            <li>Also known as the C library.</li>
+        </ul>
+        <h3>include</h3>
+        <ul>
+            <li>Used to include header files into the program.</li>
+            <li>Allows inclusion of standard or user-defined header files for accessing predefined functions or declaring custom functions.</li>
+        </ul>
+        <h3>#</h3>
+        <ul>
+            <li>Called preprocessor.</li>
+            <li>Includes the C library into the program before execution.</li>
+            <li>Used for preprocessor directives, which are instructions for the compiler.</li>
+            <li>Common directives include <span class="keyword">#include</span>, <span class="keyword">#define</span>, and <span class="keyword">#ifdef</span>.</li>
+        </ul>
+        <p>There are two ways for using the <span class="keyword">#include</span> directive:</p>
+        <ul>
+            <li><span class="keyword">#include &lt;filename&gt;</span>: With angle brackets for standard library headers.</li>
+            <li><span class="keyword">#include "filename"</span>: With quotes for user-defined headers.</li>
+        </ul>
+        <h3>conio</h3>
+        <ul>
+            <li>Stands for console input/output.</li>
+            <li>Provides functions for handling console input/output.</li>
+            <li>Allows reading and writing to the console.</li>
+        </ul>
+        <h3>return</h3>
+        <ul>
+            <li>A statement to exit from a function.</li>
+            <li>In the main function, it returns a value to the operating system.</li>
+            <li>It signifies successful termination of the program.</li>
+        </ul>
+        <h3>Function</h3>
+        <ul>
+            <li>Block of code that performs a specific task.</li>
+            <li>Can be reused multiple times throughout the program.</li>
+            <li>C allows both built-in functions and user-defined functions.</li>
+        </ul>
+        <h3>int</h3>
+        <ul>
+            <li>Data type that denotes an integer value.</li>
+            <li>Indicates that the function will return an integer value.</li>
+        </ul>
+        <h3>void</h3>
+        <ul>
+            <li>Indicates that a function does not return a value.</li>
+            <li>Commonly used for functions that perform tasks but do not need to return any result.</li>
+        </ul>
+        <h3>Variable</h3>
+        <ul>
+            <li>Memory location with a name that can hold data.</li>
+            <li>Variable values can change during program execution.</li>
+            <li>Must be declared with a data type before use.</li>
+        </ul>
+        <h3>Data Types</h3>
+        <ul>
+            <li>Types of data that can be stored in a variable.</li>
+            <li>C supports various data types including:</li>
+            <ul>
+                <li><span class="keyword">int</span>: Integer values</li>
+                <li><span class="keyword">float</span>: Floating-point numbers</li>
+                <li><span class="keyword">char</span>: Character values</li>
+                <li><span class="keyword">double</span>: Double-precision floating-point numbers</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Some Rules to Write a C Program</h2>
+        <p>While writing a C program, follow these rules to ensure it compiles and runs successfully:</p>
+        <ul>
+            <li>Every program must include a <span class="keyword">main()</span> function.</li>
+            <li>C is case-sensitive. Ensure consistency with variable names and function calls.</li>
+            <li>Statements must end with a semicolon (<span class="keyword">;</span>).</li>
+            <li>Preprocessor directives don't need a semicolon.</li>
+            <li>Use comments for better readability (<span class="keyword">//</span> for single-line, <span class="keyword">/* */</span> for multi-line).</li>
+            <li>Declare variables before use.</li>
+            <li>Braces (<span class="keyword">{}</span>) define scope.</li>
+            <li>Whitespace is ignored except inside string literals.</li>
+        </ul>
+    </div>
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>The C programming language has a well-defined syntax and structure that makes it powerful yet accessible. Understanding these fundamental concepts is crucial for writing efficient and error-free C programs. The language's rigid syntax rules ensure consistency across different implementations, while its structured approach promotes modular and maintainable code.</p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+</body>
+</html>
