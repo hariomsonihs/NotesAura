@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings in C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Strings in C Programming Language</h1>
+    <div class="card">
+        <h2>Introduction to Strings</h2>
+        <p>Strings in C are sequences of characters stored as arrays of <span class="keyword">char</span>, terminated by a null character (\0).</p>
+        <ul>
+            <li><b>Definition:</b> A string is an array of characters ending with a null terminator, used to represent text.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Strings are not a built-in data type but are implemented as <span class="keyword">char</span> arrays or pointers.</li>
+                    <li>Manipulated using standard library functions from <span class="keyword">&lt;string.h&gt;</span>.</li>
+                    <li>The null character (\0) marks the end of a string, essential for processing.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Declaring and Initializing Strings</h2>
+        <p>Strings can be declared as character arrays or pointers and initialized in various ways.</p>
+        <ul>
+            <li><b>Definition:</b> String declaration involves defining a <span class="keyword">char</span> array or pointer to hold the string data.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Array Declaration:</b> <span class="keyword">char str[size]</span> allocates fixed memory.</li>
+                    <li><b>Pointer Declaration:</b> <span class="keyword">char *str</span> points to a string literal or dynamic memory.</li>
+                    <li>String literals (e.g., <span class="string">"Hello"</span>) are stored in read-only memory.</li>
+                    <li>Always ensure enough space for the null terminator.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Declaring and Initializing Strings</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">char</span> str1[10] = <span class="string">"Hello"</span>; <span class="comment">// Array initialization</span>
+    <span class="keyword">char</span> str2[] = <span class="string">"World"</span>; <span class="comment">// Auto-sized array</span>
+    <span class="keyword">char</span> *str3 = <span class="string">"C Programming"</span>; <span class="comment">// Pointer to string literal</span>
+    <span class="keyword">printf</span>(<span class="string">"Str1: %s, Str2: %s, Str3: %s\\n"</span>, str1, str2, str3);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">char str1[10]</span>: Fixed-size array with space for null terminator.</li>
+                <li><span class="keyword">char str2[]</span>: Compiler auto-sizes based on string length.</li>
+                <li><span class="keyword">char *str3</span>: Points to a string literal in read-only memory.</li>
+            </ul>
+        </div>
+        <div class="callout">
+            <b>Note:</b> Modifying string literals (e.g., <span class="keyword">str3[0] = 'X'</span>) causes undefined behavior as they are stored in read-only memory.
+        </div>
+    </div>
+    <div class="card">
+        <h2>Input and Output of Strings</h2>
+        <p>Strings are handled using standard input/output functions like <span class="keyword">printf</span>, <span class="keyword">scanf</span>, and others.</p>
+        <ul>
+            <li><b>Definition:</b> Input/output operations read or display strings using standard library functions.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>printf:</b> Outputs strings with <span class="keyword">%s</span> format specifier.</li>
+                    <li><b>scanf:</b> Reads strings, stops at whitespace, requires array size to avoid overflow.</li>
+                    <li><b>gets/fgets:</b> Reads entire lines, <span class="keyword">fgets</span> is safer as it limits input size.</li>
+                    <li><b>puts/fputs:</b> Outputs strings, <span class="keyword">puts</span> adds a newline.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: String Input/Output</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">char</span> name[20];
+    <span class="keyword">printf</span>(<span class="string">"Enter your name: "</span>);
+    <span class="keyword">fgets</span>(name, <span class="keyword">sizeof</span>(name), stdin); <span class="comment">// Safe input</span>
+    <span class="keyword">printf</span>(<span class="string">"Hello, %s"</span>, name);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">fgets</span>: Reads input safely, including spaces, up to specified size.</li>
+                <li><span class="keyword">printf</span>: Displays string with <span class="keyword">%s</span>.</li>
+            </ul>
+        </div>
+        <div class="callout">
+            <b>Warning:</b> Avoid <span class="keyword">gets</span> as it’s deprecated and prone to buffer overflow. Use <span class="keyword">fgets</span> instead.
+        </div>
+    </div>
+    <div class="card">
+        <h2>String Manipulation Functions</h2>
+        <p>C provides a rich set of string manipulation functions in <span class="keyword">&lt;string.h&gt;</span>.</p>
+        <ul>
+            <li><b>Definition:</b> Functions for manipulating strings, such as copying, concatenating, and comparing.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>strlen:</b> Returns string length (excluding \0).</li>
+                    <li><b>strcpy/strncpy:</b> Copies strings, <span class="keyword">strncpy</span> is safer with size limit.</li>
+                    <li><b>strcat/strncat:</b> Concatenates strings, <span class="keyword">strncat</span> limits appended characters.</li>
+                    <li><b>strcmp/strncmp:</b> Compares strings, returns 0 if equal.</li>
+                    <li><b>strchr/strrchr:</b> Finds first/last occurrence of a character.</li>
+                    <li><b>strstr:</b> Finds substring in a string.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: String Manipulation</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">#include</span> <span class="string">&lt;string.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">char</span> str1[20] = <span class="string">"Hello"</span>;
+    <span class="keyword">char</span> str2[20] = <span class="string">"World"</span>;
+    <span class="keyword">printf</span>(<span class="string">"Length of str1: %zu\\n"</span>, <span class="keyword">strlen</span>(str1));
+    <span class="keyword">strcat</span>(str1, <span class="string">" "</span>);
+    <span class="keyword">strcat</span>(str1, str2); <span class="comment">// Concatenate</span>
+    <span class="keyword">printf</span>(<span class="string">"Concatenated: %s\\n"</span>, str1);
+    <span class="keyword">printf</span>(<span class="string">"Comparison: %d\\n"</span>, <span class="keyword">strcmp</span>(str1, <span class="string">"Hello World"</span>));
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">strlen</span>: Calculates length of "Hello" (5).</li>
+                <li><span class="keyword">strcat</span>: Appends strings to form "Hello World".</li>
+                <li><span class="keyword">strcmp</span>: Compares strings, returns 0 for equality.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Character Arrays vs. String Literals</h2>
+        <p>Character arrays and string literals differ in mutability and memory allocation.</p>
+        <ul>
+            <li><b>Definition:</b> Character arrays are mutable, while string literals are immutable and stored in read-only memory.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Character arrays allow modification of individual characters.</li>
+                    <li>String literals are constant and cannot be modified.</li>
+                    <li>Arrays require explicit size; literals are handled by the compiler.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Character Arrays vs. String Literals</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">char</span> str1[] = <span class="string">"Mutable"</span>; <span class="comment">// Character array</span>
+    <span class="keyword">char</span> *str2 = <span class="string">"Immutable"</span>; <span class="comment">// String literal</span>
+    str1[0] = <span class="string">'m'</span>; <span class="comment">// Valid</span>
+    <span class="keyword">printf</span>(<span class="string">"Array: %s\\n"</span>, str1);
+    <span class="comment">// str2[0] = 'i'; // Undefined behavior</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">char str1[]</span>: Mutable array, can be modified.</li>
+                <li><span class="keyword">char *str2</span>: Points to immutable string literal.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Dynamic Memory Allocation for Strings</h2>
+        <p>Strings can be allocated dynamically using <span class="keyword">malloc</span> or <span class="keyword">calloc</span> for flexible sizes.</p>
+        <ul>
+            <li><b>Definition:</b> Dynamic allocation creates strings with sizes determined at runtime.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Use <span class="keyword">malloc</span> or <span class="keyword">calloc</span> to allocate memory.</li>
+                    <li>Always free allocated memory using <span class="keyword">free</span> to avoid memory leaks.</li>
+                    <li>Ensure space for null terminator in allocation.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Dynamic Strings</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">#include</span> <span class="string">&lt;stdlib.h&gt;</span>
+<span class="keyword">#include</span> <span class="string">&lt;string.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">char</span> *str = <span class="keyword">malloc</span>(20 * <span class="keyword">sizeof</span>(<span class="keyword">char</span>));
+    <span class="keyword">if</span> (str == NULL) {
+        <span class="keyword">printf</span>(<span class="string">"Memory allocation failed\\n"</span>);
+        <span class="keyword">return</span> 1;
+    }
+    <span class="keyword">strcpy</span>(str, <span class="string">"Dynamic String"</span>);
+    <span class="keyword">printf</span>(<span class="string">"Dynamic: %s\\n"</span>, str);
+    <span class="keyword">free</span>(str); <span class="comment">// Free memory</span>
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">malloc</span>: Allocates memory for string.</li>
+                <li><span class="keyword">free</span>: Releases allocated memory.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Advanced String Operations</h2>
+        <p>Advanced string handling includes parsing, tokenization, and format conversion.</p>
+        <ul>
+            <li><b>Definition:</b> Advanced operations involve complex string manipulations like splitting or converting data.</li>
+            <li><b>Key Points:</b>
+                <li><b>strtok:</b> Tokenizes strings by splitting on delimiters.</li>
+                <li><b>sscanf/sprintf:</b> Reads/formats strings with specific data types.</li>
+                <li><b>Wide Strings:</b> Use <span class="keyword">wchar_t</span> for Unicode/multibyte characters (C99).</li>
+            </ul>
+        </ul>
+        <div class="example">
+            <h3>Example: Tokenization and Formatting</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">#include</span> <span class="string">&lt;string.h&gt;</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">char</span> str[] = <span class="string">"apple,banana,orange"</span>;
+    <span class="keyword">char</span> *token = <span class="keyword">strtok</span>(str, <span class="string">","</span>);
+    <span class="keyword">while</span> (token != NULL) {
+        <span class="keyword">printf</span>(<span class="string">"Token: %s\\n"</span>, token);
+        token = <span class="keyword">strtok</span>(NULL, <span class="string">","</span>);
+    }
+    <span class="keyword">char</span> buffer[50];
+    <span class="keyword">sprintf</span>(buffer, <span class="string">"Number: %d, Float: %.2f"</span>, 42, 3.14);
+    <span class="keyword">printf</span>(<span class="string">"Formatted: %s\\n"</span>, buffer);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">strtok</span>: Splits string into tokens based on commas.</li>
+                <li><span class="keyword">sprintf</span>: Formats data into a string.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Wide Strings and Multibyte Characters</h2>
+        <p>Wide strings support Unicode and multibyte characters for internationalization.</p>
+        <ul>
+            <li><b>Definition:</b> Wide strings use <span class="keyword">wchar_t</span> to handle extended character sets.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Declared with <span class="keyword">wchar_t</span> and prefixed with L (e.g., <span class="string">L"Hello"</span>).</li>
+                    <li>Use <span class="keyword">&lt;wchar.h&gt;</span> functions like <span class="keyword">wcslen</span>, <span class="keyword">wcscpy</span>.</li>
+                    <li>Supports UTF-16/UTF-32 depending on platform.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Wide Strings</h3>
+  
