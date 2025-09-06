@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Making in C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Decision Making in C Programming Language</h1>
+    <div class="card">
+        <h2>Introduction to Decision Making</h2>
+        <p>Decision making in C allows programs to execute different code blocks based on specific conditions. It is a fundamental concept that enables conditional execution, making programs dynamic and responsive to input or state.</p>
+        <ul>
+            <li><b>Definition:</b> Decision making involves evaluating conditions and executing code blocks based on whether those conditions are true or false.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Uses conditional statements to control program flow.</li>
+                    <li>Relies on relational and logical operators to evaluate conditions.</li>
+                    <li>Essential for creating logic-driven applications.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Types of Decision-Making Statements</h2>
+        <p>C provides several constructs for decision making, each suited for different scenarios.</p>
+        <ul>
+            <li><b>Definition:</b> Decision-making statements are constructs that evaluate conditions and control the execution of code blocks.</li>
+            <li><b>Types:</b>
+                <ul>
+                    <li><span class="keyword">if</span>: Executes a block if a condition is true.</li>
+                    <li><span class="keyword">if-else</span>: Executes one block if true, another if false.</li>
+                    <li><span class="keyword">else if</span>: Handles multiple conditions sequentially.</li>
+                    <li><span class="keyword">switch</span>: Selects a block based on a variable’s value.</li>
+                    <li><span class="keyword">?:</span> (Ternary Operator): A concise conditional expression.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="callout">
+            <b>Note:</b> Choose the appropriate decision-making construct based on the complexity of conditions and readability requirements.
+        </div>
+    </div>
+    <div class="card">
+        <h2>The <span class="keyword">if</span> Statement</h2>
+        <p>The <span class="keyword">if</span> statement evaluates a condition and executes a block of code if the condition is true.</p>
+        <ul>
+            <li><b>Syntax:</b>
+                <pre>
+<span class="keyword">if</span> (condition) {
+    <span class="comment">// Code to execute if condition is true</span>
+}
+                </pre>
+            </li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Condition must evaluate to a boolean (0 for false, non-zero for true).</li>
+                    <li>Braces are optional for a single statement but recommended for clarity.</li>
+                    <li>Can be used with relational/logical operators (e.g., <span class="keyword">==</span>, <span class="keyword">&&</span>).</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: <span class="keyword">if</span> Statement</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> num = 10;
+    <span class="keyword">if</span> (num > 0) {
+        <span class="keyword">printf</span>(<span class="string">"Number is positive\\n"</span>);
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">if</span>: Checks if num is greater than 0.</li>
+                <li>Output: "Number is positive" if condition is true.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>The <span class="keyword">if-else</span> Statement</h2>
+        <p>The <span class="keyword">if-else</span> statement provides an alternative block of code to execute when the condition is false.</p>
+        <ul>
+            <li><b>Syntax:</b>
+                <pre>
+<span class="keyword">if</span> (condition) {
+    <span class="comment">// Code if condition is true</span>
+} <span class="keyword">else</span> {
+    <span class="comment">// Code if condition is false</span>
+}
+                </pre>
+            </li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Only one block (if or else) is executed.</li>
+                    <li>Useful for binary decisions (e.g., true/false, yes/no).</li>
+                    <li>Improves code readability by handling both outcomes.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: <span class="keyword">if-else</span> Statement</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> num = -5;
+    <span class="keyword">if</span> (num >= 0) {
+        <span class="keyword">printf</span>(<span class="string">"Number is non-negative\\n"</span>);
+    } <span class="keyword">else</span> {
+        <span class="keyword">printf</span>(<span class="string">"Number is negative\\n"</span>);
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">if-else</span>: Executes else block since num is negative.</li>
+                <li>Output: "Number is negative".</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>The <span class="keyword">else if</span> Ladder</h2>
+        <p>The <span class="keyword">else if</span> construct allows checking multiple conditions sequentially.</p>
+        <ul>
+            <li><b>Syntax:</b>
+                <pre>
+<span class="keyword">if</span> (condition1) {
+    <span class="comment">// Code if condition1 is true</span>
+} <span class="keyword">else if</span> (condition2) {
+    <span class="comment">// Code if condition2 is true</span>
+} <span class="keyword">else</span> {
+    <span class="comment">// Code if all conditions are false</span>
+}
+                </pre>
+            </li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Conditions are evaluated in order; the first true condition’s block is executed.</li>
+                    <li>Optional <span class="keyword">else</span> block handles cases where no condition is true.</li>
+                    <li>Suitable for multiple mutually exclusive conditions.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: <span class="keyword">else if</span> Ladder</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> score = 85;
+    <span class="keyword">if</span> (score >= 90) {
+        <span class="keyword">printf</span>(<span class="string">"Grade: A\\n"</span>);
+    } <span class="keyword">else if</span> (score >= 80) {
+        <span class="keyword">printf</span>(<span class="string">"Grade: B\\n"</span>);
+    } <span class="keyword">else if</span> (score >= 70) {
+        <span class="keyword">printf</span>(<span class="string">"Grade: C\\n"</span>);
+    } <span class="keyword">else</span> {
+        <span class="keyword">printf</span>(<span class="string">"Grade: F\\n"</span>);
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">else if</span>: Checks conditions sequentially.</li>
+                <li>Output: "Grade: B" since score is 85.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>The <span class="keyword">switch</span> Statement</h2>
+        <p>The <span class="keyword">switch</span> statement selects a code block based on the value of an expression.</p>
+        <ul>
+            <li><b>Syntax:</b>
+                <pre>
+<span class="keyword">switch</span> (expression) {
+    <span class="keyword">case</span> value1:
+        <span class="comment">// Code for value1</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> value2:
+        <span class="comment">// Code for value2</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        <span class="comment">// Code if no case matches</span>
+}
+                </pre>
+            </li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Expression must evaluate to an integer or character type.</li>
+                    <li><span class="keyword">break</span> prevents fall-through to subsequent cases.</li>
+                    <li><span class="keyword">default</span> handles cases where no <span class="keyword">case</span> matches.</li>
+                    <li>More efficient than multiple <span class="keyword">else if</span> for discrete values.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: <span class="keyword">switch</span> Statement</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">char</span> grade = 'B';
+    <span class="keyword">switch</span> (grade) {
+        <span class="keyword">case</span> 'A':
+            <span class="keyword">printf</span>(<span class="string">"Excellent\\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> 'B':
+            <span class="keyword">printf</span>(<span class="string">"Good\\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> 'C':
+            <span class="keyword">printf</span>(<span class="string">"Average\\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">default</span>:
+            <span class="keyword">printf</span>(<span class="string">"Invalid grade\\n"</span>);
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">switch</span>: Matches grade to a case.</li>
+                <li><span class="keyword">break</span>: Exits switch after executing case.</li>
+                <li>Output: "Good" for grade 'B'.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>The Ternary Operator (<span class="keyword">?:</span>)</h2>
+        <p>The ternary operator is a concise alternative to <span class="keyword">if-else</span> for simple conditional assignments.</p>
+        <ul>
+            <li><b>Syntax:</b>
+                <pre>
+variable = (condition) ? expression1 : expression2;
+                </pre>
+            </li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Evaluates condition; assigns expression1 if true, expression2 if false.</li>
+                    <li>Best for simple, single-expression conditions.</li>
+                    <li>Avoid overuse in complex scenarios for readability.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Ternary Operator</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> a = 10, b = 20;
+    <span class="keyword">int</span> max = (a > b) ? a : b;
+    <span class="keyword">printf</span>(<span class="string">"Maximum: %d\\n"</span>, max);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">?:</span> Assigns b to max since a > b is false.</li>
+                <li>Output: "Maximum: 20".</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Nested Decision Making</h2>
+        <p>Nested decision-making statements involve placing one decision-making construct inside another.</p>
+        <ul>
+            <li><b>Definition:</b> Nesting occurs when an <span class="keyword">if</span>, <span class="keyword">switch</span>, or other construct is used within another decision-making block.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Allows complex logic by combining multiple conditions.</li>
+                    <li>Can reduce readability if overused; keep nesting shallow when possible.</li>
+                    <li>Ensure proper indentation to maintain clarity.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Nested <span class="keyword">if</span> Statements</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> num = 15;
+    <span class="keyword">if</span> (num > 0) {
+        <span class="keyword">printf</span>(<span class="string">"Number is positive\\n"</span>);
+        <span class="keyword">if</span> (num % 2 == 0) {
+            <span class="keyword">printf</span>(<span class="string">"Number is even\\n"</span>);
+        } <span class="keyword">else</span> {
+            <span class="keyword">printf</span>(<span class="string">"Number is odd\\n"</span>);
+        }
+    }
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li>Nested <span class="keyword">if</span>: Checks if num is even/odd within the positive check.</li>
+                <li>Output: "Number is positive" and "Number is odd".</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Best Practices for Decision Making</h2>
+        <p>Effective use of decision-making constructs improves code readability and maintainability.</p>
+        <ul>
+            <li><b>Definition:</b> Best practices guide the use of decision-making statements to ensure clarity and efficiency.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Use clear and meaningful conditions to improve readability.</li>
+                    <li>Prefer <span class="keyword">switch</span> over multiple <span class="keyword">else if</span> for discrete values.</li>
+                    <li>Avoid deep nesting; consider breaking complex logic into functions.</li>
+                    <li>Always include <span class="keyword">break</span> in <span class="keyword">switch</span> cases unless fall-through is intentional.</li>
+                    <li>Use the ternary operator for simple assignments, not complex logic.</li>
+                    <li>
