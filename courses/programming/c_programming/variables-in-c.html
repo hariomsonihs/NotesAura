@@ -1,1 +1,354 @@
-h6
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables in C Programming Language</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Variables in C Programming Language</h1>
+    <div class="card">
+        <h2>Introduction to Variables</h2>
+        <p>Variables in C are used to store data that can be manipulated during program execution. They are fundamental to programming in C.</p>
+        <ul>
+            <li><b>Definition:</b> A variable is a named memory location used to store data of a specific type.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Variables must be declared with a data type before use.</li>
+                    <li>They allow programs to store and process data dynamically.</li>
+                    <li>Each variable has a specific scope and lifetime.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Variable Declaration</h2>
+        <p>Variables in C must be declared before they can be used, specifying their data type and name.</p>
+        <ul>
+            <li><b>Definition:</b> Variable declaration informs the compiler about the type and name of a variable.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Syntax: <span class="keyword">data_type variable_name;</span></li>
+                    <li>Common data types include <span class="keyword">int</span>, <span class="keyword">float</span>, <span class="keyword">char</span>, and <span class="keyword">double</span>.</li>
+                    <li>Variables can be initialized at the time of declaration.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Declaring Variables</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> age = 25; <span class="comment">// Integer variable</span>
+    <span class="keyword">float</span> salary = 55000.50; <span class="comment">// Floating-point variable</span>
+    <span class="keyword">char</span> grade = <span class="string">'A'</span>; <span class="comment">// Character variable</span>
+    <span class="keyword">printf</span>(<span class="string">"Age: %d, Salary: %.2f, Grade: %c\\n"</span>, age, salary, grade);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">int age</span>: Declares an integer variable named age.</li>
+                <li><span class="keyword">float salary</span>: Declares a floating-point variable named salary.</li>
+                <li><span class="keyword">char grade</span>: Declares a character variable named grade.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Types of Variables</h2>
+        <p>C supports several types of variables based on their scope and storage duration.</p>
+        <ul>
+            <li><b>Definition:</b> Variable types determine the scope, lifetime, and storage behavior of variables.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Local Variables:</b> Declared inside a function, accessible only within that function.</li>
+                    <li><b>Global Variables:</b> Declared outside all functions, accessible throughout the program.</li>
+                    <li><b>Static Variables:</b> Retain their value between function calls and have a fixed lifetime.</li>
+                    <li><b>Automatic Variables:</b> Default variables with automatic storage duration, destroyed when the block ends.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Types of Variables</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> globalVar = 10; <span class="comment">// Global variable</span>
+
+<span class="keyword">void</span> display() {
+    <span class="keyword">static</span> <span class="keyword">int</span> staticVar = 0; <span class="comment">// Static variable</span>
+    <span class="keyword">int</span> localVar = 5; <span class="comment">// Local variable</span>
+    staticVar++;
+    <span class="keyword">printf</span>(<span class="string">"Global: %d, Static: %d, Local: %d\\n"</span>, globalVar, staticVar, localVar);
+}
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    display();
+    display();
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">globalVar</span>: Accessible throughout the program.</li>
+                <li><span class="keyword">staticVar</span>: Retains its value between function calls.</li>
+                <li><span class="keyword">localVar</span>: Only accessible within the display function.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Rules for Naming Variables</h2>
+        <p>C has specific rules for naming variables to ensure valid and meaningful identifiers.</p>
+        <ul>
+            <li><b>Definition:</b> Variable names are identifiers used to refer to memory locations.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Names can include letters, digits, and underscores but must start with a letter or underscore.</li>
+                    <li>Variable names are case-sensitive (e.g., <span class="keyword">Age</span> and <span class="keyword">age</span> are different).</li>
+                    <li>C keywords (e.g., <span class="keyword">int</span>, <span class="keyword">return</span>) cannot be used as variable names.</li>
+                    <li>Names should be descriptive to enhance code readability.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="callout">
+            <b>Note:</b> Avoid starting variable names with underscores, as they are often reserved for system-level identifiers.
+        </div>
+    </div>
+    <div class="card">
+        <h2>Variable Initialization</h2>
+        <p>Variables can be initialized at the time of declaration or later in the program.</p>
+        <ul>
+            <li><b>Definition:</b> Initialization assigns an initial value to a variable when it is declared.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Uninitialized local variables contain garbage values.</li>
+                    <li>Global and static variables are automatically initialized to zero if not explicitly initialized.</li>
+                    <li>Initialization improves code reliability and prevents undefined behavior.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Variable Initialization</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+
+<span class="keyword">int</span> globalVar; <span class="comment">// Initialized to 0 by default</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">int</span> localVar; <span class="comment">// Contains garbage value</span>
+    <span class="keyword">int</span> initializedVar = 100; <span class="comment">// Explicit initialization</span>
+    <span class="keyword">printf</span>(<span class="string">"Global: %d, Local: %d, Initialized: %d\\n"</span>, globalVar, localVar, initializedVar);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">globalVar</span>: Automatically initialized to 0.</li>
+                <li><span class="keyword">localVar</span>: Contains undefined (garbage) value.</li>
+                <li><span class="keyword">initializedVar</span>: Explicitly initialized to 100.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Scope and Lifetime</h2>
+        <p>The scope and lifetime of a variable determine where it can be accessed and how long it exists.</p>
+        <ul>
+            <li><b>Definition:</b> Scope refers to the region of the program where a variable is accessible, and lifetime is the duration for which the variable exists in memory.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li><b>Block Scope:</b> Variables declared within a block (e.g., inside {}) are only accessible within that block.</li>
+                    <li><b>File Scope:</b> Global variables are accessible throughout the file.</li>
+                    <li><b>Lifetime:</b> Local variables exist during block execution; global and static variables exist for the program's duration.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Constants vs. Variables</h2>
+        <p>Unlike variables, constants in C cannot be modified after initialization.</p>
+        <ul>
+            <li><b>Definition:</b> Constants are fixed values that cannot be changed during program execution.</li>
+            <li><b>Key Points:</b>
+                <ul>
+                    <li>Declared using the <span class="keyword">const</span> keyword or <span class="keyword">#define</span> directive.</li>
+                    <li>Useful for defining fixed values like mathematical constants or configuration settings.</li>
+                    <li>Improves code safety by preventing accidental modifications.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="example">
+            <h3>Example: Using Constants</h3>
+            <pre>
+<span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span> <span class="comment">// Preprocessor directive</span>
+<span class="keyword">#define</span> PI 3.14159 <span class="comment">// Macro constant</span>
+
+<span class="keyword">int</span> <span class="keyword">main</span>() {
+    <span class="keyword">const</span> <span class="keyword">float</span> radius = 5.0; <span class="comment">// Constant variable</span>
+    <span class="keyword">float</span> area = PI * radius * radius;
+    <span class="keyword">printf</span>(<span class="string">"Area of circle: %.2f\\n"</span>, area);
+    <span class="keyword">return</span> 0;
+}
+            </pre>
+            <ul>
+                <li><span class="keyword">#define PI</span>: Defines a macro constant.</li>
+                <li><span class="keyword">const float radius</span>: Declares a constant variable.</li>
+                <li>Constants ensure values like PI and radius remain unchanged.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>Variables are a cornerstone of C programming, enabling dynamic data storage and manipulation. Understanding variable declaration, types, naming rules, initialization, scope, and lifetime is essential for writing efficient and reliable C programs. By mastering these concepts, developers can create robust applications while leveraging C's flexibility and control over memory.</p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+</body>
+</html>
