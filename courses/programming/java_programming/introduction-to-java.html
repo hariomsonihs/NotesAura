@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Java Programming</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        .code-wrapper {
+            position: relative;
+            margin: 18px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .copy-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        .copy-btn:hover {
+            background: #0cb893;
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Diagram Styles */
+        .diagram {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+        }
+        .flowchart {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .step {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 120px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .step::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--primary);
+        }
+        .step:last-child::after {
+            display: none;
+        }
+        .jvm-diagram {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .component {
+            background: white;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 100px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            text-align: center;
+        }
+        .component::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--accent);
+        }
+        .component:last-child::after {
+            display: none;
+        }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container { max-width: 98vw; }
+            .flowchart, .jvm-diagram { flex-direction: column; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            h1 { font-size: 1.3rem; }
+            h2, h3 { font-size: 1.05rem; }
+            pre { font-size: 0.95em; }
+        }
+        @media (max-width: 400px) {
+            .container { padding: 8px 2vw; }
+            h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Introduction to Java Programming</h1>
+    <div class="card">
+        <h2>What is Java?</h2>
+        <p>
+            Java is a high-level, object-oriented, platform-independent programming language designed for developing robust, secure, and scalable applications. It follows the "Write Once, Run Anywhere" (WORA) principle, allowing code to run on any device with a Java Virtual Machine (JVM).
+        </p>
+        <ul>
+            <li><b>Compiled Language:</b> Source code is compiled into bytecode, which is interpreted by the JVM.</li>
+            <li><b>Object-Oriented:</b> Emphasizes classes, objects, inheritance, polymorphism, and encapsulation.</li>
+            <li><b>Versatile:</b> Used for web, mobile, desktop, and enterprise applications.</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>History of Java</h3>
+        <p>
+            Java was developed by James Gosling at Sun Microsystems in 1991 (initially called Oak), released publicly in 1995 as Java 1.0. It was designed for interactive television but pivoted to the web. Acquired by Oracle in 2010, Java has evolved through versions like Java 8 (lambdas), Java 11 (LTS), and Java 21 (latest LTS as of 2023), with regular updates every six months.
+        </p>
+    </div>
+    <div class="card">
+        <h3>Key Features of Java</h3>
+        <ul>
+            <li><b>Platform Independence:</b> Bytecode runs on any JVM, regardless of OS (Windows, Linux, macOS).</li>
+            <li><b>Object-Oriented:</b> Supports classes, interfaces, inheritance, polymorphism, abstraction, and encapsulation.</li>
+            <li><b>Simple & Secure:</b> No pointers, automatic memory management (garbage collection), and sandboxing for applets.</li>
+            <li><b>Robust:</b> Strong type-checking, exception handling, and no unchecked runtime errors.</li>
+            <li><b>Multithreaded:</b> Built-in support for concurrent programming.</li>
+            <li><b>High Performance:</b> Just-In-Time (JIT) compiler optimizes bytecode to native code.</li>
+            <li><b>Distributed:</b> Supports networking and RMI (Remote Method Invocation).</li>
+            <li><b>Dynamic:</b> Runtime polymorphism and reflection for flexible code.</li>
+            <li><b>Rich Standard Library:</b> Extensive APIs for I/O, networking, GUI (Swing/AWT), databases (JDBC), and more.</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Where is Java Used?</h3>
+        <ul>
+            <li>Enterprise applications (Spring Boot, Hibernate for backend services)</li>
+            <li>Web development (Servlets, JSP, frameworks like Struts)</li>
+            <li>Mobile apps (Android development via Kotlin/Java)</li>
+            <li>Desktop applications (Swing, JavaFX for GUIs)</li>
+            <li>Big Data (Hadoop, Spark cores)</li>
+            <li>Cloud computing (AWS SDK, Google Cloud APIs)</li>
+            <li>Scientific computing and games (Minecraft is Java-based)</li>
+            <li>Embedded systems and IoT (Java ME)</li>
+        </ul>
+    </div>
+    <div class="callout">
+        <b>Why Learn Java?</b><br>
+        <ul>
+            <li>Foundation for Android and enterprise development</li>
+            <li>Huge job market in software engineering, backend, and full-stack roles</li>
+            <li>Strong community, vast resources (Oracle docs, Stack Overflow)</li>
+            <li>Teaches OOP principles applicable to C++, Python, C#</li>
+            <li>Excellent for beginners due to simplicity and readability</li>
+            <li>Future-proof with ongoing updates and LTS versions</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>How Java Program Works</h2>
+        <p>
+            Java programs are compiled into platform-independent bytecode, executed by the JVM. This involves:
+        </p>
+        <ul>
+            <li><b>Compilation:</b> javac compiler turns .java source into .class bytecode.</li>
+            <li><b>Execution:</b> JVM loads bytecode, verifies it, and uses JIT compiler for optimization.</li>
+            <li><b>Garbage Collection:</b> Automatic memory cleanup to prevent leaks.</li>
+            <li><b>Security:</b> Bytecode verifier ensures no malicious code.</li>
+        </ul>
+        <div class="diagram">
+            <h3>Java Execution Flowchart</h3>
+            <div class="flowchart">
+                <div class="step">Source Code (.java)</div>
+                <div class="step">javac Compiler</div>
+                <div class="step">Bytecode (.class)</div>
+                <div class="step">JVM (Interpreter + JIT)</div>
+                <div class="step">Native Machine Code</div>
+            </div>
+            <p style="margin-top: 10px; font-size: 0.9em; color: var(--text-secondary);">Arrow flow: Write → Compile → Run Anywhere</p>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Understanding JDK, JRE, and JVM</h2>
+        <p>
+            Java's ecosystem relies on three core components: JVM, JRE, and JDK. These work together to enable development and execution of Java applications.
+        </p>
+        <ul>
+            <li><b>JVM (Java Virtual Machine):</b> The heart of Java's platform independence. It's an abstract machine that executes Java bytecode (.class files) on any hardware/OS by converting it to machine-specific instructions at runtime. Key responsibilities include loading classes, verifying bytecode, interpreting/executing code via JIT compiler, managing memory (heap/stack), and handling garbage collection. JVM ensures security by sandboxing code and preventing direct OS access.</li>
+            <li><b>JRE (Java Runtime Environment):</b> A runtime distribution that includes the JVM plus essential class libraries (e.g., java.lang, java.util) and other components needed to run Java applications. It does not include development tools. JRE is sufficient for end-users running Java apps but not for developers. Multiple JRE versions can coexist for different apps.</li>
+            <li><b>JDK (Java Development Kit):</b> A complete development environment that includes the JRE, compiler (javac), debugger (jdb), archiver (jar), documentation generator (javadoc), and other tools. JDK is required for writing, compiling, and debugging Java code. It supports building applications from source (.java) to bytecode (.class). Oracle JDK and OpenJDK are popular distributions; always match JDK version with project requirements (e.g., JDK 8 for legacy, JDK 21 for modern).</li>
+        </ul>
+        <div class="callout">
+            <b>Relationship:</b> JDK ⊃ JRE ⊃ JVM. Developers use JDK; users need JRE; JVM is the engine.
+        </div>
+        <div class="diagram">
+            <h3>JDK, JRE, and JVM Hierarchy</h3>
+            <div class="jvm-diagram">
+                <div class="component">
+                    <strong>JDK</strong><br>
+                    (Development Tools + JRE)
+                </div>
+                <div class="component">
+                    <strong>JRE</strong><br>
+                    (Libraries + JVM)
+                </div>
+                <div class="component">
+                    <strong>JVM</strong><br>
+                    (Bytecode Execution)
+                </div>
+            </div>
+            <p style="margin-top: 10px; font-size: 0.9em; color: var(--text-secondary);">Hierarchy: JDK includes JRE, which includes JVM.</p>
+        </div>
+        <ul>
+            <li><b>Versions & Compatibility:</b> Use matching versions (e.g., JDK 17 for Java 17 apps). LTS versions like 11, 17, 21 are recommended for production.</li>
+            <li><b>Installation Note:</b> Installing JDK automatically includes JRE. For servers, JRE might suffice to reduce footprint.</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Environmental Setup</h2>
+        <p>
+            To start coding in Java, set up the Java Development Kit (JDK) and an Integrated Development Environment (IDE). Focus on JDK as it includes the JRE and JVM.
+        </p>
+        <ul>
+            <li><b>Install JDK:</b> Download the latest LTS (e.g., JDK 21) from Oracle (commercial) or OpenJDK (free, community-driven). For Windows: Run .exe installer; macOS: Use .dmg or Homebrew; Linux: Use apt/yum (e.g., sudo apt install openjdk-21-jdk). Set JAVA_HOME environment variable to the JDK installation path (e.g., /usr/lib/jvm/java-21-openjdk) and add bin/ to PATH.</li>
+            <li><b>Verify Installation:</b> Open terminal/command prompt, run <code>javac -version</code> (shows compiler), <code>java -version</code> (shows JVM), and <code>echo $JAVA_HOME</code> (confirms path).</li>
+            <li><b>Choose IDE:</b>
+                <ul>
+                    <li><b>IntelliJ IDEA:</b> Feature-rich, free Community edition with auto-imports and refactoring.</li>
+                    <li><b>Eclipse:</b> Free, extensible for Java projects with plugins.</li>
+                    <li><b>VS Code:</b> Lightweight with Java extensions (Language Support, Debugger).</li>
+                    <li><b>NetBeans:</b> Official Oracle IDE, all-in-one with project templates.</li>
+                </ul>
+            </li>
+            <li><b>Basic Tools:</b> Text editor like Notepad++ or Vim for simple scripts, but IDEs provide auto-complete, debugging, build tools (Maven/Gradle), and integrated JVM/JRE management.</li>
+            <li><b>Version Management:</b> Tools like SDKMAN! (Unix) or jEnv (multi-OS) for switching JDK versions easily.</li>
+        </ul>
+        <div class="callout">
+            <b>Pro Tip:</b> For containerized environments, use Docker images like openjdk:21-jdk for consistent setups.
+        </div>
+    </div>
+    <div class="card">
+        <h2>Basic Syntax & Structure</h2>
+        <ul>
+            <li><b>Package Declaration:</b> Optional, e.g., <span class="keyword">package</span> com.example;</li>
+            <li><b>Imports:</b> e.g., <span class="keyword">import</span> java.util.Scanner;</li>
+            <li><b>Class Declaration:</b> Public class with main method.</li>
+            <li><b>Main Method:</b> Entry point: <span class="keyword">public static void main(String[] args)</span></li>
+            <li><b>Statements:</b> End with semicolon; blocks in {}.</li>
+            <li><b>Comments:</b> // single-line, /* multi-line */</li>
+            <li><b>Data Types:</b> Primitives (int, double, boolean) and references (String, arrays).</li>
+        </ul>
+    </div>
+    <div class="example">
+        <h3>First Example: Hello World Program</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('hello-code')">Copy Code</button>
+            <pre id="hello-code"><span class="keyword">public class</span> HelloWorld {
+    <span class="keyword">public static void</span> <span class="keyword">main</span>(String[] args) {
+        System.<span class="keyword">out</span>.<span class="keyword">println</span>(<span class="string">"Hello, World!"</span>); <span class="comment">// Print to console</span>
+    }
+}</pre>
+        </div>
+        <ul>
+            <li><span class="keyword">public class HelloWorld</span>: Defines the class (filename must match: HelloWorld.java).</li>
+            <li><span class="keyword">public static void main(String[] args)</span>: Entry point; args for command-line inputs.</li>
+            <li><span class="keyword">System.out.println</span>: Outputs text followed by newline.</li>
+            <li><b>To Run:</b> Compile: <code>javac HelloWorld.java</code>, Execute: <code>java HelloWorld</code>. The JVM from JRE/JDK handles execution.</li>
+        </ul>
+        <div class="callout">
+            <b>Compilation Output:</b> Creates HelloWorld.class bytecode file, ready for JVM.
+        </div>
+    </div>
+    <div class="card">
+        <h3>Extra: Variables and Basic I/O</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('var-code')">Copy Code</button>
+            <pre id="var-code"><span class="keyword">import</span> java.util.Scanner;
+
+<span class="keyword">public class</span> BasicIO {
+    <span class="keyword">public static void</span> <span class="keyword">main</span>(String[] args) {
+        <span class="keyword">int</span> age = 25; <span class="comment">// Primitive integer</span>
+        String name = <span class="string">"Alice"</span>; <span class="comment">// String reference</span>
+        
+        Scanner scanner = <span class="keyword">new</span> Scanner(System.<span class="keyword">in</span>);
+        System.<span class="keyword">out</span>.<span class="keyword">print</span>(<span class="string">"Enter your name: "</span>);
+        String inputName = scanner.nextLine();
+        System.<span class="keyword">out</span>.<span class="keyword">println</span>(<span class="string">"Hello, "</span> + inputName + <span class="string">"! You are "</span> + age + <span class="string">" years old."</span>);
+        
+        scanner.close();
+    }
+}</pre>
+        </div>
+        <ul>
+            <li>Declares variables, uses Scanner for input (from java.util library in JRE).</li>
+            <li>Concatenation with + operator.</li>
+            <li>Always close resources like Scanner to free JVM memory.</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Common Pitfalls for Beginners</h3>
+        <ul>
+            <li>Case-sensitive: Main vs main.</li>
+            <li>Class name must match file name.</li>
+            <li>Semicolons required; braces for blocks.</li>
+            <li>Public class only one per file.</li>
+            <li>Handle exceptions in I/O operations (e.g., IOException in Scanner).</li>
+            <li>Mismatched JDK/JVM versions leading to compatibility issues.</li>
+        </ul>
+    </div>
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>
+            Java is a powerhouse language for modern development, offering portability, security, and scalability through JVM, JRE, and JDK. Mastering these components opens doors to Android, enterprise software, and beyond. Start with setup, write your first program, and build from there—consistency is key!
+        </p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+
+<script>
+function copyCode(id) {
+    const codeElement = document.getElementById(id);
+    const text = codeElement.innerText || codeElement.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = codeElement.parentElement.querySelector('.copy-btn');
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => { btn.innerText = originalText; }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+</script>
+</body>
+</html>
