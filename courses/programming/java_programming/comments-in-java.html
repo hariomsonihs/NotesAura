@@ -452,4 +452,56 @@
             <h4>Example: Nested Comments</h4>
             <div class="code-wrapper">
                 <button class="copy-btn" onclick="copyCode('nested-comments')">Copy Code</button>
-                <pre id="nested-comments"><span class="keyw
+                <pre id="nested-comments"><span class="keyword">public class</span> NestedComments {
+    <span class="keyword">public static void</span> <span class="keyword">main</span>(String[] args) {
+        <span class="comment">/* Multi-line comment</span>
+<span class="comment">        // Single-line inside multi-line - allowed</span>
+<span class="comment">        System.out.println("This is commented out"); // Inline</span>
+<span class="comment">        */</span>
+        
+        <span class="comment">// Single-line: /* This /* won't start a multi-line */</span>
+    }
+}</pre>
+            </div>
+            <p>Outer /* */ encompasses inner //; but // treats /* as text.</p>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Common Pitfalls with Comments</h3>
+        <ul>
+            <li>Unclosed Multi-Line: /* without */ causes compile errors (unterminated string).</li>
+            <li>Outdated Comments: Code changes but comments don't – leads to confusion.</li>
+            <li>Over-Commenting: Redundant comments (e.g., i++ // increment i) clutter code.</li>
+            <li>Nesting Errors: Attempting /* /* */ fails; use // inside.</li>
+            <li>Javadoc Typos: Missing @param causes incomplete docs.</li>
+            <li>Encoding Issues: Non-ASCII in comments without UTF-8 source.</li>
+            <li>IDE-Specific: Some editors treat // differently in REPL modes.</li>
+        </ul>
+    </div>
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>
+            Comments in Java are vital for clear, maintainable code, from basic // notes to advanced Javadoc documentation. Mastering single-line, multi-line, and Javadoc types enhances collaboration and professionalism. Practice by commenting your projects, generating docs, and avoiding pitfalls—your future self (and team) will thank you!
+        </p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+
+<script>
+function copyCode(id) {
+    const codeElement = document.getElementById(id);
+    const text = codeElement.innerText || codeElement.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = codeElement.parentElement.querySelector('.copy-btn');
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => { btn.innerText = originalText; }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+</script>
+</body>
+</html>
