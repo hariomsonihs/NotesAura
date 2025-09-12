@@ -1,1 +1,283 @@
-hello 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structures in C</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        .code-wrapper {
+            position: relative;
+            margin: 18px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .copy-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        .copy-btn:hover {
+            background: #0cb893;
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Structures in C</h1>
+    <div class="card">
+        <h2>What is a Structure?</h2>
+        <p>
+            A <b>Structure</b> in C is a user-defined data type that groups different types of variables under one name. Unlike arrays, which hold elements of the same type, structures can hold variables of different data types.
+        </p>
+        <ul>
+            <li>Combines related data into a single unit.</li>
+            <li>Each variable inside a structure is called a <b>member</b>.</li>
+            <li>Provides better data organization, especially for complex entities like student, employee, etc.</li>
+        </ul>
+    </div>
+    <div class="example">
+        <h3>Declaring and Defining a Structure</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('struct-code')">Copy Code</button>
+            <pre id="struct-code"><span class="keyword">struct</span> Student {
+    <span class="keyword">int</span> id;
+    <span class="keyword">char</span> name[50];
+    <span class="keyword">float</span> marks;
+};
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">struct</span> Student s1 = {1, <span class="string">"Alice"</span>, 89.5};
+    printf(<span class="string">"ID: %d, Name: %s, Marks: %.2f\n"</span>, s1.id, s1.name, s1.marks);
+    <span class="keyword">return</span> 0;
+}</pre>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Accessing Members</h3>
+        <ul>
+            <li><b>Dot Operator (.):</b> Used to access members directly.</li>
+            <li><b>Arrow Operator (->):</b> Used with pointers to structures.</li>
+        </ul>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('access-code')">Copy Code</button>
+            <pre id="access-code"><span class="keyword">struct</span> Student *ptr = &s1;
+printf(<span class="string">"Name: %s"</span>, ptr->name);</pre>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Nested Structures</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('nested-code')">Copy Code</button>
+            <pre id="nested-code"><span class="keyword">struct</span> Address {
+    <span class="keyword">char</span> city[50];
+    <span class="keyword">int</span> pincode;
+};
+
+<span class="keyword">struct</span> Employee {
+    <span class="keyword">int</span> id;
+    <span class="keyword">char</span> name[50];
+    <span class="keyword">struct</span> Address addr; <span class="comment">// nested structure</span>
+};</pre>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Array of Structures</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('array-struct')">Copy Code</button>
+            <pre id="array-struct"><span class="keyword">struct</span> Student students[3];
+
+students[0].id = 1;
+strcpy(students[0].name, <span class="string">"Alice"</span>);
+students[0].marks = 85.0;</pre>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Structures with Functions</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('func-struct')">Copy Code</button>
+            <pre id="func-struct"><span class="keyword">void</span> display(<span class="keyword">struct</span> Student s) {
+    printf(<span class="string">"ID: %d, Name: %s, Marks: %.2f\n"</span>, s.id, s.name, s.marks);
+}</pre>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Structure vs Union</h3>
+        <ul>
+            <li><b>Structure:</b> Allocates separate memory for each member.</li>
+            <li><b>Union:</b> Shares memory among all members, only one can be used at a time.</li>
+        </ul>
+    </div>
+    <div class="callout">
+        <b>Key Points:</b>
+        <ul>
+            <li>Structures are stored in contiguous memory.</li>
+            <li>Pointers with structures make them powerful for dynamic data handling.</li>
+            <li>Widely used in real-life projects like database records and system programming.</li>
+        </ul>
+    </div>
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>
+            Structures in C provide a flexible way of grouping related data of different types into a single unit. They are foundational for building complex data structures like linked lists, trees, and graphs, making them essential for C programming mastery.
+        </p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide — Learn. Code. Succeed.
+</footer>
+<script>
+function copyCode(id) {
+    const codeElement = document.getElementById(id);
+    const text = codeElement.innerText || codeElement.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = codeElement.parentElement.querySelector('.copy-btn');
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => { btn.innerText = originalText; }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+</script>
+</body>
+</html>
