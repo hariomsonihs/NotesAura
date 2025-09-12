@@ -1,1 +1,189 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unions in C</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6b47e6;
+      --primary-end: #ffa586;
+      --accent: #1dd1a1;
+      --surface: #fff;
+      --text-primary: #2d3436;
+      --text-secondary: #636e72;
+      --card-radius: 18px;
+      --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--primary-end));
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+    .navbar {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-end));
+      color: #fff;
+      padding: 18px 0 12px 0;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 32px auto 0 auto;
+      background: var(--surface);
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow);
+      padding: 32px 28px 24px 28px;
+    }
+    h1 { text-align: center; color: var(--primary); font-size: 2.1rem; margin-bottom: 0.5em; font-weight: 700; }
+    h2, h3 { color: var(--primary); margin-top: 2em; margin-bottom: 0.5em; font-weight: 700; }
+    h2 { font-size: 1.3rem; border-left: 5px solid var(--accent); padding-left: 12px; background: #f8f9fa; border-radius: 8px; }
+    h3 { font-size: 1.1rem; border-left: 4px solid #ffa586; padding-left: 10px; background: #f8f9fa; border-radius: 8px; }
+    p, ul, li { color: var(--text-secondary); font-size: 1.05rem; }
+    ul { margin-left: 1.2em; margin-bottom: 1.2em; }
+    .card { background: #f8f9fa; border-radius: var(--card-radius); box-shadow: 0 2px 8px rgba(80,80,120,0.06); padding: 18px 18px 10px 18px; margin: 24px 0; }
+    .example { background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%); border-left: 5px solid var(--primary); padding: 16px 18px; border-radius: 12px; margin: 24px 0; }
+    .code-wrapper { position: relative; margin: 18px 0; }
+    pre { background: #232946; color: #e0e7ff; border-radius: 8px; padding: 16px; font-size: 1.05em; overflow-x: auto; margin: 0; box-shadow: 0 2px 8px rgba(80,80,120,0.08); white-space: pre-wrap; word-wrap: break-word; }
+    .copy-btn { background: var(--accent); color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-size: 0.9em; font-weight: bold; position: absolute; top: 10px; right: 10px; z-index: 10; }
+    .copy-btn:hover { background: #0cb893; }
+    .keyword { color: #ffa586; font-weight: bold; }
+    .string { color: #1dd1a1; }
+    .comment { color: #b2bec3; font-style: italic; }
+    .callout { background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%); border-left: 5px solid var(--accent); color: #222; padding: 14px 18px; border-radius: 10px; margin: 24px 0; font-size: 1.05em; }
+    .conclusion { background: #f8f9fa; border-radius: 12px; border-left: 5px solid var(--primary); padding: 18px 18px 10px 18px; margin-top: 32px; color: var(--text-primary); }
+    footer { text-align: center; padding: 16px 0 10px 0; background: linear-gradient(135deg, var(--primary), var(--primary-end)); color: #fff; border-top-left-radius: 24px; border-top-right-radius: 24px; margin-top: 40px; font-size: 1rem; box-shadow: 0 -2px 8px rgba(80,80,120,0.08); }
+    .diagram { background: #f8f9fa; border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center; box-shadow: 0 2px 8px rgba(80,80,120,0.06); }
+  </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+  <h1>Unions in C</h1>
+  <div class="card">
+    <h2>What is a Union?</h2>
+    <p>
+      A <b>union</b> in C is a special data type that allows storing different data types in the same memory location. Unlike structures, all members of a union share the same memory. This means at any given time, only one member can hold a valid value.
+    </p>
+    <ul>
+      <li><b>Efficient Memory Usage:</b> Union size equals the size of its largest member.</li>
+      <li><b>One Active Member:</b> Only one field is usable at a time.</li>
+      <li><b>Declared with:</b> <code>union</code> keyword.</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <h3>Union Declaration Example</h3>
+    <div class="code-wrapper">
+      <button class="copy-btn" onclick="copyCode('union-code')">Copy Code</button>
+      <pre id="union-code"><span class="keyword">union</span> Data {
+    <span class="keyword">int</span> i;
+    <span class="keyword">float</span> f;
+    <span class="keyword">char</span> str[20];
+};
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">union</span> Data d;
+    d.i = 10;
+    printf(<span class="string">"d.i = %d\n"</span>, d.i);
+    d.f = 220.5;
+    printf(<span class="string">"d.f = %.2f\n"</span>, d.f);
+    strcpy(d.str, <span class="string">"C Language"</span>);
+    printf(<span class="string">"d.str = %s\n"</span>, d.str);
+    return 0;
+}</pre>
+    </div>
+    <p><b>Output:</b> Only the last assigned member (string) will have a valid value because all share the same memory.</p>
+  </div>
+
+  <div class="card">
+    <h2>Difference Between Structures and Unions</h2>
+    <ul>
+      <li><b>Structures:</b> Each member has its own storage; total size is sum of all members.</li>
+      <li><b>Unions:</b> All members share one storage; size equals largest member.</li>
+      <li><b>Structures:</b> Multiple members usable at the same time.</li>
+      <li><b>Unions:</b> Only one member can be used at a time.</li>
+    </ul>
+  </div>
+
+  <div class="diagram">
+    <h3>Memory Layout of Union</h3>
+    <p>For the above example:</p>
+    <p>
+      <b>Union Data:</b> size = max(sizeof(int), sizeof(float), sizeof(char[20])) = 20 bytes.
+    </p>
+    <p>All members <b>i</b>, <b>f</b>, and <b>str</b> share the same 20 bytes.</p>
+  </div>
+
+  <div class="card">
+    <h2>Accessing Union Members</h2>
+    <ul>
+      <li>Use <code>.</code> (dot operator) with variable.</li>
+      <li>Use <code>-></code> (arrow operator) with pointer.</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <h3>Union with Pointer</h3>
+    <div class="code-wrapper">
+      <button class="copy-btn" onclick="copyCode('union-pointer')">Copy Code</button>
+      <pre id="union-pointer"><span class="keyword">union</span> Data {
+    <span class="keyword">int</span> i;
+    <span class="keyword">float</span> f;
+};
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">union</span> Data d, *ptr;
+    ptr = &d;
+    ptr->i = 25;
+    printf(<span class="string">"Value of i = %d"</span>, ptr->i);
+    return 0;
+}</pre>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Use Cases of Unions:</b>
+    <ul>
+      <li>Efficient memory handling in embedded systems.</li>
+      <li>Storing data in multiple formats (e.g., same bytes interpreted as int or float).</li>
+      <li>Implementing variant data structures.</li>
+    </ul>
+  </div>
+
+  <div class="conclusion">
+    <b>Conclusion:</b>
+    <p>
+      Unions in C are useful for memory-efficient programming when only one member is needed at a time. While powerful, they must be used carefully to avoid overwriting data unintentionally.
+    </p>
+  </div>
+</div>
+<footer>
+  &copy; 2025 NotesAura Programming Guide — Learn. Code. Succeed.
+</footer>
+<script>
+function copyCode(id) {
+  const codeElement = document.getElementById(id);
+  const text = codeElement.innerText || codeElement.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = codeElement.parentElement.querySelector('.copy-btn');
+    const originalText = btn.innerText;
+    btn.innerText = 'Copied!';
+    setTimeout(() => { btn.innerText = originalText; }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
+</script>
+</body>
+</html>
