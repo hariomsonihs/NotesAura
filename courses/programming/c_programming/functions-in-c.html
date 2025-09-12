@@ -1,1 +1,311 @@
-hello 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions in C</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6b47e6;
+      --primary-end: #ffa586;
+      --accent: #1dd1a1;
+      --surface: #fff;
+      --text-primary: #2d3436;
+      --text-secondary: #636e72;
+      --card-radius: 18px;
+      --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--primary-end));
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+    .navbar {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-end));
+      color: #fff;
+      padding: 18px 0 12px 0;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 32px auto 0 auto;
+      background: var(--surface);
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow);
+      padding: 32px 28px 24px 28px;
+    }
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.1rem;
+      margin-bottom: 0.5em;
+      font-weight: 700;
+    }
+    h2, h3 {
+      color: var(--primary);
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 1.3rem;
+      border-left: 5px solid var(--accent);
+      padding-left: 12px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    h3 {
+      font-size: 1.1rem;
+      border-left: 4px solid #ffa586;
+      padding-left: 10px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    p, ul, li {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+    ul {
+      margin-left: 1.2em;
+      margin-bottom: 1.2em;
+    }
+    .card {
+      background: #f8f9fa;
+      border-radius: var(--card-radius);
+      box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+      padding: 18px 18px 10px 18px;
+      margin: 24px 0;
+    }
+    .example {
+      background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+      border-left: 5px solid var(--primary);
+      padding: 16px 18px;
+      border-radius: 12px;
+      margin: 24px 0;
+    }
+    .code-wrapper {
+      position: relative;
+      margin: 18px 0;
+    }
+    pre {
+      background: #232946;
+      color: #e0e7ff;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 1.05em;
+      overflow-x: auto;
+      margin: 0;
+      box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .copy-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9em;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+    }
+    .copy-btn:hover { background: #0cb893; }
+    .keyword { color: #ffa586; font-weight: bold; }
+    .string { color: #1dd1a1; }
+    .comment { color: #b2bec3; font-style: italic; }
+    .callout {
+      background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+      border-left: 5px solid var(--accent);
+      color: #222;
+      padding: 14px 18px;
+      border-radius: 10px;
+      margin: 24px 0;
+      font-size: 1.05em;
+    }
+    .conclusion {
+      background: #f8f9fa;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary);
+      padding: 18px 18px 10px 18px;
+      margin-top: 32px;
+      color: var(--text-primary);
+    }
+    footer {
+      text-align: center;
+      padding: 16px 0 10px 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-end));
+      color: #fff;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      margin-top: 40px;
+      font-size: 1rem;
+      box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+    }
+    @media (max-width: 900px) { .container { max-width: 98vw; } }
+    @media (max-width: 600px) {
+      .container { padding: 16px 4vw; }
+      h1 { font-size: 1.3rem; }
+      h2, h3 { font-size: 1.05rem; }
+      pre { font-size: 0.95em; }
+    }
+    @media (max-width: 400px) {
+      .container { padding: 8px 2vw; }
+      h1 { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+  <h1>Functions in C</h1>
+
+  <div class="card">
+    <h2>What are Functions?</h2>
+    <p>
+      A <b>function</b> in C is a block of code that performs a specific task.  
+      Functions allow reusability, modularity, and better organization of programs.
+    </p>
+    <ul>
+      <li>Prevents repetition of code.</li>
+      <li>Makes programs easier to read and maintain.</li>
+      <li>Can be reused across multiple programs.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Types of Functions</h2>
+    <ul>
+      <li><b>Library Functions:</b> Predefined (e.g., <code>printf()</code>, <code>sqrt()</code>).</li>
+      <li><b>User-defined Functions:</b> Created by the programmer.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Syntax of Function</h2>
+    <div class="code-wrapper">
+      <button class="copy-btn" onclick="copyCode('syntax')">Copy Code</button>
+      <pre id="syntax">return_type function_name(parameters) {
+    // body of function
+}</pre>
+    </div>
+  </div>
+
+  <div class="example">
+    <h3>Example: User-defined Function</h3>
+    <div class="code-wrapper">
+      <button class="copy-btn" onclick="copyCode('example1')">Copy Code</button>
+      <pre id="example1"><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="keyword">int</span> add(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {  
+    <span class="keyword">return</span> a + b;  
+}
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">int</span> result = add(5, 3);
+    printf(<span class="string">"Sum = %d\n"</span>, result);
+    <span class="keyword">return</span> 0;
+}</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Function Categories</h2>
+    <ul>
+      <li>Without arguments and without return value</li>
+      <li>With arguments and without return value</li>
+      <li>Without arguments and with return value</li>
+      <li>With arguments and with return value</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <h3>Example: Function with Arguments and Return Value</h3>
+    <div class="code-wrapper">
+      <button class="copy-btn" onclick="copyCode('example2')">Copy Code</button>
+      <pre id="example2"><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="keyword">int</span> multiply(<span class="keyword">int</span> x, <span class="keyword">int</span> y) {
+    <span class="keyword">return</span> x * y;
+}
+
+<span class="keyword">int</span> main() {
+    printf(<span class="string">"Product = %d\n"</span>, multiply(4, 6));
+    <span class="keyword">return</span> 0;
+}</pre>
+    </div>
+  </div>
+
+  <div class="example">
+    <h3>Example: Recursive Function (Factorial)</h3>
+    <div class="code-wrapper">
+      <button class="copy-btn" onclick="copyCode('example3')">Copy Code</button>
+      <pre id="example3"><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="keyword">int</span> factorial(<span class="keyword">int</span> n) {
+    if(n == 0) 
+        <span class="keyword">return</span> 1;
+    else 
+        <span class="keyword">return</span> n * factorial(n - 1);
+}
+
+<span class="keyword">int</span> main() {
+    printf(<span class="string">"Factorial of 5 = %d\n"</span>, factorial(5));
+    <span class="keyword">return</span> 0;
+}</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Common Mistakes</h3>
+    <ul>
+      <li>Not declaring a function before using it.</li>
+      <li>Mismatching return type with actual returned value.</li>
+      <li>Forgetting to include necessary header files.</li>
+    </ul>
+  </div>
+
+  <div class="conclusion">
+    <b>Conclusion:</b>
+    <p>
+      Functions in C make programs modular and reusable.  
+      By understanding function categories, return types, and recursion, programmers can write efficient and structured code.  
+      Mastering functions is essential for solving real-world problems in C.
+    </p>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 NotesAura Programming Guide — Learn. Code. Succeed.
+</footer>
+
+<script>
+function copyCode(id) {
+  const codeElement = document.getElementById(id);
+  const text = codeElement.innerText || codeElement.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = codeElement.parentElement.querySelector('.copy-btn');
+    const originalText = btn.innerText;
+    btn.innerText = 'Copied!';
+    setTimeout(() => { btn.innerText = originalText; }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
+</script>
+</body>
+</html>
