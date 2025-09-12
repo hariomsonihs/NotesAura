@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory in C Programming</title>
+    <title>Memory Management in C</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -76,14 +76,11 @@
             color: var(--text-secondary);
             font-size: 1.05rem;
         }
-        ul {
-            margin-left: 1.2em;
-            margin-bottom: 1.2em;
-        }
+        ul { margin-left: 1.2em; margin-bottom: 1.2em; }
         .card {
             background: #f8f9fa;
             border-radius: var(--card-radius);
-            box-shadow: var(--shadow);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
             padding: 18px 18px 10px 18px;
             margin: 24px 0;
         }
@@ -124,9 +121,7 @@
             right: 10px;
             z-index: 10;
         }
-        .copy-btn:hover {
-            background: #0cb893;
-        }
+        .copy-btn:hover { background: #0cb893; }
         .keyword { color: #ffa586; font-weight: bold; }
         .string { color: #1dd1a1; }
         .comment { color: #b2bec3; font-style: italic; }
@@ -158,7 +153,6 @@
             font-size: 1rem;
             box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
         }
-        /* Diagram Styles */
         .diagram {
             background: #f8f9fa;
             border-radius: 12px;
@@ -167,143 +161,95 @@
             text-align: center;
             box-shadow: 0 2px 8px rgba(80,80,120,0.06);
         }
-        .flowchart {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        .step {
-            background: white;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px;
-            min-width: 120px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        .step::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid var(--primary);
-        }
-        .step:last-child::after {
-            display: none;
-        }
     </style>
 </head>
 <body>
 <div class="navbar">NotesAura Programming Guide</div>
 <div class="container">
-    <h1>Memory in C Programming</h1>
+    <h1>Memory Management in C</h1>
+
     <div class="card">
         <h2>Introduction</h2>
         <p>
-            Memory in C refers to how data is stored, allocated, and managed during program execution. 
-            Understanding memory helps in writing efficient, bug-free, and optimized C programs.
+            Memory management in C is the process of efficiently allocating, using, and freeing memory during program execution. 
+            C gives direct access to memory through pointers, which makes it powerful but also error-prone if not handled properly.
         </p>
     </div>
 
     <div class="card">
-        <h2>Memory Layout of a C Program</h2>
+        <h2>Memory Layout in C</h2>
         <ul>
-            <li><b>Code Segment:</b> Stores compiled machine code instructions (read-only).</li>
-            <li><b>Data Segment:</b> Stores global and static variables.
-                <ul>
-                    <li><b>Initialized Data:</b> Variables with assigned values.</li>
-                    <li><b>Uninitialized Data (BSS):</b> Variables without assigned values.</li>
-                </ul>
-            </li>
-            <li><b>Heap:</b> Memory for dynamic allocation using <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>, <code>free()</code>.</li>
-            <li><b>Stack:</b> Stores local variables, function calls, return addresses. Follows LIFO principle.</li>
+            <li><b>Code Segment:</b> Stores compiled instructions.</li>
+            <li><b>Data Segment:</b> Stores global and static variables.</li>
+            <li><b>Stack:</b> Stores function calls, local variables.</li>
+            <li><b>Heap:</b> Stores dynamically allocated memory.</li>
         </ul>
         <div class="diagram">
-            <h3>C Program Memory Layout</h3>
-            <div class="flowchart">
-                <div class="step">Code</div>
-                <div class="step">Data (Init + BSS)</div>
-                <div class="step">Heap (grows up)</div>
-                <div class="step">Stack (grows down)</div>
-            </div>
-            <p style="margin-top:10px;font-size:0.9em;color:var(--text-secondary);">Heap ↑ grows upward, Stack ↓ grows downward</p>
+            <h3>Memory Layout Diagram</h3>
+            <p>[ Code ] → [ Data ] → [ Heap ] → [ Stack (grows downward) ]</p>
         </div>
-    </div>
-
-    <div class="card">
-        <h2>Static vs Dynamic Memory</h2>
-        <ul>
-            <li><b>Static Memory Allocation:</b> Size fixed at compile-time. Examples: global, static, local variables.</li>
-            <li><b>Dynamic Memory Allocation:</b> Memory allocated at runtime using standard library functions from <code>&lt;stdlib.h&gt;</code>.</li>
-        </ul>
     </div>
 
     <div class="card">
         <h2>Dynamic Memory Allocation Functions</h2>
         <ul>
-            <li><b>malloc(size):</b> Allocates block of memory (uninitialized).</li>
-            <li><b>calloc(n, size):</b> Allocates memory for array, initializes to 0.</li>
-            <li><b>realloc(ptr, newSize):</b> Resizes previously allocated memory.</li>
-            <li><b>free(ptr):</b> Releases memory back to system.</li>
+            <li><b>malloc(size):</b> Allocates memory of given size (uninitialized).</li>
+            <li><b>calloc(n, size):</b> Allocates memory for array of n elements (initialized to 0).</li>
+            <li><b>realloc(ptr, size):</b> Resizes allocated memory.</li>
+            <li><b>free(ptr):</b> Frees previously allocated memory.</li>
         </ul>
     </div>
 
     <div class="example">
-        <h3>Example: Using malloc() and free()</h3>
+        <h3>Example: Using malloc and free</h3>
         <div class="code-wrapper">
             <button class="copy-btn" onclick="copyCode('malloc-code')">Copy Code</button>
-            <pre id="malloc-code"><span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
-<span class="keyword">#include</span> <span class="string">&lt;stdlib.h&gt;</span>
+            <pre id="malloc-code"><span class="keyword">#include</span> &lt;stdio.h&gt;
+<span class="keyword">#include</span> &lt;stdlib.h&gt;
 
 <span class="keyword">int</span> main() {
-    <span class="keyword">int</span> *arr;
-    arr = (<span class="keyword">int</span>*) malloc(5 * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));
+    <span class="keyword">int</span> *ptr;
+    ptr = (<span class="keyword">int</span>*) malloc(5 * <span class="keyword">sizeof</span>(int));
 
-    <span class="keyword">if</span>(arr == NULL) {
+    <span class="keyword">if</span> (ptr == NULL) {
         printf(<span class="string">"Memory not allocated!\n"</span>);
         return 1;
     }
 
+    <span class="comment">// Assign values</span>
     <span class="keyword">for</span>(<span class="keyword">int</span> i = 0; i < 5; i++) {
-        arr[i] = i * 2;
+        ptr[i] = i + 1;
     }
 
+    <span class="comment">// Print values</span>
     <span class="keyword">for</span>(<span class="keyword">int</span> i = 0; i < 5; i++) {
-        printf(<span class="string">"%d "</span>, arr[i]);
+        printf(<span class="string">"%d "</span>, ptr[i]);
     }
 
-    free(arr); <span class="comment">// release memory</span>
+    free(ptr); <span class="comment">// Free memory</span>
     return 0;
 }</pre>
         </div>
     </div>
 
     <div class="card">
-        <h2>Common Memory Issues</h2>
+        <h2>Common Issues</h2>
         <ul>
-            <li><b>Memory Leak:</b> Forgetting to free allocated memory.</li>
-            <li><b>Dangling Pointer:</b> Accessing freed memory.</li>
+            <li><b>Dangling Pointers:</b> Accessing memory after it is freed.</li>
+            <li><b>Memory Leaks:</b> Forgetting to free allocated memory.</li>
             <li><b>Buffer Overflow:</b> Writing outside allocated memory.</li>
-            <li><b>Segmentation Fault:</b> Invalid memory access.</li>
         </ul>
     </div>
 
     <div class="callout">
-        <b>Pro Tip:</b> Always <code>free()</code> dynamically allocated memory, and set pointer to <code>NULL</code> after freeing.
+        <b>Best Practice:</b> Always check if memory allocation succeeded and free memory when no longer needed.
     </div>
 
     <div class="conclusion">
         <b>Conclusion:</b>
         <p>
-            Memory management in C is powerful but requires care. Understanding stack, heap, and allocation functions ensures efficient and bug-free programs. Mastery of memory handling helps avoid leaks, crashes, and improves program performance.
+            Memory management is a crucial concept in C. Proper allocation and deallocation help in building efficient 
+            and bug-free programs. Mismanagement can lead to crashes, leaks, and undefined behavior.
         </p>
     </div>
 </div>
