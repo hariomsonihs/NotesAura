@@ -1,1 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling in C</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 750px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul { margin-left: 1.2em; margin-bottom: 1.2em; }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        .code-wrapper {
+            position: relative;
+            margin: 18px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .copy-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        .copy-btn:hover { background: #0cb893; }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        .diagram {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+        }
+        .flowchart {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .step {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 120px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .step::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--primary);
+        }
+        .step:last-child::after { display: none; }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>File Handling in C</h1>
 
+    <div class="card">
+        <h2>What is File Handling?</h2>
+        <p>
+            File handling in C allows us to store data permanently in files instead of temporary memory (RAM). 
+            It uses functions from <code>&lt;stdio.h&gt;</code> like <b>fopen</b>, <b>fclose</b>, <b>fgetc</b>, <b>fputc</b>, 
+            <b>fgets</b>, <b>fputs</b>, <b>fprintf</b>, and <b>fscanf</b>.
+        </p>
+        <ul>
+            <li><b>Text Files:</b> Store data in human-readable format.</li>
+            <li><b>Binary Files:</b> Store data in machine-readable format.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>File Modes in C</h2>
+        <ul>
+            <li><b>"r"</b> – Read only (file must exist).</li>
+            <li><b>"w"</b> – Write only (creates new file, erases if exists).</li>
+            <li><b>"a"</b> – Append (writes at end of file).</li>
+            <li><b>"r+"</b> – Read & write (file must exist).</li>
+            <li><b>"w+"</b> – Read & write (creates new file, erases if exists).</li>
+            <li><b>"a+"</b> – Read & append (reads & writes at end).</li>
+        </ul>
+    </div>
+
+    <div class="diagram">
+        <h3>File Handling Process</h3>
+        <div class="flowchart">
+            <div class="step">Open File (fopen)</div>
+            <div class="step">Read/Write Data</div>
+            <div class="step">Close File (fclose)</div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Example 1: Writing to a File</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('write-code')">Copy Code</button>
+            <pre id="write-code"><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="keyword">int</span> main() {
+    FILE *fptr;
+    fptr = fopen(<span class="string">"example.txt"</span>, <span class="string">"w"</span>);
+
+    <span class="keyword">if</span> (fptr == NULL) {
+        printf(<span class="string">"Error opening file!"</span>);
+        return 1;
+    }
+
+    fprintf(fptr, <span class="string">"Hello, File Handling in C!\n"</span>);
+    fclose(fptr);
+
+    printf(<span class="string">"Data written successfully.\n"</span>);
+    return 0;
+}</pre>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Example 2: Reading from a File</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('read-code')">Copy Code</button>
+            <pre id="read-code"><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="keyword">int</span> main() {
+    FILE *fptr;
+    char ch;
+
+    fptr = fopen(<span class="string">"example.txt"</span>, <span class="string">"r"</span>);
+
+    <span class="keyword">if</span> (fptr == NULL) {
+        printf(<span class="string">"File not found!"</span>);
+        return 1;
+    }
+
+    <span class="keyword">while</span> ((ch = fgetc(fptr)) != EOF) {
+        putchar(ch);
+    }
+
+    fclose(fptr);
+    return 0;
+}</pre>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Example 3: Appending to a File</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('append-code')">Copy Code</button>
+            <pre id="append-code"><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="keyword">int</span> main() {
+    FILE *fptr;
+    fptr = fopen(<span class="string">"example.txt"</span>, <span class="string">"a"</span>);
+
+    <span class="keyword">if</span> (fptr == NULL) {
+        printf(<span class="string">"Error opening file!"</span>);
+        return 1;
+    }
+
+    fprintf(fptr, <span class="string">"Appending new line to file.\n"</span>);
+    fclose(fptr);
+
+    printf(<span class="string">"Data appended successfully.\n"</span>);
+    return 0;
+}</pre>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Common Pitfalls</h3>
+        <ul>
+            <li>Forgetting to close files → memory leaks.</li>
+            <li>Opening a non-existing file in <b>"r"</b> mode → error.</li>
+            <li>Using wrong mode (e.g., writing in read-only mode).</li>
+            <li>File paths must be correct (absolute/relative).</li>
+        </ul>
+    </div>
+
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>
+            File handling in C is essential for storing and retrieving data permanently. 
+            Mastering <code>fopen</code>, <code>fclose</code>, <code>fprintf</code>, <code>fscanf</code>, and other functions 
+            allows efficient text and binary file operations. Always handle errors and close files properly.
+        </p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+
+<script>
+function copyCode(id) {
+    const codeElement = document.getElementById(id);
+    const text = codeElement.innerText || codeElement.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = codeElement.parentElement.querySelector('.copy-btn');
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => { btn.innerText = originalText; }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+</script>
+</body>
+</html>
