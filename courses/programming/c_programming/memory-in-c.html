@@ -1,1 +1,329 @@
-wo Dhabi djdisicnskixchsjjc
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory in C Programming</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b47e6;
+            --primary-end: #ffa586;
+            --accent: #1dd1a1;
+            --surface: #fff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --card-radius: 18px;
+            --shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            padding: 18px 0 12px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+        .container {
+            max-width: 750px;
+            margin: 32px auto 0 auto;
+            background: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2, h3 {
+            color: var(--primary);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            border-left: 4px solid #ffa586;
+            padding-left: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        p, ul, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        ul {
+            margin-left: 1.2em;
+            margin-bottom: 1.2em;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 18px 18px 10px 18px;
+            margin: 24px 0;
+        }
+        .example {
+            background: linear-gradient(90deg, #e0e7ff 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        .code-wrapper {
+            position: relative;
+            margin: 18px 0;
+        }
+        pre {
+            background: #232946;
+            color: #e0e7ff;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 1.05em;
+            overflow-x: auto;
+            margin: 0;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.08);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .copy-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        .copy-btn:hover {
+            background: #0cb893;
+        }
+        .keyword { color: #ffa586; font-weight: bold; }
+        .string { color: #1dd1a1; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #e0ffe6 100%);
+            border-left: 5px solid var(--accent);
+            color: #222;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 24px 0;
+            font-size: 1.05em;
+        }
+        .conclusion {
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+            color: var(--text-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 16px 0 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-end));
+            color: #fff;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 40px;
+            font-size: 1rem;
+            box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
+        }
+        /* Diagram Styles */
+        .diagram {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+        }
+        .flowchart {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .step {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 120px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .step::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--primary);
+        }
+        .step:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">NotesAura Programming Guide</div>
+<div class="container">
+    <h1>Memory in C Programming</h1>
+    <div class="card">
+        <h2>Introduction</h2>
+        <p>
+            Memory in C refers to how data is stored, allocated, and managed during program execution. 
+            Understanding memory helps in writing efficient, bug-free, and optimized C programs.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Memory Layout of a C Program</h2>
+        <ul>
+            <li><b>Code Segment:</b> Stores compiled machine code instructions (read-only).</li>
+            <li><b>Data Segment:</b> Stores global and static variables.
+                <ul>
+                    <li><b>Initialized Data:</b> Variables with assigned values.</li>
+                    <li><b>Uninitialized Data (BSS):</b> Variables without assigned values.</li>
+                </ul>
+            </li>
+            <li><b>Heap:</b> Memory for dynamic allocation using <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>, <code>free()</code>.</li>
+            <li><b>Stack:</b> Stores local variables, function calls, return addresses. Follows LIFO principle.</li>
+        </ul>
+        <div class="diagram">
+            <h3>C Program Memory Layout</h3>
+            <div class="flowchart">
+                <div class="step">Code</div>
+                <div class="step">Data (Init + BSS)</div>
+                <div class="step">Heap (grows up)</div>
+                <div class="step">Stack (grows down)</div>
+            </div>
+            <p style="margin-top:10px;font-size:0.9em;color:var(--text-secondary);">Heap ↑ grows upward, Stack ↓ grows downward</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Static vs Dynamic Memory</h2>
+        <ul>
+            <li><b>Static Memory Allocation:</b> Size fixed at compile-time. Examples: global, static, local variables.</li>
+            <li><b>Dynamic Memory Allocation:</b> Memory allocated at runtime using standard library functions from <code>&lt;stdlib.h&gt;</code>.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Dynamic Memory Allocation Functions</h2>
+        <ul>
+            <li><b>malloc(size):</b> Allocates block of memory (uninitialized).</li>
+            <li><b>calloc(n, size):</b> Allocates memory for array, initializes to 0.</li>
+            <li><b>realloc(ptr, newSize):</b> Resizes previously allocated memory.</li>
+            <li><b>free(ptr):</b> Releases memory back to system.</li>
+        </ul>
+    </div>
+
+    <div class="example">
+        <h3>Example: Using malloc() and free()</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('malloc-code')">Copy Code</button>
+            <pre id="malloc-code"><span class="keyword">#include</span> <span class="string">&lt;stdio.h&gt;</span>
+<span class="keyword">#include</span> <span class="string">&lt;stdlib.h&gt;</span>
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">int</span> *arr;
+    arr = (<span class="keyword">int</span>*) malloc(5 * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));
+
+    <span class="keyword">if</span>(arr == NULL) {
+        printf(<span class="string">"Memory not allocated!\n"</span>);
+        return 1;
+    }
+
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = 0; i < 5; i++) {
+        arr[i] = i * 2;
+    }
+
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = 0; i < 5; i++) {
+        printf(<span class="string">"%d "</span>, arr[i]);
+    }
+
+    free(arr); <span class="comment">// release memory</span>
+    return 0;
+}</pre>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Common Memory Issues</h2>
+        <ul>
+            <li><b>Memory Leak:</b> Forgetting to free allocated memory.</li>
+            <li><b>Dangling Pointer:</b> Accessing freed memory.</li>
+            <li><b>Buffer Overflow:</b> Writing outside allocated memory.</li>
+            <li><b>Segmentation Fault:</b> Invalid memory access.</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <b>Pro Tip:</b> Always <code>free()</code> dynamically allocated memory, and set pointer to <code>NULL</code> after freeing.
+    </div>
+
+    <div class="conclusion">
+        <b>Conclusion:</b>
+        <p>
+            Memory management in C is powerful but requires care. Understanding stack, heap, and allocation functions ensures efficient and bug-free programs. Mastery of memory handling helps avoid leaks, crashes, and improves program performance.
+        </p>
+    </div>
+</div>
+<footer>
+    &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+</footer>
+
+<script>
+function copyCode(id) {
+    const codeElement = document.getElementById(id);
+    const text = codeElement.innerText || codeElement.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = codeElement.parentElement.querySelector('.copy-btn');
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => { btn.innerText = originalText; }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+</script>
+</body>
+</html>
