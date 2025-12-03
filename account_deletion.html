@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Account & Data Deletion Request - NotesAura</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 0;
+        padding: 0;
+        color: #333;
+        line-height: 1.6;
+        min-height: 100vh;
+    }
+    
+    header {
+        background: rgba(0, 82, 204, 0.95);
+        backdrop-filter: blur(10px);
+        color: #fff;
+        padding: 15px 20px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+    
+    header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    
+    header p {
+        margin: 5px 0 0 0;
+        opacity: 0.9;
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        max-width: 100%;
+        margin: 0;
+        background: #fff;
+        padding: 20px;
+        min-height: calc(100vh - 120px);
+    }
+    
+    h2 {
+        margin: 0 0 15px 0;
+        color: #0052cc;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    
+    .note {
+        background: #e8f4fd;
+        padding: 15px;
+        border-left: 4px solid #0052cc;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+    }
+    
+    form {
+        margin-top: 20px;
+    }
+    
+    label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-size: 0.95rem;
+    }
+    
+    input, textarea, select {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 2px solid #e1e8ed;
+        border-radius: 12px;
+        font-size: 16px;
+        background: #fafbfc;
+        transition: all 0.3s ease;
+        -webkit-appearance: none;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+        outline: none;
+        border-color: #0052cc;
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+    }
+    
+    select {
+        cursor: pointer;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+        background-size: 12px;
+        padding-right: 40px;
+    }
+    
+    button {
+        background: linear-gradient(135deg, #0052cc 0%, #0041a3 100%);
+        color: #fff;
+        border: none;
+        padding: 18px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(0, 82, 204, 0.3);
+    }
+    
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 82, 204, 0.4);
+    }
+    
+    button:active {
+        transform: translateY(0);
+    }
+    
+    #successMessage {
+        background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        color: #155724;
+        padding: 25px;
+        border-radius: 12px;
+        margin-top: 20px;
+        text-align: center;
+        border: 2px solid #b8dabd;
+    }
+    
+    #successMessage h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 20px;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.85rem;
+        background: rgba(0,0,0,0.1);
+    }
+    
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+        header {
+            padding: 12px 15px;
+        }
+        
+        header h1 {
+            font-size: 1.3rem;
+        }
+        
+        .container {
+            padding: 15px;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+        }
+        
+        .note {
+            padding: 12px;
+            font-size: 0.85rem;
+        }
+        
+        input, textarea, select {
+            padding: 12px;
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+        
+        button {
+            padding: 15px 25px;
+            font-size: 16px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            padding: 12px;
+        }
+        
+        .note {
+            padding: 10px;
+        }
+        
+        input, textarea, select {
+            padding: 10px;
+        }
+    }
+    
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+        .container {
+            background: #1a1a1a;
+            color: #fff;
+        }
+        
+        input, textarea, select {
+            background: #2d2d2d;
+            border-color: #404040;
+            color: #fff;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            background: #333;
+            border-color: #0052cc;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Account & Data Deletion Request</h1>
+    <p>NotesAura (by Hariom)</p>
+</header>
+
+<div class="container">
+
+    <h2>Submit a request to delete your account or data</h2>
+
+    <p>
+        If you would like to request deletion of your NotesAura account and/or associated data, please complete the form below.  
+        Once submitted, our team will verify your identity and process the deletion within <strong>72 hours</strong>.
+    </p>
+
+    <div class="note">
+        <strong>What data will be deleted?</strong><br>
+        • Account information (name, email, username) <br>
+        • Purchase history, enrolled courses <br>
+        • Progress data and user-generated content <br><br>
+
+        <strong>What may be retained?</strong><br>
+        Transactional records may be retained for legal, security, or bookkeeping purposes, for up to <strong>90 days</strong>.
+    </div>
+
+    <h2>Deletion Request Form</h2>
+
+    <form id="deletionForm" method="POST">
+        
+        <label>Your Name *</label>
+        <input type="text" name="name" required />
+
+        <label>Mobile Number *</label>
+        <input type="tel" name="phone" required pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" />
+
+        <label>Email associated with your account *</label>
+        <input type="email" name="email" required />
+
+        <label>Request Type *</label>
+        <select name="request_type" required>
+            <option value="">Select request type</option>
+            <option value="Delete Account Only">Delete Account Only</option>
+            <option value="Delete Data Only">Delete Data Only</option>
+            <option value="Delete Account & Data Both">Delete Account & Data Both</option>
+        </select>
+
+        <label>User ID (if available)</label>
+        <input type="text" name="user_id" placeholder="Your NotesAura User ID" />
+
+        <label>Additional comments (optional)</label>
+        <textarea name="message" rows="4" placeholder="Any specific reason or additional information..."></textarea>
+
+
+        
+        <button type="submit">Submit Request</button>
+    </form>
+
+    <div id="successMessage" style="display: none; background: #d4edda; color: #155724; padding: 20px; border-radius: 6px; margin-top: 20px; text-align: center;">
+        <h3>✅ Thank You!</h3>
+        <p>Your request has been received successfully. We will notify you once your account/data deletion is processed.</p>
+        <p><strong>Processing Time:</strong> 24-72 hours</p>
+    </div>
+
+    <div class="note">
+        <strong>Note:</strong> If the form doesn't work, it will automatically open your email client to send the request.<br>
+        Need help? Contact support at: <strong>hariomsoni0818@gmail.com</strong>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2025 NotesAura. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+// EmailJS Configuration
+(function(){
+    emailjs.init("I_JxxmxMbivs-6xAO");
+})();
+
+document.getElementById('deletionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    // Debug: Check form data
+    console.log('Form Data:', data);
+    
+    // Send email via EmailJS
+    const templateParams = {
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        request_type: data.request_type,
+        user_id: data.user_id || 'Not provided',
+        message: data.message || 'No additional comments',
+        submission_date: new Date().toLocaleString(),
+        title: data.request_type // Adding title field
+    };
+    
+    console.log('Template Params:', templateParams);
+    
+    // Send confirmation email to user
+    emailjs.send('service_5au06ul', 'template_7e2up59', templateParams)
+    .then(function(response) {
+        console.log('User email sent successfully:', response.status);
+        
+        // Send notification email to admin
+        const adminParams = {
+            admin_email: 'hariomsoni0818@gmail.com',
+            name: data.name,
+            phone: data.phone,
+            email: data.email,
+            request_type: data.request_type,
+            user_id: data.user_id || 'Not provided',
+            message: data.message || 'No additional comments',
+            submission_date: new Date().toLocaleString()
+        };
+        
+        // Send admin notification via same template with admin email
+        const adminNotification = {
+            name: 'Admin',
+            phone: data.phone,
+            email: 'hariomsoni0818@gmail.com',
+            request_type: `New Request: ${data.request_type}`,
+            user_id: data.user_id || 'Not provided',
+            message: `User Details:\nName: ${data.name}\nMobile: ${data.phone}\nEmail: ${data.email}\nRequest: ${data.request_type}\nComments: ${data.message || 'None'}`,
+            submission_date: new Date().toLocaleString(),
+            title: `New Deletion Request from ${data.name}`
+        };
+        
+        return emailjs.send('service_5au06ul', 'template_7e2up59', adminNotification);
+    })
+    .then(function(response) {
+        console.log('Admin notification sent successfully:', response.status);
+        showSuccessMessage();
+    })
+    .catch(function(error) {
+        console.log('Email sending failed:', error);
+        // Fallback to mailto
+        fallbackToMailto(data);
+    });
+});
+
+function fallbackToMailto(data) {
+    const subject = encodeURIComponent('NotesAura - Account/Data Deletion Request');
+    const body = encodeURIComponent(`Deletion Request Details:
+
+Name: ${data.name}
+Mobile: ${data.phone}
+Email: ${data.email}
+Request Type: ${data.request_type}
+User ID: ${data.user_id || 'Not provided'}
+Comments: ${data.message || 'No additional comments'}
+
+Submitted: ${new Date().toLocaleString()}
+
+Please process this deletion request within 72 hours.`);
+    
+    window.location.href = `mailto:hariomsoni0818@gmail.com?subject=${subject}&body=${body}`;
+    showSuccessMessage();
+}
+
+function showSuccessMessage() {
+    document.getElementById('deletionForm').style.display = 'none';
+    document.getElementById('successMessage').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+</script>
+
+
+
+</body>
+
+</html>
