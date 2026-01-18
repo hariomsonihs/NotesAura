@@ -574,7 +574,53 @@
     "answer": "Comparable provides default natural sorting order (compareTo method). Comparator provides custom sorting order (compare method).",
     "details": "Comparable affects the original class; Comparator is a separate class/lambda.",
     "example_code": "Collections.sort(list, (a, b) -> a.name.compareTo(b.name)); // Comparator"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Fail-Fast vs Fail-Safe",
+    "question": "What is the difference between Fail-Fast and Fail-Safe iterators?",
+    "answer": "Fail-Fast iterators throw ConcurrentModificationException if the collection is modified while iterating (e.g., ArrayList). Fail-Safe iterators work on a clone/snapshot and allow modifications (e.g., ConcurrentHashMap).",
+    "details": "Fail-Fast uses an internal modCount to detect changes.",
+    "example_code": "Iterator<String> it = list.iterator();\nlist.add(\"New\"); // Throws Exception for Fail-Fast"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "ConcurrentHashMap",
+    "question": "How is ConcurrentHashMap different from Hashtable?",
+    "answer": "Hashtable locks the entire map for thread safety (slow). ConcurrentHashMap locks only specific segments (buckets) or uses CAS (Compare-And-Swap), allowing concurrent reads and updates.",
+    "details": "It never throws ConcurrentModificationException.",
+    "example_code": "Map<String, String> map = new ConcurrentHashMap<>();"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Deadlock",
+    "question": "What is a Deadlock and how can you avoid it?",
+    "answer": "Deadlock occurs when two threads are waiting for each other to release a lock, causing them to be stuck forever. It can be avoided by acquiring locks in a consistent order.",
+    "details": "Tools like jstack can help detect deadlocks.",
+    "example_code": "Thread 1 locks A, waits for B.\nThread 2 locks B, waits for A. // Deadlock"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Executor Framework",
+    "question": "What is the Executor Framework?",
+    "answer": "It is a framework used to manage a pool of threads effectively instead of manually creating and starting threads.",
+    "details": "It decouples task submission from task execution. Common implementations include FixedThreadPool and CachedThreadPool.",
+    "example_code": "ExecutorService executor = Executors.newFixedThreadPool(10);\nexecutor.submit(() -> System.out.println(\"Task\"));"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Atomic Variables",
+    "question": "What are Atomic variables (e.g., AtomicInteger)?",
+    "answer": "Classes in java.util.concurrent.atomic that support lock-free, thread-safe operations on single variables.",
+    "details": "They use low-level CPU instructions (CAS) for performance.",
+    "example_code": "AtomicInteger count = new AtomicInteger(0);\ncount.incrementAndGet(); // Thread-safe increment"
   }
 ]
+
 
 
