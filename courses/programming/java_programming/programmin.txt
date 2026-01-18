@@ -43,7 +43,7 @@ public class HelloWorld {
 
 You can add images using this format:
 
-https://github.com/hariomsonihs/NotesAura/blob/main/c_logo.jpeg
+(https://github.com/hariomsonihs/NotesAura/blob/main/c_logo.jpeg)
 
 Or use GitHub raw URLs:
 
