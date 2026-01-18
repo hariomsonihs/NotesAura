@@ -5,7 +5,7 @@ In simple words: **Programming = telling a computer what to do step-by-step (lik
 
 ✅ Example tasks done using programming:
 
-*Making mobile app📱
+*Making mobile app📱*
 *Creating websites 🌐
 *Building games 🎮
 - Running machines/robots 🤖
