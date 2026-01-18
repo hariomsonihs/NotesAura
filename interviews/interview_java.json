@@ -889,5 +889,60 @@
     "answer": "If a class implements two interfaces with the same default method, the class must override the method to resolve the conflict.",
     "details": "You can call a specific interface's method using InterfaceName.super.method().",
     "example_code": "public void show() { InterfaceA.super.show(); }"
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Keywords Distinction",
+    "question": "What is the difference between final, finally, and finalize?",
+    "answer": "final is a keyword to apply restrictions on classes, methods, and variables. finally is a block used in exception handling to execute code regardless of errors. finalize is a method used for garbage collection cleanup (deprecated).",
+    "details": "They sound similar but serve completely different purposes.",
+    "example_code": "final int x = 10; \ntry { } finally { System.out.println(\"Done\"); }"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "String Interning",
+    "question": "What does the String intern() method do?",
+    "answer": "It returns the canonical representation of the string from the String Constant Pool. If the pool already contains a string equal to this object, it returns the pool's string; otherwise, it adds this string to the pool.",
+    "details": "Useful for saving memory when you have many duplicate strings created via 'new'.",
+    "example_code": "String s1 = new String(\"Hello\");\nString s2 = s1.intern(); // Returns reference from Pool"
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Data Types & Precision",
+    "question": "Why should you use BigDecimal instead of Double for financial calculations?",
+    "answer": "Double uses floating-point arithmetic which can result in precision loss (e.g., 0.1 + 0.2 != 0.3). BigDecimal provides arbitrary-precision arithmetic needed for accurate currency calculations.",
+    "details": "Always use the String constructor for BigDecimal to avoid initial precision loss.",
+    "example_code": "BigDecimal payment = new BigDecimal(\"100.50\");"
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Initialization Blocks",
+    "question": "What is the difference between Static Block and Instance Initialization Block?",
+    "answer": "Static blocks execute once when the class is loaded. Instance initialization blocks execute every time an instance of the class is created, before the constructor.",
+    "details": "Static blocks are used for static variable initialization; Instance blocks for common code across all constructors.",
+    "example_code": "static { System.out.println(\"Static\"); }\n{ System.out.println(\"Instance\"); }"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Covariant Return Type",
+    "question": "What is Covariant Return Type?",
+    "answer": "It allows an overriding method in a child class to return a subtype of the return type declared in the parent class method.",
+    "details": "Before Java 5, the return type had to be exactly the same.",
+    "example_code": "class A { A get() { return this; } }\nclass B extends A { @Override B get() { return this; } }"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Integer Caching",
+    "question": "Explain Java Integer Caching.",
+    "answer": "Java caches Integer objects from -128 to 127. If you create Integers within this range using autoboxing or Integer.valueOf(), you get the same object reference.",
+    "details": "Comparing Integers outside this range using '==' will return false.",
+    "example_code": "Integer a = 100, b = 100;\nSystem.out.println(a == b); // true\nInteger x = 200, y = 200;\nSystem.out.println(x == y); // false"
   }
 ]
+
