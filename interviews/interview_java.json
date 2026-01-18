@@ -529,6 +529,52 @@
     "answer": "Main memory areas are Heap, Stack, Method Area, Program Counter Register, and Native Method Stack.",
     "details": "Heap stores objects, Stack stores method calls and local variables.",
     "example_code": "Not required"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Singleton Pattern",
+    "question": "How do you create a Singleton class in Java?",
+    "answer": "Make the constructor private, create a static instance variable, and provide a public static method to return that instance.",
+    "details": "Ensures only one instance of the class exists.",
+    "example_code": "class Singleton {\n    private static Singleton obj = new Singleton();\n    private Singleton() {}\n    public static Singleton get() { return obj; }\n}"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Volatile Keyword",
+    "question": "What is the 'volatile' keyword?",
+    "answer": "Volatile is used to mark a variable as being stored in main memory. It guarantees visibility of changes to variables across threads.",
+    "details": "Prevents threads from caching variables locally.",
+    "example_code": "private volatile boolean running = true;"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Transient Keyword",
+    "question": "What is the 'transient' keyword used for?",
+    "answer": "Transient keyword is used in serialization to indicate that a variable should not be serialized.",
+    "details": "The value of a transient variable will be null/default after deserialization.",
+    "example_code": "transient int password;"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Functional Interface",
+    "question": "What is a Functional Interface?",
+    "answer": "An interface that contains exactly one abstract method. It can have default and static methods.",
+    "details": "They are the basis for Lambda expressions. Annotation @FunctionalInterface is optional but good practice.",
+    "example_code": "@FunctionalInterface\ninterface Calculator {\n    int add(int a, int b);\n}"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Comparator vs Comparable",
+    "question": "Difference between Comparable and Comparator?",
+    "answer": "Comparable provides default natural sorting order (compareTo method). Comparator provides custom sorting order (compare method).",
+    "details": "Comparable affects the original class; Comparator is a separate class/lambda.",
+    "example_code": "Collections.sort(list, (a, b) -> a.name.compareTo(b.name)); // Comparator"
   }
 ]
+
 
