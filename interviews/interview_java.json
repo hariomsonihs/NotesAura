@@ -1,0 +1,324 @@
+[
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "Java Introduction",
+    "question": "What is Java?",
+    "answer": "Java is a high-level, object-oriented, platform-independent programming language used to develop applications for web, mobile, desktop, and enterprise systems.",
+    "details": "Java follows the principle of 'Write Once, Run Anywhere' (WORA) because Java code runs on the JVM (Java Virtual Machine)."
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "Java Features",
+    "question": "What are the main features of Java?",
+    "answer": "Main features of Java include Object-Oriented, Platform Independent, Secure, Robust, Multithreaded, Portable, High Performance, and Distributed.",
+    "details": "Java achieves platform independence using bytecode and JVM."
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "JDK/JRE/JVM",
+    "question": "What is the difference between JDK, JRE, and JVM?",
+    "answer": "JDK is the Java Development Kit used for development. JRE is the Java Runtime Environment needed to run Java programs. JVM is the Java Virtual Machine that executes bytecode.",
+    "details": "JDK = JRE + development tools (compiler, debugger). JRE = JVM + libraries."
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "Java Syntax",
+    "question": "Why is the main method public static void main(String[] args)?",
+    "answer": "public means accessible by JVM, static means JVM can call without object, void means no return value, and String[] args stores command line arguments.",
+    "details": "JVM needs a fixed entry point to start execution of the program."
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "Variables",
+    "question": "What are variables in Java?",
+    "answer": "Variables are containers used to store values during program execution.",
+    "details": "Java has local variables, instance variables, and static variables."
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "Data Types",
+    "question": "What are primitive data types in Java?",
+    "answer": "Primitive data types in Java are byte, short, int, long, float, double, char, boolean.",
+    "details": "They store actual values directly and are not objects."
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "Type Casting",
+    "question": "What is type casting in Java?",
+    "answer": "Type casting is converting one data type to another.",
+    "details": "There are two types: implicit casting (widening) and explicit casting (narrowing).",
+    "example_code": "int a = 10;\ndouble b = a; // widening\n\ndouble x = 10.5;\nint y = (int) x; // narrowing"
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "Operators",
+    "question": "What are the types of operators in Java?",
+    "answer": "Arithmetic, Relational, Logical, Assignment, Unary, Bitwise, and Ternary operators.",
+    "details": "Operators help perform operations like calculation, comparison, and decision making."
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "Control Statements",
+    "question": "What are control statements in Java?",
+    "answer": "Control statements are used to control the flow of program execution like if-else, switch, loops, break, continue.",
+    "details": "They help in decision making and repetitive execution."
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "OOP Concepts",
+    "question": "What are the main OOP principles in Java?",
+    "answer": "The main OOP principles are Encapsulation, Inheritance, Polymorphism, and Abstraction.",
+    "details": "OOP helps write modular, reusable, and maintainable code."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Class and Object",
+    "question": "What is the difference between class and object?",
+    "answer": "A class is a blueprint that defines properties and behaviors. An object is an instance of a class.",
+    "details": "A class does not occupy memory until an object is created."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Constructor",
+    "question": "What is a constructor in Java?",
+    "answer": "A constructor is a special method used to initialize objects. It has the same name as the class and no return type.",
+    "details": "Constructors can be default, parameterized, and copy constructors (custom implementation)."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Constructor Overloading",
+    "question": "What is constructor overloading?",
+    "answer": "Constructor overloading means defining multiple constructors in a class with different parameters.",
+    "details": "It helps create objects in different ways depending on requirements."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "this Keyword",
+    "question": "What is the use of 'this' keyword in Java?",
+    "answer": "'this' refers to the current object of the class.",
+    "details": "It is used to refer instance variables, call constructors, and pass current object as parameter."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Inheritance",
+    "question": "What is inheritance in Java?",
+    "answer": "Inheritance is an OOP concept where a class acquires properties and behaviors of another class using the 'extends' keyword.",
+    "details": "It improves code reusability and supports method overriding."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Types of Inheritance",
+    "question": "What types of inheritance are supported in Java?",
+    "answer": "Java supports Single, Multilevel, and Hierarchical inheritance using classes.",
+    "details": "Java does not support multiple inheritance with classes, but supports it through interfaces."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Method Overloading",
+    "question": "What is method overloading in Java?",
+    "answer": "Method overloading means defining multiple methods with the same name but different parameters.",
+    "details": "Overloading happens at compile time, so it is called Compile-time Polymorphism."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Method Overriding",
+    "question": "What is method overriding in Java?",
+    "answer": "Method overriding means redefining a parent class method in the child class with the same signature.",
+    "details": "Overriding happens at runtime, so it is called Runtime Polymorphism."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "super Keyword",
+    "question": "What is the use of 'super' keyword in Java?",
+    "answer": "'super' is used to refer to parent class members like variables, methods, and constructors.",
+    "details": "It helps access parent class implementation in child class."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Abstraction",
+    "question": "What is abstraction in Java?",
+    "answer": "Abstraction means hiding internal implementation details and showing only essential features.",
+    "details": "It can be achieved using abstract classes and interfaces."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Abstract Class",
+    "question": "What is an abstract class?",
+    "answer": "An abstract class is a class that cannot be instantiated and may contain abstract methods and concrete methods.",
+    "details": "It is used when multiple related classes share common behavior."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Interface",
+    "question": "What is an interface in Java?",
+    "answer": "An interface is a blueprint of a class that contains abstract methods and constants.",
+    "details": "Interfaces support multiple inheritance and help achieve full abstraction."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Encapsulation",
+    "question": "What is encapsulation?",
+    "answer": "Encapsulation means wrapping data and methods together in a class and restricting access using private fields and public getters/setters.",
+    "details": "It improves security and control of data."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Polymorphism",
+    "question": "What is polymorphism in Java?",
+    "answer": "Polymorphism means one method or object behaves differently in different situations.",
+    "details": "Types: compile-time polymorphism (overloading) and runtime polymorphism (overriding)."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Exception Handling",
+    "question": "What is exception handling in Java?",
+    "answer": "Exception handling is a mechanism to handle runtime errors using try, catch, finally, throw, and throws.",
+    "details": "It prevents program termination and allows graceful error recovery."
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Checked vs Unchecked Exception",
+    "question": "What is the difference between checked and unchecked exceptions?",
+    "answer": "Checked exceptions are checked at compile time (e.g., IOException). Unchecked exceptions are checked at runtime (e.g., NullPointerException).",
+    "details": "Checked exceptions must be handled using try-catch or throws."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Multithreading",
+    "question": "What is multithreading in Java?",
+    "answer": "Multithreading is a feature that allows multiple threads to run concurrently to improve performance and responsiveness.",
+    "details": "Threads can be created using Thread class or Runnable interface."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Thread vs Runnable",
+    "question": "What is the difference between Thread and Runnable?",
+    "answer": "Thread is a class, Runnable is an interface. Runnable is preferred because Java supports single inheritance and Runnable allows extending another class.",
+    "details": "Runnable separates task logic from thread execution."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Synchronization",
+    "question": "What is synchronization in Java?",
+    "answer": "Synchronization is a technique used to control access to shared resources by multiple threads to avoid inconsistency.",
+    "details": "It can be achieved using synchronized methods or synchronized blocks."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Collection Framework",
+    "question": "What is the Java Collection Framework?",
+    "answer": "Java Collection Framework provides classes and interfaces to store and manipulate groups of objects like List, Set, Queue, and Map.",
+    "details": "It includes implementations like ArrayList, HashSet, LinkedList, HashMap."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "ArrayList vs LinkedList",
+    "question": "What is the difference between ArrayList and LinkedList?",
+    "answer": "ArrayList uses dynamic array and provides fast random access. LinkedList uses doubly linked list and provides faster insertion/deletion.",
+    "details": "ArrayList is better for retrieval, LinkedList is better for frequent insert/delete operations."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "HashMap Working",
+    "question": "How does HashMap work internally?",
+    "answer": "HashMap stores key-value pairs using hashing. Keys are converted into hash codes and mapped to buckets where values are stored.",
+    "details": "In case of collision, it uses linked list or balanced tree (after Java 8) to store multiple entries in the same bucket."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "equals() and hashCode()",
+    "question": "Why should equals() and hashCode() be overridden together?",
+    "answer": "Because if two objects are equal using equals(), they must have the same hashCode to work correctly in HashMap and HashSet.",
+    "details": "If hashCode differs for equal objects, collections may not find the object correctly."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Java 8 Features",
+    "question": "What are important Java 8 features?",
+    "answer": "Important Java 8 features include Lambda Expressions, Functional Interfaces, Stream API, Default Methods, Method References, and Optional class.",
+    "details": "Java 8 introduced functional programming style in Java."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Lambda Expression",
+    "question": "What is a Lambda expression?",
+    "answer": "A lambda expression is an anonymous function that provides a concise way to implement functional interfaces.",
+    "details": "Syntax: (parameters) -> expression",
+    "example_code": "Runnable r = () -> System.out.println(\"Thread running...\");\nnew Thread(r).start();"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Stream API",
+    "question": "What is Stream API in Java?",
+    "answer": "Stream API is used to process collections in a functional style using operations like filter, map, reduce, and collect.",
+    "details": "Streams do not store data, they process data from a source like collections or arrays."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Serialization",
+    "question": "What is serialization in Java?",
+    "answer": "Serialization is the process of converting an object into a byte stream so it can be saved to file or transferred over network.",
+    "details": "Deserialization converts byte stream back into object."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Garbage Collection",
+    "question": "What is garbage collection in Java?",
+    "answer": "Garbage collection is an automatic memory management process where JVM removes unused objects from heap memory.",
+    "details": "It prevents memory leaks and improves performance."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "String vs StringBuilder vs StringBuffer",
+    "question": "What is the difference between String, StringBuilder, and StringBuffer?",
+    "answer": "String is immutable. StringBuilder is mutable and not thread-safe. StringBuffer is mutable and thread-safe.",
+    "details": "Use StringBuilder for performance in single-thread, StringBuffer for multi-thread environments."
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "JVM Memory Areas",
+    "question": "What are the main memory areas in JVM?",
+    "answer": "Main memory areas are Heap, Stack, Method Area, Program Counter Register, and Native Method Stack.",
+    "details": "Heap stores objects, Stack stores method calls and local variables."
+  }
+]
