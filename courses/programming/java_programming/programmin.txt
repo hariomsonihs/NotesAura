@@ -47,7 +47,7 @@ You can add images using this format:
 
 Or use GitHub raw URLs:
 
-![C Logo](https://github.com/hariomsonihs/NotesAura/blob/main/c_logo.jpeg)
+![Java Logo](https://github.com/hariomsonihs/NotesAura/blob/main/c_logo.jpeg)
 
 ---
 
