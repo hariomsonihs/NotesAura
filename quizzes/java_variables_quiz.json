@@ -1,0 +1,434 @@
+{
+  "category": "java-programming",
+  "topicName": "Variables in Java",
+  "instructions": [
+    "✅ Select the correct option (A, B, C, or D).",
+    "✅ Each question has only ONE correct answer.",
+    "✅ Focus on variable declaration, initialization, scope, and data types.",
+    "✅ Try without seeing answers first, then verify."
+  ],
+  "quizLevel": "Beginner to Intermediate",
+  "totalQuestions": 30,
+  "questions": [
+    {
+      "id": 1,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "What is a variable in Java?",
+      "options": {
+        "A": "A fixed value that cannot change",
+        "B": "A container used to store data values",
+        "C": "A Java keyword used for loops",
+        "D": "A type of Java class"
+      },
+      "answer": "B",
+      "details": "A variable is a memory location that stores a value which can change during program execution."
+    },
+    {
+      "id": 2,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which of the following is the correct syntax to declare an integer variable?",
+      "options": {
+        "A": "int = a;",
+        "B": "int a;",
+        "C": "a int;",
+        "D": "integer a;"
+      },
+      "answer": "B",
+      "details": "In Java, variable declaration format is: dataType variableName;"
+    },
+    {
+      "id": 3,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which of the following is the correct way to declare and initialize a variable?",
+      "options": {
+        "A": "int a = 10;",
+        "B": "int a == 10;",
+        "C": "int a := 10;",
+        "D": "int 10 = a;"
+      },
+      "answer": "A",
+      "details": "Declaration + initialization example: int a = 10;"
+    },
+    {
+      "id": 4,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "What will be the default value of an instance variable of type int in Java?",
+      "options": {
+        "A": "null",
+        "B": "0",
+        "C": "undefined",
+        "D": "garbage value"
+      },
+      "answer": "B",
+      "details": "Instance variables in Java are automatically initialized; int default value is 0."
+    },
+    {
+      "id": 5,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "What will be the default value of an instance variable of type boolean?",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "0",
+        "D": "null"
+      },
+      "answer": "B",
+      "details": "Default value of boolean instance variable is false."
+    },
+    {
+      "id": 6,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which of these is NOT a valid variable name in Java?",
+      "options": {
+        "A": "_value",
+        "B": "value1",
+        "C": "1value",
+        "D": "$value"
+      },
+      "answer": "C",
+      "details": "Variable names cannot start with a digit in Java."
+    },
+    {
+      "id": 7,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which symbol is used to assign a value to a variable?",
+      "options": {
+        "A": "==",
+        "B": "=",
+        "C": "!=",
+        "D": "<-"
+      },
+      "answer": "B",
+      "details": "In Java, '=' is assignment operator, while '==' is comparison operator."
+    },
+    {
+      "id": 8,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which one is a valid declaration of a char variable?",
+      "options": {
+        "A": "char c = 'A';",
+        "B": "char c = \"A\";",
+        "C": "char c = A;",
+        "D": "char c = 'AB';"
+      },
+      "answer": "A",
+      "details": "char stores a single character inside single quotes."
+    },
+    {
+      "id": 9,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which keyword is used to declare a constant variable in Java?",
+      "options": {
+        "A": "constant",
+        "B": "final",
+        "C": "static",
+        "D": "const"
+      },
+      "answer": "B",
+      "details": "final keyword makes a variable constant (cannot be reassigned)."
+    },
+    {
+      "id": 10,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which of these variables is a local variable?",
+      "options": {
+        "A": "Variable declared inside a method",
+        "B": "Variable declared inside a class but outside methods",
+        "C": "Variable declared using static keyword",
+        "D": "Variable declared using final keyword"
+      },
+      "answer": "A",
+      "details": "Local variables are declared inside methods/blocks and must be initialized before use."
+    },
+    {
+      "id": 11,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which variable is shared among all objects of a class?",
+      "options": {
+        "A": "Local variable",
+        "B": "Instance variable",
+        "C": "Static variable",
+        "D": "Final variable"
+      },
+      "answer": "C",
+      "details": "Static variables belong to class, not to individual objects."
+    },
+    {
+      "id": 12,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which of the following is an instance variable?",
+      "options": {
+        "A": "Declared inside a method",
+        "B": "Declared inside a class but outside a method",
+        "C": "Declared inside a loop",
+        "D": "Declared inside if block only"
+      },
+      "answer": "B",
+      "details": "Instance variables are declared inside class but outside method."
+    },
+    {
+      "id": 13,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "What is the scope of a local variable?",
+      "options": {
+        "A": "Whole class",
+        "B": "Whole program",
+        "C": "Only within the block/method where declared",
+        "D": "Accessible globally anywhere"
+      },
+      "answer": "C",
+      "details": "Local variables are accessible only within the method/block."
+    },
+    {
+      "id": 14,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which of the following can store decimal values?",
+      "options": {
+        "A": "int",
+        "B": "double",
+        "C": "char",
+        "D": "boolean"
+      },
+      "answer": "B",
+      "details": "double and float are used for decimal values."
+    },
+    {
+      "id": 15,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which is the correct statement about Java variables?",
+      "options": {
+        "A": "Local variables have default values automatically",
+        "B": "Instance variables must be initialized manually always",
+        "C": "Local variables must be initialized before use",
+        "D": "Static variables cannot store values"
+      },
+      "answer": "C",
+      "details": "Local variables do NOT get default values; must be initialized before usage."
+    },
+    {
+      "id": 16,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "What will be the output?\nint a;\nSystem.out.println(a);",
+      "options": {
+        "A": "0",
+        "B": "Compilation Error",
+        "C": "null",
+        "D": "garbage value"
+      },
+      "answer": "B",
+      "details": "Local variable 'a' is not initialized, so compiler throws error."
+    },
+    {
+      "id": 17,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which of the following is a valid boolean variable initialization?",
+      "options": {
+        "A": "boolean b = 1;",
+        "B": "boolean b = true;",
+        "C": "boolean b = \"true\";",
+        "D": "boolean b = 0;"
+      },
+      "answer": "B",
+      "details": "boolean can store only true or false."
+    },
+    {
+      "id": 18,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which datatype is used to store a single character?",
+      "options": {
+        "A": "String",
+        "B": "char",
+        "C": "int",
+        "D": "boolean"
+      },
+      "answer": "B",
+      "details": "char stores a single 16-bit Unicode character."
+    },
+    {
+      "id": 19,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which datatype is best for storing large integer values?",
+      "options": {
+        "A": "byte",
+        "B": "short",
+        "C": "long",
+        "D": "float"
+      },
+      "answer": "C",
+      "details": "long is used for large integers (64-bit)."
+    },
+    {
+      "id": 20,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "What is the size of int in Java?",
+      "options": {
+        "A": "8-bit",
+        "B": "16-bit",
+        "C": "32-bit",
+        "D": "64-bit"
+      },
+      "answer": "C",
+      "details": "int is 32-bit signed in Java."
+    },
+    {
+      "id": 21,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "What is the size of char in Java?",
+      "options": {
+        "A": "8-bit",
+        "B": "16-bit",
+        "C": "32-bit",
+        "D": "Depends on system"
+      },
+      "answer": "B",
+      "details": "char is 16-bit (Unicode)."
+    },
+    {
+      "id": 22,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which is the correct way to declare multiple variables in one line?",
+      "options": {
+        "A": "int a, b, c;",
+        "B": "int a|b|c;",
+        "C": "int a + b + c;",
+        "D": "int (a, b, c);"
+      },
+      "answer": "A",
+      "details": "You can declare multiple variables with commas."
+    },
+    {
+      "id": 23,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which of the following is correct for float variable initialization?",
+      "options": {
+        "A": "float f = 10.5;",
+        "B": "float f = 10.5f;",
+        "C": "float f = \"10.5\";",
+        "D": "float f = 10,5;"
+      },
+      "answer": "B",
+      "details": "Float literals need suffix 'f' (or 'F') in Java."
+    },
+    {
+      "id": 24,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which statement is true about static variables?",
+      "options": {
+        "A": "They are created separately for every object",
+        "B": "They are shared among all objects",
+        "C": "They are declared inside methods",
+        "D": "They cannot be accessed"
+      },
+      "answer": "B",
+      "details": "Static variables belong to the class, shared among all objects."
+    },
+    {
+      "id": 25,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which of these is a correct String declaration?",
+      "options": {
+        "A": "String name = 'Hariom';",
+        "B": "String name = \"Hariom\";",
+        "C": "String name = Hariom;",
+        "D": "string name = \"Hariom\";"
+      },
+      "answer": "B",
+      "details": "String uses double quotes and 'String' is capital S."
+    },
+    {
+      "id": 26,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which keyword is used to refer to current object instance variables?",
+      "options": {
+        "A": "this",
+        "B": "super",
+        "C": "new",
+        "D": "static"
+      },
+      "answer": "A",
+      "details": "this refers to the current object."
+    },
+    {
+      "id": 27,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "What is type casting in Java?",
+      "options": {
+        "A": "Converting one datatype into another datatype",
+        "B": "Declaring a variable",
+        "C": "Deleting a variable",
+        "D": "Printing a variable"
+      },
+      "answer": "A",
+      "details": "Type casting converts a value from one type to another."
+    },
+    {
+      "id": 28,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which casting is done automatically by Java?",
+      "options": {
+        "A": "Narrowing casting",
+        "B": "Explicit casting",
+        "C": "Widening casting",
+        "D": "None"
+      },
+      "answer": "C",
+      "details": "Widening casting (small → large) happens automatically."
+    },
+    {
+      "id": 29,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which one is narrowing casting?",
+      "options": {
+        "A": "int to long",
+        "B": "float to double",
+        "C": "double to int",
+        "D": "byte to short"
+      },
+      "answer": "C",
+      "details": "double → int loses data, so it's narrowing and needs explicit cast."
+    },
+    {
+      "id": 30,
+      "category": "java-programming",
+      "topic": "Variables",
+      "question": "Which statement correctly declares a long variable?",
+      "options": {
+        "A": "long x = 100000L;",
+        "B": "long x = 100000;",
+        "C": "long x = \"100000\";",
+        "D": "Long x := 100000;"
+      },
+      "answer": "A",
+      "details": "Using 'L' suffix is recommended for long literals."
+    }
+  ]
+}
