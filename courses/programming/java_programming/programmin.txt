@@ -8,7 +8,7 @@ In simple words: **Programming = telling a computer what to do step-by-step (lik
 *Making mobile app📱
 *Creating websites 🌐
 *Building games 🎮
-* Running machines/robots 🤖
+- Running machines/robots 🤖
 * Solving math problems ➗
 * Data analysis & AI 🤯
 
