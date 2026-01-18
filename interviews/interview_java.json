@@ -619,8 +619,275 @@
     "answer": "Classes in java.util.concurrent.atomic that support lock-free, thread-safe operations on single variables.",
     "details": "They use low-level CPU instructions (CAS) for performance.",
     "example_code": "AtomicInteger count = new AtomicInteger(0);\ncount.incrementAndGet(); // Thread-safe increment"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Classloaders",
+    "question": "What are the different types of Classloaders in Java?",
+    "answer": "Bootstrap (loads core libs like rt.jar), Extension/Platform (loads libs from ext folder), and System/Application Classloader (loads classes from classpath).",
+    "details": "They follow a delegation hierarchy model.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Memory Management",
+    "question": "Difference between StackOverflowError and OutOfMemoryError?",
+    "answer": "StackOverflowError occurs when the stack memory is full (often due to infinite recursion). OutOfMemoryError occurs when the Heap memory is full (too many objects).",
+    "details": "Stack stores method calls; Heap stores objects.",
+    "example_code": "public void recursive() { recursive(); } // Causes StackOverflowError"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Java 8 Memory",
+    "question": "What is the difference between PermGen and Metaspace?",
+    "answer": "PermGen was the method area in Java 7 (fixed size). Metaspace replaced it in Java 8 and uses native memory (auto-resizable).",
+    "details": "This reduces the chance of OutOfMemoryError: PermGen space.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "References",
+    "question": "What is the difference between WeakReference and SoftReference?",
+    "answer": "WeakReference objects are collected eagerly by GC. SoftReference objects are collected only when JVM runs out of memory.",
+    "details": "SoftReference is often used for implementing caches.",
+    "example_code": "WeakReference<Student> weak = new WeakReference<>(new Student());"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "JIT Compiler",
+    "question": "What is the JIT (Just-In-Time) Compiler?",
+    "answer": "JIT is a component of the JVM that optimizes performance by compiling bytecode into native machine code at runtime.",
+    "details": "It identifies 'hot spots' (frequently called methods) to optimize.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Marker Interface",
+    "question": "What is a Marker Interface?",
+    "answer": "An interface with no methods or constants. It signals the JVM or compiler to perform some special operation.",
+    "details": "Examples: Serializable, Cloneable, Remote.",
+    "example_code": "public interface Serializable { }"
+  },
+  {
+    "category": "java-programming",
+    "level": "Intermediate",
+    "topic": "Cloning",
+    "question": "Difference between Shallow Copy and Deep Copy?",
+    "answer": "Shallow copy copies the object but references internal objects. Deep copy copies the object and creates new copies of all internal objects.",
+    "details": "Default clone() does a shallow copy.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Memory Leaks",
+    "question": "What are common causes of Memory Leaks in Java?",
+    "answer": "Static collections (hashmaps) growing indefinitely, unclosed resources (streams/connections), and improper equals/hashCode implementations.",
+    "details": "Objects in static fields stay in memory for the life of the application.",
+    "example_code": "static List<Object> leak = new ArrayList<>(); // Never cleared"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Externalization",
+    "question": "What is Externalizable interface?",
+    "answer": "It extends Serializable and allows the programmer to control the reading and writing of objects completely using writeExternal() and readExternal().",
+    "details": "It is faster than Serialization but requires more code.",
+    "example_code": "public void writeExternal(ObjectOutput out) throws IOException { ... }"
+  },
+  {
+    "category": "java-programming",
+    "level": "Basic",
+    "topic": "Finalize",
+    "question": "What is the finalize() method?",
+    "answer": "It was a method used to perform cleanup before an object is garbage collected. It is now deprecated in newer Java versions (Java 9+).",
+    "details": "Use try-with-resources or Cleaner instead.",
+    "example_code": "protected void finalize() { System.out.println(\"Removed\"); }"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Thread Communication",
+    "question": "Difference between wait() and sleep()?",
+    "answer": "wait() releases the lock and waits for notification. sleep() pauses execution but keeps the lock.",
+    "details": "wait() is an Object method; sleep() is a Thread static method.",
+    "example_code": "synchronized(obj) { obj.wait(); } // Releases lock"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Locks",
+    "question": "Difference between synchronized and ReentrantLock?",
+    "answer": "synchronized is implicit and block-based. ReentrantLock provides more flexibility, like fairness policies, tryLock(), and interruptible locking.",
+    "details": "ReentrantLock must be explicitly unlocked in a finally block.",
+    "example_code": "lock.lock(); try { ... } finally { lock.unlock(); }"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Thread Communication",
+    "question": "Difference between notify() and notifyAll()?",
+    "answer": "notify() wakes up a single random thread waiting on the object's monitor. notifyAll() wakes up all waiting threads.",
+    "details": "notifyAll() is safer to avoid missed signals.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "ThreadLocal",
+    "question": "What is ThreadLocal?",
+    "answer": "It provides thread-local variables. Each thread accessing the variable has its own, independently initialized copy.",
+    "details": "Useful for storing transaction IDs or user sessions per thread.",
+    "example_code": "ThreadLocal<Integer> threadId = ThreadLocal.withInitial(() -> 1);"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "CountDownLatch",
+    "question": "What is CountDownLatch?",
+    "answer": "A synchronizer that allows one or more threads to wait until a set of operations being performed in other threads completes.",
+    "details": "The count cannot be reset once it reaches zero.",
+    "example_code": "CountDownLatch latch = new CountDownLatch(3); \nlatch.await(); // Waits for count to be 0"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "CyclicBarrier",
+    "question": "Difference between CountDownLatch and CyclicBarrier?",
+    "answer": "CountDownLatch cannot be reused. CyclicBarrier can be reused after the waiting threads are released.",
+    "details": "CyclicBarrier waits for a fixed number of threads to reach a common barrier point.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Callable vs Runnable",
+    "question": "Difference between Callable and Runnable?",
+    "answer": "Runnable does not return a result and cannot throw checked exceptions. Callable returns a result and can throw exceptions.",
+    "details": "Callable is used with ExecutorService to get a Future.",
+    "example_code": "Callable<Integer> task = () -> { return 10; };"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "BlockingQueue",
+    "question": "What is BlockingQueue used for?",
+    "answer": "It is a thread-safe queue that supports operations that wait for the queue to become non-empty when retrieving, and non-full when storing.",
+    "details": "Ideal for Producer-Consumer problems.",
+    "example_code": "BlockingQueue<String> queue = new ArrayBlockingQueue<>(10);"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Future",
+    "question": "What is a Future object?",
+    "answer": "It represents the result of an asynchronous computation. You can check if the task is done, wait for completion, and retrieve the result.",
+    "details": "Obtained when submitting a Callable to an Executor.",
+    "example_code": "Future<Integer> future = executor.submit(callableTask);\nInteger result = future.get();"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Race Condition",
+    "question": "What is a Race Condition?",
+    "answer": "A situation where two or more threads access shared data concurrently and try to change it at the same time, leading to unpredictable results.",
+    "details": "Prevented using synchronization or atomic variables.",
+    "example_code": "if (x == 5) // Thread 1 checks\n   y = x * 2; // Thread 2 changes x before this line"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Design Patterns",
+    "question": "What is the Factory Design Pattern?",
+    "answer": "A creational pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.",
+    "details": "Used when the exact type of object isn't known until runtime.",
+    "example_code": "Shape s = ShapeFactory.getShape(\"CIRCLE\");"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Design Patterns",
+    "question": "What is the Observer Design Pattern?",
+    "answer": "A behavioral pattern where an object (Subject) maintains a list of dependents (Observers) and notifies them of any state changes.",
+    "details": "Used in event handling systems (e.g., Listener in Swing/JS).",
+    "example_code": "Not required"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Design Patterns",
+    "question": "How do you create an Immutable Class?",
+    "answer": "Declare class as final, make fields private and final, provide no setters, and initialize all fields via constructor.",
+    "details": "If fields are mutable objects, return deep copies in getters.",
+    "example_code": "final class User {\n    private final String name;\n    public User(String name) { this.name = name; }\n}"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Design Patterns",
+    "question": "What is the Builder Design Pattern?",
+    "answer": "A creational pattern used to construct a complex object step by step. It separates the construction of a complex object from its representation.",
+    "details": "Useful when a class has many constructor parameters.",
+    "example_code": "User u = new User.Builder().setName(\"John\").setAge(25).build();"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Java 8 Streams",
+    "question": "Difference between map() and flatMap()?",
+    "answer": "map() transforms each element into a single value. flatMap() transforms each element into a stream of values and flattens them into a single stream.",
+    "details": "map: One-to-One. flatMap: One-to-Many.",
+    "example_code": "List<String> words = list.stream().flatMap(line -> Arrays.stream(line.split(\" \"))).collect(Collectors.toList());"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Functional Interfaces",
+    "question": "What are Predicate, Consumer, Supplier, and Function?",
+    "answer": "Core functional interfaces: Predicate (returns boolean), Consumer (accepts arg, returns void), Supplier (returns result, no args), Function (accepts arg, returns result).",
+    "details": "Used extensively in Streams.",
+    "example_code": "Predicate<String> isLong = s -> s.length() > 5;"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Java 8 Features",
+    "question": "What is a Method Reference?",
+    "answer": "Shorthand syntax for a lambda expression that executes just one existing method.",
+    "details": "Syntax: ClassName::methodName",
+    "example_code": "list.forEach(System.out::println);"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Parallel Stream",
+    "question": "What is a Parallel Stream?",
+    "answer": "A stream that splits elements into multiple chunks and processes them in parallel using the Fork/Join framework.",
+    "details": "Use .parallelStream() for large datasets, but be careful of thread safety.",
+    "example_code": "list.parallelStream().filter(e -> e > 10).count();"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Database",
+    "question": "Difference between Statement and PreparedStatement?",
+    "answer": "Statement is used for general SQL queries. PreparedStatement is precompiled and used for queries with parameters.",
+    "details": "PreparedStatement prevents SQL Injection and is faster for repeated execution.",
+    "example_code": "PreparedStatement ps = con.prepareStatement(\"SELECT * FROM users WHERE id = ?\");"
+  },
+  {
+    "category": "java-programming",
+    "level": "Advanced",
+    "topic": "Interfaces",
+    "question": "How does Java resolve the Diamond Problem with default methods?",
+    "answer": "If a class implements two interfaces with the same default method, the class must override the method to resolve the conflict.",
+    "details": "You can call a specific interface's method using InterfaceName.super.method().",
+    "example_code": "public void show() { InterfaceA.super.show(); }"
   }
 ]
-
-
-
