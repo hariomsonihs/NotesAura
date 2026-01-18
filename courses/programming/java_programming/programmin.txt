@@ -1,0 +1,128 @@
+# Sample Exercise Content Format
+
+This is a sample text file showing how to format your exercise content for NotesAura app.
+
+## What is Programming
+
+Programming is the process of writing a set of instructions that a computer can follow to perform a specific task.
+
+**Basically**: a programmer writes code, telling the computer step-by-step what to do — like a recipe or set of directions.
+
+### Key Points
+
+- Programming languages are tools for communication with computers
+- Code is translated to machine language (binary)
+- Different languages serve different purposes
+
+## What is a Programming Language
+
+A programming language is a formal language — a vocabulary plus a set of grammatical (syntactic) rules — that allows humans to give instructions to a computer.
+
+> Important: Each programming language defines its own syntax (how you write instructions) and semantics (what instructions mean).
+
+### Popular Programming Languages
+
+1. Java - Object-oriented, platform-independent
+2. Python - Easy to learn, versatile
+3. JavaScript - Web development
+4. C++ - System programming, games
+
+## Code Example
+
+Here's a simple "Hello World" program in Java:
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+## Adding Images
+
+You can add images using this format:
+
+![Programming Concept](https://example.com/image.jpg)
+
+Or use GitHub raw URLs:
+
+![Java Logo](https://raw.githubusercontent.com/username/repo/main/images/java-logo.png)
+
+---
+
+## Formatting Guide
+
+### Text Formatting
+
+- Use **double asterisks** for bold text
+- Use *single asterisks* for italic text
+- Use `backticks` for inline code (not fully supported yet)
+
+### Headings
+
+```
+# Main Heading (H1)
+## Sub Heading (H2)
+### Smaller Heading (H3)
+```
+
+### Lists
+
+Bullet points:
+- Item 1
+- Item 2
+- Item 3
+
+Numbered lists:
+1. First item
+2. Second item
+3. Third item
+
+### Code Blocks
+
+Use triple backticks for code blocks:
+
+```
+```language
+your code here
+```
+```
+
+### Quotes
+
+> Use greater-than symbol for quotes or important notes
+
+### Horizontal Lines
+
+Use three dashes for horizontal dividers:
+
+---
+
+## Best Practices
+
+1. Keep paragraphs short and readable
+2. Use headings to organize content
+3. Add code examples where relevant
+4. Include images to illustrate concepts
+5. Use quotes for important notes
+
+**Remember**: The app will automatically format your content beautifully!
+
+---
+
+## Image URLs
+
+For images, you can use:
+- Direct image URLs (https://example.com/image.jpg)
+- GitHub raw URLs (https://raw.githubusercontent.com/...)
+- Any publicly accessible image URL
+
+Make sure images are:
+- Publicly accessible
+- In common formats (JPG, PNG, GIF)
+- Reasonably sized for mobile viewing
+
+---
+
+*Happy Learning!* 📚
