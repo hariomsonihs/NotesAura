@@ -4,16 +4,13 @@ Programming is the process of writing a set of instructions (called **code**) th
 In simple words: **Programming = telling a computer what to do step-by-step (like a recipe).**
 
 **Example tasks done using programming:**
-
-*Making mobile apps 📱*
-*Creating websites 🌐*
-*Building games 🎮*
-*Running machines/robots 🤖*
-*Solving math problems ➗*
-*Data analysis & AI 🤯*
-
+*• Making mobile apps 📱*
+*• Creating websites 🌐*
+*• Building games 🎮*
+*• Running machines/robots 🤖*
+*• Solving math problems ➗*
+*• Data analysis & AI 🤯*
 ---
-
 ## Key Points of Programming:
 
 - Programming means writing **programs** (instructions) for computers.
