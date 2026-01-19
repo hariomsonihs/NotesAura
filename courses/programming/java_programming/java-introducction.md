@@ -1,373 +1,339 @@
-# What is Java?
+### **What is Java Programming?**
 
-Java is a **high-level, object-oriented programming language** that is widely used to build different types of software applications.
-Java allows developers to write programs that are **platform-independent**.
-That means:
+Java is a high-level, **object-oriented programming language** that is widely used to build different types of software applications. Java allows developers to write programs that are platform-independent, That means:
 
-**Write Once, Run Anywhere (WORA)**
-Once you compile your Java program, you can run it on any system that supports Java **without rewriting the code**. 
+**Write Once, Run Anywhere (WORA), **Once you compile your Java program, you can run it on any system that supports Java without rewriting the code. 
 
----
+### **Where Java is Used?**
 
-### Where Java is Used?
+**Java is used in:**
 
-Java is used in:
+- Desktop Application
+- Web Applications
+- Enterprise Applications
+- Mobile Apps (Android)
+- Server-side Applications
+- Large Scale Systems
 
-- *Desktop Application*
-- *Web Applications*
-- *Enterprise Applications*
-- *Mobile Apps (**Android**)*
-- *Server-side Applications*
-- *Large Scale Systems*
-### Who Developed Java?
+### **Who Developed Java?**
 
-*- *Java was developed by **Sun Microsystems***
-- *Java was released in **1995***
-- ***James Gosling** is known as the **Father of Java** *
-- *Later, Sun Microsystems was acquired by **Oracle Corporation (2010)***
+Java was developed by **Sun Microsystems**. Java was released in **1995** and **James Gosling **is known as the Father of Java. Later, **Sun Microsystems was acquired by Oracle Corporation (2010).**
 
-*
----
+**
+**
 
-# History of Java:
+### **History of Java:**
 
-### Origin (1991):
+**i. Origin (1991):**
 
-Java started in **1991** as a project at Sun Microsystems, led by:
-*- *James Gosling*
-- *Mike Sheridan* 
-- *Patrick Naughton* 
+*Java started in 1991 as a project at Sun Microsystems, led by:*
 
-*
- Initially it was meant for:
-embedded devices / interactive television 
+- **James Gosling**
+- **Mike Sheridan**
+- **Patrick Naughton**
 
-### Name Journey:
+Initially it was meant for:
 
-Java’s project name changed over time: 
-**1. Oak** (named after an oak tree) 
-**2. ****Green** 
-**3. ****Java** (inspired by Java coffee)
-### First Public Release
+**embedded devices / interactive television .**
 
-*Java’s first public release was **Java 1.0 (1996)***
-*It introduced the concept of:* 
-   **Bytecode + JVM** for platform independence.
+**ii. Name Journey:**
 
-### Oracle Takes Over (2010)
+Java’s project name changed over time:
+
+**1. Oak (named after an oak tree)**
+
+**2. Green**
+
+**3. Java (inspired by Java coffee)**
+
+First Public Release:
+
+- Java’s first public release was Java 1.0 (1996) 
+- It introduced the concept of:
+
+  **Bytecode + JVM for platform independence.**
+
+**
+**
+
+**iii. Oracle Takes Over (2010)**
 
 In **2010**, Oracle acquired Sun Microsystems and became responsible for Java’s development and future.
 
----
-
-# Java Versions (Important Releases)
-
----
+**iv. Java Versions (Important Releases)**
 
 ![Versions of Java](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/images/java_versions.jpeg)
 
----
-
-# Key Features of Java:
+Key Features of Java:
 
 Java was designed with major goals such as:
+
 portability, simplicity, robustness, security, and versatility.
 
----
+1. Object-Oriented
 
-## 1. Object-Oriented
+Java is object-oriented, meaning it is based on:
 
-Java is **object-oriented**, meaning it is based on:
+Classes
 
-- *Classes*
-- *Objects*
-- *Encapsulation*
-- *Inheritance*
-- *Polymorphism*
+Objects
 
-**Benefits:**
+Encapsulation
 
-- *Code becomes modular*
-- *Reusable*
-- *Easy to maintain*
+Inheritance
 
----
+Polymorphism
 
-## 2. Platform Independent (Bytecode + JVM)
+Benefits:
+
+Code becomes modular
+
+Reusable
+
+Easy to maintain
+
+2. Platform Independent (Bytecode + JVM)
 
 Java code works like this:
 
-Java Code (.java) → compiled into **Bytecode (.class)**
-Bytecode runs on **JVM** in any OS
+Java Code (.java) → compiled into Bytecode (.class)
+
+Bytecode runs on JVM in any OS
 
 This makes Java platform-independent and supports:
 
-- **Write Once, Run Anywhere (WORA)**
+Write Once, Run Anywhere (WORA)
 
----
+3. Simple & Familiar Syntax
 
-## 3. Simple & Familiar Syntax
+Java syntax is inspired from C/C++, but:
 
-Java syntax is inspired from **C/C++**, but:
 Java avoids complex low-level features like explicit pointers
+
 So it is easier to learn and safer.
 
----
-
-## 4. Robustness
+4. Robustness
 
 Java is robust because it provides:
 
-- * Strong type checking*
-- *Exception handling*
-- *Automatic Garbage Collection*
-- *Compile-time + Runtime error checking*
+ Strong type checking
+
+Exception handling
+
+Automatic Garbage Collection
+
+Compile-time + Runtime error checking
 
 This reduces common bugs like memory leaks.
 
----
-
-## 5. Security
+5. Security
 
 Java runs inside JVM, which provides a secure runtime environment and restrictions like:
 
-- *Network access limitations*
-- *File system restrictions*
+Network access limitations
+
+File system restrictions
 
 This makes Java applications safer, especially on networks.
 
----
-
-## 6. Multithreading & Concurrency
+6. Multithreading & Concurrency
 
 Java supports multithreading, meaning:
+
 It can run multiple tasks simultaneously using threads.
 
-**Example uses:**
+Example uses:
 
-*• Gaming*
-*• Server requests handling*
-*• Background processing*
-*• Real-time apps*
+• Gaming
 
----
+• Server requests handling
 
-## 7. Rich Standard Library (API)
+• Background processing
+
+• Real-time apps
+
+7. Rich Standard Library (API)
 
 Java provides huge built-in libraries for:
 
-- *Collections (List, Set, Map)*
-- *File Handling (I/O)*
-- *Networking*
-- *Database connectivity (JDBC)*
-- *GUI tools (Swing, JavaFX)*
-- *Concurrency utilities*
+Collections (List, Set, Map)
+
+File Handling (I/O)
+
+Networking
+
+Database connectivity (JDBC)
+
+GUI tools (Swing, JavaFX)
+
+Concurrency utilities
 
 So developers don’t need to build everything from scratch.
 
----
-
-## 8. Versatile & Dynamic
+8. Versatile & Dynamic
 
 Java can be used everywhere:
 
-- *Desktop apps*
-- *Web apps*
-- *Enterprise systems*
-- *Cloud backend*
-- *Android apps*
+Desktop apps
 
-That’s why Java is called a **general-purpose programming language**.
+Web apps
 
----
+Enterprise systems
 
-# Java Environment Setup
+Cloud backend
+
+Android apps
+
+That’s why Java is called a general-purpose programming language.
+
+Java Environment Setup
 
 Before writing Java programs, you need to set up your development environment.
 
----
-
-## 1. Java Development Kit (JDK)
+1. Java Development Kit (JDK)
 
 JDK includes:
 
-- * **javac** (Java compiler)*
-- *runtime libraries*
-- *tools to compile and run Java programs*
+ javac (Java compiler)
 
----
+runtime libraries
 
-## Extra Important Concepts:
+tools to compile and run Java programs
 
-### JVM (Java Virtual Machine)
+Extra Important Concepts:
+
+JVM (Java Virtual Machine)
 
 JVM is the machine that runs Java bytecode.
+
 It provides:
 
-- *Execution platform*
-- *Memory management*
-- *Security*
+Execution platform
 
----
+Memory management
 
-### JRE (Java Runtime Environment)
+Security
 
-JRE is used to **run** Java programs.
+JRE (Java Runtime Environment)
+
+JRE is used to run Java programs.
+
 It includes:
 
-- *JVM*
-- *core libraries*
+JVM
 
-> *Note:* JRE is enough to run apps, but not enough to develop apps.
+core libraries
 
----
+Note: JRE is enough to run apps, but not enough to develop apps.
 
 ![JDK, JRE, JVM](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/images/java_jdk.jpeg)
 
----
+Basic Steps to Setup Java
 
-## Basic Steps to Setup Java
+1. Download and install the JDK for your OS
 
-1. Download and install the **JDK** for your OS
 2. Verify installation using terminal/command prompt:
 
-```
-bash
 java -version
+
 javac -version
 
-```
-
 3. Install an IDE (recommended):
-   IntelliJ IDEA / Eclipse / VS Code
 
----
+   IntelliJ IDEA / Eclipse / VS Code
 
 ![Environment setup of Java](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/images/java_env_setup.jpeg)
 
----
+Java — First Example (Hello World)
 
----
+Program Code
 
-# Java — First Example (Hello World)
-
-### Program Code
-
-```
 java
+
 // HelloWorld.java
+
 public class HelloWorld {
+
     public static void main(String[] args) {
+
         System.out.println("Hello, world!");
+
     }
+
 }
 
-```
+Explanation
 
----
-
-## Explanation
-
-```
-bash
 public class HelloWorld
 
-```
+This defines a class named HelloWorld.
 
-- This defines a class named **HelloWorld**.
-- In Java, every program starts with a class.
-```
-bash
+In Java, every program starts with a class.
+
 public static void main(String[] args)
 
-```
+This is the main method, which is the entry point of the program.
 
-This is the **main method**, which is the entry point of the program.
-Java starts execution from `main()`.
+Java starts execution from main().
 
-```
-bash
 System.out.println("Hello, world!");
 
-```
-
 Prints output on the console:
-`Hello, world!`
 
----
+Hello, world!
 
-# How a Java Program Works (Step-by-Step)
+How a Java Program Works (Step-by-Step)
 
 Java execution happens in stages:
 
----
-
-## Step 1: Write Source Code (.java)
+Step 1: Write Source Code (.java)
 
 You create a file like:
 
-`HelloWorld.java`
+HelloWorld.java
 
----
+Step 2: Compile Source Code (javac)
 
-## Step 2: Compile Source Code (javac)
+Compiler converts source code into bytecode:
 
-Compiler converts source code into **bytecode**:
-
-```
-bash
 javac HelloWorld.java
-
-```
 
 Output file generated:
 
-`HelloWorld.class`
+HelloWorld.class
 
----
-
-## Step 3: Run Program (java command)
+Step 3: Run Program (java command)
 
 Now run bytecode using JVM:
 
-```
-bash
 java HelloWorld
 
-```
+Step 4: JVM Executes Bytecode
 
----
+JVM performs:
 
-## Step 4: JVM Executes Bytecode
+loads bytecode
 
-*- JVM performs:*
-*- loads bytecode*
-*- verifies bytecode*
-*- executes it (interprets or uses JIT compilation)*
-*- manages memory + garbage collection*
-*- gives final output*
+verifies bytecode
 
-*- Result:*
+executes it (interprets or uses JIT compilation)
+
+manages memory + garbage collection
+
+gives final output
+
+Result:
 
 Output appears on console
 
----
-
 ![Java Working Flow](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/images/java_works.jpeg)
 
----
+Conclusion:
 
-# Conclusion:
+Java is Object-Oriented Platform Independent (WORA) Secure, Robust, and Fast Supports multithreading Used in real-world applications (Android, Web, Enterprise, Servers)
 
-*Java is Object-Oriented Platform Independent (WORA) Secure, Robust, and Fast Supports multithreading Used in real-world applications (Android, Web, Enterprise, Servers)*
+Happy Learning! 📚
 
----
+📚 NotesAura Learn Programming with Style
 
-**Happy Learning! 📚**
-
----
-
-> 📚 **NotesAura** - *Learn Programming with Style* 
-> © 2026 NotesAura. All rights reserved.
-
----
+© 2026 NotesAura. All rights reserved.
