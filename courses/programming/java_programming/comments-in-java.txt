@@ -137,11 +137,11 @@ This is a JavaDoc comment
 public class JavaDocExample {
 
     /**
-	Adds two numbers and returns the result.*
+	    Adds two numbers and returns the result.*
 
- @param a first number*
-	@param b second number*
-	@return sum of a and b*
+        @param a first number*
+	    @param b second number*
+	    @return sum of a and b*
      */
     public static int add(int a, int b) {
         return a + b;
@@ -153,7 +153,6 @@ public class JavaDocExample {
     }
 }
 ```
-
 ---
 
 ## Explanation of JavaDoc Tags
@@ -198,7 +197,7 @@ Output will be an HTML documentation file.
 
 ```java
 /**
-	*This program demonstrates all types of comments in Java.*
+	This program demonstrates all types of comments in Java.
  */
 public class AllCommentsDemo {
 
