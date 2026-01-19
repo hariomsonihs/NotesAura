@@ -59,8 +59,8 @@ public class SingleLineCommentExample {
 
 ### Explanation
 
-> - * `// Printing a message` → compiler will ignore*
-> - * `System.out.println(...)` → output will print*
+> - * // Printing a message → compiler will ignore*
+> - * System.out.println(...) → output will print*
 
 ---
 
@@ -123,27 +123,25 @@ It starts with `/**` and ends with `*/`.
 
 ```java
 /**
-*• This is a JavaDoc comment*
+This is a JavaDoc comment
  */
 ```
-
 ---
-
 ## JavaDoc Example (Class + Method Documentation)
 
 ```java
 /**
-	*This class demonstrates JavaDoc comments in Java.*
-	*Author: Hariom*
+	This class demonstrates JavaDoc comments in Java.
+	Author: Hariom
  */
 public class JavaDocExample {
 
     /**
-	*Adds two numbers and returns the result.*
+	Adds two numbers and returns the result.*
 
-	*@param a first number*
-	*@param b second number*
-	*@return sum of a and b*
+ @param a first number*
+	@param b second number*
+	@return sum of a and b*
      */
     public static int add(int a, int b) {
         return a + b;
@@ -221,13 +219,8 @@ public class AllCommentsDemo {
 }
 ```
 ---
-
-# Summary
-
-- *Java comments are ignored by compiler*
-- *Used for explanation and documentation
-Types:
-
-* `//` single-line*
-* `/* */` multi-line*
-* `/** */` JavaDoc*
+**Happy Learning! 📚**
+---
+> 📚 **NotesAura** - *Learn Programming with Style*
+> © 2026 NotesAura. All rights reserved.
+---
