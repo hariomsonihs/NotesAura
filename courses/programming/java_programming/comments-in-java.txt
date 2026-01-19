@@ -1,0 +1,275 @@
+# Comments in Java
+
+## What are Comments in Java?
+
+**Comments** are the lines in a program that are **ignored by the Java compiler**.
+They are written to **explain the code**, make it more readable, and help future developers (or yourself) understand the program easily.
+
+Comments do not affect the output of the program.
+
+---
+
+## Why Do We Use Comments?
+
+### Importance of Comments in Java
+
+Comments are used for:
+
+*• Explaining logic / purpose of code*
+*• Making code easy to read*
+*• Helping in debugging*
+*• Writing documentation (especially using Javadoc)*
+*• Team collaboration (others understand your code better)*
+
+---
+
+# Types of Comments in Java
+
+Java supports mainly **3 types of comments**:
+
+1. Single-line Comment (`//`)
+2. Multi-line / Block Comment (`/* ... */`)
+3. Documentation Comment / JavaDoc (`/** ... */`) ([runestone.academy][2])
+
+---
+
+# 1) Single-line Comments (`//`)
+
+## Definition
+
+A **single-line comment** starts with `//` and continues until the **end of the line**. ([W3Schools][1])
+
+---
+
+## Syntax
+
+```java
+// This is a single-line comment
+```
+
+---
+
+## Example Code
+
+```java
+public class SingleLineCommentExample {
+    public static void main(String[] args) {
+        // Printing a message
+        System.out.println("Hello Java!");
+    }
+}
+```
+
+### Explanation
+
+*• `// Printing a message` → compiler ignore karega*
+*• `System.out.println(...)` → output print karega*
+
+---
+
+## Single-line Comment (Inline Example)
+
+```java
+int age = 20; // age variable stores the value 20
+```
+
+This is called an **end-of-line** comment.
+
+---
+
+# 2) Multi-line / Block Comments (`/* ... */`)
+
+## Definition
+
+Multi-line comments are used when comment **multiple lines** me likhna ho.
+They start with `/*` and end with `*/`. ([W3Schools][1])
+
+---
+
+## Syntax
+
+```java
+/*
+ This is a multi-line comment
+ It can span multiple lines
+*/
+```
+
+---
+
+## Example Code
+
+```java
+public class MultiLineCommentExample {
+    public static void main(String[] args) {
+
+        /*
+         This program prints 2 lines.
+         Multi-line comments are useful for long descriptions.
+        */
+
+        System.out.println("Java Comments");
+        System.out.println("Multi-line comment example");
+    }
+}
+```
+---
+
+# 3) Documentation Comments (JavaDoc) (`/** ... */`)
+
+## Definition
+
+JavaDoc comment is a special type of comment used to create **professional documentation** of:
+
+*• class*
+*• method*
+*• constructor*
+*• variables (fields)*
+
+It starts with `/**` and ends with `*/`. ([Oracle Documentation][4])
+
+---
+
+## Syntax
+
+```java
+/**
+*• This is a JavaDoc comment*
+ */
+```
+
+---
+
+## JavaDoc Example (Class + Method Documentation)
+
+```java
+/**
+*• This class demonstrates JavaDoc comments in Java.*
+*• Author: Hariom*
+ */
+public class JavaDocExample {
+
+    /**
+*• Adds two numbers and returns the result.*
+     *
+*• @param a first number*
+*• @param b second number*
+*• @return sum of a and b*
+     */
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        int result = add(10, 20);
+        System.out.println("Sum = " + result);
+    }
+}
+```
+
+---
+
+## Explanation of JavaDoc Tags
+
+JavaDoc tags start with `@` and provide additional information. ([Oracle Documentation][5])
+
+###  Common JavaDoc Tags
+
+| Tag                      | Meaning                      |
+| ------------------------ | ---------------------------- |
+| `@param`                 | method parameter description |
+| `@return`                | return value description     |
+| `@throws` / `@exception` | exception info               |
+| `@author`                | class author                 |
+| `@since`                 | version info                 |
+| `@deprecated`            | feature outdated             |
+
+---
+
+## How to Generate JavaDoc
+
+You can generate HTML documentation using the `javadoc` tool.
+JavaDoc comments are processed to create HTML docs. ([Oracle Documentation][6])
+
+Example command:
+
+```bash
+javadoc JavaDocExample.java
+```
+
+Output will be an HTML documentation file.
+
+---
+
+# Quick Comparison:
+
+| Type        | Syntax           | Use                                   |
+| ----------- | ---------------- | ------------------------------------- |
+| Single-line | `// comment`     | Small notes, short explanations       |
+| Multi-line  | `/* comment */`  | Long description, disable code blocks |
+| JavaDoc     | `/** comment */` | Documentation for API/classes/methods |
+
+---
+
+# Best Practices (Pro Tips )
+
+Always write comments that add value
+Keep comments short and meaningful
+Use JavaDoc for important methods/classes
+Avoid over-commenting (code should be readable itself)
+Update comments if logic changes
+
+---
+
+# Bad Comments vs Good Comments
+
+### ❌ Bad Comment
+
+```java
+int x = 10; // x is 10
+```
+
+### Good Comment
+
+```java
+int maxUsers = 10; // Maximum users allowed in free version
+```
+
+---
+
+# Example Program Using All Types of Comments 
+
+```java
+/**
+*• This program demonstrates all types of comments in Java.*
+ */
+public class AllCommentsDemo {
+
+    public static void main(String[] args) {
+
+        // Single-line comment: printing a message
+        System.out.println("Hello Java Comments!");
+
+        /*
+          Multi-line comment:
+          This block is used to explain multiple steps.
+        */
+        int a = 5;
+        int b = 10;
+
+        System.out.println("Sum = " + (a + b)); // End-of-line comment
+    }
+}
+```
+
+---
+
+# Summary (Short Notes )
+
+Java comments are ignored by compiler
+Used for explanation and documentation
+Types:
+
+*• `//` single-line*
+*• `/* */` multi-line*
+*• `/** */` JavaDoc*
