@@ -207,8 +207,8 @@ public class AllCommentsDemo {
         System.out.println("Hello Java Comments!");
 
         /*
-          *Multi-line comment:*
-          *This block is used to explain multiple steps.*
+          Multi-line comment:
+          This block is used to explain multiple steps.
         */
         int a = 5;
         int b = 10;
