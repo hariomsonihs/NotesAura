@@ -9,7 +9,7 @@ Once you compile your Java program, you can run it on any system that supports J
 ### Where Java is Used?
 Java is used in:
 
-- *Desktop Applications*
+- *Desktop Application*
 - *Web Applications*
 - *Enterprise Applications*
 - *Mobile Apps (**Android**)*
