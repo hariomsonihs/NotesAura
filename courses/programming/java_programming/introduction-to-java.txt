@@ -288,16 +288,8 @@ Output appears on console
 ---
 ![Java Working Flow](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/images/java_works.jpeg)
 ---
----
 # Conclusion:
-
-*- Java is:*
-*- Object-Oriented*
-*- Platform Independent (WORA)*
-*- Secure, Robust, and Fast*
-*- Supports multithreading*
-*- Used in real-world applications (Android, Web, Enterprise, Servers)*
----
+*Java is Object-Oriented Platform Independent (WORA) Secure, Robust, and Fast Supports multithreading Used in real-world applications (Android, Web, Enterprise, Servers)*
 ---
 **Happy Learning! 📚**
 ---
