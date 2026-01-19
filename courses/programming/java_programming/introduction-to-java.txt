@@ -231,9 +231,9 @@ public class HelloWorld
 ```
 - This defines a class named **HelloWorld**.
 - In Java, every program starts with a class.
----bash
+```bash
 public static void main(String[] args)
----
+```
 This is the **main method**, which is the entry point of the program.
 Java starts execution from `main()`.
 
