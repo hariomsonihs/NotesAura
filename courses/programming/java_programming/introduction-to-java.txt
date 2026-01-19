@@ -17,19 +17,19 @@ Java is used in:
 - *Large Scale Systems*
 ### Who Developed Java?
 
-* - Java was developed by **Sun Microsystems** *
-* - Java was released in **1995***
-* - **James Gosling** is known as the **Father of Java** *
-* - Later, Sun Microsystems was acquired by **Oracle Corporation (2010)** *
+- *Java was developed by **Sun Microsystems** *
+- *Java was released in **1995***
+- * **James Gosling** is known as the **Father of Java** *
+- *Later, Sun Microsystems was acquired by **Oracle Corporation (2010)** *
 ---
 # History of Java:
 
 ### Origin (1991):
 Java started in **1991** as a project at Sun Microsystems, led by:
 
-* - James Gosling*
-* - Mike Sheridan*
-* - Patrick Naughton*
+- *James Gosling*
+- *Mike Sheridan*
+- *Patrick Naughton*
 
 Initially it was meant for:
 embedded devices / interactive television 
@@ -62,17 +62,17 @@ portability, simplicity, robustness, security, and versatility.
 
 Java is **object-oriented**, meaning it is based on:
 
-*- **Classes***
-*- **Objects***
-*- **Encapsulation***
-*- **Inheritance***
-*- **Polymorphism***
+- ***Classes***
+- ***Objects***
+- ***Encapsulation***
+- ***Inheritance***
+- ***Polymorphism***
 
 **Benefits:**
 
-*- Code becomes modular*
-*- Reusable*
-*- Easy to maintain*
+- *Code becomes modular*
+- *Reusable*
+- *Easy to maintain*
 ---
 ## 2. Platform Independent (Bytecode + JVM)
 
