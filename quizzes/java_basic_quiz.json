@@ -1,0 +1,574 @@
+{
+  "category": "java-programming",
+  "topicName": "Java Basics (Core Fundamentals)",
+  "instructions": [
+    "✅ Select the correct option (A, B, C, or D).",
+    "✅ Each question has only ONE correct answer.",
+    "✅ This quiz covers Java intro, syntax, data types, operators, input/output, and basic rules.",
+    "✅ Try without seeing answers first, then verify using the answer field."
+  ],
+  "quizLevel": "Beginner to Intermediate",
+  "totalQuestions": 40,
+  "questions": [
+    {
+      "id": 1,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Java is a ______ language.",
+      "options": {
+        "A": "Low-level programming",
+        "B": "High-level programming",
+        "C": "Machine-level programming",
+        "D": "Assembly language"
+      },
+      "answer": "B",
+      "details": "Java is a high-level, object-oriented and platform-independent programming language."
+    },
+    {
+      "id": 2,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Who developed Java programming language?",
+      "options": {
+        "A": "Dennis Ritchie",
+        "B": "James Gosling",
+        "C": "Guido van Rossum",
+        "D": "Bjarne Stroustrup"
+      },
+      "answer": "B",
+      "details": "Java was developed by James Gosling at Sun Microsystems."
+    },
+    {
+      "id": 3,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Java code is first compiled into ______.",
+      "options": {
+        "A": "Machine Code",
+        "B": "Binary directly",
+        "C": "Bytecode",
+        "D": "Assembly Code"
+      },
+      "answer": "C",
+      "details": "Java compiler converts .java to bytecode (.class), which runs on JVM."
+    },
+    {
+      "id": 4,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which component runs Java Bytecode?",
+      "options": {
+        "A": "JRE",
+        "B": "JVM",
+        "C": "JDK",
+        "D": "Compiler only"
+      },
+      "answer": "B",
+      "details": "JVM (Java Virtual Machine) executes bytecode and provides platform independence."
+    },
+    {
+      "id": 5,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which keyword is used to define a class in Java?",
+      "options": {
+        "A": "class",
+        "B": "Class",
+        "C": "define",
+        "D": "struct"
+      },
+      "answer": "A",
+      "details": "The correct keyword is lowercase 'class'."
+    },
+    {
+      "id": 6,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which method is the entry point of a Java program?",
+      "options": {
+        "A": "main()",
+        "B": "start()",
+        "C": "run()",
+        "D": "init()"
+      },
+      "answer": "A",
+      "details": "Execution starts from: public static void main(String[] args)"
+    },
+    {
+      "id": 7,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "What is the correct signature of main method?",
+      "options": {
+        "A": "public void main(String args[])",
+        "B": "public static void main(String[] args)",
+        "C": "static public int main(String[] args)",
+        "D": "public main(String[] args)"
+      },
+      "answer": "B",
+      "details": "The main method must be public, static, void, and accept String[] arguments."
+    },
+    {
+      "id": 8,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which symbol is used to end a statement in Java?",
+      "options": {
+        "A": ":",
+        "B": ".",
+        "C": ";",
+        "D": ","
+      },
+      "answer": "C",
+      "details": "Semicolon ';' ends most Java statements."
+    },
+    {
+      "id": 9,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which of these is NOT a Java keyword?",
+      "options": {
+        "A": "class",
+        "B": "static",
+        "C": "void",
+        "D": "println"
+      },
+      "answer": "D",
+      "details": "println is a method, not a keyword."
+    },
+    {
+      "id": 10,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which of the following is used to print output in Java?",
+      "options": {
+        "A": "System.print()",
+        "B": "System.out.print()",
+        "C": "Console.write()",
+        "D": "echo()"
+      },
+      "answer": "B",
+      "details": "System.out.print() and System.out.println() are used for printing."
+    },
+    {
+      "id": 11,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "What does System.out.println() do?",
+      "options": {
+        "A": "Prints output without new line",
+        "B": "Prints output with new line",
+        "C": "Takes input from user",
+        "D": "Stops the program"
+      },
+      "answer": "B",
+      "details": "println prints the output and moves cursor to next line."
+    },
+    {
+      "id": 12,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which of these is a valid comment in Java?",
+      "options": {
+        "A": "# This is a comment",
+        "B": "// This is a comment",
+        "C": "<!-- comment -->",
+        "D": "** comment **"
+      },
+      "answer": "B",
+      "details": "Java supports // single-line and /* ... */ multi-line comments."
+    },
+    {
+      "id": 13,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which is a valid multi-line comment in Java?",
+      "options": {
+        "A": "/* This is a comment */",
+        "B": "// This is a comment //",
+        "C": "# This is a comment #",
+        "D": "<!-- comment -->"
+      },
+      "answer": "A",
+      "details": "Multi-line comment uses /* ... */"
+    },
+    {
+      "id": 14,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which datatype is used to store whole numbers?",
+      "options": {
+        "A": "float",
+        "B": "double",
+        "C": "int",
+        "D": "boolean"
+      },
+      "answer": "C",
+      "details": "int is used for storing integer/whole number values."
+    },
+    {
+      "id": 15,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which datatype is used to store true/false values?",
+      "options": {
+        "A": "char",
+        "B": "boolean",
+        "C": "String",
+        "D": "int"
+      },
+      "answer": "B",
+      "details": "boolean stores only true or false."
+    },
+    {
+      "id": 16,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which datatype is used to store a decimal number?",
+      "options": {
+        "A": "int",
+        "B": "double",
+        "C": "char",
+        "D": "boolean"
+      },
+      "answer": "B",
+      "details": "double is commonly used for decimal values in Java."
+    },
+    {
+      "id": 17,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which datatype is used to store a single character?",
+      "options": {
+        "A": "char",
+        "B": "String",
+        "C": "int",
+        "D": "float"
+      },
+      "answer": "A",
+      "details": "char stores one Unicode character (example: 'A')."
+    },
+    {
+      "id": 18,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which of the following is NOT a primitive datatype in Java?",
+      "options": {
+        "A": "int",
+        "B": "boolean",
+        "C": "String",
+        "D": "double"
+      },
+      "answer": "C",
+      "details": "String is a class (non-primitive/reference type)."
+    },
+    {
+      "id": 19,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which operator is used for addition?",
+      "options": {
+        "A": "*",
+        "B": "+",
+        "C": "-",
+        "D": "/"
+      },
+      "answer": "B",
+      "details": "+ is used for addition (also string concatenation)."
+    },
+    {
+      "id": 20,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which operator is used to compare equality of two values?",
+      "options": {
+        "A": "=",
+        "B": "==",
+        "C": "!=",
+        "D": "<="
+      },
+      "answer": "B",
+      "details": "== checks equality, while = assigns value."
+    },
+    {
+      "id": 21,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which operator is used to assign a value?",
+      "options": {
+        "A": "==",
+        "B": "=",
+        "C": "!=",
+        "D": "++"
+      },
+      "answer": "B",
+      "details": "= assigns a value to a variable."
+    },
+    {
+      "id": 22,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "What is the output?\nSystem.out.println(5 + 3);",
+      "options": {
+        "A": "8",
+        "B": "53",
+        "C": "Error",
+        "D": "5+3"
+      },
+      "answer": "A",
+      "details": "5 + 3 is integer addition, output is 8."
+    },
+    {
+      "id": 23,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "What is the output?\nSystem.out.println(\"5\" + 3);",
+      "options": {
+        "A": "8",
+        "B": "53",
+        "C": "Error",
+        "D": "5 3"
+      },
+      "answer": "B",
+      "details": "\"5\" is a String, so + performs concatenation → \"53\"."
+    },
+    {
+      "id": 24,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which keyword is used to take input in Java?",
+      "options": {
+        "A": "Scanner",
+        "B": "input",
+        "C": "read",
+        "D": "cin"
+      },
+      "answer": "A",
+      "details": "Scanner class is commonly used for input: new Scanner(System.in)"
+    },
+    {
+      "id": 25,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which package contains the Scanner class?",
+      "options": {
+        "A": "java.io",
+        "B": "java.util",
+        "C": "java.lang",
+        "D": "java.net"
+      },
+      "answer": "B",
+      "details": "Scanner is present in java.util package."
+    },
+    {
+      "id": 26,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which statement creates a Scanner object?",
+      "options": {
+        "A": "Scanner sc = Scanner(System.in);",
+        "B": "Scanner sc = new Scanner(System.in);",
+        "C": "Scanner sc = new Scanner();",
+        "D": "Scanner(System.in);"
+      },
+      "answer": "B",
+      "details": "Correct object creation syntax: new Scanner(System.in)"
+    },
+    {
+      "id": 27,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which method reads an integer using Scanner?",
+      "options": {
+        "A": "nextInt()",
+        "B": "nextInteger()",
+        "C": "readInt()",
+        "D": "inputInt()"
+      },
+      "answer": "A",
+      "details": "Scanner method for int input is nextInt()."
+    },
+    {
+      "id": 28,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which method reads a full line of text using Scanner?",
+      "options": {
+        "A": "next()",
+        "B": "nextLine()",
+        "C": "line()",
+        "D": "readLine()"
+      },
+      "answer": "B",
+      "details": "nextLine() reads full line including spaces."
+    },
+    {
+      "id": 29,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which of these is a valid Java variable name?",
+      "options": {
+        "A": "2num",
+        "B": "num-1",
+        "C": "_num",
+        "D": "class"
+      },
+      "answer": "C",
+      "details": "Variable can start with underscore, but not digit, dash, or keyword."
+    },
+    {
+      "id": 30,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Java is ________ (Choose the best answer).",
+      "options": {
+        "A": "Only procedural",
+        "B": "Only functional",
+        "C": "Object-Oriented Programming language",
+        "D": "Markup language"
+      },
+      "answer": "C",
+      "details": "Java is primarily an Object-Oriented Programming (OOP) language."
+    },
+    {
+      "id": 31,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which of the following is used to create an object in Java?",
+      "options": {
+        "A": "create",
+        "B": "object",
+        "C": "new",
+        "D": "make"
+      },
+      "answer": "C",
+      "details": "Objects are created using 'new' keyword."
+    },
+    {
+      "id": 32,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which of the following is correct about Java?",
+      "options": {
+        "A": "Java supports multiple inheritance using classes",
+        "B": "Java supports multiple inheritance using interfaces",
+        "C": "Java does not support inheritance",
+        "D": "Java is not object oriented"
+      },
+      "answer": "B",
+      "details": "Java doesn't support multiple inheritance using classes, but supports it using interfaces."
+    },
+    {
+      "id": 33,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which of these is a correct output statement?",
+      "options": {
+        "A": "print(\"Hello\")",
+        "B": "System.out.println(\"Hello\");",
+        "C": "cout << \"Hello\";",
+        "D": "echo \"Hello\";"
+      },
+      "answer": "B",
+      "details": "Java uses System.out.println()."
+    },
+    {
+      "id": 34,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which one is an invalid String initialization?",
+      "options": {
+        "A": "String s = \"Java\";",
+        "B": "String s = new String(\"Java\");",
+        "C": "String s = 'Java';",
+        "D": "String s = \"J\";"
+      },
+      "answer": "C",
+      "details": "String uses double quotes, not single quotes."
+    },
+    {
+      "id": 35,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "What will be the output?\nSystem.out.println(10 / 2);",
+      "options": {
+        "A": "5",
+        "B": "5.0",
+        "C": "0",
+        "D": "Error"
+      },
+      "answer": "A",
+      "details": "Integer division 10/2 gives 5."
+    },
+    {
+      "id": 36,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "What will be the output?\nSystem.out.println(10 / 3);",
+      "options": {
+        "A": "3.33",
+        "B": "3",
+        "C": "0",
+        "D": "Error"
+      },
+      "answer": "B",
+      "details": "10 and 3 are integers, so result is integer division → 3."
+    },
+    {
+      "id": 37,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which of these is used to store multiple values of same type?",
+      "options": {
+        "A": "Array",
+        "B": "Method",
+        "C": "Class",
+        "D": "Package"
+      },
+      "answer": "A",
+      "details": "Arrays store multiple values of same type in continuous memory."
+    },
+    {
+      "id": 38,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which is the correct way to declare an array?",
+      "options": {
+        "A": "int arr[] = new int[5];",
+        "B": "int arr = new int(5);",
+        "C": "array int arr[5];",
+        "D": "int[] arr = (5);"
+      },
+      "answer": "A",
+      "details": "Correct array declaration and creation uses new int[size]."
+    },
+    {
+      "id": 39,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which keyword is used to stop a loop in Java?",
+      "options": {
+        "A": "stop",
+        "B": "end",
+        "C": "break",
+        "D": "exit"
+      },
+      "answer": "C",
+      "details": "break statement exits the loop immediately."
+    },
+    {
+      "id": 40,
+      "category": "java-programming",
+      "topic": "Java Basics",
+      "question": "Which keyword is used to skip current iteration of a loop?",
+      "options": {
+        "A": "skip",
+        "B": "continue",
+        "C": "pass",
+        "D": "jump"
+      },
+      "answer": "B",
+      "details": "continue skips the current iteration and moves to the next."
+    }
+  ]
+}
