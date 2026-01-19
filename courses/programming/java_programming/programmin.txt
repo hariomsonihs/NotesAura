@@ -22,7 +22,7 @@ In simple words: **Programming = telling a computer what to do step-by-step (lik
 ## What is a Computer Program?
 A **computer program** is a set of instructions that tells a computer how to perform a task.
 
-** *Example:* **
+**Example:**
 
 *• Calculator app is a program*
 *• WhatsApp is a program*
