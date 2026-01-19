@@ -1,0 +1,574 @@
+{
+  "category": "c-programming",
+  "topicName": "C Basics (Core Fundamentals)",
+  "instructions": [
+    "✅ Select the correct option (A, B, C, or D).",
+    "✅ Each question has only ONE correct answer.",
+    "✅ This quiz covers C introduction, syntax, data types, operators, input/output, and basic rules.",
+    "✅ Try without seeing answers first, then verify using the answer field."
+  ],
+  "quizLevel": "Beginner to Intermediate",
+  "totalQuestions": 40,
+  "questions": [
+    {
+      "id": 1,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "C programming language is a ______ language.",
+      "options": {
+        "A": "Low-level only",
+        "B": "High-level only",
+        "C": "Middle-level language",
+        "D": "Markup language"
+      },
+      "answer": "C",
+      "details": "C is called a middle-level language because it supports both low-level and high-level programming features."
+    },
+    {
+      "id": 2,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Who developed the C programming language?",
+      "options": {
+        "A": "James Gosling",
+        "B": "Dennis Ritchie",
+        "C": "Guido van Rossum",
+        "D": "Bjarne Stroustrup"
+      },
+      "answer": "B",
+      "details": "C was developed by Dennis Ritchie at Bell Labs."
+    },
+    {
+      "id": 3,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of the following is the correct file extension for a C program?",
+      "options": {
+        "A": ".java",
+        "B": ".cpp",
+        "C": ".c",
+        "D": ".py"
+      },
+      "answer": "C",
+      "details": "C source code files are saved with .c extension."
+    },
+    {
+      "id": 4,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which function is the entry point of a C program?",
+      "options": {
+        "A": "start()",
+        "B": "main()",
+        "C": "program()",
+        "D": "run()"
+      },
+      "answer": "B",
+      "details": "Execution of a C program starts from the main() function."
+    },
+    {
+      "id": 5,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which header file is required for printf() and scanf() functions?",
+      "options": {
+        "A": "<stdlib.h>",
+        "B": "<stdio.h>",
+        "C": "<math.h>",
+        "D": "<string.h>"
+      },
+      "answer": "B",
+      "details": "printf() and scanf() are declared inside stdio.h (Standard Input Output)."
+    },
+    {
+      "id": 6,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of the following is used to display output in C?",
+      "options": {
+        "A": "print()",
+        "B": "System.out.println()",
+        "C": "printf()",
+        "D": "echo()"
+      },
+      "answer": "C",
+      "details": "printf() is used to print output on the screen in C."
+    },
+    {
+      "id": 7,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of the following is used to take input in C?",
+      "options": {
+        "A": "input()",
+        "B": "scanf()",
+        "C": "cin",
+        "D": "read()"
+      },
+      "answer": "B",
+      "details": "scanf() is used to read input from the user."
+    },
+    {
+      "id": 8,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which symbol is used to end a statement in C?",
+      "options": {
+        "A": ":",
+        "B": ";",
+        "C": ".",
+        "D": ","
+      },
+      "answer": "B",
+      "details": "Semicolon ';' is used to terminate a statement in C."
+    },
+    {
+      "id": 9,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of the following is a single-line comment in C?",
+      "options": {
+        "A": "# comment",
+        "B": "<!-- comment -->",
+        "C": "// comment",
+        "D": "** comment **"
+      },
+      "answer": "C",
+      "details": "Single-line comments start with // in C (C99 and later)."
+    },
+    {
+      "id": 10,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of the following is a multi-line comment in C?",
+      "options": {
+        "A": "/* comment */",
+        "B": "// comment //",
+        "C": "# comment #",
+        "D": "<!-- comment -->"
+      },
+      "answer": "A",
+      "details": "Multi-line comments are written between /* and */."
+    },
+    {
+      "id": 11,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which data type is used to store whole numbers in C?",
+      "options": {
+        "A": "float",
+        "B": "int",
+        "C": "double",
+        "D": "char"
+      },
+      "answer": "B",
+      "details": "int is used to store integer values."
+    },
+    {
+      "id": 12,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which data type is used to store decimal numbers in C?",
+      "options": {
+        "A": "int",
+        "B": "char",
+        "C": "float",
+        "D": "void"
+      },
+      "answer": "C",
+      "details": "float and double are used to store decimal values in C."
+    },
+    {
+      "id": 13,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which data type is used to store a single character in C?",
+      "options": {
+        "A": "string",
+        "B": "char",
+        "C": "int",
+        "D": "float"
+      },
+      "answer": "B",
+      "details": "char stores a single character like 'A'."
+    },
+    {
+      "id": 14,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of these is a valid variable name in C?",
+      "options": {
+        "A": "2num",
+        "B": "num-1",
+        "C": "_num",
+        "D": "int"
+      },
+      "answer": "C",
+      "details": "Variable names can start with underscore, but not with digit or keyword."
+    },
+    {
+      "id": 15,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which keyword is used to define a constant in C?",
+      "options": {
+        "A": "final",
+        "B": "constant",
+        "C": "const",
+        "D": "fixed"
+      },
+      "answer": "C",
+      "details": "const is used to make a variable constant (read-only)."
+    },
+    {
+      "id": 16,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which symbol is used for assignment in C?",
+      "options": {
+        "A": "==",
+        "B": "=",
+        "C": "!=",
+        "D": "<="
+      },
+      "answer": "B",
+      "details": "= assigns a value, while == compares values."
+    },
+    {
+      "id": 17,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which operator is used for equality comparison in C?",
+      "options": {
+        "A": "=",
+        "B": "==",
+        "C": "!=",
+        "D": "&&"
+      },
+      "answer": "B",
+      "details": "== checks whether two values are equal."
+    },
+    {
+      "id": 18,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "What will be the output of this code?\nprintf(\"%d\", 5 + 3);",
+      "options": {
+        "A": "53",
+        "B": "8",
+        "C": "Error",
+        "D": "5+3"
+      },
+      "answer": "B",
+      "details": "5 + 3 is integer addition, so output is 8."
+    },
+    {
+      "id": 19,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which format specifier is used for int in printf()?",
+      "options": {
+        "A": "%f",
+        "B": "%d",
+        "C": "%c",
+        "D": "%s"
+      },
+      "answer": "B",
+      "details": "%d is used for integer values."
+    },
+    {
+      "id": 20,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which format specifier is used for float in printf()?",
+      "options": {
+        "A": "%d",
+        "B": "%c",
+        "C": "%f",
+        "D": "%s"
+      },
+      "answer": "C",
+      "details": "%f is used to print float values."
+    },
+    {
+      "id": 21,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which format specifier is used for char in printf()?",
+      "options": {
+        "A": "%c",
+        "B": "%d",
+        "C": "%s",
+        "D": "%f"
+      },
+      "answer": "A",
+      "details": "%c prints a single character."
+    },
+    {
+      "id": 22,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which format specifier is used for string in C?",
+      "options": {
+        "A": "%s",
+        "B": "%c",
+        "C": "%d",
+        "D": "%f"
+      },
+      "answer": "A",
+      "details": "%s is used to print strings."
+    },
+    {
+      "id": 23,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which operator is used to find remainder in C?",
+      "options": {
+        "A": "/",
+        "B": "%",
+        "C": "*",
+        "D": "+"
+      },
+      "answer": "B",
+      "details": "Modulus operator % gives remainder."
+    },
+    {
+      "id": 24,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "What will be the output?\nprintf(\"%d\", 10 / 3);",
+      "options": {
+        "A": "3",
+        "B": "3.33",
+        "C": "0",
+        "D": "Error"
+      },
+      "answer": "A",
+      "details": "10 and 3 are integers so integer division gives 3."
+    },
+    {
+      "id": 25,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of the following is used to make decisions in C?",
+      "options": {
+        "A": "if-else",
+        "B": "printf",
+        "C": "scanf",
+        "D": "include"
+      },
+      "answer": "A",
+      "details": "if-else statements are used for conditional decision-making."
+    },
+    {
+      "id": 26,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which loop is used when the number of iterations is known?",
+      "options": {
+        "A": "for loop",
+        "B": "while loop",
+        "C": "do-while loop",
+        "D": "switch"
+      },
+      "answer": "A",
+      "details": "for loop is generally used when iterations count is fixed."
+    },
+    {
+      "id": 27,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which loop executes at least once even if condition is false?",
+      "options": {
+        "A": "for loop",
+        "B": "while loop",
+        "C": "do-while loop",
+        "D": "switch"
+      },
+      "answer": "C",
+      "details": "do-while checks condition after executing the body once."
+    },
+    {
+      "id": 28,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which keyword is used to exit from a loop immediately?",
+      "options": {
+        "A": "stop",
+        "B": "break",
+        "C": "exit",
+        "D": "continue"
+      },
+      "answer": "B",
+      "details": "break terminates the loop immediately."
+    },
+    {
+      "id": 29,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which keyword is used to skip the current iteration in a loop?",
+      "options": {
+        "A": "skip",
+        "B": "pass",
+        "C": "continue",
+        "D": "break"
+      },
+      "answer": "C",
+      "details": "continue skips the current iteration and goes to next."
+    },
+    {
+      "id": 30,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which symbol is used to include a header file in C?",
+      "options": {
+        "A": "@",
+        "B": "#",
+        "C": "&",
+        "D": "$"
+      },
+      "answer": "B",
+      "details": "Header files are included using #include."
+    },
+    {
+      "id": 31,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of the following is a valid C function definition?",
+      "options": {
+        "A": "function add() {}",
+        "B": "int add() { return 0; }",
+        "C": "def add():",
+        "D": "add() => {}"
+      },
+      "answer": "B",
+      "details": "C function syntax: returnType functionName(parameters) { ... }"
+    },
+    {
+      "id": 32,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which symbol is used to access the address of a variable?",
+      "options": {
+        "A": "*",
+        "B": "&",
+        "C": "#",
+        "D": "@"
+      },
+      "answer": "B",
+      "details": "& gives the address of a variable (address-of operator)."
+    },
+    {
+      "id": 33,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which symbol is used to declare a pointer variable?",
+      "options": {
+        "A": "&",
+        "B": "*",
+        "C": "%",
+        "D": "#"
+      },
+      "answer": "B",
+      "details": "* is used in pointer declaration: int *p;"
+    },
+    {
+      "id": 34,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which statement is TRUE about C language?",
+      "options": {
+        "A": "C is an object-oriented language",
+        "B": "C does not support functions",
+        "C": "C is a procedural programming language",
+        "D": "C runs only on Windows"
+      },
+      "answer": "C",
+      "details": "C is procedural and structured programming language."
+    },
+    {
+      "id": 35,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of these is used to store multiple values of same type?",
+      "options": {
+        "A": "Array",
+        "B": "Function",
+        "C": "Operator",
+        "D": "Macro"
+      },
+      "answer": "A",
+      "details": "Arrays store multiple values of the same datatype."
+    },
+    {
+      "id": 36,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which is the correct way to declare an integer array of size 5?",
+      "options": {
+        "A": "int arr(5);",
+        "B": "int arr[5];",
+        "C": "array int arr[5];",
+        "D": "int[5] arr;"
+      },
+      "answer": "B",
+      "details": "Array declaration syntax: datatype name[size];"
+    },
+    {
+      "id": 37,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which function is used to find length of a string?",
+      "options": {
+        "A": "strlength()",
+        "B": "strlen()",
+        "C": "length()",
+        "D": "size()"
+      },
+      "answer": "B",
+      "details": "strlen() is defined in string.h and returns length of string."
+    },
+    {
+      "id": 38,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which header file is needed for strlen() function?",
+      "options": {
+        "A": "<math.h>",
+        "B": "<string.h>",
+        "C": "<stdio.h>",
+        "D": "<conio.h>"
+      },
+      "answer": "B",
+      "details": "String handling functions like strlen() are in string.h."
+    },
+    {
+      "id": 39,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "What is the output?\nprintf(\"%c\", 'A');",
+      "options": {
+        "A": "65",
+        "B": "A",
+        "C": "Error",
+        "D": "'A'"
+      },
+      "answer": "B",
+      "details": "%c prints the character itself, so output is A."
+    },
+    {
+      "id": 40,
+      "category": "c-programming",
+      "topic": "C Basics",
+      "question": "Which of the following is NOT a C keyword?",
+      "options": {
+        "A": "int",
+        "B": "float",
+        "C": "printf",
+        "D": "return"
+      },
+      "answer": "C",
+      "details": "printf is a function, not a keyword."
+    }
+  ]
+}
