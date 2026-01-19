@@ -1,0 +1,574 @@
+{
+  "category": "html",
+  "topicName": "HTML Basics (Core Fundamentals)",
+  "instructions": [
+    "✅ Select the correct option (A, B, C, or D).",
+    "✅ Each question has only ONE correct answer.",
+    "✅ This quiz covers HTML introduction, tags, attributes, formatting, links, images, lists, tables, and forms.",
+    "✅ Try without seeing answers first, then verify using the answer field."
+  ],
+  "quizLevel": "Beginner to Intermediate",
+  "totalQuestions": 40,
+  "questions": [
+    {
+      "id": 1,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "What does HTML stand for?",
+      "options": {
+        "A": "HyperText Markup Language",
+        "B": "HighText Machine Language",
+        "C": "HyperTool Multi Language",
+        "D": "Home Tool Markup Language"
+      },
+      "answer": "A",
+      "details": "HTML stands for HyperText Markup Language. It is used to create web pages."
+    },
+    {
+      "id": 2,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "HTML is used to create ______.",
+      "options": {
+        "A": "Databases",
+        "B": "Operating Systems",
+        "C": "Web Pages",
+        "D": "Mobile Apps"
+      },
+      "answer": "C",
+      "details": "HTML defines the structure of web pages."
+    },
+    {
+      "id": 3,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to define the main structure of an HTML document?",
+      "options": {
+        "A": "<html>",
+        "B": "<body>",
+        "C": "<head>",
+        "D": "<title>"
+      },
+      "answer": "A",
+      "details": "The <html> tag is the root element of an HTML document."
+    },
+    {
+      "id": 4,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag contains meta information and title of the page?",
+      "options": {
+        "A": "<body>",
+        "B": "<head>",
+        "C": "<p>",
+        "D": "<h1>"
+      },
+      "answer": "B",
+      "details": "The <head> section contains metadata, title, links to CSS, scripts, etc."
+    },
+    {
+      "id": 5,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to display visible content on a webpage?",
+      "options": {
+        "A": "<head>",
+        "B": "<style>",
+        "C": "<body>",
+        "D": "<meta>"
+      },
+      "answer": "C",
+      "details": "All visible content is written inside the <body> tag."
+    },
+    {
+      "id": 6,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to display the title in the browser tab?",
+      "options": {
+        "A": "<title>",
+        "B": "<h1>",
+        "C": "<header>",
+        "D": "<meta>"
+      },
+      "answer": "A",
+      "details": "<title> text appears in the browser tab and search results."
+    },
+    {
+      "id": 7,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used for the largest heading?",
+      "options": {
+        "A": "<h6>",
+        "B": "<h3>",
+        "C": "<h1>",
+        "D": "<heading>"
+      },
+      "answer": "C",
+      "details": "<h1> is the largest heading tag in HTML."
+    },
+    {
+      "id": 8,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to create a paragraph?",
+      "options": {
+        "A": "<p>",
+        "B": "<para>",
+        "C": "<text>",
+        "D": "<h1>"
+      },
+      "answer": "A",
+      "details": "<p> is used to define paragraphs in HTML."
+    },
+    {
+      "id": 9,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to insert a line break?",
+      "options": {
+        "A": "<break>",
+        "B": "<br>",
+        "C": "<lb>",
+        "D": "<hr>"
+      },
+      "answer": "B",
+      "details": "<br> is an empty tag used to break the line."
+    },
+    {
+      "id": 10,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to draw a horizontal line?",
+      "options": {
+        "A": "<br>",
+        "B": "<hr>",
+        "C": "<line>",
+        "D": "<hline>"
+      },
+      "answer": "B",
+      "details": "<hr> creates a horizontal rule line."
+    },
+    {
+      "id": 11,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to make text bold?",
+      "options": {
+        "A": "<b>",
+        "B": "<strong>",
+        "C": "Both <b> and <strong>",
+        "D": "<bold>"
+      },
+      "answer": "C",
+      "details": "<b> makes text bold visually, while <strong> also adds semantic importance."
+    },
+    {
+      "id": 12,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to make text italic?",
+      "options": {
+        "A": "<i>",
+        "B": "<em>",
+        "C": "Both <i> and <em>",
+        "D": "<italic>"
+      },
+      "answer": "C",
+      "details": "<i> is visual italic and <em> emphasizes text semantically."
+    },
+    {
+      "id": 13,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to underline text?",
+      "options": {
+        "A": "<u>",
+        "B": "<underline>",
+        "C": "<ul>",
+        "D": "<p>"
+      },
+      "answer": "A",
+      "details": "<u> underlines the text."
+    },
+    {
+      "id": 14,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which HTML tag is used to create a hyperlink?",
+      "options": {
+        "A": "<link>",
+        "B": "<a>",
+        "C": "<href>",
+        "D": "<url>"
+      },
+      "answer": "B",
+      "details": "<a> (anchor) tag is used to create links."
+    },
+    {
+      "id": 15,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which attribute is used to specify the link address in <a> tag?",
+      "options": {
+        "A": "src",
+        "B": "href",
+        "C": "url",
+        "D": "link"
+      },
+      "answer": "B",
+      "details": "href attribute contains the destination URL."
+    },
+    {
+      "id": 16,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which attribute opens the link in a new tab?",
+      "options": {
+        "A": "target=\"_self\"",
+        "B": "target=\"_new\"",
+        "C": "target=\"_blank\"",
+        "D": "open=\"new\""
+      },
+      "answer": "C",
+      "details": "target=\"_blank\" opens link in a new browser tab."
+    },
+    {
+      "id": 17,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to add an image in HTML?",
+      "options": {
+        "A": "<img>",
+        "B": "<image>",
+        "C": "<pic>",
+        "D": "<src>"
+      },
+      "answer": "A",
+      "details": "<img> tag is used to display images."
+    },
+    {
+      "id": 18,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which attribute is used to specify image path?",
+      "options": {
+        "A": "href",
+        "B": "src",
+        "C": "path",
+        "D": "img"
+      },
+      "answer": "B",
+      "details": "src attribute stores the image file path or URL."
+    },
+    {
+      "id": 19,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Why is the alt attribute important in <img>?",
+      "options": {
+        "A": "It changes image size",
+        "B": "It adds border to image",
+        "C": "It shows text if image cannot load and helps accessibility",
+        "D": "It makes image clickable"
+      },
+      "answer": "C",
+      "details": "alt text is used for accessibility and appears when image fails to load."
+    },
+    {
+      "id": 20,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to create an unordered list?",
+      "options": {
+        "A": "<ol>",
+        "B": "<ul>",
+        "C": "<li>",
+        "D": "<list>"
+      },
+      "answer": "B",
+      "details": "<ul> creates a bullet list."
+    },
+    {
+      "id": 21,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to create an ordered list?",
+      "options": {
+        "A": "<ol>",
+        "B": "<ul>",
+        "C": "<li>",
+        "D": "<order>"
+      },
+      "answer": "A",
+      "details": "<ol> creates a numbered list."
+    },
+    {
+      "id": 22,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to define list items?",
+      "options": {
+        "A": "<ul>",
+        "B": "<ol>",
+        "C": "<li>",
+        "D": "<item>"
+      },
+      "answer": "C",
+      "details": "<li> is used inside <ul> or <ol> to create items."
+    },
+    {
+      "id": 23,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to create a table in HTML?",
+      "options": {
+        "A": "<table>",
+        "B": "<tab>",
+        "C": "<tr>",
+        "D": "<td>"
+      },
+      "answer": "A",
+      "details": "<table> tag is used to create tables."
+    },
+    {
+      "id": 24,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to create a row in a table?",
+      "options": {
+        "A": "<th>",
+        "B": "<td>",
+        "C": "<tr>",
+        "D": "<row>"
+      },
+      "answer": "C",
+      "details": "<tr> defines a table row."
+    },
+    {
+      "id": 25,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to create a cell in a table?",
+      "options": {
+        "A": "<tr>",
+        "B": "<td>",
+        "C": "<table>",
+        "D": "<cell>"
+      },
+      "answer": "B",
+      "details": "<td> is a table data cell."
+    },
+    {
+      "id": 26,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used for table header cells?",
+      "options": {
+        "A": "<thead>",
+        "B": "<header>",
+        "C": "<th>",
+        "D": "<head>"
+      },
+      "answer": "C",
+      "details": "<th> creates a header cell and makes text bold by default."
+    },
+    {
+      "id": 27,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to create a form in HTML?",
+      "options": {
+        "A": "<input>",
+        "B": "<form>",
+        "C": "<fieldset>",
+        "D": "<textarea>"
+      },
+      "answer": "B",
+      "details": "<form> contains input elements and is used to collect user data."
+    },
+    {
+      "id": 28,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to take user input?",
+      "options": {
+        "A": "<user>",
+        "B": "<textbox>",
+        "C": "<input>",
+        "D": "<text>"
+      },
+      "answer": "C",
+      "details": "<input> tag is used for multiple types of user inputs."
+    },
+    {
+      "id": 29,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which input type is used for password field?",
+      "options": {
+        "A": "type=\"text\"",
+        "B": "type=\"password\"",
+        "C": "type=\"hidden\"",
+        "D": "type=\"secure\""
+      },
+      "answer": "B",
+      "details": "Password type hides typed characters."
+    },
+    {
+      "id": 30,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which input type is used for selecting one option from multiple options?",
+      "options": {
+        "A": "checkbox",
+        "B": "radio",
+        "C": "text",
+        "D": "button"
+      },
+      "answer": "B",
+      "details": "Radio buttons allow selecting only one option in a group."
+    },
+    {
+      "id": 31,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which input type is used for selecting multiple options?",
+      "options": {
+        "A": "radio",
+        "B": "dropdown",
+        "C": "checkbox",
+        "D": "range"
+      },
+      "answer": "C",
+      "details": "Checkbox allows multiple selections."
+    },
+    {
+      "id": 32,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used for a dropdown list?",
+      "options": {
+        "A": "<select>",
+        "B": "<dropdown>",
+        "C": "<optionlist>",
+        "D": "<list>"
+      },
+      "answer": "A",
+      "details": "<select> creates dropdown and <option> adds items."
+    },
+    {
+      "id": 33,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag defines an option inside a dropdown?",
+      "options": {
+        "A": "<li>",
+        "B": "<choice>",
+        "C": "<option>",
+        "D": "<item>"
+      },
+      "answer": "C",
+      "details": "<option> defines a selectable item inside <select>."
+    },
+    {
+      "id": 34,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to write long multi-line text input?",
+      "options": {
+        "A": "<input type=\"text\">",
+        "B": "<textarea>",
+        "C": "<text>",
+        "D": "<multiline>"
+      },
+      "answer": "B",
+      "details": "<textarea> is used for long text inputs like comments."
+    },
+    {
+      "id": 35,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to group form elements with a border?",
+      "options": {
+        "A": "<fieldset>",
+        "B": "<group>",
+        "C": "<section>",
+        "D": "<border>"
+      },
+      "answer": "A",
+      "details": "<fieldset> groups form controls and can show a border."
+    },
+    {
+      "id": 36,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to add a caption to a fieldset?",
+      "options": {
+        "A": "<head>",
+        "B": "<title>",
+        "C": "<legend>",
+        "D": "<caption>"
+      },
+      "answer": "C",
+      "details": "<legend> gives a title to <fieldset>."
+    },
+    {
+      "id": 37,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which attribute is used to provide extra information when hovering over an element?",
+      "options": {
+        "A": "hover",
+        "B": "tooltip",
+        "C": "title",
+        "D": "info"
+      },
+      "answer": "C",
+      "details": "title attribute shows tooltip on hover."
+    },
+    {
+      "id": 38,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to play audio in HTML5?",
+      "options": {
+        "A": "<sound>",
+        "B": "<audio>",
+        "C": "<mp3>",
+        "D": "<media>"
+      },
+      "answer": "B",
+      "details": "<audio> tag is used for playing audio files."
+    },
+    {
+      "id": 39,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which tag is used to play video in HTML5?",
+      "options": {
+        "A": "<movie>",
+        "B": "<media>",
+        "C": "<video>",
+        "D": "<play>"
+      },
+      "answer": "C",
+      "details": "<video> tag is used for embedding videos."
+    },
+    {
+      "id": 40,
+      "category": "html",
+      "topic": "HTML Basics",
+      "question": "Which HTML tag is used to create a clickable button?",
+      "options": {
+        "A": "<button>",
+        "B": "<click>",
+        "C": "<input type=\"btn\">",
+        "D": "<btn>"
+      },
+      "answer": "A",
+      "details": "<button> creates a clickable button element in HTML."
+    }
+  ]
+}
