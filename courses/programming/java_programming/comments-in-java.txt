@@ -139,9 +139,10 @@ public class JavaDocExample {
     /**
 	    Adds two numbers and returns the result.*
 
-        @param a first number*
-	    @param b second number*
-	    @return sum of a and b*
+        @param a first number
+	    @param b second number
+	    @return sum of a and b
+
      */
     public static int add(int a, int b) {
         return a + b;
