@@ -62,11 +62,11 @@ portability, simplicity, robustness, security, and versatility.
 
 Java is **object-oriented**, meaning it is based on:
 
-- ***Classes***
-- ***Objects***
-- ***Encapsulation***
-- ***Inheritance***
-- ***Polymorphism***
+- *Classes*
+- *Objects*
+- *Encapsulation*
+- *Inheritance*
+- *Polymorphism*
 
 **Benefits:**
 
@@ -96,10 +96,10 @@ So it is easier to learn and safer.
 
 Java is robust because it provides:
 
-*- Strong type checking*
-*- Exception handling*
-*- Automatic Garbage Collection*
-*- Compile-time + Runtime error checking*
+- * Strong type checking*
+- *Exception handling*
+- *Automatic Garbage Collection*
+- *Compile-time + Runtime error checking*
 
 This reduces common bugs like memory leaks.
 
@@ -108,8 +108,8 @@ This reduces common bugs like memory leaks.
 
 Java runs inside JVM, which provides a secure runtime environment and restrictions like:
 
-*- Network access limitations*
-*- File system restrictions*
+- *Network access limitations*
+- *File system restrictions*
 
 This makes Java applications safer, especially on networks.
 
@@ -131,12 +131,12 @@ It can run multiple tasks simultaneously using threads.
 
 Java provides huge built-in libraries for:
 
-*- Collections (List, Set, Map)*
-*- File Handling (I/O)*
-*- Networking*
-*- Database connectivity (JDBC)*
-*- GUI tools (Swing, JavaFX)*
-*- Concurrency utilities*
+- *Collections (List, Set, Map)*
+- *File Handling (I/O)*
+- *Networking*
+- *Database connectivity (JDBC)*
+- *GUI tools (Swing, JavaFX)*
+- *Concurrency utilities*
 
 So developers don’t need to build everything from scratch.
 
@@ -145,11 +145,11 @@ So developers don’t need to build everything from scratch.
 
 Java can be used everywhere:
 
-*• Desktop apps*
-*• Web apps*
-*• Enterprise systems*
-*• Cloud backend*
-*• Android apps*
+- *Desktop apps*
+- *Web apps*
+- *Enterprise systems*
+- *Cloud backend*
+- *Android apps*
 
 That’s why Java is called a **general-purpose programming language**.
 
@@ -157,16 +157,14 @@ That’s why Java is called a **general-purpose programming language**.
 # Java Environment Setup
 
 Before writing Java programs, you need to set up your development environment.
-
 ---
-
 ## 1. Java Development Kit (JDK)
 
 JDK includes:
 
-*- **javac** (Java compiler)*
-*- runtime libraries*
-*- tools to compile and run Java programs*
+- * **javac** (Java compiler)*
+- *runtime libraries*
+- *tools to compile and run Java programs*
 
 ---
 ## Extra Important Concepts:
@@ -176,9 +174,9 @@ JDK includes:
 JVM is the machine that runs Java bytecode.
 It provides:
 
-*• Execution platform*
-*• Memory management*
-*• Security*
+- *Execution platform*
+- *Memory management*
+- *Security*
 
 ---
 ### JRE (Java Runtime Environment)
@@ -186,8 +184,8 @@ It provides:
 JRE is used to **run** Java programs.
 It includes:
 
-*• JVM*
-*• core libraries*
+- *JVM*
+- *core libraries*
 
 > *Note:* JRE is enough to run apps, but not enough to develop apps.
 ---
