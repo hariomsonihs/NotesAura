@@ -14,21 +14,21 @@ Once you compile your Java program, you can run it on any system that supports J
 
 Java is used in:
 
-* Desktop Applications
-* Web Applications
-* Enterprise Applications
-* Mobile Apps (**Android**)
-* Server-side Applications
-* Large Scale Systems
+*• Desktop Applications*
+*• Web Applications*
+*• Enterprise Applications*
+*• Mobile Apps (**Android**)*
+*• Server-side Applications*
+*• Large Scale Systems*
 
 ([Wikipedia][1])
 
 ### Who Developed Java?
 
-* Java was developed by **Sun Microsystems**
-* Java was released in **1995**
-* **James Gosling** is known as the **Father of Java** ([Wikipedia][1])
-* Later, Sun Microsystems was acquired by **Oracle Corporation (2010)** ([Wikipedia][2])
+*• Java was developed by **Sun Microsystems***
+*• Java was released in **1995***
+*• **James Gosling** is known as the **Father of Java** ([Wikipedia][1])*
+*• Later, Sun Microsystems was acquired by **Oracle Corporation (2010)** ([Wikipedia][2])*
 
 ---
 
@@ -38,9 +38,9 @@ Java is used in:
 
 Java started in **1991** as a project at Sun Microsystems, led by:
 
-* James Gosling
-* Mike Sheridan
-* Patrick Naughton
+*• James Gosling*
+*• Mike Sheridan*
+*• Patrick Naughton*
 
 Initially it was meant for:
 embedded devices / interactive television ([Wikipedia][1])
@@ -55,8 +55,8 @@ Java’s project name changed over time:
 
 ### First Public Release
 
-* Java’s first public release was **Java 1.0 (1996)**
-* It introduced the concept of:
+*• Java’s first public release was **Java 1.0 (1996)***
+*• It introduced the concept of:*
   **Bytecode + JVM** for platform independence ([Wikipedia][1])
 
 ### Oracle Takes Over (2010)
@@ -88,17 +88,17 @@ portability, simplicity, robustness, security, and versatility.
 
 Java is **object-oriented**, meaning it is based on:
 
-* **Classes**
-* **Objects**
-* **Encapsulation**
-* **Inheritance**
-* **Polymorphism**
+*• **Classes***
+*• **Objects***
+*• **Encapsulation***
+*• **Inheritance***
+*• **Polymorphism***
 
 Benefits:
 
-* Code becomes modular
-* Reusable
-* Easy to maintain
+*• Code becomes modular*
+*• Reusable*
+*• Easy to maintain*
 
 ---
 
@@ -127,10 +127,10 @@ So it is easier to learn and safer. ([Wikipedia][1])
 
 Java is robust because it provides:
 
-* Strong type checking
-* Exception handling
-* Automatic Garbage Collection
-* Compile-time + Runtime error checking
+*• Strong type checking*
+*• Exception handling*
+*• Automatic Garbage Collection*
+*• Compile-time + Runtime error checking*
 
 This reduces common bugs like memory leaks.
 
@@ -140,8 +140,8 @@ This reduces common bugs like memory leaks.
 
 Java runs inside JVM, which provides a secure runtime environment and restrictions like:
 
-* Network access limitations
-* File system restrictions
+*• Network access limitations*
+*• File system restrictions*
 
 This makes Java applications safer, especially on networks. ([Wikipedia][1])
 
@@ -154,10 +154,10 @@ It can run multiple tasks simultaneously using threads.
 
 Example uses:
 
-* Gaming
-* Server requests handling
-* Background processing
-* Real-time apps
+*• Gaming*
+*• Server requests handling*
+*• Background processing*
+*• Real-time apps*
 
 ---
 
@@ -165,12 +165,12 @@ Example uses:
 
 Java provides huge built-in libraries for:
 
-* Collections (List, Set, Map)
-* File Handling (I/O)
-* Networking
-* Database connectivity (JDBC)
-* GUI tools (Swing, JavaFX)
-* Concurrency utilities
+*• Collections (List, Set, Map)*
+*• File Handling (I/O)*
+*• Networking*
+*• Database connectivity (JDBC)*
+*• GUI tools (Swing, JavaFX)*
+*• Concurrency utilities*
 
 So developers don’t need to build everything from scratch.
 
@@ -180,11 +180,11 @@ So developers don’t need to build everything from scratch.
 
 Java can be used everywhere:
 
-* Desktop apps
-* Web apps
-* Enterprise systems
-* Cloud backend
-* Android apps
+*• Desktop apps*
+*• Web apps*
+*• Enterprise systems*
+*• Cloud backend*
+*• Android apps*
 
 That’s why Java is called a **general-purpose programming language**. ([Wikipedia][1])
 
@@ -200,9 +200,9 @@ Before writing Java programs, you need to set up your development environment.
 
 JDK includes:
 
-* **javac** (Java compiler)
-* runtime libraries
-* tools to compile and run Java programs
+*• **javac** (Java compiler)*
+*• runtime libraries*
+*• tools to compile and run Java programs*
 
 ---
 
@@ -213,9 +213,9 @@ JDK includes:
 JVM is the machine that runs Java bytecode.
 It provides:
 
-* Execution platform
-* Memory management
-* Security
+*• Execution platform*
+*• Memory management*
+*• Security*
 
 ---
 
@@ -224,8 +224,8 @@ It provides:
 JRE is used to **run** Java programs.
 It includes:
 
-* JVM
-* core libraries
+*• JVM*
+*• core libraries*
 
 *Note:* JRE is enough to run apps, but not enough to develop apps.
 
