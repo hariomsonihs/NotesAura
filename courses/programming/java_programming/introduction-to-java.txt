@@ -9,27 +9,27 @@ Once you compile your Java program, you can run it on any system that supports J
 ### Where Java is Used?
 Java is used in:
 
-*- Desktop Applications*
-*- Web Applications*
-*- Enterprise Applications*
-*- Mobile Apps (**Android**)*
-*- Server-side Applications*
-*- Large Scale Systems*
+* - Desktop Applications*
+* - Web Applications*
+* - Enterprise Applications*
+* - Mobile Apps (**Android**)*
+* - Server-side Applications*
+* - Large Scale Systems*
 ### Who Developed Java?
 
-*- Java was developed by **Sun Microsystems** *
-*- Java was released in **1995***
-*- **James Gosling** is known as the **Father of Java** *
-*- Later, Sun Microsystems was acquired by **Oracle Corporation (2010)** *
+* - Java was developed by **Sun Microsystems** *
+* - Java was released in **1995***
+* - **James Gosling** is known as the **Father of Java** *
+* - Later, Sun Microsystems was acquired by **Oracle Corporation (2010)** *
 ---
 # History of Java:
 
 ### Origin (1991):
 Java started in **1991** as a project at Sun Microsystems, led by:
 
-*- James Gosling*
-*- Mike Sheridan*
-*- Patrick Naughton*
+* - James Gosling*
+* - Mike Sheridan*
+* - Patrick Naughton*
 
 Initially it was meant for:
 embedded devices / interactive television 
