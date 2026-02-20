@@ -1,10 +1,7 @@
 # 📘 HTML Elements, Tags & Types of Elements
-
 ---
 
 ## 🔹 HTML Tag
-
-### 🔸 Definition
 
 > **An HTML tag is a keyword enclosed in angle brackets `< >` used to define the structure and behavior of content on a web page.**
 
@@ -30,8 +27,6 @@ Example:
 
 ### 1️⃣ Paired Tags (Container Tags)
 
-### 🔸 Definition
-
 > **Paired tags have both opening and closing tags and contain content inside them.**
 
 ### 🔹 Syntax
@@ -50,8 +45,6 @@ Example:
 ---
 
 ### 2️⃣ Unpaired Tags (Empty Tags / Self-Closing Tags)
-
-### 🔸 Definition
 
 > **Unpaired tags do not have a closing tag and are used to insert elements that do not contain content.**
 
@@ -72,8 +65,6 @@ Example:
 ---
 
 ## 🔹 HTML Element
-
-### 🔸 Definition
 
 > **An HTML element is a complete structure that includes an opening tag, content, and a closing tag.**
 
@@ -98,23 +89,15 @@ Example:
 ```html
 <p>This is content</p>
 ```
-
-| Part              | Description |
-| ----------------- | ----------- |
-| `<p>`             | Opening tag |
-| `This is content` | Content     |
-| `</p>`            | Closing tag |
-
 ---
+![Content of element](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/Elements_part.jpeg)
+---
+
 
 ## 🔹 Difference Between HTML Tag and HTML Element
 
-| HTML Tag        | HTML Element         |
-| --------------- | -------------------- |
-| Defines markup  | Defines full content |
-| `<p>`           | `<p>Hello</p>`       |
-| Part of element | Complete structure   |
-
+---
+![HTML Elements & Tag](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/Elements_%26_tags.jpeg)
 ---
 
 ## 🔹 Types of HTML Elements
@@ -122,8 +105,6 @@ Example:
 ---
 
 ## 1️⃣ Block-Level Elements
-
-### 🔸 Definition
 
 > **Block-level elements start on a new line and take full width of the page.**
 
@@ -164,8 +145,6 @@ Example:
 
 ## 2️⃣ Inline Elements
 
-### 🔸 Definition
-
 > **Inline elements do not start on a new line and take only the required width.**
 
 ---
@@ -201,8 +180,6 @@ Example:
 
 ## 3️⃣ Inline-Block Elements
 
-### 🔸 Definition
-
 > **Inline-block elements behave like inline elements but allow height and width like block elements.**
 
 ---
@@ -227,8 +204,6 @@ Box
 
 ## 4️⃣ Empty Elements
 
-### 🔸 Definition
-
 > **Empty elements do not have closing tags and contain no content.**
 
 ---
@@ -245,8 +220,6 @@ Box
 ---
 
 ## 5️⃣ Container Elements
-
-### 🔸 Definition
 
 > **Container elements are used to group other elements together.**
 
@@ -274,8 +247,6 @@ Box
 
 ## 6️⃣ Semantic Elements (HTML5)
 
-### 🔸 Definition
-
 > **Semantic elements clearly describe their meaning both to browser and developer.**
 
 ---
@@ -289,16 +260,8 @@ Box
 ---
 
 ### 🔹 Examples
-
-| Tag         | Meaning      |
-| ----------- | ------------ |
-| `<header>`  | Page header  |
-| `<nav>`     | Navigation   |
-| `<main>`    | Main content |
-| `<section>` | Section      |
-| `<article>` | Article      |
-| `<footer>`  | Footer       |
-
+---
+![Element Examples](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/Elements_examples.jpeg)
 ---
 
 ### 🔹 Example
@@ -323,8 +286,6 @@ Box
 
 ## 🔹 Nested Elements
 
-### 🔸 Definition
-
 > **Nested elements are elements placed inside another element.**
 
 ---
@@ -344,13 +305,13 @@ Box
 *• Use lowercase tags*
 *• Nest elements correctly*
 
-❌ Wrong:
+ Wrong:
 
 ```html
 <p><b>Hello</p></b>
 ```
 
-✔ Correct:
+ Correct:
 
 ```html
 <p><b>Hello</b></p>
@@ -359,19 +320,8 @@ Box
 ---
 
 ## 🔹 Common HTML Elements List
-
-| Element   | Purpose        |
-| --------- | -------------- |
-| `<p>`     | Paragraph      |
-| `<h1>`    | Heading        |
-| `<a>`     | Link           |
-| `<img>`   | Image          |
-| `<ul>`    | Unordered list |
-| `<ol>`    | Ordered list   |
-| `<li>`    | List item      |
-| `<table>` | Table          |
-| `<form>`  | Form           |
-
+---
+![List of Elements](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/html_elements_list.jpeg)
 ---
 
 ## 🔹 Advantages of HTML Elements
@@ -399,9 +349,12 @@ Box
 *• Semantic elements improve meaning*
 
 ---
-
 ## 🔹 Conclusion
 
 > **HTML elements and tags form the backbone of web pages and are essential for structuring content properly.**
-
+---
+**Happy Learning! 📚**
+---
+> 📚 **NotesAura** - *Learn Programming with Style*
+> © 2026 NotesAura. All rights reserved.
 ---
