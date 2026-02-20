@@ -1,13 +1,7 @@
-# 📘 HTML – Complete Introduction Notes
-
----
-
 ## 🔹 What is HTML?
 
 **HTML** stands for **HyperText Markup Language**.
 It is used to **create and structure web pages** on the internet.
-
-### 🔸 Definition
 
 > **HTML is a markup language used to define the structure and content of web pages using tags and elements.**
 
@@ -33,16 +27,8 @@ It is used to **create and structure web pages** on the internet.
 ---
 
 ## 🔹 Versions of HTML
-
-| Version   | Description                              |
-| --------- | ---------------------------------------- |
-| HTML 1.0  | First version                            |
-| HTML 2.0  | Basic features                           |
-| HTML 3.2  | Tables and scripting                     |
-| HTML 4.01 | Styling and multimedia                   |
-| XHTML     | Stricter version                         |
-| **HTML5** | Latest version with audio, video, canvas |
-
+---
+![Versions of HTML](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/html_version.jpeg)
 ---
 
 ## 🔹 What is a Markup Language?
@@ -77,20 +63,10 @@ Example:
 ---
 
 ## 🔹 Explanation of Structure
-
-| Tag          | Purpose               |
-| ------------ | --------------------- |
-| `<!DOCTYPE>` | Declares HTML version |
-| `<html>`     | Root element          |
-| `<head>`     | Meta information      |
-| `<title>`    | Page title            |
-| `<body>`     | Visible content       |
-
 ---
-
+![HTML Explanation](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/html_explanation.jpeg)
+---
 ## 🔹 What is an HTML Tag?
-
-### 🔸 Definition
 
 > **HTML tags are keywords enclosed in angle brackets `< >` used to define elements in a web page.**
 
@@ -98,7 +74,7 @@ Example:
 
 ### 🔹 Types of HTML Tags
 
-#### 1️⃣ Paired Tags (Container Tags)
+1️⃣ Paired Tags (Container Tags)
 
 *• Have opening and closing tags*
 
@@ -108,7 +84,7 @@ Example:
 <p>This is a paragraph</p>
 ```
 
-#### 2️⃣ Unpaired Tags (Empty Tags)
+2️⃣ Unpaired Tags (Empty Tags)
 
 *• No closing tag*
 
@@ -123,8 +99,6 @@ Example:
 
 ## 🔹 What is an HTML Element?
 
-### 🔸 Definition
-
 > **An HTML element consists of an opening tag, content, and a closing tag.**
 
 Example:
@@ -136,18 +110,10 @@ Example:
 ---
 
 ## 🔹 Difference Between Tag and Element
-
-| Tag             | Element            |
-| --------------- | ------------------ |
-| Only markup     | Complete structure |
-| `<p>`           | `<p>Hello</p>`     |
-| Part of element | Full content       |
-
 ---
-
+![HTML Tags & Elements](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/html_tag.jpeg)
+---
 ## 🔹 HTML Attributes
-
-### 🔸 Definition
 
 > **Attributes provide additional information about HTML elements.**
 
@@ -166,18 +132,9 @@ Example:
 ---
 
 ## 🔹 Common HTML Attributes
-
-| Attribute | Description       |
-| --------- | ----------------- |
-| `id`      | Unique identifier |
-| `class`   | Group of elements |
-| `style`   | Inline CSS        |
-| `title`   | Tooltip text      |
-| `src`     | Image source      |
-| `href`    | Link destination  |
-
 ---
-
+![HTML Attributes](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/html_attributes.jpeg)
+---
 ## 🔹 HTML Headings
 
 Used to define headings.
@@ -214,17 +171,9 @@ Used to define headings.
 ---
 
 ## 🔹 HTML Formatting Tags
-
-| Tag        | Purpose        |
-| ---------- | -------------- |
-| `<b>`      | Bold           |
-| `<i>`      | Italic         |
-| `<u>`      | Underline      |
-| `<strong>` | Important text |
-| `<em>`     | Emphasis       |
-| `<mark>`   | Highlight      |
-| `<small>`  | Small text     |
-
+---
+![Formatting of HTML](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/html_formating.jpeg)
+---
 Example:
 
 ```html
@@ -331,17 +280,9 @@ Input Types:
 ---
 
 ## 🔹 HTML Semantic Elements (HTML5)
-
-| Tag         | Meaning     |
-| ----------- | ----------- |
-| `<header>`  | Page header |
-| `<nav>`     | Navigation  |
-| `<section>` | Section     |
-| `<article>` | Article     |
-| `<footer>`  | Footer      |
-
 ---
-
+![Semantic Elements of HTML](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/html_semantic.jpeg)
+---
 ## 🔹 Advantages of HTML
 
 *• Simple and easy*
@@ -358,19 +299,13 @@ Input Types:
 *• Needs CSS & JS for power*
 
 ---
-
-## 🔹 HTML + CSS + JavaScript
-
-| Technology | Role      |
-| ---------- | --------- |
-| HTML       | Structure |
-| CSS        | Design    |
-| JavaScript | Logic     |
-
----
-
 ## 🔹 Conclusion
 
 > **HTML is the foundation of web development. Without HTML, no website can exist.**
 
+---
+**Happy Learning! 📚**
+---
+> 📚 **NotesAura** - *Learn Programming with Style*
+> © 2026 NotesAura. All rights reserved.
 ---
