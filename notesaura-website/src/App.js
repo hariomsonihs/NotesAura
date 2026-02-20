@@ -16,6 +16,9 @@ import Exercise from './pages/Exercise';
 import Profile from './pages/Profile';
 import Payments from './pages/Payments';
 import Notifications from './pages/Notifications';
+import Projects from './pages/Projects';
+import Cheatsheets from './pages/Cheatsheets';
+import HtmlViewer from './pages/HtmlViewer';
 import './styles/globals.css';
 
 const ProtectedRoute = ({ children }) => {
@@ -39,7 +42,8 @@ function AppContent() {
 
   const hideBottomNav = location.pathname.includes('/course/') || 
                         location.pathname.includes('/exercise/') ||
-                        location.pathname.includes('/categories/');
+                        location.pathname.includes('/categories/') ||
+                        location.pathname.includes('/library/');
 
   const showChatBot = location.pathname === '/';
 
@@ -54,6 +58,9 @@ function AppContent() {
         <Route path="/categories/:categoryId" element={<CategoryCourses />} />
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/cheatsheets" element={<Cheatsheets />} />
+        <Route path="/library/:section/:fileName" element={<HtmlViewer />} />
         <Route path="/course/:courseId" element={<CourseDetail />} />
         <Route path="/exercise/:courseId/:exerciseId" element={<Exercise />} />
         <Route path="/profile" element={

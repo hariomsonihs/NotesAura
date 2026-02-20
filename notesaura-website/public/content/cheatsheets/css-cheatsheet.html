@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Cheatsheet - NotesAura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .copy-button {
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+        .copy-button:hover {
+            background-color: #4f46e5;
+        }
+        .responsive-table {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            width: calc(100% + 2rem);
+        }
+        table {
+            min-width: 100%;
+            border-collapse: collapse;
+            white-space: nowrap;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #4b5563;
+        }
+        pre {
+            background-color: #2d2d2d;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            position: relative;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre code {
+            display: block;
+            color: #f8f8f2;
+        }
+        /* Scrollbar styling for mobile */
+        ::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #374151;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+        @media (max-width: 640px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            th, td {
+                padding: 6px 8px;
+                font-size: 14px;
+            }
+            pre {
+                padding: 12px;
+                font-size: 13px;
+                scrollbar-width: thin;
+                scrollbar-color: #4f46e5 #374151;
+            }
+            .section-card {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-indigo-900 text-white font-sans">
+    <header class="bg-indigo-800 p-4 md:p-6 shadow-lg">
+        <h1 class="text-3xl md:text-4xl font-bold text-center">CSS Cheatsheet - NotesAura</h1>
+        <p class="text-center mt-2 text-sm md:text-lg">Your Ultimate Guide to CSS: From Basics to Advanced</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-6 max-w-5xl">
+        <!-- CSS Introduction -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-info-circle mr-2"></i> CSS Introduction</h2>
+            <p class="mb-3 md:mb-4">CSS (Cascading Style Sheets) is used to style and layout web pages.</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>Cascading</strong>: Styles cascade from top to bottom.</li>
+                <li class="text-sm md:text-base"><strong>Specificity</strong>: Determines which styles are applied when conflicts occur.</li>
+                <li class="text-sm md:text-base"><strong>Inheritance</strong>: Some properties inherit values from parent elements.</li>
+            </ul>
+            <p class="font-semibold text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">/* This is a CSS comment */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Always use external CSS files for better maintainability.</p>
+        </section>
+
+        <!-- CSS Selectors -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-mouse-pointer mr-2"></i> CSS Selectors</h2>
+            <p class="mb-3 md:mb-4">Selectors target HTML elements to apply styles.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Selector</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Element</code></td><td><code>p</code></td><td>Selects all &lt;p&gt; elements</td></tr>
+                        <tr><td><code>Class</code></td><td><code>.intro</code></td><td>Selects all elements with class="intro"</td></tr>
+                        <tr><td><code>ID</code></td><td><code>#header</code></td><td>Selects the element with id="header"</td></tr>
+                        <tr><td><code>Universal</code></td><td><code>*</code></td><td>Selects all elements</td></tr>
+                        <tr><td><code>Attribute</code></td><td><code>[target]</code></td><td>Selects elements with a target attribute</td></tr>
+                        <tr><td><code>Pseudo-class</code></td><td><code>a:hover</code></td><td>Selects links on mouse hover</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">/* Element selector */
+p {
+    color: blue;
+}
+
+/* Class selector */
+.highlight {
+    background-color: yellow;
+}
+
+/* ID selector */
+#main-content {
+    padding: 20px;
+}
+
+/* Pseudo-class */
+button:hover {
+    background-color: #4f46e5;
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> ID selectors have higher specificity than class selectors.</p>
+        </section>
+
+        <!-- CSS Box Model -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-square mr-2"></i> CSS Box Model</h2>
+            <p class="mb-3 md:mb-4">Every element is a rectangular box with these properties:</p>
+            <ul class="list-disc ml-4 md:ml-6 mb-3 md:mb-4 space-y-1">
+                <li class="text-sm md:text-base"><strong>Content</strong>: The actual content of the box</li>
+                <li class="text-sm md:text-base"><strong>Padding</strong>: Clears an area around the content</li>
+                <li class="text-sm md:text-base"><strong>Border</strong>: A border that goes around the padding</li>
+                <li class="text-sm md:text-base"><strong>Margin</strong>: Clears an area outside the border</li>
+            </ul>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>width</code></td><td>Sets the width of an element</td><td><code>width: 300px;</code></td></tr>
+                        <tr><td><code>height</code></td><td>Sets the height of an element</td><td><code>height: 200px;</code></td></tr>
+                        <tr><td><code>padding</code></td><td>Sets space inside the element</td><td><code>padding: 10px;</code></td></tr>
+                        <tr><td><code>margin</code></td><td>Sets space outside the element</td><td><code>margin: 20px;</code></td></tr>
+                        <tr><td><code>border</code></td><td>Sets the border around the element</td><td><code>border: 1px solid black;</code></td></tr>
+                        <tr><td><code>box-sizing</code></td><td>Controls how width/height is calculated</td><td><code>box-sizing: border-box;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">.box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid gray;
+    margin: 10px;
+    box-sizing: border-box; /* includes padding and border in width */
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Trick:</strong> Use <code>box-sizing: border-box</code> for more predictable sizing.</p>
+        </section>
+
+        <!-- CSS Colors and Backgrounds -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-palette mr-2"></i> Colors and Backgrounds</h2>
+            <p class="mb-3 md:mb-4">CSS provides multiple ways to specify colors and background properties.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>color</code></td><td>Sets text color</td><td><code>color: red;</code></td></tr>
+                        <tr><td><code>background-color</code></td><td>Sets background color</td><td><code>background-color: #f0f0f0;</code></td></tr>
+                        <tr><td><code>background-image</code></td><td>Sets background image</td><td><code>background-image: url("bg.jpg");</code></td></tr>
+                        <tr><td><code>background-repeat</code></td><td>Sets if/how background repeats</td><td><code>background-repeat: no-repeat;</code></td></tr>
+                        <tr><td><code>background-position</code></td><td>Sets background position</td><td><code>background-position: center;</code></td></tr>
+                        <tr><td><code>background-size</code></td><td>Sets background size</td><td><code>background-size: cover;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Color Formats:</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Format</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Named colors</code></td><td><code>red</code></td><td>Predefined color names</td></tr>
+                        <tr><td><code>HEX</code></td><td><code>#ff0000</code></td><td>Hexadecimal format</td></tr>
+                        <tr><td><code>RGB</code></td><td><code>rgb(255, 0, 0)</code></td><td>Red, Green, Blue values</td></tr>
+                        <tr><td><code>RGBA</code></td><td><code>rgba(255, 0, 0, 0.5)</code></td><td>RGB with alpha transparency</td></tr>
+                        <tr><td><code>HSL</code></td><td><code>hsl(0, 100%, 50%)</code></td><td>Hue, Saturation, Lightness</td></tr>
+                        <tr><td><code>HSLA</code></td><td><code>hsla(0, 100%, 50%, 0.5)</code></td><td>HSL with alpha transparency</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">body {
+    color: #333; /* Dark gray text */
+    background-color: hsl(210, 20%, 98%); /* Very light blue */
+}
+
+.header {
+    background-image: linear-gradient(to right, #4f46e5, #8b5cf6);
+    background-size: cover;
+    background-position: center;
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use HSL color format for easier color adjustments.</p>
+        </section>
+
+        <!-- CSS Text and Fonts -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-font mr-2"></i> Text and Fonts</h2>
+            <p class="mb-3 md:mb-4">CSS provides extensive text styling capabilities.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>font-family</code></td><td>Specifies font</td><td><code>font-family: Arial;</code></td></tr>
+                        <tr><td><code>font-size</code></td><td>Sets text size</td><td><code>font-size: 16px;</code></td></tr>
+                        <tr><td><code>font-weight</code></td><td>Sets text boldness</td><td><code>font-weight: bold;</code></td></tr>
+                        <tr><td><code>font-style</code></td><td>Sets italic text</td><td><code>font-style: italic;</code></td></tr>
+                        <tr><td><code>text-align</code></td><td>Aligns text</td><td><code>text-align: center;</code></td></tr>
+                        <tr><td><code>text-decoration</code></td><td>Adds underline/overline</td><td><code>text-decoration: underline;</code></td></tr>
+                        <tr><td><code>line-height</code></td><td>Sets space between lines</td><td><code>line-height: 1.5;</code></td></tr>
+                        <tr><td><code>letter-spacing</code></td><td>Sets space between letters</td><td><code>letter-spacing: 1px;</code></td></tr>
+                        <tr><td><code>text-transform</code></td><td>Controls capitalization</td><td><code>text-transform: uppercase;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">h1 {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+p {
+    line-height: 1.6;
+    text-align: justify;
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Trick:</strong> Use relative units (em, rem) for font sizes for better scalability.</p>
+        </section>
+
+        <!-- CSS Layout - Flexbox -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-boxes mr-2"></i> Flexbox Layout</h2>
+            <p class="mb-3 md:mb-4">Flexbox provides efficient way to layout, align and distribute space among items.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>display: flex</code></td><td>Creates a flex container</td><td><code>display: flex;</code></td></tr>
+                        <tr><td><code>flex-direction</code></td><td>Sets direction of flex items</td><td><code>flex-direction: row;</code></td></tr>
+                        <tr><td><code>flex-wrap</code></td><td>Controls wrapping of items</td><td><code>flex-wrap: wrap;</code></td></tr>
+                        <tr><td><code>justify-content</code></td><td>Aligns items along main axis</td><td><code>justify-content: center;</code></td></tr>
+                        <tr><td><code>align-items</code></td><td>Aligns items along cross axis</td><td><code>align-items: center;</code></td></tr>
+                        <tr><td><code>align-content</code></td><td>Aligns flex lines</td><td><code>align-content: space-between;</code></td></tr>
+                        <tr><td><code>flex-grow</code></td><td>Defines ability to grow</td><td><code>flex-grow: 1;</code></td></tr>
+                        <tr><td><code>flex-shrink</code></td><td>Defines ability to shrink</td><td><code>flex-shrink: 0;</code></td></tr>
+                        <tr><td><code>flex-basis</code></td><td>Default size before remaining space</td><td><code>flex-basis: 100px;</code></td></tr>
+                        <tr><td><code>order</code></td><td>Changes order of items</td><td><code>order: 2;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.item {
+    flex: 1 1 200px; /* grow shrink basis */
+    order: 1;
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>gap</code> property for consistent spacing between flex items.</p>
+        </section>
+
+        <!-- CSS Layout - Grid -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-th mr-2"></i> Grid Layout</h2>
+            <p class="mb-3 md:mb-4">CSS Grid provides a two-dimensional layout system.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>display: grid</code></td><td>Creates a grid container</td><td><code>display: grid;</code></td></tr>
+                        <tr><td><code>grid-template-columns</code></td><td>Defines columns</td><td><code>grid-template-columns: 1fr 1fr 1fr;</code></td></tr>
+                        <tr><td><code>grid-template-rows</code></td><td>Defines rows</td><td><code>grid-template-rows: 100px auto;</code></td></tr>
+                        <tr><td><code>grid-template-areas</code></td><td>Defines template areas</td><td><code>grid-template-areas: "header header" "sidebar main";</code></td></tr>
+                        <tr><td><code>grid-gap</code></td><td>Sets gap between items</td><td><code>gap: 20px;</code></td></tr>
+                        <tr><td><code>grid-column</code></td><td>Positions item in columns</td><td><code>grid-column: 1 / 3;</code></td></tr>
+                        <tr><td><code>grid-row</code></td><td>Positions item in rows</td><td><code>grid-row: 1;</code></td></tr>
+                        <tr><td><code>grid-area</code></td><td>Assigns item to area</td><td><code>grid-area: header;</code></td></tr>
+                        <tr><td><code>justify-items</code></td><td>Aligns items along row axis</td><td><code>justify-items: center;</code></td></tr>
+                        <tr><td><code>align-items</code></td><td>Aligns items along column axis</td><td><code>align-items: start;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 80px auto 100px;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+    gap: 15px;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> Grid is perfect for complex layouts while Flexbox is better for one-dimensional layouts.</p>
+        </section>
+
+        <!-- CSS Transitions and Animations -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-film mr-2"></i> Transitions & Animations</h2>
+            <p class="mb-3 md:mb-4">Create smooth transitions and animations between states.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>transition</code></td><td>Shorthand for transition properties</td><td><code>transition: all 0.3s ease;</code></td></tr>
+                        <tr><td><code>transition-property</code></td><td>Specifies which properties to animate</td><td><code>transition-property: width;</code></td></tr>
+                        <tr><td><code>transition-duration</code></td><td>How long transition takes</td><td><code>transition-duration: 0.5s;</code></td></tr>
+                        <tr><td><code>transition-timing-function</code></td><td>Speed curve of transition</td><td><code>transition-timing-function: ease-in;</code></td></tr>
+                        <tr><td><code>transition-delay</code></td><td>When transition starts</td><td><code>transition-delay: 0.2s;</code></td></tr>
+                        <tr><td><code>animation</code></td><td>Shorthand for animation properties</td><td><code>animation: slide 2s infinite;</code></td></tr>
+                        <tr><td><code>@keyframes</code></td><td>Defines the animation sequence</td><td><code>@keyframes slide { from { transform: translateX(0); } }</code></td></tr>
+                        <tr><td><code>animation-name</code></td><td>Name of @keyframes animation</td><td><code>animation-name: slide;</code></td></tr>
+                        <tr><td><code>animation-duration</code></td><td>How long animation takes</td><td><code>animation-duration: 3s;</code></td></tr>
+                        <tr><td><code>animation-timing-function</code></td><td>Speed curve of animation</td><td><code>animation-timing-function: linear;</code></td></tr>
+                        <tr><td><code>animation-iteration-count</code></td><td>How many times animation plays</td><td><code>animation-iteration-count: infinite;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">/* Transition example */
+.button {
+    background-color: #4f46e5;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #6366f1;
+    transform: translateY(-2px);
+}
+
+/* Animation example */
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>will-change</code> property to hint browsers about upcoming animations for better performance.</p>
+        </section>
+
+        <!-- CSS Responsive Design -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-mobile-alt mr-2"></i> Responsive Design</h2>
+            <p class="mb-3 md:mb-4">Techniques to make websites work on all device sizes.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Viewport Meta Tag</code></td><td>Controls mobile layout</td><td><code>&lt;meta name="viewport" content="width=device-width"&gt;</code></td></tr>
+                        <tr><td><code>Media Queries</code></td><td>Conditional CSS rules</td><td><code>@media (max-width: 768px) { ... }</code></td></tr>
+                        <tr><td><code>Fluid Layouts</code></td><td>Uses % rather than px</td><td><code>width: 100%; max-width: 1200px;</code></td></tr>
+                        <tr><td><code>Flexible Images</code></td><td>Images that scale</td><td><code>img { max-width: 100%; }</code></td></tr>
+                        <tr><td><code>Mobile-first</code></td><td>Design for mobile first</td><td><code>@media (min-width: 768px) { ... }</code></td></tr>
+                        <tr><td><code>Relative Units</code></td><td>em, rem, vw, vh</td><td><code>font-size: 1.2rem;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">/* Mobile-first approach with media queries */
+body {
+    font-size: 16px;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    .container {
+        width: 90%;
+    }
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Always include the viewport meta tag for proper mobile scaling.</p>
+        </section>
+
+        <!-- CSS Positioning -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-map-marker-alt mr-2"></i> Positioning</h2>
+            <p class="mb-3 md:mb-4">Controls how elements are positioned in the layout.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>position: static</code></td><td>Default positioning</td><td><code>position: static;</code></td></tr>
+                        <tr><td><code>position: relative</code></td><td>Positioned relative to its normal position</td><td><code>position: relative; top: 10px;</code></td></tr>
+                        <tr><td><code>position: absolute</code></td><td>Positioned relative to nearest positioned ancestor</td><td><code>position: absolute; top: 0;</code></td></tr>
+                        <tr><td><code>position: fixed</code></td><td>Positioned relative to viewport</td><td><code>position: fixed; bottom: 0;</code></td></tr>
+                        <tr><td><code>position: sticky</code></td><td>Sticky based on scroll position</td><td><code>position: sticky; top: 0;</code></td></tr>
+                        <tr><td><code>top</code></td><td>Sets distance from top</td><td><code>top: 20px;</code></td></tr>
+                        <tr><td><code>right</code></td><td>Sets distance from right</td><td><code>right: 20px;</code></td></tr>
+                        <tr><td><code>bottom</code></td><td>Sets distance from bottom</td><td><code>bottom: 20px;</code></td></tr>
+                        <tr><td><code>left</code></td><td>Sets distance from left</td><td><code>left: 20px;</code></td></tr>
+                        <tr><td><code>z-index</code></td><td>Controls stacking order</td><td><code>z-index: 10;</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">.relative-box {
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: #4f46e5;
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Use <code>z-index</code> with positioned elements to manage overlapping.</p>
+        </section>
+
+        <!-- CSS Pseudo-Elements -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-code mr-2"></i> Pseudo-Elements</h2>
+            <p class="mb-3 md:mb-4">Style specific parts of an element without adding extra markup.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pseudo-Element</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>::before</code></td><td>Inserts content before an element</td><td><code>p::before { content: "★"; }</code></td></tr>
+                        <tr><td><code>::after</code></td><td>Inserts content after an element</td><td><code>p::after { content: "★"; }</code></td></tr>
+                        <tr><td><code>::first-line</code></td><td>Styles the first line of text</td><td><code>p::first-line { font-weight: bold; }</code></td></tr>
+                        <tr><td><code>::first-letter</code></td><td>Styles the first letter of text</td><td><code>p::first-letter { font-size: 2em; }</code></td></tr>
+                        <tr><td><code>::selection</code></td><td>Styles selected text</td><td><code>::selection { background: #4f46e5; }</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">.quote::before {
+    content: '"';
+    font-size: 1.5rem;
+    color: #4f46e5;
+    margin-right: 5px;
+}
+
+.quote::after {
+    content: '"';
+    font-size: 1.5rem;
+    color: #4f46e5;
+    margin-left: 5px;
+}
+
+p::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    float: left;
+    margin-right: 5px;
+}
+
+::selection {
+    background-color: #8b5cf6;
+    color: white;
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Fact:</strong> Pseudo-elements require double colons (<code>::</code>) in modern CSS.</p>
+        </section>
+
+        <!-- CSS Variables -->
+        <section class="section-card bg-gray-800 rounded-xl p-4 md:p-6 mb-4 md:mb-6 fade-in transition-all duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4"><i class="fas fa-cog mr-2"></i> CSS Variables</h2>
+            <p class="mb-3 md:mb-4">Custom properties for reusable values across your CSS.</p>
+            <div class="responsive-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>--variable</code></td><td>Defines a custom property</td><td><code>--main-color: #4f46e5;</code></td></tr>
+                        <tr><td><code>var()</code></td><td>Uses a custom property</td><td><code>color: var(--main-color);</code></td></tr>
+                        <tr><td><code>:root</code></td><td>Global scope for variables</td><td><code>:root { --spacing: 10px; }</code></td></tr>
+                        <tr><td><code>Fallback</code></td><td>Provides default value</td><td><code>color: var(--main-color, #000);</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold mt-3 md:mt-4 text-sm md:text-base">Example:</p>
+            <div class="relative">
+                <pre class="bg-gray-900 p-3 md:p-4 rounded-lg text-xs md:text-sm overflow-x-auto"><code class="language-css">:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #8b5cf6;
+    --spacing: 15px;
+}
+
+.button {
+    background-color: var(--primary-color);
+    padding: var(--spacing);
+}
+
+.card {
+    border: 2px solid var(--secondary-color);
+    margin: var(--spacing, 10px);
+}</code></pre>
+                <button class="copy-button absolute top-3 right-3 md:top-4 md:right-4 bg-indigo-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-md text-xs md:text-sm" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent).then(() => alert('Code copied!'))">Copy</button>
+            </div>
+            <p class="mt-3 md:mt-4 text-sm md:text-base"><strong>Tip:</strong> Define variables in <code>:root</code> for global access and easy maintenance.</p>
+        </section>
+    </main>
+
+    <footer class="bg-indigo-800 p-4 md:p-6 text-center">
+        <p class="text-sm md:text-base">© 2025 NotesAura. All rights reserved.</p>
+        <p class="text-sm md:text-base mt-2">Built with <i class="fas fa-heart text-red-500"></i> for developers learning CSS.</p>
+    </footer>
+</body>
+</html>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_CikRNd4zTJSabZ1LSM3KBi7UaWoc" src="https://vercel.live/_next-live/feedback/feedback.js"></script>

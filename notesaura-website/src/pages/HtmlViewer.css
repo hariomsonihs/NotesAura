@@ -1,0 +1,73 @@
+.html-viewer-page {
+  padding: 20px 0 30px;
+  min-height: calc(100vh - 160px);
+}
+
+.viewer-toolbar {
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.viewer-section {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.viewer-title {
+  color: var(--text-primary);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.viewer-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.viewer-open-btn {
+  background: white;
+  color: var(--primary-start);
+  border: 2px solid #dbeafe;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.viewer-open-btn:hover {
+  border-color: var(--primary-start);
+}
+
+.viewer-frame {
+  width: 100%;
+  height: calc(100vh - 255px);
+  min-height: 620px;
+  border: 0;
+  border-radius: 20px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .viewer-title {
+    font-size: 20px;
+  }
+
+  .viewer-frame {
+    min-height: 520px;
+    height: calc(100vh - 280px);
+  }
+}

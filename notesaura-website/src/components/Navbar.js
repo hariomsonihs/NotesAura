@@ -111,6 +111,12 @@ const Navbar = () => {
             <button onClick={() => { navigate('/courses'); setMenuOpen(false); }}>
               💻 All Courses
             </button>
+            <button onClick={() => { navigate('/projects'); setMenuOpen(false); }}>
+              🛠️ Projects
+            </button>
+            <button onClick={() => { navigate('/cheatsheets'); setMenuOpen(false); }}>
+              📄 Cheatsheets
+            </button>
             <button onClick={() => { navigate('/quiz'); setMenuOpen(false); }}>
               🎯 Quizzes
             </button>

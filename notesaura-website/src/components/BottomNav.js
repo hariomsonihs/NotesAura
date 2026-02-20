@@ -7,11 +7,11 @@ const BottomNav = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', icon: '🏠', label: 'Home' },
-    { path: '/categories', icon: '📚', label: 'Categories' },
-    { path: '/programs', icon: '📱', label: 'Programs' },
-    { path: '/ebooks', icon: '📖', label: 'Ebooks' },
-    { path: '/profile', icon: '👤', label: 'Profile' }
+    { path: '/', icon: '\uD83C\uDFE0', label: 'Home' },
+    { path: '/categories', icon: '\uD83D\uDCDA', label: 'Categories' },
+    { path: '/projects', icon: '\uD83D\uDEE0\uFE0F', label: 'Projects' },
+    { path: '/cheatsheets', icon: '\uD83D\uDCC4', label: 'Cheatsheets' },
+    { path: '/profile', icon: '\uD83D\uDC64', label: 'Profile' }
   ];
 
   return (
