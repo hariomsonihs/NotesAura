@@ -4,8 +4,6 @@
 
 ## 🔹 What is an HTML Attribute?
 
-### 🔸 Definition
-
 > **An HTML attribute is a property that provides additional information about an HTML element and modifies its behavior or appearance.**
 
 ---
@@ -50,21 +48,13 @@
 
 ## 1️⃣ Core (Global) Attributes
 
-### 🔸 Definition
-
 > **Core attributes can be used with almost all HTML elements.**
 
 ---
 
 ### 🔹 Common Core Attributes
-
-| Attribute | Description           |
-| --------- | --------------------- |
-| `id`      | Unique identification |
-| `class`   | Group of elements     |
-| `style`   | Inline CSS            |
-| `title`   | Tooltip text          |
-
+---
+![Core Attributes](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/Common_Core_Attributes.jpeg)
 ---
 
 ### 🔹 Examples
@@ -82,8 +72,6 @@
 ---
 
 ## 2️⃣ Element-Specific Attributes
-
-### 🔸 Definition
 
 > **These attributes are used only with specific HTML elements.**
 
@@ -113,8 +101,6 @@
 
 ## 3️⃣ Boolean Attributes
 
-### 🔸 Definition
-
 > **Boolean attributes do not require a value. Their presence itself represents true.**
 
 ---
@@ -131,20 +117,11 @@
 ---
 
 ### 🔹 Common Boolean Attributes
-
-| Attribute  | Meaning        |
-| ---------- | -------------- |
-| `checked`  | Selected       |
-| `disabled` | Disabled       |
-| `readonly` | Read only      |
-| `required` | Mandatory      |
-| `hidden`   | Hidden element |
-
+---
+![Boolean Attributes](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/Common_boolean-attributes.jpeg)
 ---
 
 ## 4️⃣ Event Attributes
-
-### 🔸 Definition
 
 > **Event attributes are used to execute JavaScript code when an event occurs.**
 
@@ -161,20 +138,11 @@
 ---
 
 ### 🔹 Common Event Attributes
-
-| Attribute     | Event       |
-| ------------- | ----------- |
-| `onclick`     | Mouse click |
-| `onmouseover` | Mouse hover |
-| `onkeydown`   | Key press   |
-| `onload`      | Page load   |
-| `onsubmit`    | Form submit |
-
+---
+![Event Attributes](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/Common_events.jpeg)
 ---
 
 ## 5️⃣ Style Attributes
-
-### 🔸 Definition
 
 > **Style attributes are used to apply inline CSS styles to HTML elements.**
 
@@ -200,8 +168,6 @@ Styled text
 
 ## 6️⃣ Internationalization (Language & Direction) Attributes
 
-### 🔸 Definition
-
 > **These attributes define language and text direction of content.**
 
 ---
@@ -218,17 +184,10 @@ Styled text
 ---
 
 ### 🔹 Common Attributes
-
-| Attribute | Purpose        |
-| --------- | -------------- |
-| `lang`    | Language       |
-| `dir`     | Text direction |
-
 ---
-
+![Common Attributes](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/Common_attribute.jpeg)
+---
 ## 7️⃣ Accessibility Attributes
-
-### 🔸 Definition
 
 > **Accessibility attributes help users with disabilities understand content better.**
 
@@ -245,18 +204,10 @@ Styled text
 ---
 
 ### 🔹 Common Attributes
-
-| Attribute    | Purpose           |
-| ------------ | ----------------- |
-| `alt`        | Image description |
-| `aria-label` | Screen readers    |
-| `role`       | Element role      |
-
 ---
-
+![Common Attributes](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/Common_attributes.jpeg)
+---
 ## 8️⃣ Data Attributes (Custom Attributes)
-
-### 🔸 Definition
 
 > **Data attributes allow developers to store custom data in HTML elements.**
 
@@ -302,13 +253,13 @@ Page
 
 ## 🔹 Common Mistakes
 
-❌ Wrong:
+ Wrong:
 
 ```html
 <p style=color:red>Text</p>
 ```
 
-✔ Correct:
+ Correct:
 
 ```html
 <p style="color:red;">Text</p>
@@ -341,9 +292,13 @@ Page
 *• Used for styling, events, data, accessibility*
 
 ---
-
 ## 🔹 Conclusion
 
 > **HTML attributes enhance the power of HTML elements by defining behavior, style, and interaction.**
 
+---
+**Happy Learning! 📚**
+---
+> 📚 **NotesAura** - *Learn Programming with Style*
+> © 2026 NotesAura. All rights reserved.
 ---
