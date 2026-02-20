@@ -1,0 +1,182 @@
+.home-page {
+  padding: 20px 0;
+  min-height: calc(100vh - 160px);
+}
+
+.greeting-card {
+  padding: 24px;
+  margin-bottom: 20px;
+  background: white;
+}
+
+.greeting-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greeting-time {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0 0 4px 0;
+  font-weight: 500;
+}
+
+.greeting-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.greeting-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 500;
+}
+
+.greeting-icon {
+  font-size: 56px;
+  opacity: 0.8;
+}
+
+.header-card {
+  padding: 28px;
+  margin-bottom: 32px;
+  color: white;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greeting {
+  font-size: 16px;
+  margin-bottom: 6px;
+  opacity: 0.95;
+}
+
+.header-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header-icon {
+  font-size: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.course-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.course-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.motivational-card {
+  padding: 32px;
+  margin-top: 40px;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.motivational-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.motivational-content h3 {
+  font-size: 24px;
+  margin: 0 0 8px 0;
+}
+
+.motivational-content p {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.trophy {
+  font-size: 64px;
+}
+
+@media (max-width: 768px) {
+  .greeting-card {
+    padding: 20px;
+  }
+  
+  .greeting-name {
+    font-size: 24px;
+  }
+  
+  .greeting-icon {
+    font-size: 48px;
+  }
+  
+  .header-card {
+    padding: 20px;
+  }
+  
+  .header-title {
+    font-size: 22px;
+  }
+  
+  .header-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+  }
+  
+  .course-carousel {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+  
+  .trophy {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-carousel {
+    grid-template-columns: 1fr;
+  }
+}

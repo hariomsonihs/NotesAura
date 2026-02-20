@@ -1,0 +1,147 @@
+.search-page {
+  padding: 20px 0;
+  min-height: calc(100vh - 160px);
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.back-btn {
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--primary-start);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: scale(1.05);
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 16px 50px 16px 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 50px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.search-box input:focus {
+  border-color: var(--primary-start);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f3f4f6;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-btn:hover {
+  background: #e5e7eb;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.search-empty {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  opacity: 0.6;
+}
+
+.search-empty h3 {
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.search-empty p {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.search-results-header {
+  margin-bottom: 24px;
+}
+
+.search-results-header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .search-header h1 {
+    font-size: 22px;
+  }
+
+  .search-box input {
+    padding: 14px 50px 14px 16px;
+    font-size: 15px;
+  }
+
+  .empty-icon {
+    font-size: 64px;
+  }
+
+  .search-empty h3 {
+    font-size: 20px;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
