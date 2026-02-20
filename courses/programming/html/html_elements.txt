@@ -1,0 +1,407 @@
+# 📘 HTML Elements, Tags & Types of Elements
+
+---
+
+## 🔹 HTML Tag
+
+### 🔸 Definition
+
+> **An HTML tag is a keyword enclosed in angle brackets `< >` used to define the structure and behavior of content on a web page.**
+
+---
+
+### 🔹 Syntax of HTML Tag
+
+```html
+<tagname>
+```
+
+Example:
+
+```html
+<p>
+<h1>
+<br>
+```
+
+---
+
+## 🔹 Types of HTML Tags
+
+### 1️⃣ Paired Tags (Container Tags)
+
+### 🔸 Definition
+
+> **Paired tags have both opening and closing tags and contain content inside them.**
+
+### 🔹 Syntax
+
+```html
+<tag>content</tag>
+```
+
+### 🔹 Example
+
+```html
+<p>This is a paragraph</p>
+<h1>Welcome</h1>
+```
+
+---
+
+### 2️⃣ Unpaired Tags (Empty Tags / Self-Closing Tags)
+
+### 🔸 Definition
+
+> **Unpaired tags do not have a closing tag and are used to insert elements that do not contain content.**
+
+### 🔹 Syntax
+
+```html
+<tag>
+```
+
+### 🔹 Examples
+
+```html
+<br>
+<hr>
+<img src="photo.jpg">
+```
+
+---
+
+## 🔹 HTML Element
+
+### 🔸 Definition
+
+> **An HTML element is a complete structure that includes an opening tag, content, and a closing tag.**
+
+---
+
+### 🔹 Syntax of HTML Element
+
+```html
+<tagname>Content</tagname>
+```
+
+### 🔹 Example
+
+```html
+<h2>Hello World</h2>
+```
+
+---
+
+### 🔹 Element Structure
+
+```html
+<p>This is content</p>
+```
+
+| Part              | Description |
+| ----------------- | ----------- |
+| `<p>`             | Opening tag |
+| `This is content` | Content     |
+| `</p>`            | Closing tag |
+
+---
+
+## 🔹 Difference Between HTML Tag and HTML Element
+
+| HTML Tag        | HTML Element         |
+| --------------- | -------------------- |
+| Defines markup  | Defines full content |
+| `<p>`           | `<p>Hello</p>`       |
+| Part of element | Complete structure   |
+
+---
+
+## 🔹 Types of HTML Elements
+
+---
+
+## 1️⃣ Block-Level Elements
+
+### 🔸 Definition
+
+> **Block-level elements start on a new line and take full width of the page.**
+
+---
+
+### 🔹 Features
+
+*• Start on a new line*
+*• Occupy full width*
+*• Can contain other elements*
+
+---
+
+### 🔹 Examples of Block Elements
+
+*• `<div>`*
+*• `<p>`*
+*• `<h1>` to `<h6>`*
+*• `<section>`*
+*• `<article>`*
+*• `<header>`*
+*• `<footer>`*
+*• `<table>`*
+*• `<form>`*
+
+---
+
+### 🔹 Example
+
+```html
+<div>
+  <h2>Heading</h2>
+  <p>This is a paragraph.</p>
+</div>
+```
+
+---
+
+## 2️⃣ Inline Elements
+
+### 🔸 Definition
+
+> **Inline elements do not start on a new line and take only the required width.**
+
+---
+
+### 🔹 Features
+
+*• Stay in same line*
+*• Take required space only*
+*• Cannot contain block elements*
+
+---
+
+### 🔹 Examples of Inline Elements
+
+*• `<span>`*
+*• `<a>`*
+*• `<img>`*
+*• `<b>`*
+*• `<i>`*
+*• `<u>`*
+*• `<strong>`*
+*• `<em>`*
+
+---
+
+### 🔹 Example
+
+```html
+<p>This is <b>bold</b> text.</p>
+```
+
+---
+
+## 3️⃣ Inline-Block Elements
+
+### 🔸 Definition
+
+> **Inline-block elements behave like inline elements but allow height and width like block elements.**
+
+---
+
+### 🔹 Features
+
+*• Appear inline*
+*• Width and height can be set*
+*• Used in layout design*
+
+---
+
+### 🔹 Example (CSS Related)
+
+```html
+<span style="display:inline-block; width:100px;">
+Box
+</span>
+```
+
+---
+
+## 4️⃣ Empty Elements
+
+### 🔸 Definition
+
+> **Empty elements do not have closing tags and contain no content.**
+
+---
+
+### 🔹 Examples
+
+```html
+<br>
+<hr>
+<img>
+<input>
+```
+
+---
+
+## 5️⃣ Container Elements
+
+### 🔸 Definition
+
+> **Container elements are used to group other elements together.**
+
+---
+
+### 🔹 Examples
+
+*• `<div>`*
+*• `<section>`*
+*• `<article>`*
+*• `<nav>`*
+
+---
+
+### 🔹 Example
+
+```html
+<section>
+  <h1>Title</h1>
+  <p>Content here</p>
+</section>
+```
+
+---
+
+## 6️⃣ Semantic Elements (HTML5)
+
+### 🔸 Definition
+
+> **Semantic elements clearly describe their meaning both to browser and developer.**
+
+---
+
+### 🔹 Advantages
+
+*• Better SEO*
+*• Easy to understand*
+*• Improves accessibility*
+
+---
+
+### 🔹 Examples
+
+| Tag         | Meaning      |
+| ----------- | ------------ |
+| `<header>`  | Page header  |
+| `<nav>`     | Navigation   |
+| `<main>`    | Main content |
+| `<section>` | Section      |
+| `<article>` | Article      |
+| `<footer>`  | Footer       |
+
+---
+
+### 🔹 Example
+
+```html
+<header>
+  <h1>My Website</h1>
+</header>
+
+<main>
+  <article>
+    <p>Article content</p>
+  </article>
+</main>
+
+<footer>
+  © 2026
+</footer>
+```
+
+---
+
+## 🔹 Nested Elements
+
+### 🔸 Definition
+
+> **Nested elements are elements placed inside another element.**
+
+---
+
+### 🔹 Example
+
+```html
+<p>This is <strong>important</strong> text.</p>
+```
+
+---
+
+## 🔹 HTML Syntax Rules
+
+*• Tags must be properly closed*
+*• Attributes inside opening tag*
+*• Use lowercase tags*
+*• Nest elements correctly*
+
+❌ Wrong:
+
+```html
+<p><b>Hello</p></b>
+```
+
+✔ Correct:
+
+```html
+<p><b>Hello</b></p>
+```
+
+---
+
+## 🔹 Common HTML Elements List
+
+| Element   | Purpose        |
+| --------- | -------------- |
+| `<p>`     | Paragraph      |
+| `<h1>`    | Heading        |
+| `<a>`     | Link           |
+| `<img>`   | Image          |
+| `<ul>`    | Unordered list |
+| `<ol>`    | Ordered list   |
+| `<li>`    | List item      |
+| `<table>` | Table          |
+| `<form>`  | Form           |
+
+---
+
+## 🔹 Advantages of HTML Elements
+
+*• Easy to use*
+*• Flexible structure*
+*• Browser supported*
+*• SEO friendly*
+
+---
+
+## 🔹 Limitations
+
+*• No logic*
+*• Static structure*
+*• Needs CSS & JS*
+
+---
+
+## 🔹 Summary
+
+*• Tags define structure*
+*• Elements are complete units*
+*• Elements are block or inline*
+*• Semantic elements improve meaning*
+
+---
+
+## 🔹 Conclusion
+
+> **HTML elements and tags form the backbone of web pages and are essential for structuring content properly.**
+
+---
