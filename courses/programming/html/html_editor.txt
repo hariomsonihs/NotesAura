@@ -1,0 +1,348 @@
+# 📘 HTML Editors, Working & Saving of HTML Files
+
+---
+
+## 🔹 HTML Editors
+
+### 🔸 Definition
+
+> **An HTML editor is a software or application used to write, edit, and save HTML code for creating web pages.**
+
+HTML editors help developers:
+
+*• Write HTML easily*
+*• Detect errors*
+*• Improve productivity*
+*• Preview web pages*
+
+---
+
+## 🔹 Types of HTML Editors
+
+### 1️⃣ Text Editors
+
+### 🔸 Definition
+
+> **Text editors are simple programs used to write HTML code manually without extra features.**
+
+### 🔹 Examples
+
+*• Notepad (Windows)*
+*• Notepad++*
+*• VS Code*
+*• Sublime Text*
+*• Atom*
+
+### 🔹 Advantages
+
+*• Lightweight*
+*• Full control over code*
+*• Free to use*
+*• Good for beginners*
+
+### 🔹 Disadvantages
+
+*• No automatic preview*
+*• Requires manual coding*
+
+---
+
+### 🔹 Example using Notepad
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Hello HTML</h1>
+</body>
+</html>
+```
+
+---
+
+### 2️⃣ WYSIWYG Editors
+
+### 🔸 Definition
+
+> **WYSIWYG (What You See Is What You Get) editors allow users to design web pages visually without writing code.**
+
+### 🔹 Examples
+
+*• Adobe Dreamweaver*
+*• BlueGriffon*
+*• Google Web Designer*
+
+### 🔹 Advantages
+
+*• No coding required*
+*• Visual design*
+*• Fast layout creation*
+
+### 🔹 Disadvantages
+
+*• Less control over code*
+*• Generated code may be complex*
+*• Not ideal for learning HTML*
+
+---
+
+## 🔹 Difference Between Text Editor and WYSIWYG Editor
+
+| Text Editor       | WYSIWYG Editor      |
+| ----------------- | ------------------- |
+| Manual coding     | Visual design       |
+| Lightweight       | Heavy software      |
+| Best for learning | Best for designers  |
+| Clean code        | Auto-generated code |
+
+---
+
+## 🔹 Popular HTML Editors
+
+### 🔹 Visual Studio Code (VS Code)
+
+*• Free and open source*
+*• Syntax highlighting*
+*• Auto-complete*
+*• Extensions support*
+*• Live Server preview*
+
+---
+
+## 🔹 Working of HTML
+
+### 🔸 Definition
+
+> **The working of HTML explains how a web browser reads, interprets, and displays an HTML file.**
+
+---
+
+## 🔹 Step-by-Step Working of HTML
+
+### 1️⃣ Writing HTML Code
+
+*• HTML code is written using an editor*
+*• Saved with `.html` or `.htm` extension*
+
+Example:
+
+```html
+<h1>Welcome</h1>
+```
+
+---
+
+### 2️⃣ Saving the HTML File
+
+*• File is saved on computer*
+*• Example: `index.html`*
+
+---
+
+### 3️⃣ Browser Reads the File
+
+*• Browser opens the HTML file*
+*• Reads code line by line*
+
+---
+
+### 4️⃣ Parsing the HTML
+
+*• Browser converts HTML into **DOM (Document Object Model)***
+*• Understands structure of elements*
+
+---
+
+### 5️⃣ Rendering the Page
+
+*• Browser displays content on screen*
+*• Text, images, links are shown*
+
+---
+
+## 🔹 HTML Working Flow
+
+```
+HTML File → Browser → Parsing → Rendering → Web Page
+```
+
+---
+
+## 🔹 Role of Browser in HTML Working
+
+### 🔸 Browser Functions
+
+*• Reads HTML tags*
+*• Applies default styles*
+*• Displays content visually*
+*• Ignores unknown tags*
+
+Examples of browsers:
+
+*• Chrome*
+*• Firefox*
+*• Edge*
+*• Safari*
+
+---
+
+## 🔹 Saving of HTML Files
+
+### 🔸 Definition
+
+> **Saving an HTML file means storing the written HTML code with a proper file name and extension so it can be opened in a browser.**
+
+---
+
+## 🔹 Steps to Save HTML File (Using Notepad)
+
+### ✅ Step 1: Open Notepad
+
+*• Press `Windows + R`*
+*• Type `notepad`*
+*• Press Enter*
+
+---
+
+### ✅ Step 2: Write HTML Code
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First Page</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+</body>
+</html>
+```
+
+---
+
+### ✅ Step 3: Save the File
+
+*• Click **File → Save As***
+*• File name: `index.html`*
+*• Save as type: **All Files***
+*• Encoding: **UTF-8***
+*• Location: Any folder*
+
+---
+
+### 🔹 Important Points While Saving
+
+*• Always use `.html` extension*
+*• Do not use `.txt`*
+*• Use lowercase file names*
+*• Avoid spaces in file names*
+
+✔ Correct: `my_page.html`
+❌ Wrong: `mypage.txt`
+
+---
+
+## 🔹 Opening an HTML File
+
+### Methods:
+
+*• Double click the file*
+*• Right-click → Open with browser*
+*• Drag file into browser*
+
+---
+
+## 🔹 HTML File Naming Rules
+
+*• Use meaningful names*
+*• Use lowercase letters*
+*• Avoid spaces*
+*• Use hyphen (`-`) instead of space*
+
+Example:
+
+```
+student-profile.html
+```
+
+---
+
+## 🔹 Common Errors While Saving HTML Files
+
+| Error              | Reason          |
+| ------------------ | --------------- |
+| File opens as text | Wrong extension |
+| Code visible       | Saved as `.txt` |
+| Page not loading   | File not saved  |
+| Symbols error      | Wrong encoding  |
+
+---
+
+## 🔹 HTML Syntax Rules
+
+### 🔸 General Syntax
+
+```html
+<tag>Content</tag>
+```
+
+### 🔹 Rules
+
+*• Tags are enclosed in `< >`*
+*• Closing tag starts with `/`*
+*• Attributes written inside opening tag*
+
+Example:
+
+```html
+<a href="page.html">Link</a>
+```
+
+---
+
+## 🔹 Advantages of Proper HTML Saving
+
+*• Correct display in browser*
+*• Easy debugging*
+*• SEO friendly*
+*• Works across all systems*
+
+---
+
+## 🔹 Real-Life Example
+
+### HTML File: `about.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Me</title>
+</head>
+<body>
+    <h2>Name: Anshu</h2>
+    <p>I am learning HTML.</p>
+</body>
+</html>
+```
+
+---
+
+## 🔹 Summary
+
+*• HTML editors help write code*
+*• HTML works through browser parsing*
+*• HTML files must be saved correctly*
+*• Proper extension is very important*
+
+---
+
+## 🔹 Conclusion
+
+> **HTML editors, correct working, and proper saving of files are the first and most important steps in web development.**
+
+---
+
