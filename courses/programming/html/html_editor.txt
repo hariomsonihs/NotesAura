@@ -1,10 +1,7 @@
 # 📘 HTML Editors, Working & Saving of HTML Files
-
 ---
 
 ## 🔹 HTML Editors
-
-### 🔸 Definition
 
 > **An HTML editor is a software or application used to write, edit, and save HTML code for creating web pages.**
 
@@ -20,8 +17,6 @@ HTML editors help developers:
 ## 🔹 Types of HTML Editors
 
 ### 1️⃣ Text Editors
-
-### 🔸 Definition
 
 > **Text editors are simple programs used to write HTML code manually without extra features.**
 
@@ -65,8 +60,6 @@ HTML editors help developers:
 
 ### 2️⃣ WYSIWYG Editors
 
-### 🔸 Definition
-
 > **WYSIWYG (What You See Is What You Get) editors allow users to design web pages visually without writing code.**
 
 ### 🔹 Examples
@@ -90,16 +83,9 @@ HTML editors help developers:
 ---
 
 ## 🔹 Difference Between Text Editor and WYSIWYG Editor
-
-| Text Editor       | WYSIWYG Editor      |
-| ----------------- | ------------------- |
-| Manual coding     | Visual design       |
-| Lightweight       | Heavy software      |
-| Best for learning | Best for designers  |
-| Clean code        | Auto-generated code |
-
 ---
-
+![Text & WYSIWYG Editor](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/html_tags_wy.jpeg)
+---
 ## 🔹 Popular HTML Editors
 
 ### 🔹 Visual Studio Code (VS Code)
@@ -113,8 +99,6 @@ HTML editors help developers:
 ---
 
 ## 🔹 Working of HTML
-
-### 🔸 Definition
 
 > **The working of HTML explains how a web browser reads, interprets, and displays an HTML file.**
 
@@ -191,8 +175,6 @@ Examples of browsers:
 
 ## 🔹 Saving of HTML Files
 
-### 🔸 Definition
-
 > **Saving an HTML file means storing the written HTML code with a proper file name and extension so it can be opened in a browser.**
 
 ---
@@ -240,8 +222,8 @@ Examples of browsers:
 *• Use lowercase file names*
 *• Avoid spaces in file names*
 
-✔ Correct: `my_page.html`
-❌ Wrong: `mypage.txt`
+ Correct: `my_page.html`
+ Wrong: `mypage.txt`
 
 ---
 
@@ -271,16 +253,9 @@ student-profile.html
 ---
 
 ## 🔹 Common Errors While Saving HTML Files
-
-| Error              | Reason          |
-| ------------------ | --------------- |
-| File opens as text | Wrong extension |
-| Code visible       | Saved as `.txt` |
-| Page not loading   | File not saved  |
-| Symbols error      | Wrong encoding  |
-
 ---
-
+![Saving errors](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/html/images/html_errors.jpeg)
+---
 ## 🔹 HTML Syntax Rules
 
 ### 🔸 General Syntax
@@ -339,10 +314,13 @@ Example:
 *• Proper extension is very important*
 
 ---
-
 ## 🔹 Conclusion
 
 > **HTML editors, correct working, and proper saving of files are the first and most important steps in web development.**
 
 ---
-
+**Happy Learning! 📚**
+---
+> 📚 **NotesAura** - *Learn Programming with Style*
+> © 2026 NotesAura. All rights reserved.
+---
