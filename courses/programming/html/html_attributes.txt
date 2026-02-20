@@ -1,0 +1,349 @@
+# 📘 HTML Attributes – Complete Notes
+
+---
+
+## 🔹 What is an HTML Attribute?
+
+### 🔸 Definition
+
+> **An HTML attribute is a property that provides additional information about an HTML element and modifies its behavior or appearance.**
+
+---
+
+## 🔹 Key Points of HTML Attributes
+
+*• Attributes are written inside the **opening tag***
+*• Attributes are written as **name="value"***
+*• Attributes add extra information*
+*• One element can have **multiple attributes***
+*• Attribute values are usually written in **double quotes***
+
+---
+
+## 🔹 Syntax of HTML Attributes
+
+```html
+<tag attribute="value">Content</tag>
+```
+
+### 🔹 Example
+
+```html
+<p align="center">Hello World</p>
+```
+
+---
+
+## 🔹 Why HTML Attributes are Used?
+
+*• To control element behavior*
+*• To add styling and formatting*
+*• To provide identification*
+*• To define links and media sources*
+*• To improve accessibility*
+
+---
+
+## 🔹 Types of HTML Attributes
+
+---
+
+## 1️⃣ Core (Global) Attributes
+
+### 🔸 Definition
+
+> **Core attributes can be used with almost all HTML elements.**
+
+---
+
+### 🔹 Common Core Attributes
+
+| Attribute | Description           |
+| --------- | --------------------- |
+| `id`      | Unique identification |
+| `class`   | Group of elements     |
+| `style`   | Inline CSS            |
+| `title`   | Tooltip text          |
+
+---
+
+### 🔹 Examples
+
+```html
+<h1 id="mainTitle">Welcome</h1>
+
+<p class="info">This is a paragraph</p>
+
+<p style="color:red;">Red Text</p>
+
+<p title="HTML Attribute">Hover here</p>
+```
+
+---
+
+## 2️⃣ Element-Specific Attributes
+
+### 🔸 Definition
+
+> **These attributes are used only with specific HTML elements.**
+
+---
+
+### 🔹 Examples
+
+#### 🔹 `href` (Anchor Tag)
+
+```html
+<a href="https://google.com">Google</a>
+```
+
+#### 🔹 `src` (Image Tag)
+
+```html
+<img src="image.jpg">
+```
+
+#### 🔹 `type` (Input Tag)
+
+```html
+<input type="text">
+```
+
+---
+
+## 3️⃣ Boolean Attributes
+
+### 🔸 Definition
+
+> **Boolean attributes do not require a value. Their presence itself represents true.**
+
+---
+
+### 🔹 Examples
+
+```html
+<input type="checkbox" checked>
+<input type="text" disabled>
+<input type="text" readonly>
+<input type="text" required>
+```
+
+---
+
+### 🔹 Common Boolean Attributes
+
+| Attribute  | Meaning        |
+| ---------- | -------------- |
+| `checked`  | Selected       |
+| `disabled` | Disabled       |
+| `readonly` | Read only      |
+| `required` | Mandatory      |
+| `hidden`   | Hidden element |
+
+---
+
+## 4️⃣ Event Attributes
+
+### 🔸 Definition
+
+> **Event attributes are used to execute JavaScript code when an event occurs.**
+
+---
+
+### 🔹 Examples
+
+```html
+<button onclick="alert('Clicked!')">Click Me</button>
+
+<input type="text" onfocus="this.style.background='yellow'">
+```
+
+---
+
+### 🔹 Common Event Attributes
+
+| Attribute     | Event       |
+| ------------- | ----------- |
+| `onclick`     | Mouse click |
+| `onmouseover` | Mouse hover |
+| `onkeydown`   | Key press   |
+| `onload`      | Page load   |
+| `onsubmit`    | Form submit |
+
+---
+
+## 5️⃣ Style Attributes
+
+### 🔸 Definition
+
+> **Style attributes are used to apply inline CSS styles to HTML elements.**
+
+---
+
+### 🔹 Syntax
+
+```html
+<tag style="property:value;">
+```
+
+---
+
+### 🔹 Example
+
+```html
+<p style="color:blue; font-size:18px;">
+Styled text
+</p>
+```
+
+---
+
+## 6️⃣ Internationalization (Language & Direction) Attributes
+
+### 🔸 Definition
+
+> **These attributes define language and text direction of content.**
+
+---
+
+### 🔹 Examples
+
+```html
+<p lang="en">Hello</p>
+<p lang="hi">नमस्ते</p>
+
+<p dir="rtl">مرحبا</p>
+```
+
+---
+
+### 🔹 Common Attributes
+
+| Attribute | Purpose        |
+| --------- | -------------- |
+| `lang`    | Language       |
+| `dir`     | Text direction |
+
+---
+
+## 7️⃣ Accessibility Attributes
+
+### 🔸 Definition
+
+> **Accessibility attributes help users with disabilities understand content better.**
+
+---
+
+### 🔹 Examples
+
+```html
+<img src="logo.png" alt="Company Logo">
+
+<input type="text" aria-label="Username">
+```
+
+---
+
+### 🔹 Common Attributes
+
+| Attribute    | Purpose           |
+| ------------ | ----------------- |
+| `alt`        | Image description |
+| `aria-label` | Screen readers    |
+| `role`       | Element role      |
+
+---
+
+## 8️⃣ Data Attributes (Custom Attributes)
+
+### 🔸 Definition
+
+> **Data attributes allow developers to store custom data in HTML elements.**
+
+---
+
+### 🔹 Syntax
+
+```html
+<tag data-name="value">
+```
+
+---
+
+### 🔹 Example
+
+```html
+<button data-user="admin">Login</button>
+```
+
+Used with JavaScript.
+
+---
+
+## 🔹 Multiple Attributes in One Element
+
+```html
+<a href="page.html" id="link1" class="nav" title="Click here">
+Page
+</a>
+```
+
+---
+
+## 🔹 Rules for Writing HTML Attributes
+
+*• Write attributes in opening tag*
+*• Separate attributes with space*
+*• Use lowercase*
+*• Use quotes for values*
+*• Avoid duplicate `id` values*
+
+---
+
+## 🔹 Common Mistakes
+
+❌ Wrong:
+
+```html
+<p style=color:red>Text</p>
+```
+
+✔ Correct:
+
+```html
+<p style="color:red;">Text</p>
+```
+
+---
+
+## 🔹 Advantages of HTML Attributes
+
+*• Improve functionality*
+*• Control appearance*
+*• Enhance accessibility*
+*• Easy customization*
+
+---
+
+## 🔹 Limitations
+
+*• Inline styles not recommended*
+*• Overuse reduces readability*
+*• JavaScript required for logic*
+
+---
+
+## 🔹 Summary
+
+*• Attributes provide extra information*
+*• Written as name-value pairs*
+*• Multiple types exist*
+*• Used for styling, events, data, accessibility*
+
+---
+
+## 🔹 Conclusion
+
+> **HTML attributes enhance the power of HTML elements by defining behavior, style, and interaction.**
+
+---
