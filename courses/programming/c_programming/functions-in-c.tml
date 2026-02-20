@@ -1,10 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Identifiers in C</title>
+  <title>Functions in C</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -157,10 +158,7 @@
       font-size: 1rem;
       box-shadow: 0 -2px 8px rgba(80,80,120,0.08);
     }
-    /* Responsive Design */
-    @media (max-width: 900px) {
-      .container { max-width: 98vw; }
-    }
+    @media (max-width: 900px) { .container { max-width: 98vw; } }
     @media (max-width: 600px) {
       .container { padding: 16px 4vw; }
       h1 { font-size: 1.3rem; }
@@ -176,76 +174,99 @@
 <body>
 <div class="navbar">NotesAura Programming Guide</div>
 <div class="container">
-  <h1>Identifiers in C</h1>
+  <h1>Functions in C</h1>
 
   <div class="card">
-    <h2>What are Identifiers?</h2>
+    <h2>What are Functions?</h2>
     <p>
-      In C, <b>identifiers</b> are the names used to identify variables, functions, arrays, structures, or any other user-defined elements.  
-      They act as symbolic names that represent memory locations or code elements.
+      A <b>function</b> in C is a block of code that performs a specific task.  
+      Functions allow reusability, modularity, and better organization of programs.
     </p>
     <ul>
-      <li>Identifiers make programs readable and meaningful.</li>
-      <li>Examples: <code>age</code>, <code>sum</code>, <code>calculateArea</code>, <code>student_name</code>.</li>
+      <li>Prevents repetition of code.</li>
+      <li>Makes programs easier to read and maintain.</li>
+      <li>Can be reused across multiple programs.</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>Rules for Naming Identifiers</h2>
+    <h2>Types of Functions</h2>
     <ul>
-      <li>Must begin with a letter or underscore (_).</li>
-      <li>Subsequent characters may include letters, digits (0–9), or underscores.</li>
-      <li>No special symbols allowed (e.g., @, $, %).</li>
-      <li>Cannot be a C <b>keyword</b> (e.g., <code>int</code>, <code>while</code>).</li>
-      <li>Case-sensitive (<code>value</code> ≠ <code>Value</code>).</li>
-      <li>No length limit in C standard, but compilers may restrict (often 31 characters).</li>
+      <li><b>Library Functions:</b> Predefined (e.g., <code>printf()</code>, <code>sqrt()</code>).</li>
+      <li><b>User-defined Functions:</b> Created by the programmer.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Syntax of Function</h2>
+    <div class="code-wrapper">
+      <button class="copy-btn" onclick="copyCode('syntax')">Copy Code</button>
+      <pre id="syntax">return_type function_name(parameters) {
+    // body of function
+}</pre>
+    </div>
+  </div>
+
+  <div class="example">
+    <h3>Example: User-defined Function</h3>
+    <div class="code-wrapper">
+      <button class="copy-btn" onclick="copyCode('example1')">Copy Code</button>
+      <pre id="example1"><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="keyword">int</span> add(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {  
+    <span class="keyword">return</span> a + b;  
+}
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">int</span> result = add(5, 3);
+    printf(<span class="string">"Sum = %d\n"</span>, result);
+    <span class="keyword">return</span> 0;
+}</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Function Categories</h2>
+    <ul>
+      <li>Without arguments and without return value</li>
+      <li>With arguments and without return value</li>
+      <li>Without arguments and with return value</li>
+      <li>With arguments and with return value</li>
     </ul>
   </div>
 
   <div class="example">
-    <h3>Valid and Invalid Identifiers</h3>
+    <h3>Example: Function with Arguments and Return Value</h3>
     <div class="code-wrapper">
-      <button class="copy-btn" onclick="copyCode('id-code')">Copy Code</button>
-      <pre id="id-code"><span class="keyword">int</span> age;          <span class="comment">// valid</span>
-<span class="keyword">float</span> totalMarks;  <span class="comment">// valid</span>
-<span class="keyword">char</span> _grade;       <span class="comment">// valid</span>
+      <button class="copy-btn" onclick="copyCode('example2')">Copy Code</button>
+      <pre id="example2"><span class="keyword">#include</span> &lt;stdio.h&gt;
 
-<span class="keyword">int</span> 123value;     <span class="comment">// invalid (starts with digit)</span>
-<span class="keyword">float</span> total%marks; <span class="comment">// invalid (special symbol % not allowed)</span>
-<span class="keyword">char</span> while;        <span class="comment">// invalid (keyword)</span></pre>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Identifiers vs Keywords</h2>
-    <p>
-      <b>Keywords</b> are reserved words in C (like <code>int</code>, <code>if</code>, <code>return</code>) that have predefined meaning.  
-      <b>Identifiers</b> are user-defined names that programmers create.  
-    </p>
-    <ul>
-      <li><b>Keyword:</b> <code>int</code> (defines an integer type).</li>
-      <li><b>Identifier:</b> <code>marks</code> (user-defined variable name).</li>
-    </ul>
-    <div class="callout">
-      <b>Tip:</b> Never use keywords as identifiers. It causes compilation errors.
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Code Example</h2>
-    <div class="code-wrapper">
-      <button class="copy-btn" onclick="copyCode('prog-code')">Copy Code</button>
-      <pre id="prog-code"><span class="keyword">#include</span> &lt;stdio.h&gt;
+<span class="keyword">int</span> multiply(<span class="keyword">int</span> x, <span class="keyword">int</span> y) {
+    <span class="keyword">return</span> x * y;
+}
 
 <span class="keyword">int</span> main() {
-    <span class="keyword">int</span> age = 20;
-    <span class="keyword">float</span> marks = 89.5;
-    <span class="keyword">char</span> grade = <span class="string">'A'</span>;
+    printf(<span class="string">"Product = %d\n"</span>, multiply(4, 6));
+    <span class="keyword">return</span> 0;
+}</pre>
+    </div>
+  </div>
 
-    printf(<span class="string">"Age: %d\n"</span>, age);
-    printf(<span class="string">"Marks: %.2f\n"</span>, marks);
-    printf(<span class="string">"Grade: %c\n"</span>, grade);
+  <div class="example">
+    <h3>Example: Recursive Function (Factorial)</h3>
+    <div class="code-wrapper">
+      <button class="copy-btn" onclick="copyCode('example3')">Copy Code</button>
+      <pre id="example3"><span class="keyword">#include</span> &lt;stdio.h&gt;
 
+<span class="keyword">int</span> factorial(<span class="keyword">int</span> n) {
+    if(n == 0) 
+        <span class="keyword">return</span> 1;
+    else 
+        <span class="keyword">return</span> n * factorial(n - 1);
+}
+
+<span class="keyword">int</span> main() {
+    printf(<span class="string">"Factorial of 5 = %d\n"</span>, factorial(5));
     <span class="keyword">return</span> 0;
 }</pre>
     </div>
@@ -254,25 +275,24 @@
   <div class="card">
     <h3>Common Mistakes</h3>
     <ul>
-      <li>Using keywords as identifiers (e.g., <code>int float;</code>).</li>
-      <li>Starting identifiers with digits (<code>2value</code>).</li>
-      <li>Including spaces (<code>student name</code>).</li>
-      <li>Mixing case unintentionally (<code>total</code> vs <code>Total</code>).</li>
+      <li>Not declaring a function before using it.</li>
+      <li>Mismatching return type with actual returned value.</li>
+      <li>Forgetting to include necessary header files.</li>
     </ul>
   </div>
 
   <div class="conclusion">
     <b>Conclusion:</b>
     <p>
-      Identifiers are fundamental to C programming, providing readable names for data and functions.  
-      Following proper naming rules ensures clarity, avoids conflicts with keywords, and makes code easier to maintain.  
-      Always use meaningful identifiers like <code>studentAge</code> or <code>calculateSum</code> for better readability.
+      Functions in C make programs modular and reusable.  
+      By understanding function categories, return types, and recursion, programmers can write efficient and structured code.  
+      Mastering functions is essential for solving real-world problems in C.
     </p>
   </div>
 </div>
 
 <footer>
-  &copy; 2025 NotesAura Programming Guide &mdash; Learn. Code. Succeed.
+  &copy; 2025 NotesAura Programming Guide — Learn. Code. Succeed.
 </footer>
 
 <script>
@@ -290,5 +310,4 @@ function copyCode(id) {
 }
 </script>
 </body>
-</html>
-<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_CikRNd4zTJSabZ1LSM3KBi7UaWoc" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+</html><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_CikRNd4zTJSabZ1LSM3KBi7UaWoc" src="https://vercel.live/_next-live/feedback/feedback.js"></script>

@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modern Calculator Project - NotesAura</title>
+        <!-- Font Awesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Digital-7&display=swap" rel="stylesheet">
+        <style>
+            /* =========================
+            General Reset
+            ========================= */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Arial', sans-serif;
+            }
+
+            body {
+                background: linear-gradient(to right, #141e30, #243b55);
+                color: #fff;
+                padding: 20px;
+                padding-top: 80px; /* Adjusted for fixed header */
+                min-height: 100vh;
+                user-select:none;
+            }
+
+            /* =========================
+            Header Styling
+            ========================= */
+            .main-header {
+                background: linear-gradient(135deg, #6200ea, #0078d7);
+                color: #fff;
+                padding: 10px 20px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+
+            .logo-img {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            .slogan {
+                font-size: 0.7rem;
+                color: yellow;
+                margin-top: 5px;
+                font-weight: bold;
+            }
+
+            /* =========================
+            Project Content Styling
+            ========================= */
+            .project-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            h2, h3 {
+                color: yellow;
+                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+                margin-bottom: 20px;
+            }
+
+            .project-overview p,
+            .requirements ul,
+            .process ol {
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+
+            .requirements ul,
+            .process ol {
+                padding-left: 20px;
+            }
+
+            .requirements ul li,
+            .process ol li {
+                margin-bottom: 10px;
+            }
+
+            /* =========================
+            Code Container Styling
+            ========================= */
+            .code-container {
+                position: relative;
+                margin-bottom: 20px;
+            }
+
+            pre {
+                background: #1e1e1e;
+                padding: 15px;
+                border-radius: 10px;
+                overflow-x: auto;
+            }
+
+            pre code {
+                color: #00ff00;
+                font-family: 'Courier New', monospace;
+                font-size: 0.9rem;
+            }
+
+            .copy-button, .download-button {
+                position: absolute;
+                top: 10px;
+                background: #ffcc00;
+                color: #141e30;
+                border: none;
+                padding: 8px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+            .copy-button {
+                right: 120px; /* Adjusted spacing */
+            }
+
+            .download-button {
+                right: 10px; /* Adjusted spacing */
+            }
+
+            .copy-button:hover, .download-button:hover {
+                background: #e6b800;
+            }
+
+            /* =========================
+            Screenshot Styling
+            ========================= */
+            .screenshot {
+                display: block;
+                max-width: 100%;
+                border-radius: 10px;
+                margin: 20px auto; /* Centered */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            /* =========================
+            Explore Button Styling
+            ========================= */
+            .explore-button {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .explore-button button {
+                background: #ffcc00;
+                color: #141e30;
+                border: none;
+                padding: 10px 20px;
+                font-size: 1rem;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+            .explore-button button:hover {
+                background: #e6b800;
+            }
+
+            /* =========================
+            Footer Styling
+            ========================= */
+            footer {
+                text-align: center;
+                margin-top: 20px;
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            /* =========================
+            Responsive Design
+            ========================= */
+            @media (max-width: 768px) {
+                body {
+                    padding-top: 60px;
+                    padding: 10px;
+                    padding-top: 80px;
+                    padding-bottom: 80px;
+                }
+
+                .project-content {
+                    padding: 15px;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+
+                h3 {
+                    font-size: 1.2rem;
+                }
+
+                .copy-button, .download-button {
+                    padding: 6px 12px;
+                    font-size: 0.9rem;
+                }
+
+                .copy-button {
+                    right: 100px; /* Adjusted spacing for mobile */
+                }
+
+                .download-button {
+                    right: 10px; /* Adjusted spacing for mobile */
+                }
+            }
+
+            @media (max-width: 480px) {
+                .main-header {
+                    padding: 10px;
+                }
+
+                .logo-text {
+                    font-size: 1.2rem;
+                }
+
+                .slogan {
+                    font-size: 0.6rem;
+                }
+
+                .project-content {
+                    padding: 10px;
+                }
+
+                h2 {
+                    font-size: 1.3rem;
+                }
+
+                h3 {
+                    font-size: 1.1rem;
+                }
+
+                .copy-button, .download-button {
+                    padding: 5px 10px;
+                    font-size: 0.8rem;
+                }
+
+                .copy-button {
+                    right: 90px; /* Adjusted spacing for small devices */
+                }
+
+                .download-button {
+                    right: 10px; /* Adjusted spacing for small devices */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header class="main-header">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-content">
+                    <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+                    <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Project Details Section -->
+        <section id="project-details">
+            <h2 class="section-title">Modern Calculator Project</h2>
+            <div class="project-content">
+                <!-- Project Overview -->
+                <div class="project-overview">
+                    <h3>Project Overview</h3>
+                    <p>
+                        This project is a <strong>Modern Calculator</strong> built using HTML, CSS, and JavaScript. It features a sleek and responsive design with a digital display, support for basic arithmetic operations, and animations for a modern user experience. The calculator is designed to work seamlessly on both desktop and mobile devices.
+                    </p>
+                </div>
+
+                <!-- Requirements -->
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li><strong>Programming Language:</strong> HTML, CSS, JavaScript</li>
+                        <li><strong>Frameworks/Libraries:</strong> None</li>
+                        <li><strong>Tools:</strong> VS Code, Git</li>
+                        <li><strong>APIs:</strong> None</li>
+                        <li><strong>Other Dependencies:</strong> Google Fonts (Digital-7)</li>
+                    </ul>
+                </div>
+
+                <!-- Process/Steps -->
+                <div class="process">
+                    <h3>Process/Steps</h3>
+                    <ol>
+                        <li><strong>Step 1: Create Project Files</strong>
+                            <ul>
+                                <li>Create a folder named <code>calculator-project</code>.</li>
+                                <li>Inside the folder, create three files:
+                                    <ul>
+                                        <li><code>index.html</code> - For the HTML structure.</li>
+                                        <li><code>styles.css</code> - For styling the calculator.</li>
+                                        <li><code>script.js</code> - For handling calculator logic.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 2: Write HTML Code</strong>
+                            <ul>
+                                <li>In <code>index.html</code>, create the basic structure of the calculator using HTML.</li>
+                                <li>Add buttons for digits (0-9), operators (+, -, *, /), and special functions (AC, ⌫, =).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 3: Style the Calculator</strong>
+                            <ul>
+                                <li>In <code>styles.css</code>, style the calculator to make it visually appealing.</li>
+                                <li>Use gradients, shadows, and animations for a modern look.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 4: Add JavaScript Logic</strong>
+                            <ul>
+                                <li>In <code>script.js</code>, write functions to handle button clicks, perform calculations, and update the display.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 5: Test and Deploy</strong>
+                            <ul>
+                                <li>Test the calculator on different devices to ensure responsiveness.</li>
+                                <li>Deploy the project using GitHub Pages or any hosting service.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Code Explanation -->
+                <div class="code-explanation">
+                    <h3>Code Explanation</h3>
+
+                    <!-- HTML Code -->
+                    <div class="code-container">
+                        <h4>HTML Code</h4>
+                        <pre><code id="htmlCode">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Modern Calculator&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Digital-7&display=swap" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="calculator"&gt;
+    &lt;div class="display"&gt;
+      &lt;input type="text" id="display" value="0" readonly&gt;
+    &lt;/div&gt;
+    &lt;div class="buttons"&gt;
+      &lt;button class="button" onclick="clearDisplay()"&gt;AC&lt;/button&gt;
+      &lt;button class="button" onclick="backspace()"&gt;⌫&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('/')"&gt;÷&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('*')"&gt;×&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('7')"&gt;7&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('8')"&gt;8&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('9')"&gt;9&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('-')"&gt;-&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('4')"&gt;4&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('5')"&gt;5&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('6')"&gt;6&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('+')"&gt;+&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('1')"&gt;1&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('2')"&gt;2&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('3')"&gt;3&lt;/button&gt;
+      &lt;button class="button" onclick="appendToDisplay('.')"&gt;.&lt;/button&gt;
+      &lt;button class="button equals" onclick="calculateResult()"&gt;=&lt;/button&gt;
+      &lt;button class="button zero" onclick="appendToDisplay('0')"&gt;0&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('htmlCode')">Copy HTML</button>
+                    </div>
+
+                    <!-- CSS Code -->
+                    <div class="code-container">
+                        <h4>CSS Code</h4>
+                        <pre><code id="cssCode">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #2c3e50, #8e44ad);
+  background-size: cover;
+  color: white;
+  user-select: none;
+  overflow: hidden;
+}
+
+.calculator {
+  background: rgba(13, 71, 161, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 90%;
+  max-width: 320px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 20px;
+}
+
+.display {
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  color: #00ff00;
+  font-size: 36px;
+  font-family: 'Digital-7', monospace;
+  padding: 20px;
+  text-align: right;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5), inset 0 -4px 8px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.display input {
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-size: 36px;
+  font-family: 'Digital-7', monospace;
+  width: 100%;
+  text-align: right;
+  outline: none;
+  caret-color: #00ff00;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+      transform: translateX(10px);
+      opacity: 0.5;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+.animate {
+  display: inline-block;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+.button {
+  background: linear-gradient(145deg, #4a4a4a, #3a3a3a);
+  color: #fff;
+  font-size: 24px;
+  font-family: 'Arial', sans-serif;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 -2px 4px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), inset 0 -2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button[onclick="calculateResult()"] {
+  background: linear-gradient(145deg, #ff6f61, #ff3b3f);
+  grid-column: span 2;
+}
+
+.button[onclick="calculateResult()"]:hover {
+  background: linear-gradient(145deg, #ff3b3f, #ff6f61);
+}
+
+.button[onclick="clearDisplay()"],
+.button[onclick="backspace()"] {
+  background: linear-gradient(145deg, #6c5ce7, #a29bfe);
+}
+
+.button[onclick="clearDisplay()"]:hover,
+.button[onclick="backspace()"]:hover {
+  background: linear-gradient(145deg, #a29bfe, #6c5ce7);
+}
+
+.button.zero {
+  grid-column: span 2;
+  background: linear-gradient(145deg, #5ce763, #82c714);
+}
+
+.button:nth-child(3),
+.button:nth-child(4),
+.button:nth-child(8),
+.button:nth-child(12),
+.button:nth-child(16) {
+  background: linear-gradient(45deg, yellow, orange);
+  color: black;
+  font-weight: bold;
+  border: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.button:nth-child(3):hover,
+.button:nth-child(4):hover,
+.button:nth-child(8):hover,
+.button:nth-child(12):hover,
+.button:nth-child(16):hover {
+  background: linear-gradient(45deg, orange, yellow);
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .display {
+    font-size: 28px;
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .buttons {
+    grid-gap: 5px;
+    padding: 10px;
+  }
+
+  .button {
+    font-size: 20px;
+    padding: 10px;
+  }
+}
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('cssCode')">Copy CSS</button>
+                    </div>
+
+                    <!-- JavaScript Code -->
+                    <div class="code-container">
+                        <h4>JavaScript Code</h4>
+                        <pre><code id="jsCode">
+function appendToDisplay(value) {
+  const display = document.getElementById("display");
+  if (display.value === "0" && value !== ".") {
+    display.value = value;
+  } else {
+    display.value += value;
+  }
+}
+
+function clearDisplay() {
+  document.getElementById("display").value = "0";
+}
+
+function backspace() {
+  const display = document.getElementById("display");
+  display.value = display.value.slice(0, -1) || "0";
+}
+
+function calculateResult() {
+  const display = document.getElementById("display");
+  try {
+    display.value = eval(display.value);
+  } catch (e) {
+    display.value = "Error";
+  }
+}
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('jsCode')">Copy JavaScript</button>
+                    </div>
+                </div>
+
+                <!-- Screenshots/Output -->
+                <div class="screenshots">
+                    <h3>Screenshots/Output</h3>
+                    <img src="calculator.jpeg" alt="Calculator Screenshot" class="screenshot">
+                </div>
+
+                <!-- Explore Button -->
+                <div class="explore-button">
+                    <a href="https://modern-calculator-hariomsonihs.vercel.app/"><button>Explore Project</button></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
+        </footer>
+
+        <!-- JavaScript for Copy and Download Buttons -->
+        <script>
+            // Copy Code Functionality
+            function copyCode(elementId) {
+                const codeSnippet = document.getElementById(elementId).innerText;
+                navigator.clipboard.writeText(codeSnippet).then(() => {
+                    alert("Code copied to clipboard!");
+                });
+            }
+        </script>
+    </body>
+</html><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_CikRNd4zTJSabZ1LSM3KBi7UaWoc" src="https://vercel.live/_next-live/feedback/feedback.js"></script>

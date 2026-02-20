@@ -103,7 +103,7 @@ It must be converted into machine language by:
 ## Compiler vs Interpreter
 
 ### Compiler:
-A compiler converts the whole source code into low-level machine code **at once**. ([GeeksforGeeks][5])
+A compiler converts the whole source code into low-level machine code **at once**.
 
 **Example languages:**
 
@@ -151,10 +151,10 @@ int main() {
 ```
 ### Explanation
 
-> *`#include <stdio.h>`: Allows using `printf()`*
-> *`main()`: Program execution starts here*
-> *`printf()`: Prints output*
-> *`return 0`: Successful execution end*
+> `#include <stdio.h>`: Allows using `printf()`
+> `main()`: Program execution starts here
+> `printf()`: Prints output
+> `return 0`: Successful execution end
 ---
 ## Java Program:
 

@@ -1,0 +1,903 @@
+[
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Introduction",
+    "question": "What is HTML?",
+    "answer": "HTML stands for HyperText Markup Language. It is the standard markup language for creating Web pages.",
+    "details": "It describes the structure of a Web page using markup.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Tags vs Elements",
+    "question": "What is the difference between an HTML Tag and an Element?",
+    "answer": "A tag is the starting or ending keyword (e.g., <p>). An element consists of the start tag, content, and end tag.",
+    "details": "Element = <tag>Content</tag>.",
+    "example_code": "<p>This entire line is an element</p>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Doctype",
+    "question": "What is the purpose of <!DOCTYPE html>?",
+    "answer": "It is a declaration to the browser that the document is an HTML5 document.",
+    "details": "It prevents the browser from switching to 'Quirks Mode'.",
+    "example_code": "<!DOCTYPE html>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Head vs Body",
+    "question": "What is the difference between <head> and <body>?",
+    "answer": "<head> contains metadata (title, styles, scripts) not visible on the page. <body> contains the visible content.",
+    "details": "The browser renders what is inside the body tag.",
+    "example_code": "<html><head>...</head><body>...</body></html>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Attributes",
+    "question": "What are HTML attributes?",
+    "answer": "Attributes provide additional information about HTML elements. They are always specified in the start tag.",
+    "details": "Format: name=\"value\".",
+    "example_code": "<a href=\"https://google.com\">Link</a>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Block vs Inline",
+    "question": "What is the difference between Block and Inline elements?",
+    "answer": "Block elements start on a new line and take full width (e.g., <div>, <p>). Inline elements take only necessary width (e.g., <span>, <a>).",
+    "details": "Block elements stack vertically; inline elements align horizontally.",
+    "example_code": "<div>Block</div> <span>Inline</span>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Div vs Span",
+    "question": "When should you use <div> vs <span>?",
+    "answer": "Use <div> for grouping block-level elements (sections, layouts). Use <span> for styling parts of text or inline elements.",
+    "details": "Div is a block container; Span is an inline container.",
+    "example_code": "<div><span style=\"color:red\">Red Text</span> inside div</div>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Self-Closing Tags",
+    "question": "What are void (self-closing) elements?",
+    "answer": "Elements that do not have a closing tag because they can't contain content.",
+    "details": "Examples: <br>, <img>, <hr>, <input>.",
+    "example_code": "<img src=\"image.jpg\" />"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Character Encoding",
+    "question": "Why do we use <meta charset=\"UTF-8\">?",
+    "answer": "It specifies the character encoding for the HTML document to ensure text/symbols are displayed correctly.",
+    "details": "UTF-8 covers almost all characters and symbols in the world.",
+    "example_code": "<meta charset=\"UTF-8\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Headings",
+    "question": "How many heading tags are there in HTML?",
+    "answer": "There are 6 heading tags from <h1> to <h6>.",
+    "details": "<h1> is the most important/largest, <h6> is the least.",
+    "example_code": "<h1>Main Heading</h1>\n<h2>Sub Heading</h2>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Paragraphs",
+    "question": "How do you create a paragraph?",
+    "answer": "Using the <p> tag.",
+    "details": "Browsers automatically add margin before and after a paragraph.",
+    "example_code": "<p>This is a paragraph.</p>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Line Break",
+    "question": "How do you insert a line break without starting a new paragraph?",
+    "answer": "Using the <br> tag.",
+    "details": "It is an empty element.",
+    "example_code": "Line 1<br>Line 2"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Comments",
+    "question": "How do you add comments in HTML?",
+    "answer": "Using syntax.",
+    "details": "Comments are not displayed in the browser.",
+    "example_code": ""
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Formatting",
+    "question": "Difference between <strong> and <b>?",
+    "answer": "<b> makes text bold for styling. <strong> implies semantic importance (often read with emphasis by screen readers).",
+    "details": "Visually they look the same, but semantically they differ.",
+    "example_code": "<b>Bold</b> <strong>Important</strong>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Formatting",
+    "question": "Difference between <em> and <i>?",
+    "answer": "<i> is italic text (visual). <em> is emphasized text (semantic importance).",
+    "details": "Use <em> for stress emphasis.",
+    "example_code": "<i>Italic</i> <em>Emphasis</em>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Formatting",
+    "question": "What is the <pre> tag used for?",
+    "answer": "It defines preformatted text. It preserves both spaces and line breaks.",
+    "details": "Displayed in a fixed-width font (usually Courier).",
+    "example_code": "<pre>\n  Code   Indent\n</pre>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Lang Attribute",
+    "question": "Why is the 'lang' attribute important in the <html> tag?",
+    "answer": "It declares the language of the Web page, assisting search engines and screen readers.",
+    "details": "Example: lang=\"en\" for English.",
+    "example_code": "<html lang=\"en\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Title Attribute",
+    "question": "What does the 'title' attribute do?",
+    "answer": "It specifies extra information about an element, usually displayed as a tooltip on hover.",
+    "details": "Can be used on almost any element.",
+    "example_code": "<p title=\"Tooltip text\">Hover me</p>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Horizontal Rule",
+    "question": "What tag is used to create a thematic break or horizontal line?",
+    "answer": "The <hr> tag.",
+    "details": "Used to separate content visually.",
+    "example_code": "<hr>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Quotations",
+    "question": "Difference between <q> and <blockquote>?",
+    "answer": "<q> is for short inline quotations. <blockquote> is for long block-level quotations.",
+    "details": "Browsers usually indent blockquote.",
+    "example_code": "<q>Short quote</q>\n<blockquote>Long quote</blockquote>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Lists",
+    "question": "What are the types of lists in HTML?",
+    "answer": "Unordered List (<ul>), Ordered List (<ol>), and Description List (<dl>).",
+    "details": "<ul> uses bullets, <ol> uses numbers/letters.",
+    "example_code": "<ul><li>Item</li></ul>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Lists",
+    "question": "What are <dt> and <dd> tags?",
+    "answer": "Used inside a Description List (<dl>). <dt> defines the term, <dd> describes the term.",
+    "details": "Useful for glossaries or metadata.",
+    "example_code": "<dl><dt>Coffee</dt><dd>Black hot drink</dd></dl>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Links",
+    "question": "How do you create a hyperlink?",
+    "answer": "Using the anchor <a> tag with the href attribute.",
+    "details": "href stands for Hypertext Reference.",
+    "example_code": "<a href=\"url\">Link Text</a>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Links",
+    "question": "What does target=\"_blank\" do?",
+    "answer": "It opens the linked document in a new window or tab.",
+    "details": "Good for external links.",
+    "example_code": "<a href=\"site.com\" target=\"_blank\">Open New</a>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Paths",
+    "question": "Difference between Absolute and Relative paths?",
+    "answer": "Absolute path is the full URL (e.g., https://site.com/img.jpg). Relative path is relative to the current file (e.g., /img.jpg).",
+    "details": "Relative is preferred for internal links.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Images",
+    "question": "How do you display an image?",
+    "answer": "Using the <img> tag with src attribute.",
+    "details": "It is a self-closing tag.",
+    "example_code": "<img src=\"logo.png\" alt=\"Logo\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Images",
+    "question": "Why is the 'alt' attribute important for images?",
+    "answer": "It provides alternative text if the image fails to load and is crucial for screen readers (accessibility) and SEO.",
+    "details": "Should describe the image content.",
+    "example_code": "alt=\"A red car\""
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Favicon",
+    "question": "How do you add a favicon to a page?",
+    "answer": "Using the <link> tag inside the <head> section.",
+    "details": "Rel attribute must be 'icon'.",
+    "example_code": "<link rel=\"icon\" href=\"favicon.ico\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Links",
+    "question": "How do you create a link that opens an email client?",
+    "answer": "Using 'mailto:' inside the href attribute.",
+    "details": "Can also pre-fill subject.",
+    "example_code": "<a href=\"mailto:me@example.com\">Email Me</a>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Internal Links",
+    "question": "How do you create a link to a specific part of the same page?",
+    "answer": "Assign an 'id' to the section and link to it using '#id'.",
+    "details": "This is called an anchor link.",
+    "example_code": "<a href=\"#section1\">Go to Section 1</a>\n<div id=\"section1\">...</div>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Images",
+    "question": "What is the <figure> and <figcaption> element?",
+    "answer": "<figure> wraps media content (like images) and <figcaption> provides a caption for it.",
+    "details": "Semantic way to group images with text.",
+    "example_code": "<figure><img src=\"a.jpg\"><figcaption>A photo</figcaption></figure>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Images",
+    "question": "What is the purpose of the 'srcset' attribute?",
+    "answer": "It allows defining multiple image sources for different screen sizes/resolutions (Responsive Images).",
+    "details": "Browser picks the best fit.",
+    "example_code": "<img src=\"s.jpg\" srcset=\"l.jpg 1024w, m.jpg 640w\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Images",
+    "question": "What is the <picture> element?",
+    "answer": "It gives more control than 'srcset' for responsive images, allowing different image formats or aspect ratios.",
+    "details": "Contains <source> tags and one <img> tag.",
+    "example_code": "<picture><source srcset=\"img.webp\"><img src=\"img.jpg\"></picture>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Image Maps",
+    "question": "What is an image map?",
+    "answer": "An image with clickable areas defined by the <map> and <area> tags.",
+    "details": "Links can be rectangular, circular, or polygonal.",
+    "example_code": "<map name=\"workmap\"><area shape=\"rect\" coords=\"34,44,270,350\" href=\"work.htm\"></map>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "CSS Integration",
+    "question": "How do you link an external CSS file?",
+    "answer": "Using the <link> tag in the <head>.",
+    "details": "Attributes: rel=\"stylesheet\", href=\"style.css\".",
+    "example_code": "<link rel=\"stylesheet\" href=\"styles.css\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Scripting",
+    "question": "Where should the <script> tag be placed?",
+    "answer": "Usually at the end of the <body> to prevent blocking page rendering, or in <head> with 'defer'/'async'.",
+    "details": "If in head without defer, it pauses HTML parsing.",
+    "example_code": "<script src=\"app.js\"></script>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Scripting",
+    "question": "What is the difference between 'async' and 'defer' in script tags?",
+    "answer": "'async' downloads script in parallel and executes immediately (can break order). 'defer' downloads in parallel but executes after HTML parsing is complete (maintains order).",
+    "details": "Use defer for dependent scripts.",
+    "example_code": "<script src=\"a.js\" defer></script>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Meta Tags",
+    "question": "How to set the viewport for responsive design?",
+    "answer": "Using the meta viewport tag.",
+    "details": "Controls layout on mobile browsers.",
+    "example_code": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Iframes",
+    "question": "What is an <iframe>?",
+    "answer": "An inline frame used to embed another document within the current HTML document.",
+    "details": "Used for maps, videos, or external widgets.",
+    "example_code": "<iframe src=\"https://example.com\"></iframe>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Entities",
+    "question": "How do you display reserved characters like '<' or '>'?",
+    "answer": "Using HTML entities.",
+    "details": "< is &lt; and > is &gt;",
+    "example_code": "&lt;div&gt; displays as <div>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Tables",
+    "question": "What tags are used to create a table?",
+    "answer": "<table>, <tr> (row), <td> (data/cell), <th> (header).",
+    "details": "<th> text is bold and centered by default.",
+    "example_code": "<table><tr><th>Name</th></tr><tr><td>John</td></tr></table>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Tables",
+    "question": "What are <thead>, <tbody>, and <tfoot>?",
+    "answer": "They group header content, body content, and footer content in a table.",
+    "details": "Useful for styling and printing (header/footer repeat on pages).",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Tables",
+    "question": "What are colspan and rowspan?",
+    "answer": "Attributes to merge cells. 'colspan' merges columns horizontally, 'rowspan' merges rows vertically.",
+    "details": "Used in <td> or <th> tags.",
+    "example_code": "<td colspan=\"2\">Merged</td>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "What is the <form> element?",
+    "answer": "It defines a section for user input.",
+    "details": "Wraps input elements like text fields, checkboxes, buttons.",
+    "example_code": "<form action=\"/submit\" method=\"POST\">...</form>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "Difference between GET and POST methods?",
+    "answer": "GET appends data to URL (visible, limited size). POST sends data in body (hidden, unlimited size, secure).",
+    "details": "Use POST for sensitive data like passwords.",
+    "example_code": "method=\"POST\""
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Forms",
+    "question": "What is the <input> tag?",
+    "answer": "The most used form element. Its behavior depends on the 'type' attribute.",
+    "details": "Types: text, password, submit, radio, checkbox, etc.",
+    "example_code": "<input type=\"text\" name=\"user\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "Difference between Checkbox and Radio button?",
+    "answer": "Checkbox (type=\"checkbox\") allows selecting multiple options. Radio (type=\"radio\") allows selecting only one from a group.",
+    "details": "Radio buttons must share the same 'name' attribute to work as a group.",
+    "example_code": "<input type=\"radio\" name=\"gender\" value=\"male\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "What is the <label> tag used for?",
+    "answer": "It defines a label for an <input> element. Clicking the label focuses the input.",
+    "details": "Link using 'for' attribute on label and 'id' on input.",
+    "example_code": "<label for=\"user\">Name:</label><input id=\"user\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "What is the <select> and <option> tag?",
+    "answer": "Used to create a drop-down list.",
+    "details": "<select> contains multiple <option> elements.",
+    "example_code": "<select><option>Option 1</option></select>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "How do you create a multi-line text input?",
+    "answer": "Using the <textarea> element.",
+    "details": "It is not an empty tag; it has a closing tag.",
+    "example_code": "<textarea rows=\"4\" cols=\"50\"></textarea>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "What is the <fieldset> and <legend>?",
+    "answer": "<fieldset> groups related data in a form (draws a box). <legend> defines the caption for the fieldset.",
+    "details": "Useful for organizing large forms.",
+    "example_code": "<fieldset><legend>Personal Info</legend>...</fieldset>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "HTML5 Forms",
+    "question": "Name some new input types introduced in HTML5.",
+    "answer": "email, url, number, range, date, time, color, tel, search.",
+    "details": "These provide built-in validation and mobile-friendly keyboards.",
+    "example_code": "<input type=\"date\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Forms",
+    "question": "What does the 'placeholder' attribute do?",
+    "answer": "It specifies a short hint that describes the expected value of an input field.",
+    "details": "Disappears when the user types.",
+    "example_code": "<input placeholder=\"Enter your name\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Forms",
+    "question": "What is the 'required' attribute?",
+    "answer": "It specifies that an input field must be filled out before submitting the form.",
+    "details": "Browser prevents submission if empty.",
+    "example_code": "<input required>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "How do you disable an input field?",
+    "answer": "Using the 'disabled' attribute.",
+    "details": "Disabled fields are not sent in the form submission.",
+    "example_code": "<input disabled>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "What is the 'readonly' attribute?",
+    "answer": "The field cannot be modified by the user, but the value IS sent on submission.",
+    "details": "Difference from disabled: disabled is not sent.",
+    "example_code": "<input value=\"Fixed\" readonly>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Forms",
+    "question": "What is the <datalist> element?",
+    "answer": "It specifies a list of pre-defined options for an <input> element.",
+    "details": "Provides an 'autocomplete' feature.",
+    "example_code": "<input list=\"browsers\"><datalist id=\"browsers\"><option value=\"Chrome\"></datalist>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Forms",
+    "question": "How do you handle file uploads in a form?",
+    "answer": "Set input type=\"file\" and form enctype=\"multipart/form-data\".",
+    "details": "Without this enctype, the file content is not sent.",
+    "example_code": "<form enctype=\"multipart/form-data\"><input type=\"file\"></form>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Buttons",
+    "question": "What are the types of buttons?",
+    "answer": "type=\"submit\" (submits form), type=\"reset\" (clears form), type=\"button\" (no default action, used with JS).",
+    "details": "Default type inside a form is submit.",
+    "example_code": "<button type=\"button\">Click Me</button>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "What is a hidden input?",
+    "answer": "An input field hidden from the user but sent with form submission.",
+    "details": "Used for sending IDs or tokens.",
+    "example_code": "<input type=\"hidden\" name=\"id\" value=\"123\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "HTML5 Semantics",
+    "question": "What are Semantic Elements?",
+    "answer": "Elements that clearly describe their meaning to both the browser and the developer (e.g., <header>, <footer>).",
+    "details": "Non-semantic: <div>, <span>.",
+    "example_code": "<article>Content</article>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Structure",
+    "question": "What is the <header> tag?",
+    "answer": "Represents introductory content or a set of navigational links for a document or section.",
+    "details": "Not to be confused with <head>.",
+    "example_code": "<header><h1>Logo</h1></header>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Structure",
+    "question": "What is the <nav> tag?",
+    "answer": "Defines a set of navigation links.",
+    "details": "Used for main menus.",
+    "example_code": "<nav><a href=\"/\">Home</a></nav>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Structure",
+    "question": "Difference between <section> and <article>?",
+    "answer": "<article> is independent, self-contained content (like a blog post). <section> is a thematic grouping of content.",
+    "details": "Articles can contain Sections, and Sections can contain Articles.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Structure",
+    "question": "What is the <aside> tag?",
+    "answer": "Defines content aside from the content it is placed in (like a sidebar).",
+    "details": "Usually related indirectly to surrounding content.",
+    "example_code": "<aside>Ads or related links</aside>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Structure",
+    "question": "What is the <footer> tag?",
+    "answer": "Defines a footer for a document or section.",
+    "details": "Contains copyright, contact info, etc.",
+    "example_code": "<footer>&copy; 2024</footer>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Structure",
+    "question": "What is the <main> tag?",
+    "answer": "Specifies the main content of a document.",
+    "details": "Should be unique and not inside header/footer/nav.",
+    "example_code": "<main>Unique content...</main>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Semantics",
+    "question": "What is the <time> tag?",
+    "answer": "Defines a specific time (or datetime).",
+    "details": "Machine-readable using 'datetime' attribute.",
+    "example_code": "<time datetime=\"2024-01-01\">Jan 1st</time>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Formatting",
+    "question": "What is the <mark> tag?",
+    "answer": "Defines marked/highlighted text.",
+    "details": "Default style is yellow background.",
+    "example_code": "<p>Do not <mark>forget</mark> this.</p>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Multimedia",
+    "question": "How do you embed video in HTML5?",
+    "answer": "Using the <video> tag.",
+    "details": "Supports attributes like controls, autoplay, loop.",
+    "example_code": "<video controls><source src=\"movie.mp4\" type=\"video/mp4\"></video>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Multimedia",
+    "question": "How do you embed audio in HTML5?",
+    "answer": "Using the <audio> tag.",
+    "details": "Similar to video tag.",
+    "example_code": "<audio controls><source src=\"song.mp3\"></audio>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Multimedia",
+    "question": "What formats are supported by HTML5 Video?",
+    "answer": "MP4, WebM, and Ogg.",
+    "details": "MP4 is most widely supported.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Graphics",
+    "question": "What is the <canvas> element?",
+    "answer": "A container used to draw graphics on the fly via JavaScript.",
+    "details": "It is pixel-based (raster).",
+    "example_code": "<canvas id=\"myCanvas\"></canvas>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Graphics",
+    "question": "What is SVG?",
+    "answer": "Scalable Vector Graphics. It defines graphics using XML.",
+    "details": "It is vector-based (scales without losing quality).",
+    "example_code": "<svg width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\"/></svg>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Graphics",
+    "question": "Difference between Canvas and SVG?",
+    "answer": "Canvas is pixel-based (JS drawing, good for games). SVG is vector-based (DOM elements, good for logos/charts).",
+    "details": "SVG elements can have event handlers; Canvas is a single element.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Embeds",
+    "question": "What is the <embed> tag?",
+    "answer": "Defines a container for an external resource, like a plug-in.",
+    "details": "Less common now; object or iframe is preferred.",
+    "example_code": "<embed src=\"file.swf\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Text details",
+    "question": "What is the <details> and <summary> tag?",
+    "answer": "Used to create a collapsible widget. <summary> defines the visible heading.",
+    "details": "User clicks summary to show/hide details.",
+    "example_code": "<details><summary>More info</summary><p>Hidden content</p></details>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Formatting",
+    "question": "What is the <progress> tag?",
+    "answer": "Represents the completion progress of a task.",
+    "details": "Displays a progress bar.",
+    "example_code": "<progress value=\"32\" max=\"100\"></progress>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Formatting",
+    "question": "What is the <meter> tag?",
+    "answer": "Defines a scalar measurement within a known range (like disk usage).",
+    "details": "Different from progress (which indicates time/completion).",
+    "example_code": "<meter value=\"0.6\">60%</meter>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Iframes",
+    "question": "What is the 'sandbox' attribute in <iframe>?",
+    "answer": "It applies extra restrictions to the content in the iframe (e.g., prevents scripts, forms).",
+    "details": "Security feature.",
+    "example_code": "<iframe src=\"demo.html\" sandbox></iframe>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "SEO",
+    "question": "What is the purpose of the Meta Description tag?",
+    "answer": "It provides a brief summary of a web page. Search engines often display it in search results.",
+    "details": "Critical for Click-Through Rate (CTR).",
+    "example_code": "<meta name=\"description\" content=\"Learn HTML here\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Accessibility",
+    "question": "What are ARIA roles?",
+    "answer": "ARIA (Accessible Rich Internet Applications) roles define the purpose of an element to screen readers (e.g., role=\"navigation\").",
+    "details": "Used when semantic HTML is insufficient.",
+    "example_code": "<div role=\"alert\">Error message</div>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Global Attributes",
+    "question": "What is the 'contenteditable' attribute?",
+    "answer": "It specifies whether the content of an element is editable by the user.",
+    "details": "Makes any element behave like a textarea.",
+    "example_code": "<div contenteditable=\"true\">Edit me</div>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Global Attributes",
+    "question": "What are 'data-' attributes?",
+    "answer": "Custom attributes used to store extra data private to the page or application.",
+    "details": "Accessible via JavaScript (dataset property).",
+    "example_code": "<div data-user-id=\"123\"></div>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Global Attributes",
+    "question": "What is the 'hidden' attribute?",
+    "answer": "A boolean attribute that prevents the element from being displayed.",
+    "details": "Functionally similar to CSS display: none.",
+    "example_code": "<p hidden>You can't see me</p>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Web Storage",
+    "question": "Difference between localStorage and sessionStorage?",
+    "answer": "localStorage persists even after browser is closed (no expiration). sessionStorage is lost when the tab/window is closed.",
+    "details": "Both store key/value pairs in the browser.",
+    "example_code": "localStorage.setItem(\"key\", \"value\");"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "APIs",
+    "question": "What is the Geolocation API?",
+    "answer": "An HTML5 API used to get the geographical position of the user.",
+    "details": "Requires user permission.",
+    "example_code": "navigator.geolocation.getCurrentPosition(showPosition);"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "APIs",
+    "question": "What is HTML5 Drag and Drop?",
+    "answer": "A standard way to drag and drop items. Elements must have draggable=\"true\".",
+    "details": "Involves events like ondragstart, ondrop.",
+    "example_code": "<img draggable=\"true\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Performance",
+    "question": "What are Web Workers?",
+    "answer": "JavaScript running in the background, separate from the main execution thread.",
+    "details": "Allows heavy tasks without freezing the UI.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Communication",
+    "question": "What are Server-Sent Events (SSE)?",
+    "answer": "A standard allowing a web page to get updates from a server automatically (one-way messaging).",
+    "details": "Uses the EventSource interface.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Communication",
+    "question": "What is a WebSocket?",
+    "answer": "A protocol providing full-duplex communication channels over a single TCP connection.",
+    "details": "Real-time, two-way communication (Chat apps).",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Offline",
+    "question": "What is the Application Cache (AppCache) vs Service Workers?",
+    "answer": "AppCache is deprecated. Service Workers are the modern standard for offline experiences and caching.",
+    "details": "Service Workers act as a network proxy.",
+    "example_code": "Not required"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "PWA",
+    "question": "What is a Web App Manifest?",
+    "answer": "A JSON file that provides information about an application (name, author, icon) for Progressive Web Apps (PWA).",
+    "details": "Allows 'Add to Homescreen'.",
+    "example_code": "<link rel=\"manifest\" href=\"/manifest.json\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Basic",
+    "topic": "Semantics",
+    "question": "What is the <address> tag?",
+    "answer": "Defines contact information for the author/owner of a document or article.",
+    "details": "Usually renders in italic.",
+    "example_code": "<address>Written by John</address>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Advanced",
+    "question": "What is Microdata?",
+    "answer": "A specification to nest metadata within existing content on web pages (using itemprop, itemscope).",
+    "details": "Helps search engines understand content better (Rich Snippets).",
+    "example_code": "<div itemscope itemtype=\"http://schema.org/Person\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Links",
+    "question": "What is the 'download' attribute in anchor tags?",
+    "answer": "It specifies that the target will be downloaded when a user clicks on the hyperlink.",
+    "details": "You can also specify the filename.",
+    "example_code": "<a href=\"/file.pdf\" download=\"MyReport\">Download</a>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Security",
+    "question": "What is Content Security Policy (CSP)?",
+    "answer": "A security layer to detect and mitigate certain types of attacks, including XSS and data injection.",
+    "details": "Defined via meta tag or HTTP header.",
+    "example_code": "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Multimedia",
+    "question": "What is the <track> tag used for?",
+    "answer": "Used within <video> and <audio> elements to specify subtitles or caption files.",
+    "details": "Format is usually WebVTT.",
+    "example_code": "<track src=\"subs.vtt\" kind=\"subtitles\" srclang=\"en\">"
+  },
+  {
+    "category": "html-programming",
+    "level": "Intermediate",
+    "topic": "Forms",
+    "question": "What is the 'autofocus' attribute?",
+    "answer": "It specifies that an input element should automatically get focus when the page loads.",
+    "details": "Only one element per page should have this.",
+    "example_code": "<input name=\"search\" autofocus>"
+  },
+  {
+    "category": "html-programming",
+    "level": "Advanced",
+    "topic": "Rendering",
+    "question": "What is Quirks Mode vs Standards Mode?",
+    "answer": "Standards Mode renders strict HTML/CSS specifications. Quirks Mode emulates older browser behaviors for backward compatibility.",
+    "details": "Triggered by the presence or absence of !DOCTYPE.",
+    "example_code": "Not required"
+  }
+]
+

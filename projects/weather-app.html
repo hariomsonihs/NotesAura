@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modern Weather App Project - NotesAura</title>
+        <!-- Font Awesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Digital-7&display=swap" rel="stylesheet">
+        <style>
+            /* =========================
+General Reset
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: #fff;
+    padding: 20px;
+    padding-top: 80px; /* Adjusted for fixed header */
+    min-height: 100vh;
+    user-select: none;
+}
+
+/* =========================
+Header Styling
+========================= */
+.main-header {
+    background: linear-gradient(135deg, #6200ea, #0078d7);
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.slogan {
+    font-size: 0.7rem;
+    color: yellow;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* =========================
+Project Content Styling
+========================= */
+.project-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2, h3 {
+    color: yellow;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.project-overview p,
+.requirements ul,
+.process ol {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.requirements ul,
+.process ol {
+    padding-left: 20px;
+}
+
+.requirements ul li,
+.process ol li {
+    margin-bottom: 10px;
+}
+
+/* =========================
+Project Overview Styling
+========================= */
+.project-overview ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.project-overview ul li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.project-overview ul li::before {
+    content: "•";
+    color: #ffcc00;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.project-overview ul li strong {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.project-overview ul li:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+/* =========================
+Code Container Styling
+========================= */
+.code-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+pre {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+pre code {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.copy-button, .download-button {
+    position: absolute;
+    top: 10px;
+    background: #ffcc00;
+    color: #141e30;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.copy-button {
+    right: 120px; /* Adjusted spacing */
+}
+
+.download-button {
+    right: 10px; /* Adjusted spacing */
+}
+
+.copy-button:hover, .download-button:hover {
+    background: #e6b800;
+}
+
+/* =========================
+Screenshot Styling
+========================= */
+.screenshot {
+    display: block;
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px auto; /* Centered */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+Explore Button Styling
+========================= */
+.explore-button {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.explore-button button {
+    background: #ffcc00;
+    color: #141e30;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.explore-button button:hover {
+    background: #e6b800;
+}
+
+/* =========================
+Footer Styling
+========================= */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+Responsive Design
+========================= */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+        padding: 10px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .project-content {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .copy-button, .download-button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .copy-button {
+        right: 100px; /* Adjusted spacing for mobile */
+    }
+
+    .download-button {
+        right: 10px; /* Adjusted spacing for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 10px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .slogan {
+        font-size: 0.6rem;
+    }
+
+    .project-content {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .copy-button, .download-button {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    .copy-button {
+        right: 90px; /* Adjusted spacing for small devices */
+    }
+
+    .download-button {
+        right: 10px; /* Adjusted spacing for small devices */
+    }
+}
+        </style>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header class="main-header">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-content">
+                    <span class="logo-text">ℕ𝕠𝕥𝕖𝕤𝔸𝕦𝕣𝕒</span>
+                    <p class="slogan">𝒞𝑜𝓂𝓅𝓁𝑒𝓉𝑒 ℒ𝑒𝒶𝓇𝓃𝒾𝓃𝑔 𝒲𝒾𝓉𝒽 𝒰𝓈...</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Project Details Section -->
+        <section id="project-details">
+            <h2 class="section-title">Weather App Project</h2>
+            <div class="project-content">
+                <!-- Project Overview -->
+                <div class="project-overview">
+                    <h3>Project Overview</h3>
+                    <p>
+    This project is a <strong>Modern Weather App</strong> built using HTML, CSS, and JavaScript. It fetches real-time weather data using a weather API and displays it in a user-friendly interface. The app supports the following features:
+    <ul>
+        <li><strong>Search by City Name:</strong> Enter a city name to get real-time weather updates.</li>
+        <li><strong>Detailed Weather Information:</strong> Displays <strong>Temperature: __°C</strong>, <strong>Wind: __ M/S</strong>, <strong>Humidity: __%</strong>, <strong>Visibility: __ meters</strong>, and <strong>Pressure: __ hPa</strong>.</li>
+        <li><strong>Dynamic Animations and Icons:</strong> Animations and icons change based on the weather conditions (e.g., sunny, rainy, cloudy) and time of day (day or night).</li>
+        <li><strong>Current Location-Based Weather:</strong> Automatically detects your location and provides weather updates using the Geolocation API.</li>
+        <li><strong>5-Day Forecast:</strong> Displays a detailed 5-day weather forecast with temperature, wind, humidity, visibility, and pressure for each day.</li>
+        <li><strong>Modern UI:</strong> A sleek and responsive design with interactive icons, animations, and gradients for an enhanced user experience.</li>
+    </ul>
+    The app is designed to be responsive and works seamlessly on both desktop and mobile devices.
+</p>
+                </div>
+
+                <!-- Requirements -->
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li><strong>Programming Language:</strong> HTML, CSS, JavaScript</li>
+                        <li><strong>Frameworks/Libraries:</strong> None</li>
+                        <li><strong>Tools:</strong> VS Code, Git</li>
+                        <li><strong>APIs:</strong> OpenWeatherMap API</li>
+                        <li><strong>Other Dependencies:</strong> Google Fonts, Font Awesome</li>
+                    </ul>
+                </div>
+
+                <!-- Process/Steps -->
+                <div class="process">
+                    <h3>Process/Steps</h3>
+                    <ol>
+                        <li><strong>Step 1: Create Project Files</strong>
+                            <ul>
+                                <li>Create a folder named <code>weather-app-project</code>.</li>
+                                <li>Inside the folder, create three files:
+                                    <ul>
+                                        <li><code>index.html</code> - For the HTML structure.</li>
+                                        <li><code>styles.css</code> - For styling the weather app.</li>
+                                        <li><code>script.js</code> - For handling API calls and weather data.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 2: Write HTML Code</strong>
+                            <ul>
+                                <li>In <code>index.html</code>, create the basic structure of the weather app using HTML.</li>
+                                <li>Add a search bar, a display area for weather information, and icons for weather conditions.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 3: Style the Weather App</strong>
+                            <ul>
+                                <li>In <code>styles.css</code>, style the app to make it visually appealing.</li>
+                                <li>Use gradients, shadows, and animations for a modern look.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 4: Add JavaScript Logic</strong>
+                            <ul>
+                                <li>In <code>script.js</code>, write functions to fetch weather data from the API, handle user input, and update the display.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Step 5: Test and Deploy</strong>
+                            <ul>
+                                <li>Test the weather app on different devices to ensure responsiveness.</li>
+                                <li>Deploy the project using GitHub Pages or any hosting service.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Code Explanation -->
+                <div class="code-explanation">
+                    <h3>Code Explanation</h3>
+
+                    <!-- HTML Code -->
+                    <div class="code-container">
+                        <h4>HTML Code</h4>
+                        <pre><code id="htmlCode">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Weather App Project&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Digital-7&display=swap" rel="stylesheet"&gt;
+  &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="weather-app"&gt;
+    &lt;!-- Search Box --&gt;
+    &lt;div class="search-box"&gt;
+      &lt;input type="text" id="cityInput" placeholder="Enter city name"&gt;
+      &lt;button id="searchButton"&gt;&lt;i class="fas fa-search"&gt;&lt;/i&gt; Search&lt;/button&gt;
+      &lt;div class="separator"&gt;&lt;/div&gt;
+      &lt;button id="locationButton"&gt;&lt;i class="fas fa-location-arrow"&gt;&lt;/i&gt; Use Current Location&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Weather Info --&gt;
+    &lt;div class="weather-info"&gt;
+      &lt;h2 id="cityName"&gt;_______ ( ______ )&lt;/h2&gt;
+      &lt;div class="weather-details"&gt;
+        &lt;div id="temperature"&gt;Temperature: __°C&lt;/div&gt;
+        &lt;div id="windSpeed"&gt;Wind: __ M/S&lt;/div&gt;
+        &lt;div id="humidity"&gt;Humidity: __%&lt;/div&gt;
+        &lt;div id="visibility"&gt;Visibility: __ meters&lt;/div&gt;
+        &lt;div id="pressure"&gt;Pressure: __ hPa&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="weather-icon"&gt;
+        &lt;img src="https://openweathermap.org/img/wn/01d@4x.png" alt="weather-icon"&gt;
+        &lt;h6&gt;Clear Sky&lt;/h6&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 5-Day Forecast --&gt;
+    &lt;div class="days-forecast"&gt;
+      &lt;h2&gt;5-Day Forecast&lt;/h2&gt;
+      &lt;ul class="weather-cards" id="forecastCards"&gt;
+        &lt;li class="card"&gt;
+          &lt;h3&gt;( ______ )&lt;/h3&gt;
+          &lt;img src="https://openweathermap.org/img/wn/01d@4x.png" alt="weather-icon"&gt;
+          &lt;h6&gt;Temp: __°C&lt;/h6&gt;
+          &lt;h6&gt;Wind: __ M/S&lt;/h6&gt;
+          &lt;h6&gt;Humidity: __%&lt;/h6&gt;
+          &lt;h6&gt;Visibility: __ meters&lt;/h6&gt;
+          &lt;h6&gt;Pressure: __ hPa&lt;/h6&gt;
+        &lt;/li&gt;
+        &lt;!-- Repeat for other forecast cards --&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Footer --&gt;
+  &lt;footer&gt;
+    &lt;p&gt;Design and Developed by &lt;strong&gt;Hariom Soni&lt;/strong&gt;&lt;/p&gt;
+  &lt;/footer&gt;
+
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('htmlCode')">Copy HTML</button>
+                    </div>
+
+                    <!-- CSS Code -->
+                    <div class="code-container">
+                        <h4>CSS Code</h4>
+                        <pre><code id="cssCode">
+/* Import Google font - Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8));
+    z-index: -1;
+    animation: moveBackground 10s infinite alternate;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+h1 {
+    background: rgba(83, 114, 240, 0.9);
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px 0;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    gap: 35px;
+    padding: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.weather-input {
+    width: 550px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.weather-input input {
+    height: 46px;
+    width: 100%;
+    outline: none;
+    font-size: 1.07rem;
+    padding: 0 17px;
+    margin: 10px 0 20px 0;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.weather-input input:focus {
+    border: 2px solid #5372F0;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.weather-input .separator {
+    height: 1px;
+    width: 100%;
+    margin: 25px 0;
+    background: rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.weather-input .separator::before {
+    content: "or";
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.18rem;
+    padding: 0 15px;
+    background: rgba(30, 60, 114, 0.8);
+    position: absolute;
+    top: -10px;
+}
+
+/* Buttons */
+.weather-input button {
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #fff;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.weather-input .search-btn {
+    background: #5372F0;
+}
+
+.weather-input .search-btn:hover {
+    background: #2c52ed;
+    transform: translateY(-2px);
+}
+
+.weather-input .location-btn {
+    background: #6C757D;
+}
+
+.weather-input .location-btn:hover {
+    background: #5c636a;
+    transform: translateY(-2px);
+}
+
+/* Weather Data */
+.weather-data {
+    width: 100%;
+}
+
+.weather-data .current-weather {
+    color: #fff;
+    background: rgba(83, 114, 240, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.current-weather h2 {
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.weather-data h6 {
+    margin-top: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.current-weather .icon {
+    text-align: center;
+}
+
+.current-weather .icon img {
+    max-width: 120px;
+    margin-top: -15px;
+}
+
+.current-weather .icon h6 {
+    margin-top: -10px;
+    text-transform: capitalize;
+}
+
+/* Forecast Section */
+.days-forecast h2 {
+    margin: 20px 0;
+    font-size: 1.5rem;
+}
+
+.days-forecast .weather-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.weather-cards .card {
+    color: #fff;
+    padding: 20px;
+    list-style: none;
+    width: calc(100% / 5 - 15px);
+    background: rgba(108, 117, 125, 0.9);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.weather-cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.weather-cards .card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.weather-cards .card img {
+    max-width: 70px;
+    margin: 5px 0 -12px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .weather-data .current-weather {
+        padding: 20px;
+    }
+
+    .weather-cards .card {
+        width: calc(100% / 4 - 15px);
+    }
+}
+
+@media (max-width: 1200px) {
+    .weather-cards .card {
+        width: calc(100% / 3 - 15px);
+    }
+}
+
+@media (max-width: 950px) {
+    .weather-input {
+        width: 450px;
+    }
+
+    .weather-cards .card {
+        width: calc(100% / 2 - 10px);
+    }
+}
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 1.45rem;
+        padding: 16px 0;
+    }
+
+    .container {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+
+    .weather-input {
+        width: 100%;
+    }
+
+    .weather-data h2 {
+        font-size: 1.35rem;
+    }
+
+    /* Adjust current weather section for mobile */
+    .current-weather {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .current-weather .icon {
+        margin-top: 15px;
+    }
+
+    /* Adjust forecast cards for mobile */
+    .days-forecast .weather-cards {
+        gap: 10px; /* Reduce gap between cards */
+    }
+
+    .weather-cards .card {
+        width: calc(50% - 10px); /* 2 cards per row */
+        padding: 15px; /* Reduce padding */
+        border-radius: 15px; /* Add rounded corners */
+    }
+
+    .weather-cards .card h3 {
+        font-size: 1.2rem; /* Reduce font size */
+    }
+
+    .weather-cards .card img {
+        max-width: 50px; /* Reduce icon size */
+    }
+
+    .weather-cards .card h6 {
+        font-size: 0.9rem; /* Reduce font size */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .weather-cards .card {
+        width: calc(100% - 10px); /* 1 card per row */
+    }
+}
+
+/* Weather Icons and Animations */
+.weather-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.sunny {
+    animation: sunny 5s infinite;
+}
+
+@keyframes sunny {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.cloudy {
+    animation: cloudy 5s infinite;
+}
+
+@keyframes cloudy {
+    0% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(-10px); }
+}
+
+.rainy {
+    animation: rainy 3s infinite;
+}
+
+@keyframes rainy {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+.snowy {
+    animation: snowy 5s infinite;
+}
+
+@keyframes snowy {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+.stormy {
+    animation: stormy 2s infinite;
+}
+
+@keyframes stormy {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.drizzly {
+    animation: drizzly 4s infinite;
+}
+
+@keyframes drizzly {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.misty {
+    animation: misty 6s infinite;
+}
+
+@keyframes misty {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.8; }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #5372F0;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Day/Night Animations */
+.sunny {
+    animation: sunny 5s infinite;
+}
+
+@keyframes sunny {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.night {
+    animation: night 5s infinite;
+}
+
+@keyframes night {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.cloudy {
+    animation: cloudy 5s infinite;
+}
+
+@keyframes cloudy {
+    0% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(-10px); }
+}
+
+.cloudy-night {
+    animation: cloudy-night 5s infinite;
+}
+
+@keyframes cloudy-night {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+/* Footer Styles */
+footer {
+    background: rgba(83, 114, 240, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+footer strong {
+    color: #ffdd57; /* Highlight the developer's name */
+}
+                        </code></pre>
+                        <button class="copy-button" onclick="copyCode('cssCode')">Copy CSS</button>
+                    </div>
+
+                    <!-- JavaScript Code -->
+<div class="code-container">
+    <h4>JavaScript Code</h4>
+    <pre><code id="jsCode">
+const cityInput = document.querySelector(".city-input");
+const searchButton = document.querySelector(".search-btn");
+const locationButton = document.querySelector(".location-btn");
+const currentWeatherDiv = document.querySelector(".current-weather");
+const weatherCardsDiv = document.querySelector(".weather-cards");
+const API_KEY = "YOUR_API_KEY"; // API key for OpenWeatherMap API, Replace with your API KEY
+
+// Function to show loading spinner
+const showLoading = () => {
+    currentWeatherDiv.innerHTML = `&lt;div class="loading-spinner"&gt;&lt;/div&gt;`;
+    weatherCardsDiv.innerHTML = "";
+};
+
+// Function to hide loading spinner
+const hideLoading = () => {
+    const spinner = document.querySelector(".loading-spinner");
+    if (spinner) spinner.remove();
+};
+
+// Function to get weather-specific icon, animation, and background
+const getWeatherDetailsWithEffects = (weatherCondition, iconCode) => {
+    const isDay = iconCode.includes("d"); // Check if it's day or night
+
+    const weatherEffects = {
+        Clear: {
+            icon: isDay ? "☀️" : "🌙",
+            animation: isDay ? "sunny" : "night",
+            background: isDay ? "linear-gradient(135deg, #ff9a9e, #fad0c4)" : "linear-gradient(135deg, #0f0c29, #302b63)",
+        },
+        Clouds: {
+            icon: isDay ? "☁️" : "☁️",
+            animation: isDay ? "cloudy" : "cloudy-night",
+            background: isDay ? "linear-gradient(135deg, #bdc3c7, #2c3e50)" : "linear-gradient(135deg, #1e3c72, #2a5298)",
+        },
+        Rain: {
+            icon: "🌧️",
+            animation: "rainy",
+            background: "linear-gradient(135deg, #4da0b0, #d39d38)",
+        },
+        Snow: {
+            icon: "❄️",
+            animation: "snowy",
+            background: "linear-gradient(135deg, #e6e9f0, #eef1f5)",
+        },
+        Thunderstorm: {
+            icon: "⛈️",
+            animation: "stormy",
+            background: "linear-gradient(135deg, #0f0c29, #302b63)",
+        },
+        Drizzle: {
+            icon: "🌦️",
+            animation: "drizzly",
+            background: "linear-gradient(135deg, #89f7fe, #66a6ff)",
+        },
+        Mist: {
+            icon: "🌫️",
+            animation: "misty",
+            background: "linear-gradient(135deg, #d3cce3, #e9e4f0)",
+        },
+        default: {
+            icon: "🌈",
+            animation: "default",
+            background: "linear-gradient(135deg, #1e3c72, #2a5298)",
+        },
+    };
+
+    return weatherEffects[weatherCondition] || weatherEffects.default;
+};
+
+// Function to create weather card
+const createWeatherCard = (cityName, weatherItem, index) => {
+    const weatherCondition = weatherItem.weather[0].main;
+    const iconCode = weatherItem.weather[0].icon; // Get the icon code (e.g., "01d" or "01n")
+    const { icon, animation, background } = getWeatherDetailsWithEffects(weatherCondition, iconCode);
+
+    if (index === 0) {
+        return `&lt;div class="details" style="background: ${background};"&gt;
+            &lt;h2&gt;${cityName} (${weatherItem.dt_txt.split(" ")[0]})&lt;/h2&gt;
+            &lt;h6&gt;Temperature: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C&lt;/h6&gt;
+            &lt;h6&gt;Wind: ${weatherItem.wind.speed} M/S&lt;/h6&gt;
+            &lt;h6&gt;Humidity: ${weatherItem.main.humidity}%&lt;/h6&gt;
+            &lt;h6&gt;Visibility: ${(weatherItem.visibility / 1000).toFixed(1)} km&lt;/h6&gt;
+            &lt;h6&gt;Pressure: ${weatherItem.main.pressure} hPa&lt;/h6&gt;
+        &lt;/div&gt;
+        &lt;div class="icon"&gt;
+            &lt;span class="weather-icon ${animation}"&gt;${icon}&lt;/span&gt;
+            &lt;h6&gt;${weatherItem.weather[0].description}&lt;/h6&gt;
+        &lt;/div&gt;`;
+    } else {
+        return `&lt;li class="card" style="background: ${background};"&gt;
+            &lt;h3&gt;(${weatherItem.dt_txt.split(" ")[0]})&lt;/h3&gt;
+            &lt;span class="weather-icon ${animation}"&gt;${icon}&lt;/span&gt;
+            &lt;h6&gt;Temp: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C&lt;/h6&gt;
+            &lt;h6&gt;Wind: ${weatherItem.wind.speed} M/S&lt;/h6&gt;
+            &lt;h6&gt;Humidity: ${weatherItem.main.humidity}%&lt;/h6&gt;
+            &lt;h6&gt;Visibility: ${(weatherItem.visibility / 1000).toFixed(1)} km&lt;/h6&gt;
+            &lt;h6&gt;Pressure: ${weatherItem.main.pressure} hPa&lt;/h6&gt;
+        &lt;/li&gt;`;
+    }
+};
+
+// Function to fetch weather details
+const getWeatherDetails = (cityName, latitude, longitude) => {
+    const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
+    
+    showLoading(); // Show loading spinner
+
+    fetch(WEATHER_API_URL)
+        .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.json();
+        })
+        .then(data => {
+            console.log("API Response:", data); // Debugging
+            const uniqueForecastDays = [];
+            const fiveDaysForecast = data.list.filter(forecast => {
+                const forecastDate = new Date(forecast.dt_txt).getDate();
+                if (!uniqueForecastDays.includes(forecastDate)) {
+                    return uniqueForecastDays.push(forecastDate);
+                }
+            });
+            
+            cityInput.value = "";
+            currentWeatherDiv.innerHTML = "";
+            weatherCardsDiv.innerHTML = "";
+            
+            fiveDaysForecast.forEach((weatherItem, index) => {
+                const html = createWeatherCard(cityName, weatherItem, index);
+                if (index === 0) {
+                    currentWeatherDiv.insertAdjacentHTML("beforeend", html);
+                } else {
+                    weatherCardsDiv.insertAdjacentHTML("beforeend", html);
+                }
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching weather data:", error); // Debugging
+            alert("An error occurred while fetching the weather forecast!");
+        })
+        .finally(() => {
+            hideLoading(); // Hide loading spinner
+        });
+};
+
+// Function to fetch city coordinates
+const getCityCoordinates = () => {
+    const cityName = cityInput.value.trim();
+    if (cityName === "") return alert("Please enter a city name");
+    
+    showLoading(); // Show loading spinner
+
+    const API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
+    
+    fetch(API_URL)
+        .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.json();
+        })
+        .then(data => {
+            if (!data.length) return alert(`No coordinates found for ${cityName}`);
+            const { lat, lon, name } = data[0];
+            getWeatherDetails(name, lat, lon);
+        })
+        .catch(error => {
+            console.error("Error fetching coordinates:", error); // Debugging
+            alert("An error occurred while fetching the coordinates!");
+        })
+        .finally(() => {
+            hideLoading(); // Hide loading spinner
+        });
+};
+
+// Function to fetch user coordinates
+const getUserCoordinates = () => {
+    showLoading(); // Show loading spinner
+
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            const { latitude, longitude } = position.coords;
+            const API_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
+            
+            fetch(API_URL)
+                .then(response => {
+                    if (!response.ok) throw new Error("Network response was not ok");
+                    return response.json();
+                })
+                .then(data => {
+                    const { name } = data[0];
+                    getWeatherDetails(name, latitude, longitude);
+                })
+                .catch(error => {
+                    console.error("Error fetching city name:", error); // Debugging
+                    alert("An error occurred while fetching the city name!");
+                })
+                .finally(() => {
+                    hideLoading(); // Hide loading spinner
+                });
+        },
+        error => {
+            if (error.code === error.PERMISSION_DENIED) {
+                alert("Geolocation request denied. Please reset location permission to grant access again.");
+            } else {
+                alert("Geolocation request error. Please reset location permission.");
+            }
+            hideLoading(); // Hide loading spinner
+        }
+    );
+};
+
+// Event listeners
+searchButton.addEventListener("click", getCityCoordinates);
+locationButton.addEventListener("click", getUserCoordinates);
+    </code></pre>
+    <button class="copy-button" onclick="copyCode('jsCode')">Copy JavaScript</button>
+</div>
+
+                <!-- Screenshots/Output -->
+                <div class="screenshots">
+                    <h3>Screenshots/Output</h3>
+                    <img src="weather-app.jpg" alt="Weather App Screenshot" class="screenshot">
+                </div>
+
+                <!-- Explore Button -->
+                <div class="explore-button">
+                    <a href="https://cutm-weather.vercel.app/"><button>Explore Project</button></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2025 NotesAura. All rights reserved. <a href="#"></a></p>
+        </footer>
+
+        <!-- JavaScript for Copy and Download Buttons -->
+        <script>
+            // Copy Code Functionality
+            function copyCode(elementId) {
+                const codeSnippet = document.getElementById(elementId).innerText;
+                navigator.clipboard.writeText(codeSnippet).then(() => {
+                    alert("Code copied to clipboard!");
+                });
+            }
+        </script>
+    </body>
+</html><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_CikRNd4zTJSabZ1LSM3KBi7UaWoc" src="https://vercel.live/_next-live/feedback/feedback.js"></script>

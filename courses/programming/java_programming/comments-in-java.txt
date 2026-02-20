@@ -15,11 +15,11 @@ Comments do not affect the output of the program.
 
 Comments are used for:
 
-*• Explaining logic / purpose of code*
-*• Making code easy to read*
-*• Helping in debugging*
-*• Writing documentation (especially using Javadoc)*
-*• Team collaboration (others understand your code better)*
+- *Explaining logic / purpose of code*
+- *Making code easy to read*
+- *Helping in debugging*
+- *Writing documentation (especially using Javadoc)*
+- *Team collaboration (others understand your code better)*
 
 ---
 
@@ -29,15 +29,12 @@ Java supports mainly **3 types of comments**:
 
 1. Single-line Comment (`//`)
 2. Multi-line / Block Comment (`/* ... */`)
-3. Documentation Comment / JavaDoc (`/** ... */`) ([runestone.academy][2])
+3. Documentation Comment / JavaDoc (`/** ... */`)
 
 ---
 
-# 1) Single-line Comments (`//`)
-
-## Definition
-
-A **single-line comment** starts with `//` and continues until the **end of the line**. ([W3Schools][1])
+# 1) Single-line Comments
+A **single-line comment** starts with `//` and continues until the **end of the line**.
 
 ---
 
@@ -62,8 +59,8 @@ public class SingleLineCommentExample {
 
 ### Explanation
 
-*• `// Printing a message` → compiler ignore karega*
-*• `System.out.println(...)` → output print karega*
+> - * // Printing a message → compiler will ignore*
+> - * System.out.println(...) → output will print*
 
 ---
 
@@ -77,13 +74,9 @@ This is called an **end-of-line** comment.
 
 ---
 
-# 2) Multi-line / Block Comments (`/* ... */`)
-
-## Definition
-
+# 2) Multi-line / Block Comments
 Multi-line comments are used when comment **multiple lines** me likhna ho.
-They start with `/*` and end with `*/`. ([W3Schools][1])
-
+They start with `/*` and end with `*/`.
 ---
 
 ## Syntax
@@ -115,46 +108,41 @@ public class MultiLineCommentExample {
 ```
 ---
 
-# 3) Documentation Comments (JavaDoc) (`/** ... */`)
-
-## Definition
-
+# 3) Documentation Comments (JavaDoc)
 JavaDoc comment is a special type of comment used to create **professional documentation** of:
 
-*• class*
-*• method*
-*• constructor*
-*• variables (fields)*
+- *class*
+- *method*
+- *constructor*
+- *variables (fields)*
 
-It starts with `/**` and ends with `*/`. ([Oracle Documentation][4])
-
+It starts with `/**` and ends with `*/`.
 ---
 
 ## Syntax
 
 ```java
 /**
-*• This is a JavaDoc comment*
+This is a JavaDoc comment
  */
 ```
-
 ---
-
 ## JavaDoc Example (Class + Method Documentation)
 
 ```java
 /**
-*• This class demonstrates JavaDoc comments in Java.*
-*• Author: Hariom*
+	This class demonstrates JavaDoc comments in Java.
+	Author: Hariom
  */
 public class JavaDocExample {
 
     /**
-*• Adds two numbers and returns the result.*
-     *
-*• @param a first number*
-*• @param b second number*
-*• @return sum of a and b*
+	    Adds two numbers and returns the result.*
+
+        @param a first number
+	    @param b second number
+	    @return sum of a and b
+
      */
     public static int add(int a, int b) {
         return a + b;
@@ -166,30 +154,21 @@ public class JavaDocExample {
     }
 }
 ```
-
 ---
 
 ## Explanation of JavaDoc Tags
 
-JavaDoc tags start with `@` and provide additional information. ([Oracle Documentation][5])
+> JavaDoc tags start with `@` and provide additional information.
 
 ###  Common JavaDoc Tags
-
-| Tag                      | Meaning                      |
-| ------------------------ | ---------------------------- |
-| `@param`                 | method parameter description |
-| `@return`                | return value description     |
-| `@throws` / `@exception` | exception info               |
-| `@author`                | class author                 |
-| `@since`                 | version info                 |
-| `@deprecated`            | feature outdated             |
-
+---
+![Javadoc Tags](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/images/javadoc-table.jpeg)
 ---
 
 ## How to Generate JavaDoc
 
-You can generate HTML documentation using the `javadoc` tool.
-JavaDoc comments are processed to create HTML docs. ([Oracle Documentation][6])
+- You can generate HTML documentation using the `javadoc` tool.
+- JavaDoc comments are processed to create HTML docs. 
 
 Example command:
 
@@ -202,38 +181,16 @@ Output will be an HTML documentation file.
 ---
 
 # Quick Comparison:
-
-| Type        | Syntax           | Use                                   |
-| ----------- | ---------------- | ------------------------------------- |
-| Single-line | `// comment`     | Small notes, short explanations       |
-| Multi-line  | `/* comment */`  | Long description, disable code blocks |
-| JavaDoc     | `/** comment */` | Documentation for API/classes/methods |
-
 ---
-
-# Best Practices (Pro Tips )
-
-Always write comments that add value
-Keep comments short and meaningful
-Use JavaDoc for important methods/classes
-Avoid over-commenting (code should be readable itself)
-Update comments if logic changes
-
+![Comments Table](https://github.com/hariomsonihs/NotesAura/blob/main/courses/programming/images/comments-java-table.jpeg)
 ---
+# Best Practices
 
-# Bad Comments vs Good Comments
-
-### ❌ Bad Comment
-
-```java
-int x = 10; // x is 10
-```
-
-### Good Comment
-
-```java
-int maxUsers = 10; // Maximum users allowed in free version
-```
+- Always write comments that add value
+- Keep comments short and meaningful
+- Use JavaDoc for important methods/classes
+- Avoid over-commenting (code should be readable itself)
+- Update comments if logic changes
 
 ---
 
@@ -241,7 +198,7 @@ int maxUsers = 10; // Maximum users allowed in free version
 
 ```java
 /**
-*• This program demonstrates all types of comments in Java.*
+	This program demonstrates all types of comments in Java.
  */
 public class AllCommentsDemo {
 
@@ -261,15 +218,9 @@ public class AllCommentsDemo {
     }
 }
 ```
-
 ---
-
-# Summary (Short Notes )
-
-Java comments are ignored by compiler
-Used for explanation and documentation
-Types:
-
-*• `//` single-line*
-*• `/* */` multi-line*
-*• `/** */` JavaDoc*
+**Happy Learning! 📚**
+---
+> 📚 **NotesAura** - *Learn Programming with Style*
+> © 2026 NotesAura. All rights reserved.
+---
