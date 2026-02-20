@@ -1,0 +1,376 @@
+# 📘 HTML – Complete Introduction Notes
+
+---
+
+## 🔹 What is HTML?
+
+**HTML** stands for **HyperText Markup Language**.
+It is used to **create and structure web pages** on the internet.
+
+### 🔸 Definition
+
+> **HTML is a markup language used to define the structure and content of web pages using tags and elements.**
+
+---
+
+## 🔹 Why HTML is Used?
+
+*• To create **web pages***
+*• To structure **text, images, links, forms***
+*• To build the **skeleton of websites***
+*• Works with **CSS** (design) and **JavaScript** (logic)*
+
+---
+
+## 🔹 Features of HTML
+
+*• Easy to learn and use*
+*• Platform independent*
+*• Supported by all browsers*
+*• Free and open standard*
+*• Case-insensitive language*
+
+---
+
+## 🔹 Versions of HTML
+
+| Version   | Description                              |
+| --------- | ---------------------------------------- |
+| HTML 1.0  | First version                            |
+| HTML 2.0  | Basic features                           |
+| HTML 3.2  | Tables and scripting                     |
+| HTML 4.01 | Styling and multimedia                   |
+| XHTML     | Stricter version                         |
+| **HTML5** | Latest version with audio, video, canvas |
+
+---
+
+## 🔹 What is a Markup Language?
+
+A **markup language** uses **tags** to define elements within a document.
+
+Example:
+
+```html
+<p>This is a paragraph</p>
+```
+
+---
+
+## 🔹 Structure of an HTML Document
+
+### 🔸 Basic HTML Skeleton
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Page</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p>This is my first HTML page.</p>
+</body>
+</html>
+```
+
+---
+
+## 🔹 Explanation of Structure
+
+| Tag          | Purpose               |
+| ------------ | --------------------- |
+| `<!DOCTYPE>` | Declares HTML version |
+| `<html>`     | Root element          |
+| `<head>`     | Meta information      |
+| `<title>`    | Page title            |
+| `<body>`     | Visible content       |
+
+---
+
+## 🔹 What is an HTML Tag?
+
+### 🔸 Definition
+
+> **HTML tags are keywords enclosed in angle brackets `< >` used to define elements in a web page.**
+
+---
+
+### 🔹 Types of HTML Tags
+
+#### 1️⃣ Paired Tags (Container Tags)
+
+*• Have opening and closing tags*
+
+Example:
+
+```html
+<p>This is a paragraph</p>
+```
+
+#### 2️⃣ Unpaired Tags (Empty Tags)
+
+*• No closing tag*
+
+Example:
+
+```html
+<br>
+<img src="image.jpg">
+```
+
+---
+
+## 🔹 What is an HTML Element?
+
+### 🔸 Definition
+
+> **An HTML element consists of an opening tag, content, and a closing tag.**
+
+Example:
+
+```html
+<h1>Welcome</h1>
+```
+
+---
+
+## 🔹 Difference Between Tag and Element
+
+| Tag             | Element            |
+| --------------- | ------------------ |
+| Only markup     | Complete structure |
+| `<p>`           | `<p>Hello</p>`     |
+| Part of element | Full content       |
+
+---
+
+## 🔹 HTML Attributes
+
+### 🔸 Definition
+
+> **Attributes provide additional information about HTML elements.**
+
+### 🔸 Syntax
+
+```html
+<tag attribute="value">content</tag>
+```
+
+Example:
+
+```html
+<img src="photo.jpg" alt="My Photo">
+```
+
+---
+
+## 🔹 Common HTML Attributes
+
+| Attribute | Description       |
+| --------- | ----------------- |
+| `id`      | Unique identifier |
+| `class`   | Group of elements |
+| `style`   | Inline CSS        |
+| `title`   | Tooltip text      |
+| `src`     | Image source      |
+| `href`    | Link destination  |
+
+---
+
+## 🔹 HTML Headings
+
+Used to define headings.
+
+```html
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h6>Heading 6</h6>
+```
+
+*• `<h1>` is largest*
+*• `<h6>` is smallest*
+
+---
+
+## 🔹 HTML Paragraph
+
+```html
+<p>This is a paragraph.</p>
+```
+
+*• Used for text blocks*
+*• Automatically adds spacing*
+
+---
+
+## 🔹 Line Break & Horizontal Line
+
+```html
+<br>   <!-- Line Break -->
+<hr>   <!-- Horizontal Line -->
+```
+
+---
+
+## 🔹 HTML Formatting Tags
+
+| Tag        | Purpose        |
+| ---------- | -------------- |
+| `<b>`      | Bold           |
+| `<i>`      | Italic         |
+| `<u>`      | Underline      |
+| `<strong>` | Important text |
+| `<em>`     | Emphasis       |
+| `<mark>`   | Highlight      |
+| `<small>`  | Small text     |
+
+Example:
+
+```html
+<b>Bold</b>
+<i>Italic</i>
+```
+
+---
+
+## 🔹 HTML Lists
+
+### 🔸 Ordered List
+
+```html
+<ol>
+  <li>HTML</li>
+  <li>CSS</li>
+</ol>
+```
+
+### 🔸 Unordered List
+
+```html
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+</ul>
+```
+
+### 🔸 Description List
+
+```html
+<dl>
+  <dt>HTML</dt>
+  <dd>Markup Language</dd>
+</dl>
+```
+
+---
+
+## 🔹 HTML Links
+
+```html
+<a href="https://google.com">Visit Google</a>
+```
+
+Attributes:
+
+*• `href` → URL*
+*• `target="_blank"` → New tab*
+
+---
+
+## 🔹 HTML Images
+
+```html
+<img src="image.jpg" alt="Image">
+```
+
+Attributes:
+
+*• `src` → image path*
+*• `alt` → alternate text*
+*• `width`, `height`*
+
+---
+
+## 🔹 HTML Tables
+
+```html
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Anshu</td>
+    <td>20</td>
+  </tr>
+</table>
+```
+
+---
+
+## 🔹 HTML Forms
+
+```html
+<form>
+  Name: <input type="text">
+  <input type="submit">
+</form>
+```
+
+Input Types:
+
+*• text*
+*• password*
+*• email*
+*• number*
+*• radio*
+*• checkbox*
+*• submit*
+
+---
+
+## 🔹 HTML Semantic Elements (HTML5)
+
+| Tag         | Meaning     |
+| ----------- | ----------- |
+| `<header>`  | Page header |
+| `<nav>`     | Navigation  |
+| `<section>` | Section     |
+| `<article>` | Article     |
+| `<footer>`  | Footer      |
+
+---
+
+## 🔹 Advantages of HTML
+
+*• Simple and easy*
+*• Supported by all browsers*
+*• Free and open source*
+*• SEO friendly*
+
+---
+
+## 🔹 Limitations of HTML
+
+*• No logic or conditions*
+*• Static pages only*
+*• Needs CSS & JS for power*
+
+---
+
+## 🔹 HTML + CSS + JavaScript
+
+| Technology | Role      |
+| ---------- | --------- |
+| HTML       | Structure |
+| CSS        | Design    |
+| JavaScript | Logic     |
+
+---
+
+## 🔹 Conclusion
+
+> **HTML is the foundation of web development. Without HTML, no website can exist.**
+
+---
